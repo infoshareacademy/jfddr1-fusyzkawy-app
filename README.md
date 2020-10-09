@@ -1,1 +1,0 @@
-# jfddr1-fusyzkawy-app
