@@ -1,4 +1,4 @@
-# KRAB - Time is precious <img width="250px" align="right" alt="KRAB logo" src="https://github.com/infoshareacademy/jfddr1-fusyzkawy-app/blob/master/my-krab/src/img/logo-krab.png?raw=true" />   
+# KRAB - Time is precious <img width="250px" align="right" alt="KRAB logo" src="./src/img/logo-krab.png" />   
 
 ### About
 This is an educational project. Our team created KRAB as a task on infoShare Academy course.  
