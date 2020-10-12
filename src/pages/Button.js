@@ -1,4 +1,5 @@
 import React from "react";
+import * as Buttons from './ButtonsFest'
 
 function Button({
   text,
@@ -10,10 +11,12 @@ function Button({
   heiht,
   onClickHandler,
   style,
+  buttonName = 'Normal'
 }) {
+  const ButtonComponent = Buttons[buttonName + 'Button']
   return (
     <div style={style}>
-      <button onClick={onClickHandler}>{text}</button>
+      <ButtonComponent onClick={onClickHandler}>{text}</ButtonComponent>
     </div>
   );
 }

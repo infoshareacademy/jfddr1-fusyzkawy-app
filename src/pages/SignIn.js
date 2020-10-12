@@ -15,6 +15,7 @@ function SignIn({ username, password }) {
         text="zaloguj się"
         onClickHandler={() => console.log("zaloguj się")}
         style={style}
+        buttonName="Awesome"
       />
     </div>
   );
