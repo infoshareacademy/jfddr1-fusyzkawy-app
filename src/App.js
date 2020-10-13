@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import SignIn from "./pages/SignIn";
+import SignIn from "./StructureSample/pages/SignIn";
+import PlayStop from "./StructureSample/molecules/PlayStop";
 
 function App() {
   const username = "Janek";
