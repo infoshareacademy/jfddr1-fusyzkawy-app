@@ -1,21 +1,16 @@
 import React from "react";
 import Button from "../atoms/Button";
+import { Link } from "react-router-dom";
 
-const style = {
-  backgroundColor: "red",
-};
-
-function SignIn({ username, password }) {
+function SignIn() {
   return (
     <div>
-      To jest komponent logowania
-      <p>{username}</p>
-      <p>{password}</p>
-      <Button
-        text="zaloguj się"
-        onClickHandler={() => console.log("zaloguj się")}
-        style={style}
-      />
+      <h3>To jest komponent logowania</h3>
+      <Button text="zaloguj się" />
+      <div>
+        <p>Nie masz konta?</p>
+        <Link to="/signup">Zarejestruj się</Link>
+      </div>
     </div>
   );
 }
