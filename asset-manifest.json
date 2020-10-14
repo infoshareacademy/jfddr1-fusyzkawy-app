@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/infoshareacademy/jfddr1-fusyzkawy-app/static/css/main.c9638d7a.chunk.css",
+    "main.js": "/infoshareacademy/jfddr1-fusyzkawy-app/static/js/main.e4896051.chunk.js",
+    "main.js.map": "/infoshareacademy/jfddr1-fusyzkawy-app/static/js/main.e4896051.chunk.js.map",
+    "runtime-main.js": "/infoshareacademy/jfddr1-fusyzkawy-app/static/js/runtime-main.46b581e3.js",
+    "runtime-main.js.map": "/infoshareacademy/jfddr1-fusyzkawy-app/static/js/runtime-main.46b581e3.js.map",
+    "static/js/2.4fc40f29.chunk.js": "/infoshareacademy/jfddr1-fusyzkawy-app/static/js/2.4fc40f29.chunk.js",
+    "static/js/2.4fc40f29.chunk.js.map": "/infoshareacademy/jfddr1-fusyzkawy-app/static/js/2.4fc40f29.chunk.js.map",
+    "index.html": "/infoshareacademy/jfddr1-fusyzkawy-app/index.html",
+    "precache-manifest.f25a1f091ef17907db3530e916fb8131.js": "/infoshareacademy/jfddr1-fusyzkawy-app/precache-manifest.f25a1f091ef17907db3530e916fb8131.js",
+    "service-worker.js": "/infoshareacademy/jfddr1-fusyzkawy-app/service-worker.js",
+    "static/css/main.c9638d7a.chunk.css.map": "/infoshareacademy/jfddr1-fusyzkawy-app/static/css/main.c9638d7a.chunk.css.map",
+    "static/js/2.4fc40f29.chunk.js.LICENSE.txt": "/infoshareacademy/jfddr1-fusyzkawy-app/static/js/2.4fc40f29.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.46b581e3.js",
+    "static/js/2.4fc40f29.chunk.js",
+    "static/css/main.c9638d7a.chunk.css",
+    "static/js/main.e4896051.chunk.js"
+  ]
+}
