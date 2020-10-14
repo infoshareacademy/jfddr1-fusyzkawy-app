@@ -1,0 +1,90 @@
+.displayFLexRow {
+  display: flex;
+  margin: 15px;
+  justify-content: left;
+  border: 1px solid black;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.margin {
+  margin: 15px;
+  text-align: center;
+}
+
+.width100 {
+  width: 100px;
+}
+.widthProcent12 {
+  width: 14%;
+}
+.widthProcent80 {
+  width: 80%;
+}
+
+.width50 {
+  width: 50px;
+}
+
+.height75 {
+  height: 75px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.calendarTask {
+  border-left: 5px solid rgb(250, 165, 120);
+  border-radius: 0 20px;
+  /* border-radius: 0 15px 15px 0; */
+  background-color: rgb(255, 224, 208);
+  width: 200px;
+  margin: 15px;
+  padding: 5px;
+  padding-left: 15px;
+  text-align: left;
+}
+
+.calendarTaskInformation {
+  border-left: 5px solid rgb(133, 120, 250);
+  border-radius: 0 15px 15px 0;
+  background-color: rgb(208, 219, 255);
+  width: 500px;
+  margin: 15px;
+  padding: 5px;
+  padding-left: 15px;
+  text-align: left;
+}
+
+.displayTask,
+.displayTimerWeekHeader {
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.displayTimerWeekTask {
+  display: flex;
+  margin: 15px;
+  padding: 0 15px;
+  justify-content: right;
+  align-items: center;
+}
+
+.displayFlexHour {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.displayFlexHourTotal {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  margin-left: 140px;
+  font-weight: bold;
+}
