@@ -23,13 +23,13 @@ function Calendar({ dateCalendar }) {
         <button>Month</button>
       </div>
       <Filter />
-      <div className={"displayFLexRow"}>
-        <button>Previous - to będzie tylko na wysokości headeru</button>
+      <div className={"displayFLexRow2"}>
+        <button className={"marginTop"}>Previous </button>
         <div className={"widthProcent80"}>
           <Month date={dateCalendar} />
           {/*zamiennie później z <Day/> & <Week/>*/}
         </div>
-        <button>Next - to będzie tylko na wysokości headeru</button>
+        <button className={"marginTop"}>Next</button>
       </div>
     </>
   );

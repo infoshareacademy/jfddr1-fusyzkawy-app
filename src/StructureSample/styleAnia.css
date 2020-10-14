@@ -5,6 +5,13 @@
   border: 1px solid black;
 }
 
+.displayFLexRow2 {
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -87,4 +94,8 @@
   justify-content: space-around;
   margin-left: 140px;
   font-weight: bold;
+}
+
+.marginTop {
+  margin-top: 50px;
 }
