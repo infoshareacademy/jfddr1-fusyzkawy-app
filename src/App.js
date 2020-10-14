@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import SignIn from "./StructureSample/pages/SignIn";
-import PlayStop from "./StructureSample/molecules/PlayStop";
+import SortBy from "./StructureSample/molecules/SortBy";
 
 function App() {
   const username = "Janek";
@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <SignIn username={username} password={password} />
+      <SortBy style={{ background: "yellow" }} />
     </div>
   );
 }

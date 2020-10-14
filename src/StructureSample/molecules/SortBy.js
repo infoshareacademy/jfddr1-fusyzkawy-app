@@ -3,14 +3,20 @@
 import React from "react";
 import RadioInput from "../atoms/RadioInput";
 
-function SortBy({ style, text }) {
+function SortBy() {
   return (
-    <div style={style}>
+    <div
+      style={{
+        border: "1px solid black",
+        padding: 10,
+        width: 200,
+      }}
+    >
       <h3>Sort by</h3>
-      <RadioInput text="" style={{}} isChecked="" />
-      <RadioInput text="" style={{}} isChecked="" />
-      <RadioInput text="" style={{}} isChecked="" />
-      <RadioInput text="" style={{}} isChecked="" />
+      <RadioInput
+        categories={["Priority", "Start Date", "In Progress", "Completed"]}
+        name="sort"
+      />
     </div>
   );
 }

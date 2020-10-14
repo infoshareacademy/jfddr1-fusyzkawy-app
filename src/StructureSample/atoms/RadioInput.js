@@ -1,12 +1,19 @@
 //Radio input
 import React from "react";
 
-function RadioInput({ text, style, isChecked }) {
+function RadioInput({ categories, name }) {
   return (
-    <div style={style}>
-      <label for={text}>{text}</label>
-      <input type="radio" id={text} value={text} checked={isChecked} />
-    </div>
+    <>
+      {categories.map(item => (
+        <div
+          key={item}
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <label htmlFor={item}>{item}</label>
+          <input type="radio" id={item} value={item} name={name} />
+        </div>
+      ))}
+    </>
   );
 }
 
