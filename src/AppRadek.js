@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import SortBy from "./StructureSample/molecules/SortBy";
 
-function App() {
+function AppRadek() {
   return (
     <div className="App">
       <SortBy />
@@ -10,4 +10,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRadek;
