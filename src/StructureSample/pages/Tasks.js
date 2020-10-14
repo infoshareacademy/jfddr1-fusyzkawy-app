@@ -11,13 +11,19 @@ import Button from "../atoms/Button";
 import PlayStop from "../molecules/PlayStop";
 import Date from "../atoms/Date";
 
-function Tasks({ style, text }) {
+function Tasks() {
   return (
-    <div style={style}>
+    <div className="mainHome" style={{ border: "1px solid black" }}>
       <header>
         <h2>Tasks</h2>
       </header>
-      <div>
+      <div
+        style={{
+          border: "1px solid rgba(0, 0, 0, 0.2)",
+          display: "flex",
+          justifyContent: "space-around",
+        }}
+      >
         <h3>Task name</h3>
         <h3>Task type</h3>
         <h3>Task description</h3>
@@ -27,7 +33,13 @@ function Tasks({ style, text }) {
         <h3>Duration</h3>
         <h3>Actions</h3>
       </div>
-      <div>
+      <div
+        style={{
+          border: "1px solid rgba(0, 0, 0, 0.2)",
+          display: "flex",
+          justifyContent: "space-around",
+        }}
+      >
         <p>Task 1</p>
         <p>Work</p>
         <p>Description text</p>
@@ -35,9 +47,16 @@ function Tasks({ style, text }) {
         <Date />
         <Date />
         <p>8:00:00</p>
-        <div>
+        <div
+          style={{
+            alignItems: "center",
+            display: "flex",
+            gap: 5,
+            justifyContent: "space-around",
+          }}
+        >
           <PlayStop />
-          <Button />
+          <Button text="edit" />
         </div>
       </div>
     </div>

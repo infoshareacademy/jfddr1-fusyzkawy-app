@@ -1,19 +1,9 @@
 import React from "react";
 
-function Button({
-  text,
-  color,
-  colorHover,
-  hoverClass,
-  onClickClass,
-  width,
-  heiht,
-  onClickHandler,
-  style,
-}) {
+function Button({ text }) {
   return (
-    <div style={style}>
-      <button onClick={onClickHandler}>{text}</button>
+    <div>
+      <button>{text}</button>
     </div>
   );
 }
