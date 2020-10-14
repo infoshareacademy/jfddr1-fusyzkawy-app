@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import SignIn from "./StructureSample/pages/SignIn";
 import DateHeader from "./StructureSample/atoms/DateHeader";
