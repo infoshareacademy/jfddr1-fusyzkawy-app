@@ -4,7 +4,7 @@ import React from "react";
 function Input({ classInput, placeholder }) {
   return (
     <>
-      <input type="text" className={classInput} placeholder={placeholder} />
+      <input className={classInput} placeholder={placeholder} type="text" />
     </>
   );
 }

@@ -38,34 +38,29 @@
 }
 
 /* Initial CSS */
-.navIcon {
-  background-color: rgb(255, 145, 0);
-  margin: 10px 10px;
-  padding: 5px 10px;
-  font-size: 15px;
-}
-
-.mainHome {
-  background-color: rgb(241, 241, 172);
-  grid-area: main;
-}
 .asideHome {
   background-color: rgb(178, 241, 172);
   grid-area: aside;
 }
-
 .asideHome img {
   width: 80%;
   margin-top: 20px;
 }
-.navHome {
-  background-color: rgb(172, 225, 241);
-  grid-area: nav;
+.filterContainer {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  margin: 5px;
+  height: 30px;
 }
-
+.filterIcon {
+  height: 20px;
+  /* TODO: poniższe dwie linie są potrzebne do nadpisania styli .aside img */
+  margin-top: 0 !important;
+  width: 30px !important;
+}
+.filterInput {
+  width: 200px;
+}
 .home {
   width: 100vw;
   min-height: 100vh;
@@ -75,4 +70,21 @@
   grid-template-areas:
     "aside nav"
     "aside main";
+}
+.mainHome {
+  background-color: rgb(241, 241, 172);
+  grid-area: main;
+}
+.navIcon {
+  background-color: rgb(255, 145, 0);
+  margin: 10px 10px;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+.navHome {
+  background-color: rgb(172, 225, 241);
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }

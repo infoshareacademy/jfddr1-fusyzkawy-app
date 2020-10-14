@@ -10,13 +10,13 @@ import styles from "../../App.css";
 
 function FilterS() {
   return (
-    <div>
+    <div className="filterContainer">
       <Image
-        classImage={styles.filterIcon}
+        classImage="filterIcon"
         srcImage={FilterIcon}
-        alternateTextImage="FilterIcon"
-      />{" "}
-      <Input className={null} placeholder={"Wanna filter?"} />
+        alternateTextImage="filter icon"
+      />
+      <Input classInput="filterInput" placeholder={"Wanna filter?"} />
     </div>
   );
 }
