@@ -1,11 +1,13 @@
 import React from "react";
 import Logo from "../../img/logo-krab.png";
+import FilterS from "../molecules/FilterS";
 
 const Aside = () => {
   return (
     <div className="asideHome">
       <img src={Logo} alt="logo" />
-      <h3>AsideNav</h3>
+      <h3>AsideNavidżejszion</h3>
+      <FilterS />
     </div>
   );
 };
