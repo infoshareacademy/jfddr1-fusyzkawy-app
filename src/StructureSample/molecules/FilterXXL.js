@@ -18,8 +18,7 @@ function FilterXXL({ text }) {
       <Input placeholder="Filter tasks" />
       <p>Sort by</p>
       <Checkbox
-        categories={["tags", "date range", "state of task", "priority"]}
-        name="filter"
+        variables={["tags", "date range", "state of task", "priority"]}
       />
       <Button text="Apply" />
     </div>
