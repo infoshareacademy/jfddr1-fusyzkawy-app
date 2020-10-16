@@ -17,24 +17,7 @@
 // }
 
 import React from "react";
-
-function Input({ title, type, isRequired, value }) {
-  return (
-    <div className="displayFlexColumn">
-      <label className="labelUserSettings" for={title}>
-        {" "}
-        {title}{" "}
-      </label>
-      <input
-        type={type}
-        id={title}
-        name={title}
-        // {isRequired ? "required" : ""}
-        value={value}
-      ></input>
-    </div>
-  );
-}
+import Input from "../atoms/Input";
 
 function ProfileSettings({ user }) {
   return (
