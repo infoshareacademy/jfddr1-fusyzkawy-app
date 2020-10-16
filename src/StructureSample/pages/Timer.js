@@ -13,18 +13,15 @@
 
 import React from "react";
 import DateHeader from "../atoms/DateHeader";
+import PlayStop from "../molecules/PlayStop";
 
 function FiltrS() {
   return <button>FiltrS</button>;
 }
 
-function PlayStop() {
-  return <button>PlayStopComponent</button>;
-}
-
 function TimerCurrent({ tasks }) {
   return (
-    <>
+    <div>
       <h2>Timer</h2>
       <button>Current</button>
       <button>Week</button>
@@ -34,12 +31,12 @@ function TimerCurrent({ tasks }) {
           <div>
             <p>{task.title}</p>
             <p>{task.description}</p>
-            <PlayStop />
+            <PlayStop classIcon="iconSVG" />
             <p>04:20</p>
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
@@ -95,13 +92,14 @@ function TimerWeek({ tasks }) {
 
 function Timer({ tasks, view }) {
   return (
-    <>
-      {view === "week" ? (
+    <div className="mainHome">
+      <h1>Timer</h1>
+      {/* {view === "week" ? (
         <TimerWeek tasks={tasks} />
       ) : (
         <TimerCurrent tasks={tasks} />
-      )}
-    </>
+      )} */}
+    </div>
   );
 }
 

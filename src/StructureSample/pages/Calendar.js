@@ -15,7 +15,7 @@ function Filter() {
 
 function Calendar({ dateCalendar }) {
   return (
-    <>
+    <div className="mainHome">
       <h2>Calendar</h2>
       <div>
         <button>Day</button>
@@ -31,7 +31,7 @@ function Calendar({ dateCalendar }) {
         </div>
         <button className={"marginTop"}>Next</button>
       </div>
-    </>
+    </div>
   );
 }
 

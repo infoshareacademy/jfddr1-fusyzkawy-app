@@ -1,18 +1,18 @@
 //Checkbox
+
 import React from "react";
 
-function Checkbox({ categories, name }) {
+function Checkbox({ variables }) {
   return (
     <>
-      {categories.map(item => (
-        <div
-          key={item}
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
-          <label htmlFor={item}>{item}</label>
-          <input type="checkbox" id={item} value={item} name={name} />
-        </div>
-      ))}
+      {variables.map((elem, index) => {
+        return (
+          <div>
+            <input type="checkbox" id={index} name={elem} />
+            <label for="scales">{elem}</label>
+          </div>
+        );
+      })}
     </>
   );
 }
