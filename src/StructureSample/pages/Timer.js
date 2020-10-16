@@ -21,7 +21,7 @@ function FiltrS() {
 
 function TimerCurrent({ tasks }) {
   return (
-    <>
+    <div>
       <h2>Timer</h2>
       <button>Current</button>
       <button>Week</button>
@@ -36,7 +36,7 @@ function TimerCurrent({ tasks }) {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
@@ -92,13 +92,14 @@ function TimerWeek({ tasks }) {
 
 function Timer({ tasks, view }) {
   return (
-    <>
-      {view === "week" ? (
+    <div className="mainHome">
+      <h1>Timer</h1>
+      {/* {view === "week" ? (
         <TimerWeek tasks={tasks} />
       ) : (
         <TimerCurrent tasks={tasks} />
-      )}
-    </>
+      )} */}
+    </div>
   );
 }
 
