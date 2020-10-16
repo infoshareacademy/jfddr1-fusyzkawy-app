@@ -99,3 +99,35 @@
 .marginTop {
   margin-top: 50px;
 }
+
+.iconSVG {
+  width: 15px;
+  height: 16px;
+  color: black;
+}
+
+.containerForUserPhoto {
+  height: 200px;
+  width: 150px;
+  margin-left: 200px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.displayFlexColumn {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.containerForUserSettings {
+  border: 1px solid black;
+  width: 450px;
+  margin: 15px;
+  padding: 20px;
+}
+
+.labelUserSettings {
+  margin: 5px;
+}

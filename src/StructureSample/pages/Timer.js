@@ -13,13 +13,10 @@
 
 import React from "react";
 import DateHeader from "../atoms/DateHeader";
+import PlayStop from "../molecules/PlayStop";
 
 function FiltrS() {
   return <button>FiltrS</button>;
-}
-
-function PlayStop() {
-  return <button>PlayStopComponent</button>;
 }
 
 function TimerCurrent({ tasks }) {
@@ -34,7 +31,7 @@ function TimerCurrent({ tasks }) {
           <div>
             <p>{task.title}</p>
             <p>{task.description}</p>
-            <PlayStop />
+            <PlayStop classIcon="iconSVG" />
             <p>04:20</p>
           </div>
         );
