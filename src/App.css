@@ -107,16 +107,3 @@
   background-color: rgb(241, 241, 172);
   grid-area: main;
 }
-.navIcon {
-  background-color: rgb(255, 145, 0);
-  margin: 10px 10px;
-  padding: 5px 10px;
-  font-size: 15px;
-}
-.navHome {
-  background-color: rgb(172, 225, 241);
-  grid-area: nav;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
