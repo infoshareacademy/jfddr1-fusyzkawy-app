@@ -1,6 +1,3 @@
-//Months name
-//all weeks for the months?
-
 import React from "react";
 import DateHeader from "../atoms/DateHeader";
 

@@ -1,13 +1,31 @@
 import React from "react";
 import Input from "../atoms/Input";
+import styled from "styled-components";
+
+const UserCointainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 450px;
+  margin: 15px;
+  padding: 20px;
+`;
+
+const UserPhoto = styled.div`
+  height: 200px;
+  width: 150px;
+  margin-left: 200px;
+  border-radius: 40px;
+  overflow: hidden;
+`;
 
 function ProfileSettings({ user }) {
   return (
-    <div className="displayFlexColumn containerForUserSettings">
+    <UserCointainer>
       <h2>Settings</h2>
-      <div className="containerForUserPhoto">
+      <UserPhoto>
         <img src={user.photo} width="150" height="200"></img>
-      </div>
+      </UserPhoto>
       <div>
         <h3>Profile details</h3>
         <Input title="Name " value={user.name} type="text" isRequired={true} />
@@ -34,7 +52,7 @@ function ProfileSettings({ user }) {
           isRequired={true}
         />
       </div>
-    </div>
+    </UserCointainer>
   );
 }
 
