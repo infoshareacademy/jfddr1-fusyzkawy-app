@@ -31,7 +31,6 @@ function TimerTask({ task }) {
           <p className={"widthProcent12"}>04:20</p>
           <p className={"widthProcent12"}>04:20</p>
           <p className={"widthProcent12"}>04:20</p>
-          <p className={"widthProcent12"}>04:20</p>
         </div>
       </div>
     </>
@@ -43,7 +42,11 @@ function TimerWeek({ tasks }) {
     <div>
       <div className={"displayTimerWeekHeader"}>
         <p>Task description</p>
-        <DateHeader incommingDate={[2020, 10, 13]} isDateVisible={false} />
+        <DateHeader
+          incommingDate={[2020, 10, 13]}
+          isDateVisible={true}
+          numberOfDay="5"
+        />
       </div>
       <div>
         {tasks.map(task => {
@@ -57,15 +60,13 @@ function TimerWeek({ tasks }) {
         <p>04:20</p>
         <p>04:20</p>
         <p>04:20</p>
-        <p>04:20</p>
-        <p>04:20</p>
       </div>
     </div>
   );
 }
 
 function Timer({ tasks }) {
-  const [currentView, setCurrentView] = useState("current");
+  const [currentView, setCurrentView] = useState("week");
   console.log(currentView);
   return (
     <div className="mainHome">

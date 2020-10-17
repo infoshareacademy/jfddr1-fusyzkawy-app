@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../img/logo-krab.png";
+import Logo from "../../img/logo-krab_without.png";
 import FilterS from "../molecules/FilterS";
 
 const Aside = () => {
