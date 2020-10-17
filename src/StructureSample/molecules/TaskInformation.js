@@ -1,44 +1,102 @@
-// Task name
-//Status -> when click you can change status (radioInput)
-//Img > Img -> first img(creator task), second(assign person)
-//Type -> when click you can change tags (checkbox)
-//duration....
-//.....
-//.....
+import React, { useState } from "react";
+import styled from "styled-components";
+import RadioInput from "../atoms/RadioInput";
+import { options } from "../../test_variables";
 
-import React from "react";
+const Container = styled.div`
+  border-left: 5px solid var(--task-${props => props.color}-dark);
+  border-radius: 0 15px 15px 0;
+  background-color: var(--task-${props => props.color}-light);
+  width: 500px;
+  margin: 15px;
+  padding: 5px;
+  padding-left: 15px;
+  text-align: left;
+  color: var(--gray-3);
+`;
+
+const TaskHeader = styled.div`
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Photo = styled.div`
+  height: 50px;
+  width: 60px;
+  border-radius: 100px;
+  overflow: hidden;
+`;
+
+const PhotoContainer = styled.div`
+  display: flex;
+`;
+
+const TagsContainer = styled.ul`
+  list-style: none;
+  display: flex;
+  padding: 0;
+`;
+
+const Tag = styled.li`
+  padding: 0 5px;
+`;
 
 function TaskInformation({ task }) {
+  const [status, setStatus] = useState(task.status);
+  const [viewStatusOption, setViewStatusOption] = useState(false);
   const tags = task.tags.split(" ");
+
+  function handlerOnClick(event) {
+    setStatus(event.target.value);
+    setViewStatusOption(false);
+  }
+
   return (
-    <div className={"calendarTaskInformation"}>
-      <div className={"displayTask"}>
+    <Container color={task.color}>
+      <TaskHeader>
         <h2>{task.title}</h2>
         <div>
           <button>edit</button>
           <button>remove</button>
         </div>
-      </div>
+      </TaskHeader>
       <div>
-        <button>{task.status} v</button>
-        {/* onClick more & less options to pick and chanhe status */}
+        Status:{" "}
+        <button onClick={() => setViewStatusOption(!viewStatusOption)}>
+          {status}
+        </button>
+        {viewStatusOption === true ? (
+          <RadioInput
+            categories={options}
+            name="status"
+            onClickInput={handlerOnClick}
+          />
+        ) : null}
         <p>
-          {task.startHour}-{task.endHour}
+          {task.startHour} - {task.endHour}
         </p>
-        <div>
-          <img src={task.imgCreator} height="50" />
-          <img src={task.imgAssign} height="50" />
-        </div>
+        <PhotoContainer>
+          <Photo>
+            <img src={task.imgCreator} height="50" />
+          </Photo>
+          <Photo>
+            <img src={task.imgAssign} height="50" />
+          </Photo>
+        </PhotoContainer>
         <div>
           <h3>Tags:</h3>
-          {tags.map(elem => (
-            <a href="#"> {elem} </a>
-          ))}
-          <button> +</button>
+          <TagsContainer>
+            {tags.map(elem => (
+              <Tag href=""> {elem} </Tag>
+            ))}
+          </TagsContainer>
         </div>
+        <h3>Description:</h3>
         <p>{task.description}</p>
       </div>
-    </div>
+    </Container>
   );
 }
 

@@ -10,7 +10,7 @@ export const task1 = {
   imgCreator:
     "https://banner2.cleanpng.com/20180623/qeh/kisspng-face-with-tears-of-joy-emoji-sticker-crying-emotic-plexus-5b2e08363a6521.8651402915297434142392.jpg",
   startHour: "12.00",
-  status: "Status: new task",
+  status: "new task",
   tags: "praca nuda coś tam jeszcze",
   taskClass: "task1Class",
   title: "Zadanie nr1",
