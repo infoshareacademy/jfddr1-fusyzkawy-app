@@ -1,18 +1,6 @@
-import React from "react";
-import "./App.css";
-import SignIn from "./StructureSample/pages/SignIn";
-import DateHeader from "./StructureSample/atoms/DateHeader";
-import CalendarTask from "./StructureSample/molecules/CalendarTask";
-import Month from "./StructureSample/molecules/Month";
-import TaskInformation from "./StructureSample/molecules/TaskInformation";
-import Calendar from "./StructureSample/pages/Calendar";
-import Timer from "./StructureSample/pages/Timer";
-import Checkbox from "./StructureSample/atoms/Checkbox";
-import ProfileSettings from "./StructureSample/molecules/ProfileSettings";
-
 //testing variables
-const inputDate = [2020, 10, 13];
-const task1 = {
+export const inputDate = [2020, 10, 13];
+export const task1 = {
   description: "testowe zadanie do wyświetlenia",
   endHour: "14.30",
   imgAssign:
@@ -26,7 +14,7 @@ const task1 = {
   taskClass: "task1Class",
   title: "Zadanie nr1",
 };
-const task2 = {
+export const task2 = {
   description: "description for Zadanie nr2",
   endHour: "16.00",
   imgAssign:
@@ -41,9 +29,9 @@ const task2 = {
   title: "Zadanie nr2",
 };
 
-const allTasks = [task1, task2];
+export const allTasks = [task1, task2];
 
-const options = [
+export const options = [
   "new task",
   "ELELEMEMET",
   "in progres",
@@ -52,7 +40,7 @@ const options = [
   "cancelled",
 ];
 
-const user1 = {
+export const user1 = {
   dateOfBirth: "1990-10-15",
   email: "urajannet@gmail.com",
   name: "Nur A Jannet",
@@ -63,28 +51,21 @@ const user1 = {
 };
 
 // end of testing variables
-function AppAnia() {
-  const username = "Janek";
-  const password = "password";
-  return (
-    <div className="App">
-      <DateHeader incommingDate={inputDate} isDateVisible={true} />
-      <hr />
-      <CalendarTask task={task1} />
-      <hr />
-      <Month date="2020 02 13" />
-      <hr />
-      <TaskInformation task={task1} />
-      <hr />
-      <Calendar dateCalendar="2020 02 13" />
-      <hr />
-      <Timer tasks={allTasks} view={"current"} />
-      <hr />
-      <Checkbox variables={options} />
-      <hr />
-      <ProfileSettings user={user1} />
-    </div>
-  );
-}
 
-export default AppAnia;
+// function AppAnia() {
+//   return (
+//     <div className="App">
+//       <DateHeader incommingDate={inputDate} isDateVisible={true} />
+//       <hr />
+//       <CalendarTask task={task1} />
+//       <hr />
+//       <Month date="2020 02 13" />
+//       <hr />
+//       <TaskInformation task={task1} />
+//       <hr />
+//       <Checkbox variables={options} />
+//     </div>
+//   );
+// }
+
+// export default AppAnia;

@@ -4,7 +4,7 @@ import React from "react";
 function Input({ title, type, isRequired, value }) {
   return (
     <div className="displayFlexColumn">
-      <label className="labelUserSettings" for={title}>
+      <label className="labelUserSettings" htmlFor={title}>
         {" "}
         {title}{" "}
       </label>

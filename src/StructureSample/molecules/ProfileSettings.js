@@ -1,21 +1,3 @@
-//h2-> Settings
-//h3 -> Profile details
-//Name -> "Janek Kowalski" (input)
-//User Name -> "janekKowal" (input)
-//Data of Birth,  (input)
-//h3-> Contact Info:
-//phone,  (input)
-//email, (input)
-//Button -> Save Changes
-
-// const user1 = {
-//   name: "Nur A Jannet",
-//   username: "nurajannet",
-//   dateOfBirth: "1990 10 15"
-//   phone: "123-456-789"
-//   email: "urajannet@gmail.com"
-// }
-
 import React from "react";
 import Input from "../atoms/Input";
 

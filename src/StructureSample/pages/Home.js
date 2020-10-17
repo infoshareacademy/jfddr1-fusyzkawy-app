@@ -7,6 +7,7 @@ import Timer from "./Timer";
 import Users from "./Users";
 import Nav from "./Nav";
 import Aside from "./Aside";
+import { allTasks, inputDate } from "../../test_variables";
 
 const Home = () => {
   return (
@@ -19,10 +20,10 @@ const Home = () => {
             <Users />
           </Route>
           <Route path="/calendar">
-            <Calendar />
+            <Calendar dateCalendar={inputDate} />
           </Route>
           <Route path="/timer">
-            <Timer />
+            <Timer tasks={allTasks} />
           </Route>
           <Route exact path="/">
             <Tasks />

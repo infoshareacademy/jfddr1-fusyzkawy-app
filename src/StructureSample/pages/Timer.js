@@ -1,34 +1,14 @@
-// FilterS
-//2xButtons -> current, weeks view
-
-//TimerCurrent
-//all active task with PlayStop.js Component
-//Time counter
-// Maybe like AsideTimer???
-
-//TimerWeek
-//DataHeader.js
-//99999xTimerTask
-// Total time counter for each day
-
-import React from "react";
+import React, { useState } from "react";
 import DateHeader from "../atoms/DateHeader";
 import PlayStop from "../molecules/PlayStop";
-
-function FiltrS() {
-  return <button>FiltrS</button>;
-}
+import FilterS from "../molecules/FilterS";
 
 function TimerCurrent({ tasks }) {
   return (
     <div>
-      <h2>Timer</h2>
-      <button>Current</button>
-      <button>Week</button>
-      <FiltrS />
       {tasks.map(task => {
         return (
-          <div>
+          <div className="displayFLexRow2">
             <p>{task.title}</p>
             <p>{task.description}</p>
             <PlayStop classIcon="iconSVG" />
@@ -45,7 +25,6 @@ function TimerTask({ task }) {
     <>
       <div className={"displayTimerWeekTask"}>
         <p className={"width100"}>{task.title}</p>
-        <p className={"width100"}>{task.description}</p>
         <div className={"displayFlexHour"}>
           <p className={"widthProcent12"}>04:20</p>
           <p className={"widthProcent12"}>04:20</p>
@@ -61,12 +40,7 @@ function TimerTask({ task }) {
 
 function TimerWeek({ tasks }) {
   return (
-    <>
-      <h2>Timer</h2>
-
-      <button>Current</button>
-      <button>Week</button>
-      <FiltrS />
+    <div>
       <div className={"displayTimerWeekHeader"}>
         <p>Task description</p>
         <DateHeader incommingDate={[2020, 10, 13]} isDateVisible={false} />
@@ -86,19 +60,24 @@ function TimerWeek({ tasks }) {
         <p>04:20</p>
         <p>04:20</p>
       </div>
-    </>
+    </div>
   );
 }
 
-function Timer({ tasks, view }) {
+function Timer({ tasks }) {
+  const [currentView, setCurrentView] = useState("current");
+  console.log(currentView);
   return (
     <div className="mainHome">
-      <h1>Timer</h1>
-      {/* {view === "week" ? (
+      <h2>Timer</h2>
+      <button onClick={() => setCurrentView("current")}>Current</button>
+      <button onClick={() => setCurrentView("week")}>Week</button>
+      <FilterS />
+      {currentView === "week" ? (
         <TimerWeek tasks={tasks} />
       ) : (
         <TimerCurrent tasks={tasks} />
-      )} */}
+      )}
     </div>
   );
 }
