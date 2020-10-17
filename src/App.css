@@ -1,40 +1,67 @@
+:root {
+  /* Basic palette */
+  --basic-light-blue: #44aff2;
+  --basic-blue: #254559;
+  --basic-navy-blue: #193140;
+  --basic-green: #03a60e;
+  --basic-light-green: #75bf06;
+  --basic-light-gray: #f2f2f2;
+  --basic-white: #ffffff;
+
+  /* Extra palette blue-gray*/
+  --extra-dark-gray: #6c6e73;
+  --extra-gray: #b4b8bf;
+  --extra-light-gray: #e4e9f2;
+
+  /* Navy blue palette */
+  --navy-blue-1: #193140;
+  --navy-blue-2: #254559;
+  --navy-blue-3: #305972;
+  --navy-blue-4: #3b6d8c;
+  --navy-blue-5: #4681a6;
+
+  /* Sign In / Sign Up palette */
+  --sign-purple: #422c59;
+  --sign-gray: #e4e9f2;
+  --sign-blue: #4d6173;
+  --sign-light-green: #7abf92;
+  --sign-green: #208c3b;
+
+  /* Palette for tasks */
+  --task-brown-dark: #bc6f5c;
+  --task-brown-light: #ffefee;
+  --task-orange-dark: #fc9667;
+  --task-orange-light: #fdedea;
+  --task-yellow-dark: #fcd367;
+  --task-yellow-light: #fffcf0;
+  --task-red-dark: #cd5455;
+  --task-red-light: #ffefee;
+  --task-green-dark: #03b08b;
+  --task-green-light: #ebfbf7;
+  --task-blue-dark: #9cc9fa;
+  --task-blue-light: #f1f3fc;
+  --task-purple-dark: #af71d9;
+  --task-purple-light: #f7eefd;
+
+  /* Clear gray palette */
+  --gray-1: #111111;
+  --gray-2: #222222;
+  --gray-3: #333333;
+  --gray-4: #444444;
+  --gray-5: #555555;
+  --gray-6: #666666;
+  --gray-7: #777777;
+  --gray-8: #888888;
+  --gray-9: #999999;
+  --gray-10: #aaaaaa;
+  --gray-11: #bbbbbb;
+  --gray-12: #cccccc;
+  --gray-13: #dddddd;
+  --gray-14: #eeeeee;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* Initial CSS */
