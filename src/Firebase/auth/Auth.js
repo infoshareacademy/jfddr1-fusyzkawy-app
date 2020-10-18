@@ -15,3 +15,12 @@ export const authSignIn = (email, password) => {
     .then(cred => console.log(cred.user.uid))
     .catch(err => console.log(err.message));
 };
+
+export const authSignOut = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log("Log out");
+    });
+};
