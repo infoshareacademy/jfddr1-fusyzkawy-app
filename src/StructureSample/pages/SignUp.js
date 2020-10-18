@@ -1,18 +1,32 @@
 import React from "react";
-import Button from "../atoms/Button";
-import { Link } from "react-router-dom";
+import {
+  SignWrapper,
+  SignTitle,
+  SignInput,
+  SignButton,
+  SignFooter,
+  StyledLink,
+} from "../../StyledComponents/StyledSign";
 
-function SignUp() {
+const SignIn = () => {
   return (
-    <div>
-      <h3>To jest komponent rejestracji</h3>
-      <Button text="zarejestruj się" />
-      <div>
-        <p>Masz konto?</p>
-        <Link to="/signin">Zaloguj się</Link>
-      </div>
-    </div>
+    <SignWrapper>
+      <SignTitle>sign up</SignTitle>
+      <SignInput type="text" name="nick" placeholder="nick"></SignInput>
+      <SignInput type="text" name="email" placeholder="email"></SignInput>
+      <SignInput
+        type="password"
+        name="email"
+        placeholder="password"
+      ></SignInput>
+      <SignInput type="file" name="email" placeholder="image"></SignInput>
+      <SignButton type="submit">sign up</SignButton>
+      <SignFooter>
+        <p>Already have an account yet?</p>
+        <StyledLink to="/signin">sign in</StyledLink>
+      </SignFooter>
+    </SignWrapper>
   );
-}
+};
 
-export default SignUp;
+export default SignIn;
