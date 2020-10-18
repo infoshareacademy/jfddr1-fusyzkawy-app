@@ -16,17 +16,20 @@ const Home = () => {
         <Nav />
         <Aside />
         <Switch>
-          <Route path="/users">
+          <Route exact path="/jfddr1-fusyzkawy-app/users">
             <Users />
           </Route>
-          <Route path="/calendar">
+          <Route exact path="/jfddr1-fusyzkawy-app/calendar">
             <Calendar dateCalendar={inputDate} />
           </Route>
-          <Route path="/timer">
+          <Route exact path="/jfddr1-fusyzkawy-app/timer">
             <Timer tasks={allTasks} />
           </Route>
-          <Route exact path="/">
+          <Route exact path="/jfddr1-fusyzkawy-app/">
             <Tasks />
+          </Route>
+          <Route path="/jfddr1-fusyzkawy-app/*">
+            <p>ERROR. Weź nie świruj</p>
           </Route>
         </Switch>
       </div>

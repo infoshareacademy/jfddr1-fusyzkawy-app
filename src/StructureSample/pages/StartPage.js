@@ -12,13 +12,15 @@ const StartPage = () => {
         <StartPageNav />
       </nav>
       <Switch>
-        <Route path="/signin">
+        <Route path="/jfddr1-fusyzkawy-app/signin">
           <SignIn />
         </Route>
-        <Route path="/signup">
+        <Route path="/jfddr1-fusyzkawy-app/signup">
           <SignUp />
         </Route>
-        <Route path="/"></Route>
+        <Route path="/jfddr1-fusyzkawy-app/">
+          <p>ERROR. Weź nie świruj</p>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
