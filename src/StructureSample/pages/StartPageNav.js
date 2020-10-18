@@ -1,12 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {
+  NavWrapper,
+  StyledNavLink,
+} from "../../StyledComponents/StyledStartPage";
 
 const StartPageNav = () => {
   return (
-    <nav>
-      <NavLink to="/signin">Sign In</NavLink>
-      <NavLink to="/signup">Sign Up</NavLink>
-    </nav>
+    <NavWrapper>
+      <StyledNavLink to="/signin">sign in</StyledNavLink>
+      <StyledNavLink to="/signup">sign up</StyledNavLink>
+    </NavWrapper>
   );
 };
 
