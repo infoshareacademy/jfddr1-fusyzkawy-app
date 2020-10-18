@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import UserInformation from "../molecules/UserInformation";
@@ -17,9 +17,10 @@ const NavAddTaskBtn = styled.button`
   border: none;
   border-radius: 0.5rem;
   color: var(--basic-light-gray);
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  padding: 0.75rem;
+  outline: none;
+  padding: 0.75rem 1rem;
 
   &:hover {
     color: var(--gray-1);
@@ -27,29 +28,45 @@ const NavAddTaskBtn = styled.button`
 `;
 
 const LinksWrapper = styled.nav`
-  display: flax;
+  display: flex;
+  flex-grow: 1;
+  padding-left: 1.5rem;
 `;
 
 const MainNavLink = styled(NavLink)`
+  background-color: ${props => props.background};
   color: var(--basic-light-gray);
   text-decoration: none;
-  font-size: 1.5rem;
-  padding: 0.75rem;
-
-  &:hover {
-    background-color: var(--extra-dark-gray);
+  font-size: 2.25rem;
+  padding: 1rem 1.5rem;
   }
 `;
 
+const linkNames = ["Tasks", "Timer", "Calendar", "Users"];
+
 const Nav = () => {
+  const [activeMainNavLink, setActiveMainNavLink] = useState(linkNames[0]);
+
   return (
     <MainNavBar>
       <NavAddTaskBtn>Add Task</NavAddTaskBtn>
       <LinksWrapper>
-        <MainNavLink to="/">Tasks</MainNavLink>
-        <MainNavLink to="/timer">Timer</MainNavLink>
-        <MainNavLink to="/calendar">Calendar</MainNavLink>
-        <MainNavLink to="/users">Users</MainNavLink>
+        {linkNames.map(linkName => {
+          return (
+            <MainNavLink
+              key={linkName}
+              to={linkName === linkNames[0] ? "/" : `${linkName}`}
+              background={
+                activeMainNavLink === linkName
+                  ? "var(--extra-dark-gray)"
+                  : undefined
+              }
+              onClick={() => setActiveMainNavLink(linkName)}
+            >
+              {linkName}
+            </MainNavLink>
+          );
+        })}
       </LinksWrapper>
       <UserInformation />
     </MainNavBar>
