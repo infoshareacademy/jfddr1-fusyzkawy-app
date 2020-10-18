@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const SignWrapper = styled.div`
+export const SignWrapper = styled.form`
   position: absolute;
   top: 50%;
   left: 50%;
