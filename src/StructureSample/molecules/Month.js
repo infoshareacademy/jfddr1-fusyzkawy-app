@@ -26,7 +26,11 @@ function Month({ date }) {
   }
   return (
     <>
-      <DateHeader incommingDate={[2020, 10, 13]} isDateVisible={false} />
+      <DateHeader
+        incommingDate={[2020, 10, 13]}
+        isDateVisible={false}
+        numberOfDay="7"
+      />
       <div className={"displayFLexRow wrap"}>{emptyArray}</div>
     </>
   );

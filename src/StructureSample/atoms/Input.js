@@ -1,7 +1,7 @@
 //Input => place to write some text
 import React from "react";
 
-function Input({ title, type, isRequired, value }) {
+function Input({ title, type, isRequired, value, placeholder }) {
   return (
     <div className="displayFlexColumn">
       <label className="labelUserSettings" htmlFor={title}>
@@ -12,6 +12,7 @@ function Input({ title, type, isRequired, value }) {
         type={type}
         id={title}
         name={title}
+        placeholder={placeholder}
         // {isRequired ? "required" : ""}
         value={value}
       ></input>
