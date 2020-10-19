@@ -1,61 +1,62 @@
-// import React from "react";
-// import Month from "../molecules/Month";
-
-// function Filter() {
-//   return <button>Filter</button>;
-// }
-
-// function Calendar({ dateCalendar }) {
-//   return (
-//     <div className="mainHome">
-//       <h2>Calendar</h2>
-//       <div>
-//         <button>Day</button>
-//         <button>Week</button>
-//         <button>Month</button>
-//       </div>
-//       <Filter />
-//       <div className={"displayFLexRow2"}>
-//         <button className={"marginTop"}>Previous </button>
-//         <div className={"widthProcent80"}>
-//           <Month date={dateCalendar} />
-//           {/*zamiennie później z <Day/> & <Week/>*/}
-//         </div>
-//         <button className={"marginTop"}>Next</button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Calendar;
-
-import React from "react";
-import * as BigCalendar from "react-big-calendar";
+import React, { useState } from "react";
+import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+//import "react-big-calendar/lib/css/react-big-calendar.css";
+import "./Calendar.css";
+import events from "../../event_test";
+import styled from "styled-components";
+import TaskInformation from "../molecules/TaskInformation";
 
-moment.locale("en-GB");
-BigCalendar.momentLocalizer(moment);
+const localizer = momentLocalizer(moment);
 
-export default function Calendar() {
+const Header = styled.header`
+  text-align: left;
+  padding: 15px 20px 5px;
+  background-color: var(--basic-white);
+  font-size: 1.5rem;
+`;
+
+// background-color: white;
+// box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15), 0 2px 6px 2px rgba(60, 64, 67, 0.05);
+// position: relative;
+// border: 1px solid #ddd;
+// display: flex;
+// flex-direction: column;
+// flex: 1 0;
+// width: calc(100% - 40px);
+// margin: 15px 20px;
+
+export default function MyCalendar(props) {
+  const [currentTask, setCurrentTask] = useState({});
+  const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
+
+  function handlerSelectEvent(event) {
+    setCurrentTask(event);
+    setVisibleTaskInformation(true);
+  }
+
   return (
-    <div style={{ height: 700 }}>
-      <BigCalendar
-        events={[
-          {
-            title: "My event",
-            allDay: false,
-            start: new Date(2018, 0, 1, 10, 0), // 10.00 AM
-            end: new Date(2018, 0, 1, 14, 0), // 2.00 PM
-          },
-        ]}
-        step={60}
-        view="week"
-        views={["week"]}
-        min={new Date(2008, 0, 1, 8, 0)} // 8.00 AM
-        max={new Date(2008, 0, 1, 17, 0)} // Max will be 6.00 PM!
-        date={new Date(2018, 0, 1)}
+    <div className="mainHome">
+      <Header>
+        <h2>Calendar</h2>
+      </Header>
+      <Calendar
+        localizer={localizer}
+        events={events}
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: 500 }}
+        views={{
+          month: true,
+          week: true,
+          day: true,
+          work_week: true,
+        }}
+        onSelectEvent={event => handlerSelectEvent(event)}
       />
+      {visibleTaskInformation === true ? (
+        <TaskInformation task={currentTask} />
+      ) : null}
     </div>
   );
 }
