@@ -1,4 +1,4 @@
-.displayFLexRow {
+/* .displayFLexRow {
   display: flex;
   margin: 15px;
   justify-content: left;
@@ -43,21 +43,6 @@
   text-decoration: underline;
 }
 
-.displayTimerWeekHeader {
-  display: flex;
-  margin: 15px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.displayTimerWeekTask {
-  display: flex;
-  margin: 15px;
-  padding: 0 15px;
-  justify-content: right;
-  align-items: center;
-}
-
 .displayFlexHour {
   display: flex;
   width: 80%;
@@ -72,23 +57,11 @@
   font-weight: bold;
 }
 
-.marginTop {
+/* .marginTop {
   margin-top: 50px;
-}
-
+} */
 .iconSVG {
   width: 15px;
-  height: 16px;
+  height: 18px;
   color: black;
-}
-
-.displayFlexColumn {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: 0 auto;
-}
-
-.labelUserSettings {
-  margin: 5px;
 }

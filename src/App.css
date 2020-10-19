@@ -106,6 +106,7 @@
 .mainHome {
   background-color: var(--basic-light-gray);
   grid-area: main;
+  color: var(--gray-3);
 }
 .navIcon {
   background-color: rgb(255, 145, 0);
@@ -119,4 +120,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.activeLink {
+  border-bottom: 3px solid var(--basic-blue);
 }

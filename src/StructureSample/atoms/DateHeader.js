@@ -17,7 +17,7 @@ const week = [
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 15px;
+  margin: 5px;
 `;
 
 const SingleDay = styled.div`
