@@ -1,10 +1,16 @@
 import React from "react";
+import {
+  FormWrapper,
+  Input,
+  AddTaskBtn,
+} from "../../StyledComponents/StyledAddTaskForm";
 
-const AddTaskForm = () => {
+const AddTaskForm = ({ opacity }) => {
   return (
-    <form>
-      <p>Add Task Form</p>
-    </form>
+    <FormWrapper opacity={opacity}>
+      <Input placeholder="Task name" />
+      <AddTaskBtn type="submit">+</AddTaskBtn>
+    </FormWrapper>
   );
 };
 
