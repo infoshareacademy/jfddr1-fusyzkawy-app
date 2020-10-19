@@ -53,6 +53,16 @@ export default function MyCalendar(props) {
           work_week: true,
         }}
         onSelectEvent={event => handlerSelectEvent(event)}
+        onSelecting={() => {
+          return true;
+        }}
+        onSelectSlot={range => {
+          //create task
+          alert(
+            `you selected ${range.start.toLocaleDateString()} ${range.start.toLocaleTimeString()}-${range.end.toLocaleDateString()} ${range.end.toLocaleTimeString()} `
+          );
+        }}
+        selectable={true}
       />
       {visibleTaskInformation === true ? (
         <TaskInformation task={currentTask} />
