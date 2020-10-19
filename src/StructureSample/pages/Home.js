@@ -7,7 +7,7 @@ import Timer from "./Timer";
 import Users from "./Users";
 import Nav from "./Nav";
 import Aside from "./Aside";
-import { allTasks, inputDate } from "../../test_variables";
+import { allTasks } from "../../test_variables";
 
 const Home = () => {
   return (
@@ -20,7 +20,7 @@ const Home = () => {
             <Users />
           </Route>
           <Route exact path="/jfddr1-fusyzkawy-app/calendar">
-            <Calendar dateCalendar={inputDate} />
+            <Calendar />
           </Route>
           <Route exact path="/jfddr1-fusyzkawy-app/timer/:current">
             <Timer tasks={allTasks} />

@@ -34,12 +34,11 @@ export const task2 = {
 export const allTasks = [task1, task2];
 
 export const options = [
-  "new task",
-  "ELELEMEMET",
-  "in progres",
-  "completed",
-  "on hold",
-  "cancelled",
+  "New task",
+  "In progres",
+  "Completed",
+  "On hold",
+  "Cancelled",
 ];
 
 export const user1 = {

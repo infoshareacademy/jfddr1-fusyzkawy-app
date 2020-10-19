@@ -51,6 +51,8 @@
   --task-blue-light: #f1f3fc;
   --task-purple-dark: #af71d9;
   --task-purple-light: #f7eefd;
+  --task-gray-dark: #999999;
+  --task-gray-light: #dddddd;
 
   /* Clear gray palette */
   --gray-1: #111111;
