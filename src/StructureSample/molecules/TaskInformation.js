@@ -81,9 +81,9 @@ function TaskInformation({ task }) {
         <TaskHeader>
           <h2 style={generalStyle}>{task.title}</h2>
           <div style={{ width: "100px" }}>
-            <img src={EditIcon} height="30" width="30"></img>
-            <img src={RemoveIcon} height="30" width="30"></img>
-            <img src={CancelIcon} height="30" width="20"></img>
+            <img src={EditIcon} height="30" width="30" alt="edit"></img>
+            <img src={RemoveIcon} height="30" width="30" alt="remove"></img>
+            <img src={CancelIcon} height="30" width="20" alt="cancel"></img>
           </div>
         </TaskHeader>
         <div style={generalStyle}>
@@ -115,6 +115,7 @@ function TaskInformation({ task }) {
                 src={task.imgCreator || UserIcon}
                 height="50"
                 title="Creator"
+                alt="creator"
               />
             </Photo>
             <Photo>
@@ -122,6 +123,7 @@ function TaskInformation({ task }) {
                 src={task.imgAssign || UserIcon}
                 height="50"
                 title="Assign"
+                alt="assign"
               />
             </Photo>
           </PhotoContainer>
