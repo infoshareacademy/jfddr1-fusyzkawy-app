@@ -6,6 +6,7 @@ import {
   LinksWrapper,
   MainNavLink,
 } from "../../StyledComponents/StyledNav";
+import AddTaskForm from "../molecules/AddTaskForm";
 
 const Nav = () => {
   const [activeAddTaskForm, setActiveAddTaskForm] = useState(false);
@@ -52,9 +53,9 @@ const Nav = () => {
         </LinksWrapper>
         <UserInformation />
       </MainNavBar>
-      <form style={{ display: `${!activeAddTaskForm ? "none" : "flex"}` }}>
-        <p>Add Task Form</p>
-      </form>
+      <AddTaskForm
+      // style={{ display: `${!activeAddTaskForm ? "none" : "flex"}` }}
+      />
     </>
   );
 };
