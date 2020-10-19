@@ -116,3 +116,7 @@
   background-color: var(--basic-light-gray);
   grid-area: main;
 }
+
+.activeMainNavLink {
+  background-color: var(--extra-dark-gray);
+}

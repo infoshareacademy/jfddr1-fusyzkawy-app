@@ -32,7 +32,6 @@ export const LinksWrapper = styled.nav`
 `;
 
 export const MainNavLink = styled(NavLink)`
-  background-color: ${props => props.background};
   color: var(--basic-light-gray);
   text-decoration: none;
   font-size: 2.25rem;
