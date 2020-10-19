@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2c1be65f3c96f570a7fa3314f282198c",
+    "revision": "d2f47706a2c6c036246fb76c5b363b79",
     "url": "/jfddr1-fusyzkawy-app/index.html"
   },
   {
-    "revision": "7bd175d838bb3d8a943f",
-    "url": "/jfddr1-fusyzkawy-app/static/css/main.dd8613da.chunk.css"
+    "revision": "b30f9893ba6263d727b1",
+    "url": "/jfddr1-fusyzkawy-app/static/css/main.9ef73a8b.chunk.css"
   },
   {
-    "revision": "9e53a1bb11f96e61f1bb",
-    "url": "/jfddr1-fusyzkawy-app/static/js/2.79e394a9.chunk.js"
+    "revision": "17f427d7885dabb6b9f1",
+    "url": "/jfddr1-fusyzkawy-app/static/js/2.9f09f535.chunk.js"
   },
   {
-    "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/jfddr1-fusyzkawy-app/static/js/2.79e394a9.chunk.js.LICENSE.txt"
+    "revision": "f9e7e68e90600aabdd7d1f759413461d",
+    "url": "/jfddr1-fusyzkawy-app/static/js/2.9f09f535.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7bd175d838bb3d8a943f",
-    "url": "/jfddr1-fusyzkawy-app/static/js/main.9a0e5cea.chunk.js"
+    "revision": "b30f9893ba6263d727b1",
+    "url": "/jfddr1-fusyzkawy-app/static/js/main.58cd22e3.chunk.js"
   },
   {
     "revision": "351f953f3a9310bb1fdb",
@@ -36,11 +36,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jfddr1-fusyzkawy-app/static/media/StopIcon.c602ce1a.svg"
   },
   {
+    "revision": "0ee27fe693c2322ded3eb2a462bd5db4",
+    "url": "/jfddr1-fusyzkawy-app/static/media/background-start-page.0ee27fe6.jpg"
+  },
+  {
     "revision": "1e2a9a1c89f3ee032459059c544875a5",
     "url": "/jfddr1-fusyzkawy-app/static/media/filter-icon.1e2a9a1c.svg"
   },
   {
-    "revision": "d7dcb03b8fffbac152c551b934f78591",
-    "url": "/jfddr1-fusyzkawy-app/static/media/logo-krab.d7dcb03b.png"
+    "revision": "46b87b528858e58bf5366ffa3c1dacc5",
+    "url": "/jfddr1-fusyzkawy-app/static/media/logo-krab_without.46b87b52.png"
   }
 ]);
