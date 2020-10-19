@@ -22,7 +22,7 @@ const Home = () => {
           <Route exact path="/jfddr1-fusyzkawy-app/calendar">
             <Calendar dateCalendar={inputDate} />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app/timer/current">
+          <Route exact path="/jfddr1-fusyzkawy-app/timer/:current">
             <Timer tasks={allTasks} />
           </Route>
           <Route exact path="/jfddr1-fusyzkawy-app/tasks">

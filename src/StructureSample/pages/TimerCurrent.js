@@ -11,6 +11,7 @@ const ContainerBox = styled.div`
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
   height: 500px;
   overflow: scroll;
+  font-size: 1.5rem;
 `;
 
 const Task = styled.div`
@@ -46,7 +47,7 @@ function TimerCurrent({ tasks }) {
             <Input
               type="text"
               value="12:04"
-              style={{ width: "50px", height: "21px", marginLeft: "10px" }}
+              style={{ width: "60px", marginLeft: "10px" }}
             />
           </Task>
         );

@@ -9,6 +9,7 @@ const Header = styled.header`
   text-align: left;
   padding: 15px 20px 5px;
   background-color: var(--basic-white);
+  font-size: 1.5rem;
 `;
 
 const Navigation = styled.nav`
@@ -20,7 +21,7 @@ const Navigation = styled.nav`
 const NewLink = styled(NavLink)`
   padding: 10px 10px;
   margin: 0 15px;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   text-decoration: none;
   color: var(--gray-3);
 
@@ -40,18 +41,24 @@ function Timer({ tasks }) {
         <h2>Timer</h2>
         <Navigation>
           <FilterS />
-          <NewLink activeClassName="activeLink" to={`/timer/current`}>
+          <NewLink
+            activeClassName="activeLink"
+            to={`/jfddr1-fusyzkawy-app/timer/current`}
+          >
             Current
           </NewLink>
-          <NewLink activeClassName="activeLink" to={`/timer/week`}>
+          <NewLink
+            activeClassName="activeLink"
+            to={`/jfddr1-fusyzkawy-app/timer/week`}
+          >
             Week
           </NewLink>
         </Navigation>
       </Header>
-      <Route path="/timer/current">
+      <Route path="/jfddr1-fusyzkawy-app/timer/current">
         <TimerCurrent tasks={tasks} />
       </Route>
-      <Route path="/timer/week">
+      <Route path="/jfddr1-fusyzkawy-app/timer/week">
         <TimerWeek tasks={tasks} />
       </Route>
     </div>

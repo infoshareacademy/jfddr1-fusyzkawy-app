@@ -1,7 +1,6 @@
 //Header: "task description" + "Mon(15th) Tue(16th) Wed(17th) ...."
 
 import React from "react";
-import "../styleAnia.css";
 import styled from "styled-components";
 
 const week = [
@@ -28,7 +27,7 @@ const NameOfDay = styled.p`
 `;
 
 const Day = styled.p`
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   margin-top: 5px;
   color: var(--extra-dark-gray);
 `;

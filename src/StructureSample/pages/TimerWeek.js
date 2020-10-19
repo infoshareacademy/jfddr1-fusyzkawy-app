@@ -11,6 +11,7 @@ const ContainerBox = styled.div`
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
   height: 600px;
   overflow: scroll;
+  font-size: 1.5rem;
 `;
 
 const GridTemplateContainer = styled.div`
@@ -41,7 +42,11 @@ function TimerTask({ task }) {
         <LeftColumn>{task.title}</LeftColumn>
         <FlexContainer>
           {array.map(() => (
-            <NewInput type="text" value="12:04" style={{ width: "40px" }} />
+            <NewInput
+              type="text"
+              value="12:04"
+              style={{ width: "55px", margin: "10px" }}
+            />
           ))}
         </FlexContainer>
       </GridTemplateContainer>
@@ -71,7 +76,11 @@ function TimerWeek({ tasks }) {
         </p>
         <FlexContainer>
           {array.map(() => (
-            <NewInput type="text" value="12:04" style={{ width: "40px" }} />
+            <NewInput
+              type="text"
+              value="12:04"
+              style={{ width: "55px", margin: "10px" }}
+            />
           ))}
         </FlexContainer>
       </GridTemplateContainer>

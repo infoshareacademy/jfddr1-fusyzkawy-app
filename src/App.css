@@ -125,3 +125,9 @@
 .activeLink {
   border-bottom: 3px solid var(--basic-blue);
 }
+
+.iconSVG {
+  width: 15px;
+  height: 21px;
+  color: black;
+}

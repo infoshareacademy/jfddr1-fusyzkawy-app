@@ -9,13 +9,13 @@ const UserCointainer = styled.div`
   width: 450px;
   margin: 25px;
   padding: 20px;
+  font-size: 1.5rem;
 `;
 
 const UserPhoto = styled.div`
   height: 200px;
   width: 150px;
-  margin-left: 200px;
-  margin-bottom: 20px;
+  margin: 20px auto 20px 200px;
   border-radius: 40px;
   overflow: hidden;
 `;
