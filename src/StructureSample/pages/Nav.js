@@ -4,16 +4,16 @@ import { NavLink } from "react-router-dom";
 const Nav = () => {
   return (
     <div className="navHome">
-      <NavLink className="navIcon" to="/">
+      <NavLink className="navIcon" to="/jfddr1-fusyzkawy-app/">
         Tasks
       </NavLink>
-      <NavLink className="navIcon" to="/timer">
+      <NavLink className="navIcon" to="/jfddr1-fusyzkawy-app/timer/">
         Timer
       </NavLink>
-      <NavLink className="navIcon" to="/calendar">
+      <NavLink className="navIcon" to="/jfddr1-fusyzkawy-app/calendar/">
         Calendar
       </NavLink>
-      <NavLink className="navIcon" to="/users">
+      <NavLink className="navIcon" to="/jfddr1-fusyzkawy-app/users">
         Users
       </NavLink>
     </div>
