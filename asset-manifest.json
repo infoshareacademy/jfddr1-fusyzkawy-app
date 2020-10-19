@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/jfddr1-fusyzkawy-app/static/css/main.9ef73a8b.chunk.css",
-    "main.js": "/jfddr1-fusyzkawy-app/static/js/main.58cd22e3.chunk.js",
-    "main.js.map": "/jfddr1-fusyzkawy-app/static/js/main.58cd22e3.chunk.js.map",
+    "main.css": "/jfddr1-fusyzkawy-app/static/css/main.7f2e0304.chunk.css",
+    "main.js": "/jfddr1-fusyzkawy-app/static/js/main.02dc0b47.chunk.js",
+    "main.js.map": "/jfddr1-fusyzkawy-app/static/js/main.02dc0b47.chunk.js.map",
     "runtime-main.js": "/jfddr1-fusyzkawy-app/static/js/runtime-main.8685431d.js",
     "runtime-main.js.map": "/jfddr1-fusyzkawy-app/static/js/runtime-main.8685431d.js.map",
-    "static/js/2.9f09f535.chunk.js": "/jfddr1-fusyzkawy-app/static/js/2.9f09f535.chunk.js",
-    "static/js/2.9f09f535.chunk.js.map": "/jfddr1-fusyzkawy-app/static/js/2.9f09f535.chunk.js.map",
+    "static/js/2.d13dfd78.chunk.js": "/jfddr1-fusyzkawy-app/static/js/2.d13dfd78.chunk.js",
+    "static/js/2.d13dfd78.chunk.js.map": "/jfddr1-fusyzkawy-app/static/js/2.d13dfd78.chunk.js.map",
     "index.html": "/jfddr1-fusyzkawy-app/index.html",
-    "precache-manifest.70c7a3138a0a3169d8c0bc1af7251959.js": "/jfddr1-fusyzkawy-app/precache-manifest.70c7a3138a0a3169d8c0bc1af7251959.js",
+    "precache-manifest.ac78b2f68b1f2c7909b5f05d2a5323bc.js": "/jfddr1-fusyzkawy-app/precache-manifest.ac78b2f68b1f2c7909b5f05d2a5323bc.js",
     "service-worker.js": "/jfddr1-fusyzkawy-app/service-worker.js",
-    "static/css/main.9ef73a8b.chunk.css.map": "/jfddr1-fusyzkawy-app/static/css/main.9ef73a8b.chunk.css.map",
-    "static/js/2.9f09f535.chunk.js.LICENSE.txt": "/jfddr1-fusyzkawy-app/static/js/2.9f09f535.chunk.js.LICENSE.txt",
+    "static/css/main.7f2e0304.chunk.css.map": "/jfddr1-fusyzkawy-app/static/css/main.7f2e0304.chunk.css.map",
+    "static/js/2.d13dfd78.chunk.js.LICENSE.txt": "/jfddr1-fusyzkawy-app/static/js/2.d13dfd78.chunk.js.LICENSE.txt",
     "static/media/PauseIcon.svg": "/jfddr1-fusyzkawy-app/static/media/PauseIcon.1c6e45ae.svg",
     "static/media/PlayIcon.svg": "/jfddr1-fusyzkawy-app/static/media/PlayIcon.a43f3e48.svg",
     "static/media/StopIcon.svg": "/jfddr1-fusyzkawy-app/static/media/StopIcon.c602ce1a.svg",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8685431d.js",
-    "static/js/2.9f09f535.chunk.js",
-    "static/css/main.9ef73a8b.chunk.css",
-    "static/js/main.58cd22e3.chunk.js"
+    "static/js/2.d13dfd78.chunk.js",
+    "static/css/main.7f2e0304.chunk.css",
+    "static/js/main.02dc0b47.chunk.js"
   ]
 }
