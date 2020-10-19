@@ -54,7 +54,10 @@ const Nav = () => {
         </MainNavLink>
       </LinksWrapper>
       <UserInformation />
-      <AddTaskForm opacity={!activeAddTaskForm ? "0" : "100%"} />
+      <AddTaskForm
+        opacity={!activeAddTaskForm ? "0" : "100%"}
+        pointerEvents={!activeAddTaskForm ? "none" : "initial"}
+      />
     </MainNavBar>
   );
 };
