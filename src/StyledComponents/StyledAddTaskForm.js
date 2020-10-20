@@ -1,17 +1,25 @@
 import styled from "styled-components";
 
+export const OuterModal = styled.div`
+  height: 100vh;
+  left: 0;
+  opacity: ${props => props.opacity};
+  pointer-events: ${props => props.pointerEvents};
+  position: absolute;
+  top: 0;
+  transition: opacity 0.2s;
+  width: 100vw;
+`;
+
 export const FormWrapper = styled.form`
   position: absolute;
   top: 25%;
   left: 50%;
   transform: translate(-50%);
-  opacity: ${props => props.opacity};
-  pointer-events: ${props => props.pointerEvents};
   border-radius: 8px;
   padding: 20px 35px 5px 35px;
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
   background-color: var(--sign-gray);
-  transition: opacity 0.2s;
 `;
 
 export const InnerFormWrapper = styled.div`

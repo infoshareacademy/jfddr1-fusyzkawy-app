@@ -11,10 +11,6 @@ import AddTaskForm from "../molecules/AddTaskForm";
 const Nav = () => {
   const [activeAddTaskForm, setActiveAddTaskForm] = useState(false);
 
-  document.addEventListener("keydown", event => {
-    event.key === "Escape" && setActiveAddTaskForm(false);
-  });
-
   return (
     <MainNavBar>
       <NavAddTaskBtn
@@ -55,7 +51,7 @@ const Nav = () => {
       <AddTaskForm
         opacity={!activeAddTaskForm ? "0" : "100%"}
         pointerEvents={!activeAddTaskForm ? "none" : "initial"}
-        onAdd={value => setActiveAddTaskForm(value)}
+        closeModal={value => setActiveAddTaskForm(value)}
       />
     </MainNavBar>
   );
