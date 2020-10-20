@@ -1,11 +1,66 @@
-//use some library to create data format and checked current data?
 import React from "react";
 
-function Date({ text, style }) {
+const week = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
+const year = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May ",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+function Date({ start, end }) {
+  console.log(start);
+  console.log(end);
   return (
-    <div style={style}>
-      <p>{text}</p>
-    </div>
+    <>
+      {start.toLocaleDateString() === end.toLocaleDateString() ? (
+        <>
+          {week[start.getDay()]}, {start.getDate()} {year[start.getMonth()]}
+          {"  "}
+          {start.toLocaleTimeString("PL-PL", {
+            hour: "numeric",
+            minute: "numeric",
+          })}{" "}
+          -
+          {end.toLocaleTimeString("PL-PL", {
+            hour: "numeric",
+            minute: "numeric",
+          })}
+        </>
+      ) : (
+        <>
+          {start.getDate()} {year[start.getMonth()]}
+          {"  "}
+          {start.toLocaleTimeString("PL-PL", {
+            hour: "numeric",
+            minute: "numeric",
+          })}{" "}
+          - {end.getDate()} {year[end.getMonth()]}
+          {"  "}
+          {end.toLocaleTimeString("PL-PL", {
+            hour: "numeric",
+            minute: "numeric",
+          })}
+        </>
+      )}
+    </>
   );
 }
 
