@@ -69,7 +69,6 @@ function TimerWeek({ tasks }) {
 
   function handlerOnClick(task) {
     setCurrentTask(task);
-    console.log(task);
     setVisibleTaskInformation(true);
   }
   return (

@@ -3,7 +3,7 @@ export const inputDate = [2020, 10, 13];
 export const task1 = {
   color: "green",
   discription: "testowe zadanie do wyświetlenia",
-  end: new Date(2020, 10, 13, 18, 30, 0),
+  end: new Date(2020, 10, 14, 18, 30, 0),
   id: 0,
   start: new Date(2020, 10, 13, 12, 0, 0),
   status: "new task",

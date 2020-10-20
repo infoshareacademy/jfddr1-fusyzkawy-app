@@ -13,6 +13,7 @@ import UserIcon3 from "../../../img/UserIcon3.png";
 //Components
 import RadioInput from "../../atoms/RadioInput";
 import { options } from "../../../test_variables";
+import Date from "../../atoms/Date";
 import Image from "../../atoms/Image";
 import {
   Background,
@@ -78,15 +79,7 @@ function TaskInformation({ task, onCancel }) {
           />
           {task.start && task.end ? (
             <p style={generalStyle}>
-              {task.start.toLocaleTimeString("PL-PL", {
-                hour: "numeric",
-                minute: "numeric",
-              })}{" "}
-              -{" "}
-              {task.end.toLocaleTimeString("PL-PL", {
-                hour: "numeric",
-                minute: "numeric",
-              })}
+              <Date start={task.start} end={task.end} />
             </p>
           ) : (
             "--:--"

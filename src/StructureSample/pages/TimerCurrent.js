@@ -44,7 +44,6 @@ function TimerCurrent({ tasks }) {
 
   function handlerOnClick(task) {
     setCurrentTask(task);
-    console.log(task);
     setVisibleTaskInformation(true);
   }
 
