@@ -12,7 +12,7 @@ function Checkbox({ variables }) {
     <Container>
       {variables.map((elem, index) => {
         return (
-          <div>
+          <div key={elem}>
             <input type="checkbox" id={index} name={elem} />
             <label htmlFor={elem}>{elem}</label>
           </div>

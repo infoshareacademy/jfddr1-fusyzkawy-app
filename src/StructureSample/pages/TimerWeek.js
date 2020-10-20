@@ -48,11 +48,13 @@ function TimerTask({ task, onClick }) {
       <GridTemplateContainer>
         <TaskNameColumn onClick={onClick}>{task.title}</TaskNameColumn>
         <FlexContainer>
-          {array.map(() => (
+          {array.map((elem, index) => (
             <NewInput
+              key={index}
               type="text"
               value="12:04"
               style={{ width: "55px", margin: "10px" }}
+              readOnly={true}
             />
           ))}
         </FlexContainer>
@@ -84,7 +86,11 @@ function TimerWeek({ tasks }) {
         <div>
           {tasks.map(task => {
             return (
-              <TimerTask onClick={() => handlerOnClick(task)} task={task} />
+              <TimerTask
+                onClick={() => handlerOnClick(task)}
+                task={task}
+                key={task.id}
+              />
             );
           })}
         </div>
@@ -93,11 +99,13 @@ function TimerWeek({ tasks }) {
             <strong>Total:</strong>
           </p>
           <FlexContainer>
-            {array.map(() => (
+            {array.map((elem, index) => (
               <NewInput
+                key={index}
                 type="text"
                 value="12:04"
                 style={{ width: "55px", margin: "10px" }}
+                readOnly={true}
               />
             ))}
           </FlexContainer>

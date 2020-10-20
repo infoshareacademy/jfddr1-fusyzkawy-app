@@ -45,7 +45,7 @@ function DateHeader({ incommingDate, isDateVisible, numberOfDay }) {
   return (
     <Container>
       {weekDays.map((elem, index) => (
-        <SingleDay>
+        <SingleDay key={index}>
           <NameOfDay>{week[index]}</NameOfDay>
           {isDateVisible && <Day>{elem} th</Day>}
         </SingleDay>
