@@ -1,28 +1,37 @@
 {
   "files": {
-    "main.css": "/jfddr1-fusyzkawy-app/static/css/main.7f2e0304.chunk.css",
-    "main.js": "/jfddr1-fusyzkawy-app/static/js/main.02dc0b47.chunk.js",
-    "main.js.map": "/jfddr1-fusyzkawy-app/static/js/main.02dc0b47.chunk.js.map",
+    "main.css": "/jfddr1-fusyzkawy-app/static/css/main.9e4ae705.chunk.css",
+    "main.js": "/jfddr1-fusyzkawy-app/static/js/main.146294a7.chunk.js",
+    "main.js.map": "/jfddr1-fusyzkawy-app/static/js/main.146294a7.chunk.js.map",
     "runtime-main.js": "/jfddr1-fusyzkawy-app/static/js/runtime-main.8685431d.js",
     "runtime-main.js.map": "/jfddr1-fusyzkawy-app/static/js/runtime-main.8685431d.js.map",
-    "static/js/2.d13dfd78.chunk.js": "/jfddr1-fusyzkawy-app/static/js/2.d13dfd78.chunk.js",
-    "static/js/2.d13dfd78.chunk.js.map": "/jfddr1-fusyzkawy-app/static/js/2.d13dfd78.chunk.js.map",
+    "static/js/2.a7176205.chunk.js": "/jfddr1-fusyzkawy-app/static/js/2.a7176205.chunk.js",
+    "static/js/2.a7176205.chunk.js.map": "/jfddr1-fusyzkawy-app/static/js/2.a7176205.chunk.js.map",
     "index.html": "/jfddr1-fusyzkawy-app/index.html",
-    "precache-manifest.ac78b2f68b1f2c7909b5f05d2a5323bc.js": "/jfddr1-fusyzkawy-app/precache-manifest.ac78b2f68b1f2c7909b5f05d2a5323bc.js",
+    "precache-manifest.73fcfd4c4f40e4b93251b3f92be9f5ce.js": "/jfddr1-fusyzkawy-app/precache-manifest.73fcfd4c4f40e4b93251b3f92be9f5ce.js",
     "service-worker.js": "/jfddr1-fusyzkawy-app/service-worker.js",
-    "static/css/main.7f2e0304.chunk.css.map": "/jfddr1-fusyzkawy-app/static/css/main.7f2e0304.chunk.css.map",
-    "static/js/2.d13dfd78.chunk.js.LICENSE.txt": "/jfddr1-fusyzkawy-app/static/js/2.d13dfd78.chunk.js.LICENSE.txt",
+    "static/css/main.9e4ae705.chunk.css.map": "/jfddr1-fusyzkawy-app/static/css/main.9e4ae705.chunk.css.map",
+    "static/js/2.a7176205.chunk.js.LICENSE.txt": "/jfddr1-fusyzkawy-app/static/js/2.a7176205.chunk.js.LICENSE.txt",
+    "static/media/CancelIcon.svg": "/jfddr1-fusyzkawy-app/static/media/CancelIcon.bbec4dac.svg",
+    "static/media/ClockIcon.svg": "/jfddr1-fusyzkawy-app/static/media/ClockIcon.b436a6a1.svg",
+    "static/media/DescriptionIcon.svg": "/jfddr1-fusyzkawy-app/static/media/DescriptionIcon.3cb49165.svg",
+    "static/media/EditIcon.svg": "/jfddr1-fusyzkawy-app/static/media/EditIcon.02cb9d11.svg",
     "static/media/PauseIcon.svg": "/jfddr1-fusyzkawy-app/static/media/PauseIcon.1c6e45ae.svg",
     "static/media/PlayIcon.svg": "/jfddr1-fusyzkawy-app/static/media/PlayIcon.a43f3e48.svg",
+    "static/media/RemoveIcon.svg": "/jfddr1-fusyzkawy-app/static/media/RemoveIcon.eb59c15c.svg",
+    "static/media/StatusIcon.svg": "/jfddr1-fusyzkawy-app/static/media/StatusIcon.cedd6b82.svg",
     "static/media/StopIcon.svg": "/jfddr1-fusyzkawy-app/static/media/StopIcon.c602ce1a.svg",
+    "static/media/TagIcon.svg": "/jfddr1-fusyzkawy-app/static/media/TagIcon.94d3af0c.svg",
+    "static/media/TickIcon.svg": "/jfddr1-fusyzkawy-app/static/media/TickIcon.1c90aae9.svg",
+    "static/media/UserIcon2.svg": "/jfddr1-fusyzkawy-app/static/media/UserIcon2.67d93567.svg",
     "static/media/background-start-page.jpg": "/jfddr1-fusyzkawy-app/static/media/background-start-page.0ee27fe6.jpg",
     "static/media/filter-icon.svg": "/jfddr1-fusyzkawy-app/static/media/filter-icon.1e2a9a1c.svg",
     "static/media/logo-krab_without.png": "/jfddr1-fusyzkawy-app/static/media/logo-krab_without.46b87b52.png"
   },
   "entrypoints": [
     "static/js/runtime-main.8685431d.js",
-    "static/js/2.d13dfd78.chunk.js",
-    "static/css/main.7f2e0304.chunk.css",
-    "static/js/main.02dc0b47.chunk.js"
+    "static/js/2.a7176205.chunk.js",
+    "static/css/main.9e4ae705.chunk.css",
+    "static/js/main.146294a7.chunk.js"
   ]
 }
