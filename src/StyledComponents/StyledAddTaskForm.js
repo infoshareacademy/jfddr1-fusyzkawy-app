@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const FormWrapper = styled.form`
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   opacity: ${props => props.opacity};
   pointer-events: ${props => props.pointerEvents};
   border-radius: 8px;
-  padding: 20px 35px;
+  padding: 20px 35px 5px 35px;
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
   background-color: var(--sign-gray);
   transition: opacity 0.2s;
@@ -24,26 +24,10 @@ export const InputsWrapper = styled.div`
 `;
 
 export const MoreInputsWrapper = styled.div`
-  display: grid;
+  display: ${props => props.display};
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding-top: 35px;
-`;
-
-export const TaskNameInput = styled.input`
-  display: block;
-  border: none;
-  border-bottom: 1.5px solid var(--sign-green);
-  background-color: transparent;
-  font-size: 2.25rem;
-  font-weight: 500;
-  color: var(--sign-green);
-  cursor: pointer;
-  width: 420px;
-  &:focus {
-    outline: none;
-    box-shadow: none;
-  }
 `;
 
 export const Input = styled.input`
@@ -62,6 +46,12 @@ export const Input = styled.input`
   }
 `;
 
+export const TaskNameInput = styled(Input)`
+  font-size: 2.25rem;
+  width: 420px;
+  }
+`;
+
 export const AddTaskBtn = styled.button`
   align-self: flex-start;
   background-color: var(--basic-green);
@@ -69,6 +59,7 @@ export const AddTaskBtn = styled.button`
   border-radius: 50%;
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
   color: var(--basic-light-gray);
+  cursor: pointer;
   font-size: 3rem;
   font-weight: bold;
   outline: none;
@@ -77,4 +68,20 @@ export const AddTaskBtn = styled.button`
   &:hover {
     color: var(--gray-1);
   }
+`;
+
+export const OptionsBtn = styled.button`
+  background-color: transparent;
+  border: none;
+  color: var(--sign-green);
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 500;
+  outline: none;
+  padding-top: 20px;
+`;
+
+export const OptionsBtnArrow = styled.p`
+  font-size: 2.5rem;
+  transform: ${props => props.rotate};
 `;
