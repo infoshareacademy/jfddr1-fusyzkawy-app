@@ -9,7 +9,6 @@
 import React from "react";
 import Button from "../atoms/Button";
 import PlayStop from "../molecules/PlayStop";
-import Date from "../atoms/Date";
 
 function Tasks() {
   return (
@@ -43,9 +42,9 @@ function Tasks() {
         <p>Task 1</p>
         <p>Work</p>
         <p>Description text</p>
-        <Date />
-        <Date />
-        <Date />
+        <p>8:00:00</p>
+        <p>8:00:00</p>
+        <p>8:00:00</p>
         <p>8:00:00</p>
         <div
           style={{
