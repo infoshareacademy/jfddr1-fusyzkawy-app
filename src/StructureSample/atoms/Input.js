@@ -17,6 +17,7 @@ function Input({
   placeholder,
   style,
   labelStyle,
+  readOnly,
 }) {
   return (
     <div>
@@ -31,6 +32,7 @@ function Input({
         placeholder={placeholder}
         value={value}
         style={style}
+        readOnly={readOnly}
       ></input>
     </div>
   );

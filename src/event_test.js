@@ -113,7 +113,7 @@ export default [
   },
   {
     id: 16,
-    title: "Video Record",
+    title: "Video Record in City where everything is possible",
     start: new Date(2020, 9, 14, 15, 30, 0),
     end: new Date(2020, 9, 14, 19, 0, 0),
     status: "new task",

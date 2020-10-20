@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { NewInput } from "../atoms/Input";
 import DateHeader from "../atoms/DateHeader";
 import styled from "styled-components";
+import TaskInformation from "../molecules/TaskInformation/TaskInformation";
 
 const ContainerBox = styled.div`
   background-color: var(--basic-white);
@@ -33,19 +34,27 @@ const LeftColumn = styled.p`
   padding-left: 30px;
 `;
 
+const TaskNameColumn = styled(LeftColumn)`
+  &:hover {
+    color: var(--basic-green);
+  }
+`;
+
 const array = [0, 1, 2, 3, 4]; //create for display 5 input in each line
 
-function TimerTask({ task }) {
+function TimerTask({ task, onClick }) {
   return (
     <>
       <GridTemplateContainer>
-        <LeftColumn>{task.title}</LeftColumn>
+        <TaskNameColumn onClick={onClick}>{task.title}</TaskNameColumn>
         <FlexContainer>
-          {array.map(() => (
+          {array.map((elem, index) => (
             <NewInput
+              key={index}
               type="text"
               value="12:04"
               style={{ width: "55px", margin: "10px" }}
+              readOnly={true}
             />
           ))}
         </FlexContainer>
@@ -55,36 +64,60 @@ function TimerTask({ task }) {
 }
 
 function TimerWeek({ tasks }) {
+  const [currentTask, setCurrentTask] = useState({});
+  const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
+
+  function handlerOnClick(task) {
+    setCurrentTask(task);
+    console.log(task);
+    setVisibleTaskInformation(true);
+  }
   return (
-    <ContainerBox>
-      <GridTemplateContainer>
-        <LeftColumn>Task description</LeftColumn>
-        <DateHeader
-          incommingDate={[2020, 10, 13]}
-          isDateVisible={true}
-          numberOfDay="5"
+    <>
+      <ContainerBox>
+        <GridTemplateContainer>
+          <LeftColumn>Task description</LeftColumn>
+          <DateHeader
+            incommingDate={[2020, 10, 13]}
+            isDateVisible={true}
+            numberOfDay="5"
+          />
+        </GridTemplateContainer>
+        <div>
+          {tasks.map(task => {
+            return (
+              <TimerTask
+                onClick={() => handlerOnClick(task)}
+                task={task}
+                key={task.id}
+              />
+            );
+          })}
+        </div>
+        <GridTemplateContainer>
+          <p style={{ textAlign: "right", paddingRight: "20px" }}>
+            <strong>Total:</strong>
+          </p>
+          <FlexContainer>
+            {array.map((elem, index) => (
+              <NewInput
+                key={index}
+                type="text"
+                value="12:04"
+                style={{ width: "55px", margin: "10px" }}
+                readOnly={true}
+              />
+            ))}
+          </FlexContainer>
+        </GridTemplateContainer>
+      </ContainerBox>
+      {visibleTaskInformation === true ? (
+        <TaskInformation
+          task={currentTask}
+          onCancel={() => setVisibleTaskInformation(false)}
         />
-      </GridTemplateContainer>
-      <div>
-        {tasks.map(task => {
-          return <TimerTask task={task} />;
-        })}
-      </div>
-      <GridTemplateContainer>
-        <p style={{ textAlign: "right", paddingRight: "20px" }}>
-          <strong>Total:</strong>
-        </p>
-        <FlexContainer>
-          {array.map(() => (
-            <NewInput
-              type="text"
-              value="12:04"
-              style={{ width: "55px", margin: "10px" }}
-            />
-          ))}
-        </FlexContainer>
-      </GridTemplateContainer>
-    </ContainerBox>
+      ) : null}
+    </>
   );
 }
 

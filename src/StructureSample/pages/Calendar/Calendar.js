@@ -3,9 +3,9 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 //import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./Calendar.css";
-import events from "../../event_test";
+import events from "../../../event_test";
 import styled from "styled-components";
-import TaskInformation from "../molecules/TaskInformation";
+import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 
 const localizer = momentLocalizer(moment);
 
@@ -15,16 +15,6 @@ const Header = styled.header`
   background-color: var(--basic-white);
   font-size: 1.5rem;
 `;
-
-// background-color: white;
-// box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15), 0 2px 6px 2px rgba(60, 64, 67, 0.05);
-// position: relative;
-// border: 1px solid #ddd;
-// display: flex;
-// flex-direction: column;
-// flex: 1 0;
-// width: calc(100% - 40px);
-// margin: 15px 20px;
 
 export default function MyCalendar(props) {
   const [currentTask, setCurrentTask] = useState({});
@@ -53,9 +43,22 @@ export default function MyCalendar(props) {
           work_week: true,
         }}
         onSelectEvent={event => handlerSelectEvent(event)}
+        onSelecting={() => {
+          return true;
+        }}
+        onSelectSlot={range => {
+          //create task
+          alert(
+            `You selected: \n ${range.start.toLocaleDateString()} ${range.start.toLocaleTimeString()} - ${range.end.toLocaleDateString()} ${range.end.toLocaleTimeString()} \n In feature - you will be able to add task in such method`
+          );
+        }}
+        selectable={true}
       />
       {visibleTaskInformation === true ? (
-        <TaskInformation task={currentTask} />
+        <TaskInformation
+          task={currentTask}
+          onCancel={() => setVisibleTaskInformation(false)}
+        />
       ) : null}
     </div>
   );
