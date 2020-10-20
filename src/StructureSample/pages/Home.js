@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Calendar from "./Calendar";
+import Calendar from "./Calendar/Calendar";
 import Tasks from "./Tasks";
 import Timer from "./Timer";
 import Users from "./Users";

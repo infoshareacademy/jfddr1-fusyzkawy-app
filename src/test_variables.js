@@ -4,11 +4,6 @@ export const task1 = {
   color: "green",
   description: "testowe zadanie do wyświetlenia",
   endHour: "18.30",
-  imgAssign:
-    "https://banner2.cleanpng.com/20180706/zj/kisspng-face-with-tears-of-joy-emoji-sticker-clip-art-ty-dolla-sign-5b3f40ac3b08f8.5391494415308719802418.jpg",
-
-  imgCreator:
-    "https://banner2.cleanpng.com/20180623/qeh/kisspng-face-with-tears-of-joy-emoji-sticker-crying-emotic-plexus-5b2e08363a6521.8651402915297434142392.jpg",
   startHour: "12.00",
   status: "new task",
   tags: "praca nuda coś tam jeszcze",
@@ -19,11 +14,6 @@ export const task2 = {
   color: "purple",
   description: "description for Zadanie nr2",
   endHour: "16.00",
-  imgAssign:
-    "https://banner2.cleanpng.com/20180706/zj/kisspng-face-with-tears-of-joy-emoji-sticker-clip-art-ty-dolla-sign-5b3f40ac3b08f8.5391494415308719802418.jpg",
-
-  imgCreator:
-    "https://banner2.cleanpng.com/20180623/qeh/kisspng-face-with-tears-of-joy-emoji-sticker-crying-emotic-plexus-5b2e08363a6521.8651402915297434142392.jpg",
   startHour: "12.00",
   status: "new task",
   tags: "praca nuda coś tam jeszcze",
