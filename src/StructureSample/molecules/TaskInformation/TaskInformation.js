@@ -76,17 +76,21 @@ function TaskInformation({ task, onCancel }) {
             srcImage={ClockIcon}
             alternateTextImage="time"
           />
-          <p style={generalStyle}>
-            {task.start.toLocaleTimeString("PL-PL", {
-              hour: "numeric",
-              minute: "numeric",
-            })}{" "}
-            -{" "}
-            {task.end.toLocaleTimeString("PL-PL", {
-              hour: "numeric",
-              minute: "numeric",
-            })}
-          </p>
+          {task.start && task.end ? (
+            <p style={generalStyle}>
+              {task.start.toLocaleTimeString("PL-PL", {
+                hour: "numeric",
+                minute: "numeric",
+              })}{" "}
+              -{" "}
+              {task.end.toLocaleTimeString("PL-PL", {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            </p>
+          ) : (
+            "--:--"
+          )}
         </TaskProperties>
         <TaskProperties>
           <Image
@@ -140,7 +144,9 @@ function TaskInformation({ task, onCancel }) {
             />
             <TagsContainer>
               {tags.map(elem => (
-                <Tag href=""> {elem} </Tag>
+                <Tag key={elem} href="">
+                  {elem}
+                </Tag>
               ))}
             </TagsContainer>
           </TaskProperties>

@@ -2,9 +2,10 @@
 export const inputDate = [2020, 10, 13];
 export const task1 = {
   color: "green",
-  description: "testowe zadanie do wyświetlenia",
-  endHour: "18.30",
-  startHour: "12.00",
+  discription: "testowe zadanie do wyświetlenia",
+  end: new Date(2020, 10, 13, 18, 30, 0),
+  id: 0,
+  start: new Date(2020, 10, 13, 12, 0, 0),
   status: "new task",
   tags: "praca nuda coś tam jeszcze",
   taskClass: "task1Class",
@@ -12,9 +13,10 @@ export const task1 = {
 };
 export const task2 = {
   color: "purple",
-  description: "description for Zadanie nr2",
-  endHour: "16.00",
-  startHour: "12.00",
+  discription: "description for Zadanie nr2",
+  end: new Date(2020, 10, 13, 16, 0, 0),
+  id: 1,
+  start: new Date(2020, 10, 13, 12, 0, 0),
   status: "new task",
   tags: "praca nuda coś tam jeszcze",
   taskClass: "task1Class",
