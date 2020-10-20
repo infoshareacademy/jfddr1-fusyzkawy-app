@@ -17,6 +17,7 @@ function Input({
   placeholder,
   style,
   labelStyle,
+  defaultValue,
 }) {
   return (
     <div>
@@ -30,6 +31,7 @@ function Input({
         name={title}
         placeholder={placeholder}
         value={value}
+        defaultValue={defaultValue}
         style={style}
       ></input>
     </div>

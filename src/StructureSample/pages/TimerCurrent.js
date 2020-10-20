@@ -46,7 +46,7 @@ function TimerCurrent({ tasks }) {
             </GridContainerSeffEnd>
             <Input
               type="text"
-              value="12:04"
+              defaultValue="00:00"
               style={{ width: "60px", marginLeft: "10px" }}
             />
           </Task>

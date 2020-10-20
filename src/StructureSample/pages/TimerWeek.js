@@ -44,7 +44,7 @@ function TimerTask({ task }) {
           {array.map(() => (
             <NewInput
               type="text"
-              value="12:04"
+              defaultValue="00:00"
               style={{ width: "55px", margin: "10px" }}
             />
           ))}
@@ -78,7 +78,7 @@ function TimerWeek({ tasks }) {
           {array.map(() => (
             <NewInput
               type="text"
-              value="12:04"
+              defaultValue="00:00"
               style={{ width: "55px", margin: "10px" }}
             />
           ))}
