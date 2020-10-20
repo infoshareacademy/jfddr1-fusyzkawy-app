@@ -38,7 +38,7 @@ function ProfileSettings({ user }) {
     <UserCointainer>
       <h2>Settings</h2>
       <UserPhoto>
-        <img src={user.photo} width="150" height="200"></img>
+        <img src={user.photo} width="150" height="200" alt="user"></img>
       </UserPhoto>
       <h3>Profile details</h3>
       <DetailsContainer>

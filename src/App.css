@@ -51,6 +51,8 @@
   --task-blue-light: #f1f3fc;
   --task-purple-dark: #af71d9;
   --task-purple-light: #f7eefd;
+  --task-gray-dark: #999999;
+  --task-gray-light: #dddddd;
 
   /* Clear gray palette */
   --gray-1: #111111;
@@ -130,4 +132,16 @@
   width: 15px;
   height: 21px;
   color: black;
+}
+
+.iconTask {
+  width: 22px;
+  height: 22px;
+  margin: 0 10px;
+}
+
+.iconSingle {
+  width: 20px;
+  height: 20px;
+  margin: 13px 15px 10px 28px;
 }

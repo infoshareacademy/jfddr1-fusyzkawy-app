@@ -18,6 +18,7 @@ function Input({
   style,
   labelStyle,
   defaultValue,
+  readOnly,
 }) {
   return (
     <div>
@@ -33,6 +34,7 @@ function Input({
         value={value}
         defaultValue={defaultValue}
         style={style}
+        readOnly={readOnly}
       ></input>
     </div>
   );
