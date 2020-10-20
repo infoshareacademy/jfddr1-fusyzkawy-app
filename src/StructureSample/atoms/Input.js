@@ -1,20 +1,38 @@
 //Input => place to write some text
 import React from "react";
+import styled from "styled-components";
 
-function Input({ title, type, isRequired, value, placeholder }) {
+export const NewInput = styled(Input)`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+`;
+
+function Input({
+  title,
+  type,
+  isRequired,
+  value,
+  placeholder,
+  style,
+  labelStyle,
+  readOnly,
+}) {
   return (
-    <div className="displayFlexColumn">
-      <label className="labelUserSettings" htmlFor={title}>
+    <div>
+      <label htmlFor={title} style={labelStyle}>
         {" "}
-        {title}{" "}
+        {title}
       </label>
       <input
         type={type}
         id={title}
         name={title}
         placeholder={placeholder}
-        // {isRequired ? "required" : ""}
         value={value}
+        style={style}
+        readOnly={readOnly}
       ></input>
     </div>
   );

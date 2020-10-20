@@ -1,24 +1,32 @@
-//color by tags
-//color by priority
-//data start
-
-//Name of task
-//hours range
-
-//Header: "task description" + "Mon(15th) Tue(16th) Wed(17th) ...."
-
 import React from "react";
+import styled from "styled-components";
+
+const Task = styled.div`
+  border-radius: 5px;
+  width: 200px;
+  margin: 15px;
+  padding: 5px;
+  padding-left: 15px;
+  text-align: left;
+`;
 
 function CalendarTask({ task }) {
+  const taskHeight = (task.endHour - task.startHour) * 20;
   return (
     <>
-      <div className={"calendarTask"}>
+      <Task
+        className={"calendarTask"}
+        style={{
+          height: `${taskHeight}px`,
+          borderLeft: `5px solid var(--task-${task.color}-dark)`,
+          backgroundColor: `var(--task-${task.color}-light)`,
+        }}
+      >
         <p>{task.title}</p>
         <p>
           {task.startHour}-{task.endHour}
         </p>
-        <p>{task.description}</p>
-      </div>
+      </Task>
     </>
   );
 }

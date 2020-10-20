@@ -1,7 +1,6 @@
 //Header: "task description" + "Mon(15th) Tue(16th) Wed(17th) ...."
 
 import React from "react";
-import "../styleAnia.css";
 import styled from "styled-components";
 
 const week = [
@@ -17,7 +16,7 @@ const week = [
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 15px;
+  margin: 5px;
 `;
 
 const SingleDay = styled.div`
@@ -28,7 +27,7 @@ const NameOfDay = styled.p`
 `;
 
 const Day = styled.p`
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   margin-top: 5px;
   color: var(--extra-dark-gray);
 `;
@@ -46,7 +45,7 @@ function DateHeader({ incommingDate, isDateVisible, numberOfDay }) {
   return (
     <Container>
       {weekDays.map((elem, index) => (
-        <SingleDay>
+        <SingleDay key={index}>
           <NameOfDay>{week[index]}</NameOfDay>
           {isDateVisible && <Day>{elem} th</Day>}
         </SingleDay>

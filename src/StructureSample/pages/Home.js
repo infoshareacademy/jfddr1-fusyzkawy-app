@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Calendar from "./Calendar";
+import Calendar from "./Calendar/Calendar";
 import Tasks from "./Tasks";
 import Timer from "./Timer";
 import Users from "./Users";
 import Nav from "./Nav";
 import Aside from "./Aside";
-import { allTasks, inputDate } from "../../test_variables";
+import { allTasks } from "../../test_variables";
 
 const Home = () => {
   return (
@@ -20,9 +20,9 @@ const Home = () => {
             <Users />
           </Route>
           <Route exact path="/jfddr1-fusyzkawy-app/calendar">
-            <Calendar dateCalendar={inputDate} />
+            <Calendar />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app/timer/current">
+          <Route exact path="/jfddr1-fusyzkawy-app/timer/:current">
             <Timer tasks={allTasks} />
           </Route>
           <Route exact path="/jfddr1-fusyzkawy-app/tasks">

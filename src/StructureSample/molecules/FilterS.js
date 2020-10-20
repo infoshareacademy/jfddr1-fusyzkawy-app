@@ -14,7 +14,11 @@ function FilterS() {
         srcImage={FilterIcon}
         alternateTextImage="filter icon"
       />
-      <Input classInput="filterInput" placeholder={"Wanna filter?"} />
+      <Input
+        classInput="filterInput"
+        placeholder={"Wanna filter?"}
+        style={{ width: "100%" }}
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 //Radio input
 import React from "react";
 
-function RadioInput({ categories, name }) {
+function RadioInput({ categories, name, onClickInput }) {
   return (
     <>
       {categories.map(item => (
@@ -10,7 +10,13 @@ function RadioInput({ categories, name }) {
           style={{ display: "flex", justifyContent: "space-between" }}
         >
           <label htmlFor={item}>{item}</label>
-          <input type="radio" id={item} value={item} name={name} />
+          <input
+            type="radio"
+            id={item}
+            value={item}
+            name={name}
+            onClick={onClickInput}
+          />
         </div>
       ))}
     </>
