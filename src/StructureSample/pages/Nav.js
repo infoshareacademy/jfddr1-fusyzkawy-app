@@ -16,9 +16,7 @@ const Nav = () => {
   });
 
   return (
-    <MainNavBar
-    // onKeyDown={event => event.key === "Escape" && setActiveAddTaskForm(false)}
-    >
+    <MainNavBar>
       <NavAddTaskBtn
         onClick={event => {
           event.preventDefault();
@@ -57,6 +55,7 @@ const Nav = () => {
       <AddTaskForm
         opacity={!activeAddTaskForm ? "0" : "100%"}
         pointerEvents={!activeAddTaskForm ? "none" : "initial"}
+        onAdd={value => setActiveAddTaskForm(value)}
       />
     </MainNavBar>
   );
