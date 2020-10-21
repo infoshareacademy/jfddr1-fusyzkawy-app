@@ -52,7 +52,7 @@ function TimerTask({ task, onClick }) {
             <NewInput
               key={index}
               type="text"
-              value="12:04"
+              defaultValue="00:00"
               style={{ width: "55px", margin: "10px" }}
               readOnly={true}
             />
@@ -102,7 +102,7 @@ function TimerWeek({ tasks }) {
               <NewInput
                 key={index}
                 type="text"
-                value="12:04"
+                defaultValue="00:00"
                 style={{ width: "55px", margin: "10px" }}
                 readOnly={true}
               />

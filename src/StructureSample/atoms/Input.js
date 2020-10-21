@@ -17,6 +17,7 @@ function Input({
   placeholder,
   style,
   labelStyle,
+  defaultValue,
   readOnly,
 }) {
   return (
@@ -31,6 +32,7 @@ function Input({
         name={title}
         placeholder={placeholder}
         value={value}
+        defaultValue={defaultValue}
         style={style}
         readOnly={readOnly}
       ></input>
