@@ -9,10 +9,7 @@ const StartPage = () => {
   return (
     <BrowserRouter>
       <PageWrapper>
-        <h1>Start Page</h1>
-        <nav>
-          <StartPageNav />
-        </nav>
+        <StartPageNav />
         <Switch>
           <Route path="/jfddr1-fusyzkawy-app/signin">
             <SignIn />
