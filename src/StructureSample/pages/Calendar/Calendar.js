@@ -6,6 +6,7 @@ import "./Calendar.css";
 import events from "../../../event_test";
 import styled from "styled-components";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
+import AddTaskForm from "../../molecules/AddTaskForm";
 
 const localizer = momentLocalizer(moment);
 
@@ -17,6 +18,7 @@ const Header = styled.header`
 `;
 
 export default function MyCalendar(props) {
+  const [activeAddTaskForm, setActiveAddTaskForm] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
 
@@ -48,9 +50,7 @@ export default function MyCalendar(props) {
         }}
         onSelectSlot={range => {
           //create task
-          alert(
-            `You selected: \n ${range.start.toLocaleDateString()} ${range.start.toLocaleTimeString()} - ${range.end.toLocaleDateString()} ${range.end.toLocaleTimeString()} \n In feature - you will be able to add task in such method`
-          );
+          !activeAddTaskForm && setActiveAddTaskForm(true);
         }}
         selectable={true}
       />
@@ -60,6 +60,11 @@ export default function MyCalendar(props) {
           onCancel={() => setVisibleTaskInformation(false)}
         />
       ) : null}
+      <AddTaskForm
+        opacity={!activeAddTaskForm ? "0" : "100%"}
+        pointerEvents={!activeAddTaskForm ? "none" : "initial"}
+        closeModal={value => setActiveAddTaskForm(value)}
+      />
     </div>
   );
 }
