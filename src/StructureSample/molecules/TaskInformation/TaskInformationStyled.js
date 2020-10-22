@@ -11,7 +11,7 @@ export const Background = styled.div`
 
 export const Container = styled.div`
   position: absolute;
-  top: 200px;
+  top: 25vh;
   left: 25vw;
   display: flex;
   flex-direction: column;
@@ -20,15 +20,28 @@ export const Container = styled.div`
   text-align: left;
   color: var(--gray-3);
   font-size: 1.5rem;
-  max-height: 650px;
-  //height: 70vh;
+  max-height: 500px;
+  height: 60vh;
   box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.18),
     0 9px 46px 8px rgba(0, 0, 0, 0.16), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
   width: 448px;
   align-items: stretch;
-  overflow: scroll;
+  overflow-y: scroll;
   z-index: 5;
   padding: 8px 6px;
+  /* Scrollbar */
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--sign-blue);
+    border-radius: 10px;
+  }
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--basic-blue);
+  }
 `;
 
 export const IconContainer = styled.div`

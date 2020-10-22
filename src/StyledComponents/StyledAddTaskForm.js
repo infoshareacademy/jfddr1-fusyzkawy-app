@@ -9,6 +9,7 @@ export const OuterModal = styled.div`
   top: 0;
   transition: opacity 0.2s;
   width: 100vw;
+  z-index: 7;
 `;
 
 export const FormWrapper = styled.form`
@@ -18,8 +19,9 @@ export const FormWrapper = styled.form`
   transform: translate(-50%);
   border-radius: 8px;
   padding: 20px 35px 5px 35px;
-  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
-  background-color: var(--sign-gray);
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.18),
+    0 9px 46px 8px rgba(0, 0, 0, 0.16), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  background-color: var(--basic-white);
 `;
 
 export const InnerFormWrapper = styled.div`
