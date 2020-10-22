@@ -8,6 +8,7 @@ import Users from "./Users";
 import Nav from "./Nav";
 import Aside from "./Aside";
 import { allTasks } from "../../test_variables";
+import NoMatch2 from "./NoMatch2";
 
 const Home = () => {
   return (
@@ -16,20 +17,23 @@ const Home = () => {
         <Nav />
         <Aside />
         <Switch>
-          <Route exact path="/jfddr1-fusyzkawy-app/users">
+          <Route exact path="/jfddr1-fusyzkawy-app/users/">
             <Users />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app/calendar">
+          <Route exact path="/jfddr1-fusyzkawy-app/calendar/">
             <Calendar />
           </Route>
           <Route exact path="/jfddr1-fusyzkawy-app/timer/:current">
             <Timer tasks={allTasks} />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app/tasks">
+          <Route exact path="/jfddr1-fusyzkawy-app/tasks/">
+            <Tasks />
+          </Route>
+          <Route exact path="/jfddr1-fusyzkawy-app">
             <Tasks />
           </Route>
           <Route path="/jfddr1-fusyzkawy-app/*">
-            <p>ERROR. Weź nie świruj</p>
+            <NoMatch2 />
           </Route>
         </Switch>
       </div>
