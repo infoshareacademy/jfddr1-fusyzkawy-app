@@ -13,6 +13,19 @@ const ContainerBox = styled.div`
   height: 500px;
   overflow: scroll;
   font-size: 1.5rem;
+  /* Scrollbar */
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--sign-blue);
+    border-radius: 10px;
+  }
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--basic-blue);
+  }
 `;
 
 const Task = styled.div`

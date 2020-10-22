@@ -10,9 +10,22 @@ const ContainerBox = styled.div`
   padding: 10px;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
-  height: 600px;
+  height: 500px;
   overflow: scroll;
   font-size: 1.5rem;
+  /* Scrollbar */
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--sign-blue);
+    border-radius: 10px;
+  }
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--basic-blue);
+  }
 `;
 
 const GridTemplateContainer = styled.div`
