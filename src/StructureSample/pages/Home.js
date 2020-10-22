@@ -29,7 +29,7 @@ const Home = () => {
           <Route exact path="/jfddr1-fusyzkawy-app/tasks/">
             <Tasks />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app">
+          <Route exact path="/jfddr1-fusyzkawy-app/">
             <Tasks />
           </Route>
           <Route path="/jfddr1-fusyzkawy-app/*">

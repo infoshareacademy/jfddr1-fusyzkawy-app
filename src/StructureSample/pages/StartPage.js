@@ -18,6 +18,9 @@ const StartPage = () => {
           <Route exact path="/jfddr1-fusyzkawy-app/signup/">
             <SignUp />
           </Route>
+          <Route exact path="/jfddr1-fusyzkawy-app/">
+            <SignIn />
+          </Route>
           <Route path="/jfddr1-fusyzkawy-app/*">
             <NoMatch />
           </Route>
