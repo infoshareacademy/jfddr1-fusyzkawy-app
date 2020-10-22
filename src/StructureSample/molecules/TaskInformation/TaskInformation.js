@@ -145,14 +145,14 @@ function TaskInformation({ task, onCancel }) {
           </TaskProperties>
         )}
 
-        {task.discription && (
+        {task.description && (
           <TaskProperties>
             <Image
               classImage="iconSingle"
               srcImage={DescriptionIcon}
               alternateTextImage="description"
             />
-            <p style={generalStyle}>{task.discription}</p>
+            <p style={generalStyle}>{task.description}</p>
           </TaskProperties>
         )}
       </Container>

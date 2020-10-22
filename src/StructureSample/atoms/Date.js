@@ -26,8 +26,6 @@ const year = [
 ];
 
 function Date({ start, end }) {
-  console.log(start);
-  console.log(end);
   return (
     <>
       {start.toLocaleDateString() === end.toLocaleDateString() ? (
