@@ -33,7 +33,8 @@ const Day = styled.p`
 `;
 
 function DateHeader({ incommingDate, isDateVisible, numberOfDay }) {
-  const date = new Date(incommingDate);
+  // const date = new Date(incommingDate);
+  const date = new Date();
   const modifier = (date.getDay() + 6) % 7;
   const currentDay = date.getDate() - modifier;
 
