@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import NoMatch from "./NoMatch";
 import StartPageNav from "./StartPageNav";
 import { PageWrapper } from "../../StyledComponents/StyledStartPage";
 
@@ -11,14 +12,14 @@ const StartPage = () => {
       <PageWrapper>
         <StartPageNav />
         <Switch>
-          <Route path="/jfddr1-fusyzkawy-app/signin">
+          <Route exact path="/jfddr1-fusyzkawy-app/signin/">
             <SignIn />
           </Route>
-          <Route path="/jfddr1-fusyzkawy-app/signup">
+          <Route exact path="/jfddr1-fusyzkawy-app/signup/">
             <SignUp />
           </Route>
-          <Route path="/jfddr1-fusyzkawy-app/">
-            <p>ERROR. Weź nie świruj</p>
+          <Route path="/jfddr1-fusyzkawy-app/*">
+            <NoMatch />
           </Route>
         </Switch>
       </PageWrapper>

@@ -24,25 +24,25 @@ const Nav = () => {
       <LinksWrapper>
         <MainNavLink
           activeClassName="activeMainNavLink"
-          to="/jfddr1-fusyzkawy-app/tasks"
+          to="/jfddr1-fusyzkawy-app/tasks/"
         >
           Tasks
         </MainNavLink>
         <MainNavLink
           activeClassName="activeMainNavLink"
-          to="/jfddr1-fusyzkawy-app/timer/current"
+          to="/jfddr1-fusyzkawy-app/timer/current/"
         >
           Timer
         </MainNavLink>
         <MainNavLink
           activeClassName="activeMainNavLink"
-          to="/jfddr1-fusyzkawy-app/calendar"
+          to="/jfddr1-fusyzkawy-app/calendar/"
         >
           Calendar
         </MainNavLink>
         <MainNavLink
           activeClassName="activeMainNavLink"
-          to="/jfddr1-fusyzkawy-app/users"
+          to="/jfddr1-fusyzkawy-app/users/"
         >
           Users
         </MainNavLink>
