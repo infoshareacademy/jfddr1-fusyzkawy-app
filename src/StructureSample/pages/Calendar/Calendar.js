@@ -23,6 +23,12 @@ export default function MyCalendar(props) {
   const [activeAddTaskForm, setActiveAddTaskForm] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
+  const [taskDate, setTaskDate] = useState({
+    startTime: "",
+    startDate: "",
+    endTime: "",
+    endDate: "",
+  });
 
   function handlerSelectEvent(event) {
     setCurrentTask(event);
@@ -37,14 +43,18 @@ export default function MyCalendar(props) {
             elem.start = new Date(
               ...elem.start.split(" ").map(elem => parseInt(elem))
             );
+            elem.start.setMonth(elem.start.getMonth() - 1);
             elem.end = new Date(
               ...elem.end.split(" ").map(elem => parseInt(elem))
             );
+            elem.end.setMonth(elem.end.getMonth() - 1);
           }
           return elem;
         })
       );
   }, [userTasks]);
+
+  useEffect(() => {}, [taskDate]);
 
   return (
     <div className="mainHome">
@@ -68,7 +78,39 @@ export default function MyCalendar(props) {
           return true;
         }}
         onSelectSlot={range => {
-          //create task
+          {
+            console.log(range.start);
+          }
+          {
+            console.log(
+              range.end.toLocaleTimeString("PL-PL", {
+                hour: "numeric",
+                minute: "numeric",
+              })
+            );
+          }
+          setTaskDate({
+            startTime: range.start.toLocaleTimeString("PL-PL", {
+              hour: "numeric",
+              minute: "numeric",
+            }),
+            startDate: `${range.start.getFullYear()}-${
+              range.start.getMonth() + 1
+            }-${range.start.getDate()}`,
+            endTime:
+              range.end.toLocaleTimeString("PL-PL", {
+                hour: "numeric",
+                minute: "numeric",
+              }) === "00:00"
+                ? "24:00"
+                : range.end.toLocaleTimeString("PL-PL", {
+                    hour: "numeric",
+                    minute: "numeric",
+                  }),
+            endDate: `${range.end.getFullYear()}-${
+              range.end.getMonth() + 1
+            }-${range.end.getDate()}`,
+          });
           !activeAddTaskForm && setActiveAddTaskForm(true);
         }}
         selectable={true}
@@ -79,11 +121,18 @@ export default function MyCalendar(props) {
           onCancel={() => setVisibleTaskInformation(false)}
         />
       ) : null}
-      <AddTaskForm
-        opacity={!activeAddTaskForm ? "0" : "100%"}
-        pointerEvents={!activeAddTaskForm ? "none" : "initial"}
-        closeModal={value => setActiveAddTaskForm(value)}
-      />
+
+      {activeAddTaskForm === true ? (
+        <AddTaskForm
+          opacity={!activeAddTaskForm ? "0" : "100%"}
+          pointerEvents={!activeAddTaskForm ? "none" : "initial"}
+          closeModal={value => setActiveAddTaskForm(value)}
+          initStartData={taskDate.startDate}
+          initStartTime={taskDate.startTime}
+          initEndData={taskDate.endDate}
+          initEndTime={taskDate.endTime}
+        />
+      ) : null}
     </div>
   );
 }
