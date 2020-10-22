@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Calendar from "./Calendar/Calendar";
 import Tasks from "./Tasks";
-import Timer from "./Timer";
+import Timer from "./Timer/Timer";
 import Users from "./Users";
 import Nav from "./Nav";
 import Aside from "./Aside";
