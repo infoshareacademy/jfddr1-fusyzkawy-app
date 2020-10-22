@@ -6,14 +6,14 @@ export const UserData = createContext();
 // Single Task's Data
 
 // const Task = {
-//   title: "title",
-//   type: "type",
-//   description: "description",
-//   date: "date",
-//   start: "start",
-//   end: "end",
-//   duration: "duration",
-//   status: "status",
+// title: "",
+// type: "",
+// description: "",
+// start: "",
+// end: "",
+// status: "",
+// priority: "",
+// project: "",
 // };
 
 const UserDataProvider = ({ children }) => {
