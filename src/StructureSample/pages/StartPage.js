@@ -12,10 +12,10 @@ const StartPage = () => {
       <PageWrapper>
         <StartPageNav />
         <Switch>
-          <Route exact path="/jfddr1-fusyzkawy-app/signin">
+          <Route exact path="/jfddr1-fusyzkawy-app/signin/">
             <SignIn />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app/signup">
+          <Route exact path="/jfddr1-fusyzkawy-app/signup/">
             <SignUp />
           </Route>
           <Route path="/jfddr1-fusyzkawy-app/*">
