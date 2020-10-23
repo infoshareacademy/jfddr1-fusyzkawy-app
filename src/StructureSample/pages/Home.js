@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
 import Calendar from "./Calendar/Calendar";
 import Tasks from "./Tasks";
 import Timer from "./Timer/Timer";
@@ -9,8 +8,11 @@ import Nav from "./Nav";
 import Aside from "./Aside";
 import { allTasks } from "../../test_variables";
 import NoMatch2 from "./NoMatch2";
+import { UserData } from "../../contexts/UserData";
+import ToastFirebase from "../molecules/ToastFirebase/ToastFirebase";
 
 const Home = () => {
+  const { toastData } = useContext(UserData);
   return (
     <BrowserRouter>
       <div className="home">
@@ -36,6 +38,12 @@ const Home = () => {
             <NoMatch2 />
           </Route>
         </Switch>
+        <ToastFirebase
+          active={toastData.active}
+          show={toastData.show}
+          text={toastData.text}
+          success={toastData.success}
+        />
       </div>
     </BrowserRouter>
   );
