@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileSettings from "../molecules/ProfileSettings";
+import ProfileSettings from "../molecules/ProfileSettings/ProfileSettings";
 
 const user1 = {
   dateOfBirth: "1990-10-15",
