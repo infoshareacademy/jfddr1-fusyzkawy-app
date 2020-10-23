@@ -1,6 +1,5 @@
 import { Rnd } from "react-rnd";
-import React, { useRef, useState } from "react";
-//import { useContext } from "react";
+import React, { useRef, useState, useContext } from "react";
 //Icon
 import EditIcon from "../../../img/EditIcon.svg";
 import RemoveIcon from "../../../img/RemoveIcon.svg";
@@ -18,7 +17,7 @@ import HomeIcon from "../../../img/HomeIcon.svg";
 import PersonalIcon from "../../../img/PersonalIcon.svg";
 import ProjectIcon from "../../../img/ProjectIcon.svg";
 import TypeIcon from "../../../img/TypeIcon.svg";
-// import { UserData } from "../../../contexts/UserData";
+import { UserData } from "../../../contexts/UserData";
 //Components
 import RadioInput from "../../atoms/RadioInput";
 import Date from "../../atoms/Date";
@@ -39,8 +38,7 @@ import {
 const options = ["New task", "In progres", "Completed", "On hold", "Cancelled"];
 
 function TaskInformation({ task, onCancel }) {
-  //  const { userUid } = useContext(UserData);
-  // const { deleteTask } = useContext(UserData);
+  const { userUid, deleteTask } = useContext(UserData);
   const [viewDeleteWarnig, setViewDeleteWarning] = useState(false);
   const [status, setStatus] = useState(task.status);
   const [viewStatusOption, setViewStatusOption] = useState(false);
@@ -54,7 +52,7 @@ function TaskInformation({ task, onCancel }) {
   }
 
   function handlerRemove(taskId) {
-    // deleteTask(taskId, userUid);
+    deleteTask(taskId, userUid);
     onCancel();
   }
 
@@ -97,7 +95,7 @@ function TaskInformation({ task, onCancel }) {
           {viewDeleteWarnig === true ? (
             <Warning>
               <p>Are you sure you want to delete the task?</p>
-              <button onClick={() => handlerRemove(task.doc)}>Yes</button>
+              <button onClick={() => handlerRemove(task.id)}>Yes</button>
               <button onClick={() => setViewDeleteWarning(false)}>No</button>
             </Warning>
           ) : null}
