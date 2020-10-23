@@ -1,30 +1,34 @@
 import firebase from "../config/config";
 
-export const authSignUp = (email, password) => {
+export const authSignUp = (email, password, displayToast) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then(cred => {
-      console.log(cred.user.uid);
+    .then(response => {
+      displayToast("Registration Successful!", true);
     })
-    .catch(err => console.log(err.message));
+    .catch(response => {
+      displayToast(response.message, false);
+    });
 };
 
-export const authSignIn = (email, password) => {
+export const authSignIn = (email, password, displayToast) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(cred => {
-      console.log(cred.user.uid);
+    .then(response => {
+      displayToast("Logged In Successful!", true);
     })
-    .catch(err => console.log(err.message));
+    .catch(response => {
+      displayToast(response.message, false);
+    });
 };
 
-export const authSignOut = () => {
+export const authSignOut = displayToast => {
   firebase
     .auth()
     .signOut()
-    .then(() => {
-      console.log("Log out");
+    .then(response => {
+      displayToast("Logged Out Successful!", true);
     });
 };

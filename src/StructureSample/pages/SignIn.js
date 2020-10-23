@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   SignWrapper,
   SignTitle,
@@ -8,6 +8,7 @@ import {
   StyledLink,
 } from "../../StyledComponents/StyledSign";
 import { authSignIn } from "../../Firebase/auth/Auth";
+import { UserData } from "../../contexts/UserData";
 
 const SignIn = () => {
   const emptyUserData = {
@@ -15,14 +16,17 @@ const SignIn = () => {
     password: "",
   };
   const [userData, setUserData] = useState(emptyUserData);
-
+  const { displayToast, userUid, clearToast } = useContext(UserData);
   const handleChange = event => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
   const handleSubmit = event => {
     event.preventDefault();
-    authSignIn(userData.email, userData.password);
-    setUserData(emptyUserData);
+    clearToast();
+    authSignIn(userData.email, userData.password, displayToast);
+    if (userUid) {
+      setUserData(emptyUserData);
+    }
   };
   return (
     <SignWrapper onSubmit={event => handleSubmit(event)}>
@@ -44,7 +48,7 @@ const SignIn = () => {
       <SignButton type="submit">sign in</SignButton>
       <SignFooter>
         <p>Don't have an account yet?</p>
-        <StyledLink to="/signup">sign up</StyledLink>
+        <StyledLink to="/jfddr1-fusyzkawy-app/signup/">sign up</StyledLink>
       </SignFooter>
     </SignWrapper>
   );
