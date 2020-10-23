@@ -20,7 +20,6 @@ import TypeIcon from "../../../img/TypeIcon.svg";
 // import { UserData } from "../../../contexts/UserData";
 //Components
 import RadioInput from "../../atoms/RadioInput";
-import { options } from "../../../test_variables";
 import Date from "../../atoms/Date";
 import Image from "../../atoms/Image";
 import {
@@ -35,6 +34,8 @@ import {
   Tag,
   Warning,
 } from "./TaskInformationStyled";
+
+const options = ["New task", "In progres", "Completed", "On hold", "Cancelled"];
 
 function TaskInformation({ task, onCancel }) {
   //  const { userUid } = useContext(UserData);
@@ -148,7 +149,6 @@ function TaskInformation({ task, onCancel }) {
               height="50"
               title="Creator"
               alt="creator"
-              title="creator"
             />
           </Photo>
           <Photo>
@@ -157,7 +157,6 @@ function TaskInformation({ task, onCancel }) {
               height="50"
               title="Assign"
               alt="assign"
-              title="assign"
             />
           </Photo>
         </PhotoContainer>

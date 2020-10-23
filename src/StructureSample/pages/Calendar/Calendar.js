@@ -54,8 +54,6 @@ export default function MyCalendar(props) {
       );
   }, [userTasks]);
 
-  useEffect(() => {}, [taskDate]);
-
   return (
     <div className="mainHome">
       <Header>
@@ -78,17 +76,6 @@ export default function MyCalendar(props) {
           return true;
         }}
         onSelectSlot={range => {
-          {
-            console.log(range.start);
-          }
-          {
-            console.log(
-              range.end.toLocaleTimeString("PL-PL", {
-                hour: "numeric",
-                minute: "numeric",
-              })
-            );
-          }
           setTaskDate({
             startTime: range.start.toLocaleTimeString("PL-PL", {
               hour: "numeric",
