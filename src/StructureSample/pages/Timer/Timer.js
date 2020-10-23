@@ -30,8 +30,6 @@ function Timer() {
       );
   }, [userTasks]);
 
-  console.log(userTasks);
-  console.log(reformattedData);
   return (
     <div className="mainHome">
       <Header>
