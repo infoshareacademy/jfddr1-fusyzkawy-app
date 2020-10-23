@@ -88,3 +88,16 @@ export const TagsContainer = styled.ul`
 export const Tag = styled.li`
   padding: 0 5px;
 `;
+
+export const Warning = styled.div`
+  // position: absolute;
+  // top: 42px;
+  // left: 10px;
+  //border: 1px solid var(--task-red-dark);
+  background: var(--task-red-light);
+  border-radius: 10px;
+  width: 95%;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+`;
