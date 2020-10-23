@@ -1,3 +1,4 @@
+import { Rnd } from "react-rnd";
 import React, { useRef, useState } from "react";
 //import { useContext } from "react";
 //Icon
@@ -62,172 +63,181 @@ function TaskInformation({ task, onCancel }) {
       ref={backgroundEl} // set backgroundEl on <Background>
       onClick={event => event.target === backgroundEl.current && onCancel()}
     >
-      <Container>
-        <IconContainer>
-          <Image
-            classImage="iconTask"
-            srcImage={EditIcon}
-            alternateTextImage="edit"
-            title="edit"
-          />
-          <Image
-            classImage="iconTask"
-            srcImage={RemoveIcon}
-            alternateTextImage="remove"
-            title="remove"
-            onClick={() => setViewDeleteWarning(true)}
-          />
-          <Image
-            classImage="iconTask"
-            srcImage={CancelIcon}
-            alternateTextImage="cancel"
-            title="cancel"
-            onClick={onCancel}
-          />
-        </IconContainer>
-        {viewDeleteWarnig === true ? (
-          <Warning>
-            <p>Are you sure you want to delete the task?</p>
-            <button onClick={() => handlerRemove(task.doc)}>Yes</button>
-            <button onClick={() => setViewDeleteWarning(false)}>No</button>
-          </Warning>
-        ) : null}
-        <TaskHeader>
-          <Image
-            classImage="iconSingle"
-            srcImage={TickIcon}
-            alternateTextImage="task"
-            title="title"
-          />
-          <h2 style={generalStyle}>{task.title}</h2>
-        </TaskHeader>
-        <TaskProperties>
-          <Image
-            classImage="iconSingle"
-            srcImage={ClockIcon}
-            alternateTextImage="time"
-            title="time"
-          />
-          {task.start && task.end ? (
-            <p style={generalStyle}>
-              <Date start={task.start} end={task.end} />
-            </p>
-          ) : (
-            "--:--"
-          )}
-        </TaskProperties>
-        <TaskProperties>
-          <Image
-            classImage="iconSingle"
-            srcImage={StatusIcon}
-            alternateTextImage="status"
-            title="status"
-          />
-          <div style={generalStyle}>
-            <button onClick={() => setViewStatusOption(true)}>
-              {status || options[0]}
-            </button>
-            {viewStatusOption === true ? (
-              <RadioInput
-                categories={options}
-                name="status"
-                onClickInput={handlerOnClick}
-              />
-            ) : null}
-          </div>
-        </TaskProperties>
-        <PhotoContainer>
-          <Image
-            classImage="iconSingle"
-            srcImage={UserIcon2}
-            alternateTextImage="users"
-            title="users"
-          />
-          <Photo>
-            <img
-              src={task.imgCreator || UserIcon3}
-              height="50"
-              title="Creator"
-              alt="creator"
+      <Rnd
+        default={{
+          x: 270,
+          y: 200,
+          width: 380,
+          height: 520,
+        }}
+      >
+        <Container>
+          <IconContainer>
+            <Image
+              classImage="iconTask"
+              srcImage={EditIcon}
+              alternateTextImage="edit"
+              title="edit"
             />
-          </Photo>
-          <Photo>
-            <img
-              src={task.imgAssign || UserIcon3}
-              height="50"
-              title="Assign"
-              alt="assign"
+            <Image
+              classImage="iconTask"
+              srcImage={RemoveIcon}
+              alternateTextImage="remove"
+              title="remove"
+              onClick={() => setViewDeleteWarning(true)}
             />
-          </Photo>
-        </PhotoContainer>
-        <TaskProperties>
-          <Image
-            classImage="iconSingle"
-            srcImage={PriorityIcon}
-            alternateTextImage="priority"
-            title="priority"
-          />
-          <p style={generalStyle}>{task.priority || <i>no priority</i>}</p>
-        </TaskProperties>
-        <TaskProperties>
-          <Image
-            classImage="iconSingle"
-            srcImage={
-              task.type === "Work"
-                ? WorkIcon
-                : task.type === "Home"
-                ? HomeIcon
-                : task.type === "Personal"
-                ? PersonalIcon
-                : TypeIcon
-            }
-            alternateTextImage="type"
-            title="type"
-          />
-          <p style={generalStyle}>{task.type || <i>no type</i>}</p>
-        </TaskProperties>
-        <TaskProperties>
-          <Image
-            classImage="iconSingle"
-            srcImage={TagIcon}
-            alternateTextImage="tags"
-            title="tags"
-          />
-          <TagsContainer>
-            {tags ? (
-              tags.map(elem => (
-                <Tag key={elem} href="">
-                  {elem}
-                </Tag>
-              ))
+            <Image
+              classImage="iconTask"
+              srcImage={CancelIcon}
+              alternateTextImage="cancel"
+              title="cancel"
+              onClick={onCancel}
+            />
+          </IconContainer>
+          {viewDeleteWarnig === true ? (
+            <Warning>
+              <p>Are you sure you want to delete the task?</p>
+              <button onClick={() => handlerRemove(task.doc)}>Yes</button>
+              <button onClick={() => setViewDeleteWarning(false)}>No</button>
+            </Warning>
+          ) : null}
+          <TaskHeader>
+            <Image
+              classImage="iconSingle"
+              srcImage={TickIcon}
+              alternateTextImage="task"
+              title="title"
+            />
+            <h2 style={generalStyle}>{task.title}</h2>
+          </TaskHeader>
+          <TaskProperties>
+            <Image
+              classImage="iconSingle"
+              srcImage={ClockIcon}
+              alternateTextImage="time"
+              title="time"
+            />
+            {task.start && task.end ? (
+              <p style={generalStyle}>
+                <Date start={task.start} end={task.end} />
+              </p>
             ) : (
-              <Tag>
-                <i>no tags</i>
-              </Tag>
+              "--:--"
             )}
-          </TagsContainer>
-        </TaskProperties>
-        <TaskProperties>
-          <Image
-            classImage="iconSingle"
-            srcImage={DescriptionIcon}
-            alternateTextImage="description"
-            title="description"
-          />
-          <p style={generalStyle}>
-            {task.description || <i>no description</i>}
-          </p>
-        </TaskProperties>
-        <TaskProperties>
-          <Image
-            classImage="iconSingle"
-            srcImage={ProjectIcon}
-            alternateTextImage="project"
-            title="project"
-          />
-          <p style={generalStyle}>{task.project || <i>no project</i>}</p>
-        </TaskProperties>
-      </Container>
+          </TaskProperties>
+          <TaskProperties>
+            <Image
+              classImage="iconSingle"
+              srcImage={StatusIcon}
+              alternateTextImage="status"
+              title="status"
+            />
+            <div style={generalStyle}>
+              <button onClick={() => setViewStatusOption(true)}>
+                {status || options[0]}
+              </button>
+              {viewStatusOption === true ? (
+                <RadioInput
+                  categories={options}
+                  name="status"
+                  onClickInput={handlerOnClick}
+                />
+              ) : null}
+            </div>
+          </TaskProperties>
+          <PhotoContainer>
+            <Image
+              classImage="iconSingle"
+              srcImage={UserIcon2}
+              alternateTextImage="users"
+              title="users"
+            />
+            <Photo>
+              <img
+                src={task.imgCreator || UserIcon3}
+                height="50"
+                title="Creator"
+                alt="creator"
+              />
+            </Photo>
+            <Photo>
+              <img
+                src={task.imgAssign || UserIcon3}
+                height="50"
+                title="Assign"
+                alt="assign"
+              />
+            </Photo>
+          </PhotoContainer>
+          <TaskProperties>
+            <Image
+              classImage="iconSingle"
+              srcImage={PriorityIcon}
+              alternateTextImage="priority"
+              title="priority"
+            />
+            <p style={generalStyle}>{task.priority || <i>no priority</i>}</p>
+          </TaskProperties>
+          <TaskProperties>
+            <Image
+              classImage="iconSingle"
+              srcImage={
+                task.type === "Work"
+                  ? WorkIcon
+                  : task.type === "Home"
+                  ? HomeIcon
+                  : task.type === "Personal"
+                  ? PersonalIcon
+                  : TypeIcon
+              }
+              alternateTextImage="type"
+              title="type"
+            />
+            <p style={generalStyle}>{task.type || <i>no type</i>}</p>
+          </TaskProperties>
+          <TaskProperties>
+            <Image
+              classImage="iconSingle"
+              srcImage={TagIcon}
+              alternateTextImage="tags"
+              title="tags"
+            />
+            <TagsContainer>
+              {tags ? (
+                tags.map(elem => (
+                  <Tag key={elem} href="">
+                    {elem}
+                  </Tag>
+                ))
+              ) : (
+                <Tag>
+                  <i>no tags</i>
+                </Tag>
+              )}
+            </TagsContainer>
+          </TaskProperties>
+          <TaskProperties>
+            <Image
+              classImage="iconSingle"
+              srcImage={DescriptionIcon}
+              alternateTextImage="description"
+              title="description"
+            />
+            <p style={generalStyle}>
+              {task.description || <i>no description</i>}
+            </p>
+          </TaskProperties>
+          <TaskProperties>
+            <Image
+              classImage="iconSingle"
+              srcImage={ProjectIcon}
+              alternateTextImage="project"
+              title="project"
+            />
+            <p style={generalStyle}>{task.project || <i>no project</i>}</p>
+          </TaskProperties>
+        </Container>
+      </Rnd>
     </Background>
   );
 }
