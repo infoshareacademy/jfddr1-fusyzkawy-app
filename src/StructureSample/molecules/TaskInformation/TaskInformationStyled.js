@@ -10,9 +10,6 @@ export const Background = styled.div`
 `;
 
 export const Container = styled.div`
-  position: absolute;
-  top: 25vh;
-  left: 25vw;
   display: flex;
   flex-direction: column;
   border-radius: 4px;
@@ -20,11 +17,10 @@ export const Container = styled.div`
   text-align: left;
   color: var(--gray-3);
   font-size: 1.5rem;
-  max-height: 500px;
-  height: 60vh;
+  height: 100%;
+  width: 100%;
   box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.18),
     0 9px 46px 8px rgba(0, 0, 0, 0.16), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
-  width: 448px;
   align-items: stretch;
   overflow-y: scroll;
   z-index: 5;

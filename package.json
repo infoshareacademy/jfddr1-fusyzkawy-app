@@ -12,6 +12,7 @@
     "react": "^16.13.1",
     "react-big-calendar": "^0.28.1",
     "react-dom": "^16.13.1",
+    "react-rnd": "^10.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "styled-components": "^5.2.0"
