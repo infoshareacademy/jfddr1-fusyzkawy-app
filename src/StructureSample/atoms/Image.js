@@ -1,6 +1,12 @@
 import React from "react";
 
-const Image = ({ classImage, srcImage, alternateTextImage, onClick }) => {
+const Image = ({
+  classImage,
+  srcImage,
+  alternateTextImage,
+  title,
+  onClick,
+}) => {
   return (
     <>
       <img
@@ -8,6 +14,7 @@ const Image = ({ classImage, srcImage, alternateTextImage, onClick }) => {
         src={srcImage}
         alt={alternateTextImage}
         onClick={onClick}
+        title={title}
       />
     </>
   );
