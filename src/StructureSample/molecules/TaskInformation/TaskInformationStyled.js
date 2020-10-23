@@ -90,14 +90,14 @@ export const Tag = styled.li`
 `;
 
 export const Warning = styled.div`
-  position: absolute;
-  top: 42px;
-  left: 10px;
-
+  // position: absolute;
+  // top: 42px;
+  // left: 10px;
+  //border: 1px solid var(--task-red-dark);
   background: var(--task-red-light);
   border-radius: 10px;
   width: 95%;
   padding: 10px;
+  margin: 10px;
   text-align: center;
-  border: 1px solid var(--task-red-dark);
 `;
