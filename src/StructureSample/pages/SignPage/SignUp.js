@@ -6,31 +6,41 @@ import {
   SignButton,
   SignFooter,
   StyledLink,
-} from "../../StyledComponents/StyledSign";
-import { authSignIn } from "../../Firebase/auth/Auth";
-import { UserData } from "../../contexts/UserData";
+} from "./SignStyled";
+import { authSignUp } from "../../../Firebase/auth/Auth";
+import { UserData } from "../../../contexts/UserData";
 
-const SignIn = () => {
+const SignUp = () => {
   const emptyUserData = {
+    nick: "",
     email: "",
     password: "",
+    image: "",
   };
   const [userData, setUserData] = useState(emptyUserData);
-  const { displayToast, userUid, clearToast } = useContext(UserData);
+  const { displayToast, clearToast, userUid } = useContext(UserData);
+
   const handleChange = event => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
   const handleSubmit = event => {
     event.preventDefault();
     clearToast();
-    authSignIn(userData.email, userData.password, displayToast);
+    authSignUp(userData.email, userData.password, displayToast);
     if (userUid) {
       setUserData(emptyUserData);
     }
   };
   return (
     <SignWrapper onSubmit={event => handleSubmit(event)}>
-      <SignTitle>sign in</SignTitle>
+      <SignTitle>sign up</SignTitle>
+      <SignInput
+        type="text"
+        name="nick"
+        placeholder="nick"
+        value={userData.nick}
+        onChange={event => handleChange(event)}
+      ></SignInput>
       <SignInput
         type="text"
         name="email"
@@ -45,13 +55,22 @@ const SignIn = () => {
         value={userData.password}
         onChange={event => handleChange(event)}
       ></SignInput>
-      <SignButton type="submit">sign in</SignButton>
+      <SignInput
+        type="file"
+        name="image"
+        placeholder="image"
+        value={userData.image}
+        onChange={event => handleChange(event)}
+      ></SignInput>
+      <SignButton type="submit" name="submit">
+        sign up
+      </SignButton>
       <SignFooter>
-        <p>Don't have an account yet?</p>
-        <StyledLink to="/jfddr1-fusyzkawy-app/signup/">sign up</StyledLink>
+        <p>Already have an account yet?</p>
+        <StyledLink to="/jfddr1-fusyzkawy-app/signin/">sign in</StyledLink>
       </SignFooter>
     </SignWrapper>
   );
 };
 
-export default SignIn;
+export default SignUp;

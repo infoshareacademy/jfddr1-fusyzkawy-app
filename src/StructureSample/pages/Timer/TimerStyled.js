@@ -1,5 +1,13 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import Input from "../../atoms/Input";
+
+export const NewInput = styled(Input)`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+`;
 
 // Timer
 export const Header = styled.header`

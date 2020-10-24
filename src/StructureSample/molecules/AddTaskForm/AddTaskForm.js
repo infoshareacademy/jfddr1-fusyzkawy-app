@@ -1,5 +1,5 @@
 import React, { useRef, useState, useContext } from "react";
-import { UserData } from "../../contexts/UserData";
+import { UserData } from "../../../contexts/UserData";
 import {
   FormWrapper,
   TaskNameInput,
@@ -11,7 +11,7 @@ import {
   OptionsBtn,
   OptionsBtnArrow,
   OuterModal,
-} from "../../StyledComponents/StyledAddTaskForm";
+} from "./AddTaskFormStyled";
 
 const AddTaskForm = ({
   opacity,

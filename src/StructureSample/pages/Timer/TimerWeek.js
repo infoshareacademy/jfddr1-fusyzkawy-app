@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { NewInput } from "../../atoms/Input";
-import DateHeader from "../../atoms/DateHeader";
+import { NewInput } from "./TimerStyled";
+import DateHeader from "./DateHeader/DateHeader";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 import TimerTask from "./TimerTask";
 import {

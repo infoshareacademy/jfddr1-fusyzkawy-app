@@ -1,13 +1,4 @@
-//Input => place to write some text
 import React from "react";
-import styled from "styled-components";
-
-export const NewInput = styled(Input)`
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: 0 auto;
-`;
 
 function Input({
   title,

@@ -1,6 +1,3 @@
-//input
-//button to apply
-
 import React from "react";
 import FilterIcon from "../../img/filter-icon.svg";
 import Image from "../atoms/Image";

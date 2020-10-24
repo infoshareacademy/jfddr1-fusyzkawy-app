@@ -1,4 +1,3 @@
-//Radio input
 import React from "react";
 
 function RadioInput({ categories, name, onClickInput }) {

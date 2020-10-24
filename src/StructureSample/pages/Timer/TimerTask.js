@@ -1,5 +1,5 @@
 import React from "react";
-import { NewInput } from "../../atoms/Input";
+import { NewInput } from "./TimerStyled";
 import {
   GridTemplateContainer,
   FlexContainer,

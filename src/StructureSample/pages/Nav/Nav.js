@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import UserInformation from "../molecules/UserInformation";
+import UserInformation from "../../molecules/UserInformation";
 import {
   MainNavBar,
   NavAddTaskBtn,
   LinksWrapper,
   MainNavLink,
-} from "../../StyledComponents/StyledNav";
-import AddTaskForm from "../molecules/AddTaskForm";
+} from "./NavStyled";
+import AddTaskForm from "../../molecules/AddTaskForm/AddTaskForm";
 
 const Nav = () => {
   const [activeAddTaskForm, setActiveAddTaskForm] = useState(false);

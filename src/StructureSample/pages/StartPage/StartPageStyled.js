@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Background from "../img/background-start-page.jpg";
+import Background from "../../../img/background-start-page.jpg";
 
 export const PageWrapper = styled.div`
   position: relative;

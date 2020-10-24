@@ -4,9 +4,9 @@ import Calendar from "./Calendar/Calendar";
 import Tasks from "./Tasks";
 import Timer from "./Timer/Timer";
 import Users from "./Users";
-import Nav from "./Nav";
-import Aside from "./Aside";
-import NoMatch2 from "./NoMatch2";
+import Nav from "./Nav/Nav";
+import Aside from "./Aside/Aside";
+import NoMatch2 from "./NoMatch/NoMatch2";
 import { UserData } from "../../contexts/UserData";
 import ToastFirebase from "../molecules/ToastFirebase/ToastFirebase";
 

@@ -1,12 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const Container = styled.div`
-  border: 1px solid black;
-  text-align: left;
-  padding: 10px;
-`;
-
+import { Container } from "./CheckboxStyled";
 function Checkbox({ variables }) {
   return (
     <Container>

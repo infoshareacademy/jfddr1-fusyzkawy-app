@@ -1,6 +1,6 @@
 import React from "react";
-import { SignWrapper } from "../../StyledComponents/StyledSign";
-import StyledNoMatch from "../../StyledComponents/StyledNoMatch";
+import { SignWrapper } from "../SignPage/SignStyled";
+import StyledNoMatch from "./NoMatchStyled";
 
 const NoMatch = () => {
   return (

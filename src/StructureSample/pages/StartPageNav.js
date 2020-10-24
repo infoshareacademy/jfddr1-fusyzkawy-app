@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  NavWrapper,
-  StyledNavLink,
-} from "../../StyledComponents/StyledStartPage";
+import { NavWrapper, StyledNavLink } from "./StartPage/StartPageStyled";
 
 const StartPageNav = () => {
   return (

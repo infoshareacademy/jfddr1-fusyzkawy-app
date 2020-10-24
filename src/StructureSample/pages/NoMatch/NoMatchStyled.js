@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SignTitle } from "./StyledSign";
+import { SignTitle } from "../SignPage/SignStyled";
 
 const StyledNoMatch = styled(SignTitle)`
   text-transform: none;

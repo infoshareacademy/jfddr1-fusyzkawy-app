@@ -4,7 +4,7 @@ import moment from "moment";
 import "./Calendar.css";
 import styled from "styled-components";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
-import AddTaskForm from "../../molecules/AddTaskForm";
+import AddTaskForm from "../../molecules/AddTaskForm/AddTaskForm";
 import { UserData } from "../../../contexts/UserData";
 //import "react-big-calendar/lib/css/react-big-calendar.css";
 

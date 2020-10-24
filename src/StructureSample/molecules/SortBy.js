@@ -1,5 +1,3 @@
-//h3 -> Sort by...
-//Radio input -> options for sorting
 import React from "react";
 import RadioInput from "../atoms/RadioInput";
 

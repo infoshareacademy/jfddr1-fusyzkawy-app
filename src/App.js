@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./App.css";
 import UserDataProvider, { UserData } from "./contexts/UserData";
 import Home from "./StructureSample/pages/Home";
-import StartPage from "./StructureSample/pages/StartPage";
+import StartPage from "./StructureSample/pages/StartPage/StartPage";
 
 const AuthGuard = ({ children }) => {
   const { userUid } = useContext(UserData);

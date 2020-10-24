@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
-import NoMatch from "./NoMatch";
-import StartPageNav from "./StartPageNav";
-import { PageWrapper } from "../../StyledComponents/StyledStartPage";
-import { UserData } from "../../contexts/UserData";
-import ToastFirebase from "../molecules/ToastFirebase/ToastFirebase";
+import SignIn from "../SignPage/SignIn";
+import SignUp from "../SignPage/SignUp";
+import NoMatch from "../NoMatch/NoMatch";
+import StartPageNav from "../StartPageNav";
+import { PageWrapper } from "./StartPageStyled";
+import { UserData } from "../../../contexts/UserData";
+import ToastFirebase from "../../molecules/ToastFirebase/ToastFirebase";
 const StartPage = () => {
   const { toastData } = useContext(UserData);
   return (
