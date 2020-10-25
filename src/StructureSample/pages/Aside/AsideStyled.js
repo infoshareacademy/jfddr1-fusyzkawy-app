@@ -3,10 +3,12 @@ import styled from "styled-components";
 export const AsideStyled = styled.div`
   background-color: var(--basic-navy-blue);
   grid-area: aside;
-  background: pink;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 `;
 
 export const LogoStyled = styled.img`
   width: 80%;
-  margin-top: 20px;
+  margin: 15px 0;
 `;

@@ -77,21 +77,6 @@
 }
 
 /* Initial CSS */
-.filterContainer {
-  display: flex;
-  align-items: center;
-  margin: 5px;
-  height: 30px;
-}
-.filterIcon {
-  height: 20px;
-  /* TODO: poniższe dwie linie są potrzebne do nadpisania styli .aside img */
-  margin-top: 0 !important;
-  width: 30px !important;
-}
-.filterInput {
-  width: 200px;
-}
 .home {
   width: 100vw;
   min-height: 100vh;

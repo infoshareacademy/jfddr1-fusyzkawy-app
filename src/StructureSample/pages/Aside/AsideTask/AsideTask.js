@@ -4,27 +4,21 @@
 import React from "react";
 import { AsideTaskStyled } from "./AsideTaskStyled";
 
-const AsideTask = () => {
+const AsideTask = ({ title }) => {
   // Single Task's Data
 
   // const Task = {
-  // title: "",
-  // type: "",
-  // description: "",
-  // start: "",
-  // end: "",
-  // status: "",
-  // priority: "",
-  // project: "",
+  //   title: "",
+  //   type: "",
+  //   description: "",
+  //   start: "",
+  //   end: "",
+  //   status: "",
+  //   priority: "",
+  //   project: "",
   // };
 
-  return (
-    <AsideTaskStyled>
-      <p>This is Aside Task</p>
-      <p>This is Aside Task</p>
-      <p>This is Aside Task</p>
-    </AsideTaskStyled>
-  );
+  return <AsideTaskStyled>{title}</AsideTaskStyled>;
 };
 
 export default AsideTask;
