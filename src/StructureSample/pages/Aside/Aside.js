@@ -1,14 +1,16 @@
 import React from "react";
 import Logo from "../../../img/logo-krab_without.png";
-import FilterS from "../../molecules/FilterS";
+import { AsideStyled, LogoStyled } from "./AsideStyled";
+import AsideTaskList from "./AsideTaskList/AsideTaskList";
+import AsideTimer from "./AsideTimer/AsideTimer";
 
 const Aside = () => {
   return (
-    <div className="asideHome">
-      <img src={Logo} alt="logo" />
-      <h3>AsideNavidżejszion</h3>
-      <FilterS />
-    </div>
+    <AsideStyled>
+      <LogoStyled src={Logo} alt="logo of KRAB App" />
+      <AsideTaskList />
+      <AsideTimer />
+    </AsideStyled>
   );
 };
 
