@@ -1,6 +1,10 @@
 import React from "react";
-import FilterIcon from "../../../../img/filter-icon.svg";
-import { FilterSStyled, FilterInput, ImageStyled } from "./FilterSStyled";
+import FilterIcon from "../../../img/filter-icon.svg";
+import {
+  FilterSStyled,
+  FilterInput,
+  ImageStyled,
+} from "../FilterS/FilterSStyled";
 
 function FilterS() {
   return (
