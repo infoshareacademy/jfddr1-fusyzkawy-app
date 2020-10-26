@@ -100,12 +100,14 @@ const UserDataProvider = ({ children }) => {
       .doc(taskId)
       .delete()
       .then(() => {
+        deleteAllStagesTask(taskId, userUid);
         displayToast("Delete Task Successful!", true);
       })
       .catch(() => {
         displayToast("Delete Task Failed!", false);
       });
   };
+
   const changeTask = (taskId, userUid, changedData) => {
     clearToast();
     firebase
@@ -134,6 +136,29 @@ const UserDataProvider = ({ children }) => {
       .collection(`Users/${userUid}/StagesTasks`)
       .doc(stageId)
       .update(changedData);
+  };
+
+  const deleteStageTask = (stageId, userUid) => {
+    firebase
+      .firestore()
+      .collection(`Users/${userUid}/StagesTasks`)
+      .doc(stageId)
+      .delete();
+  };
+
+  const deleteAllStagesTask = (taskId, userUid) => {
+    const batch = firebase.firestore().batch();
+    firebase
+      .firestore()
+      .collection(`Users/${userUid}/StagesTasks`)
+      .where("taskId", "==", `${taskId}`)
+      .get()
+      .then(snapshot => {
+        snapshot.docs.forEach(doc => {
+          batch.delete(doc.ref);
+        });
+        return batch.commit();
+      });
   };
 
   const clearToast = () => {
@@ -169,6 +194,8 @@ const UserDataProvider = ({ children }) => {
     stagesTasks,
     addStageTask,
     changeStageTask,
+    deleteStageTask,
+    deleteAllStagesTask,
   };
   return <UserData.Provider value={value}>{children}</UserData.Provider>;
 };
