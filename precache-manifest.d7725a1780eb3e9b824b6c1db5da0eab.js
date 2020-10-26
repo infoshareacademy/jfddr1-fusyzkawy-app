@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8054136dd8fbe75753d425151ee3f041",
+    "revision": "91ce72bb35250280e8a7153d643d2ace",
     "url": "/jfddr1-fusyzkawy-app/index.html"
   },
   {
-    "revision": "7a70ce85a5b3cd734c95",
-    "url": "/jfddr1-fusyzkawy-app/static/css/main.26fbeab4.chunk.css"
+    "revision": "49b59a8a9a97dcaa5011",
+    "url": "/jfddr1-fusyzkawy-app/static/css/main.9a8f68bc.chunk.css"
   },
   {
-    "revision": "779d2f66c912e31d4d21",
-    "url": "/jfddr1-fusyzkawy-app/static/js/2.8c98326a.chunk.js"
+    "revision": "068bdbdddd7e0ff5135c",
+    "url": "/jfddr1-fusyzkawy-app/static/js/2.d12cbd1f.chunk.js"
   },
   {
-    "revision": "8839b4a3ab4fa3ba3d05fbbd05d8df7b",
-    "url": "/jfddr1-fusyzkawy-app/static/js/2.8c98326a.chunk.js.LICENSE.txt"
+    "revision": "56f3ef5199cbb7eec947d49fe76a0f45",
+    "url": "/jfddr1-fusyzkawy-app/static/js/2.d12cbd1f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7a70ce85a5b3cd734c95",
-    "url": "/jfddr1-fusyzkawy-app/static/js/main.4bc32ba1.chunk.js"
+    "revision": "49b59a8a9a97dcaa5011",
+    "url": "/jfddr1-fusyzkawy-app/static/js/main.24e5460b.chunk.js"
   },
   {
     "revision": "351f953f3a9310bb1fdb",
@@ -36,16 +36,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jfddr1-fusyzkawy-app/static/media/DescriptionIcon.3cb49165.svg"
   },
   {
-    "revision": "02cb9d112e665373d2fe141bf5430de4",
-    "url": "/jfddr1-fusyzkawy-app/static/media/EditIcon.02cb9d11.svg"
+    "revision": "39cf662e85fc0fe90d59506034e918cf",
+    "url": "/jfddr1-fusyzkawy-app/static/media/EditIcon.39cf662e.svg"
+  },
+  {
+    "revision": "65ac52baffabc7dedd2cb628394bbbc6",
+    "url": "/jfddr1-fusyzkawy-app/static/media/HomeIcon.65ac52ba.svg"
   },
   {
     "revision": "1c6e45aef2e59270da4bdd5de92a11c7",
     "url": "/jfddr1-fusyzkawy-app/static/media/PauseIcon.1c6e45ae.svg"
   },
   {
+    "revision": "ac1e46e7e75eef31eadd3f346a968c6d",
+    "url": "/jfddr1-fusyzkawy-app/static/media/PersonalIcon.ac1e46e7.svg"
+  },
+  {
     "revision": "a43f3e487139969c0ab32f27f35ad192",
     "url": "/jfddr1-fusyzkawy-app/static/media/PlayIcon.a43f3e48.svg"
+  },
+  {
+    "revision": "395425fd47006a380a0302be0a832410",
+    "url": "/jfddr1-fusyzkawy-app/static/media/PriorityIcon.395425fd.svg"
+  },
+  {
+    "revision": "bbabf6fdbbe282a32a7f12e413f97114",
+    "url": "/jfddr1-fusyzkawy-app/static/media/ProjectIcon.bbabf6fd.svg"
   },
   {
     "revision": "eb59c15c84374438462faf11a6790d19",
@@ -66,6 +82,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1c90aae95de77222af5d6ba8b70ae92d",
     "url": "/jfddr1-fusyzkawy-app/static/media/TickIcon.1c90aae9.svg"
+  },
+  {
+    "revision": "5e63043ae376151cdaa6304ed3b9b536",
+    "url": "/jfddr1-fusyzkawy-app/static/media/TypeIcon.5e63043a.svg"
   },
   {
     "revision": "67d935671d3a25a01b2df9d723a5b363",
