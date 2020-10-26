@@ -1,5 +1,6 @@
 import React, { useRef, useState, useContext } from "react";
 import { UserData } from "../../../contexts/UserData";
+import { addTask } from "../../../Firebase/firestore/tasksActions";
 import {
   FormWrapper,
   TaskNameInput,
@@ -22,7 +23,7 @@ const AddTaskForm = ({
   initEndData,
   initEndTime,
 }) => {
-  const { addTask, userUid } = useContext(UserData);
+  const { userUid, clearToast, displayToast } = useContext(UserData);
   const [activeMoreOptions, setActiveMoreOptions] = useState(false);
   const emptyTaskData = {
     title: "",
@@ -60,7 +61,7 @@ const AddTaskForm = ({
         .split(":")
         .join(" ")} 00`,
     };
-    addTask(newTask, userUid);
+    addTask(newTask, userUid, clearToast, displayToast);
     closeModal(false);
     setActiveMoreOptions(false);
     setTaskData(emptyTaskData);
