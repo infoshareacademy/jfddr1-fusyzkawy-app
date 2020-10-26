@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import FilterS from "../../molecules/FilterS";
+import FilterS from "../../molecules/FilterS/FilterS";
 import { Route } from "react-router-dom";
 import TimerCurrent from "./TimerCurrent";
 import TimerWeek from "./TimerWeek";
