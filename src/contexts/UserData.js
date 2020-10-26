@@ -16,9 +16,19 @@ export const UserData = createContext();
 // project: "",
 // };
 
+// Single Task's stage
+
+// const stageTask = {
+// start: "",
+// end: "",
+// taskId: "",
+// rangeId: "",
+// };
+
 const UserDataProvider = ({ children }) => {
   const [userUid, setUserUid] = useState(null);
   const [userTasks, setUserTasks] = useState([]);
+  const [stagesTasks, setStagesTasks] = useState([]);
   const [toastData, setToastData] = useState({
     active: false,
     show: false,
@@ -35,6 +45,7 @@ const UserDataProvider = ({ children }) => {
       }
     });
   }, [userUid]);
+
   useEffect(() => {
     if (userUid) {
       firebase
@@ -47,6 +58,22 @@ const UserDataProvider = ({ children }) => {
             userTasks.push({ ...task.data(), id: task.id });
           });
           setUserTasks(userTasks);
+        });
+    }
+  }, [userUid]);
+
+  useEffect(() => {
+    if (userUid) {
+      firebase
+        .firestore()
+        .collection(`Users/${userUid}/StagesTasks`)
+        .onSnapshot(stages => {
+          const stagesTasks = [];
+          setStagesTasks([]);
+          stages.forEach(stage => {
+            stagesTasks.push({ ...stage.data(), stageId: stage.id });
+          });
+          setStagesTasks(stagesTasks);
         });
     }
   }, [userUid]);
@@ -94,6 +121,13 @@ const UserDataProvider = ({ children }) => {
       });
   };
 
+  const addStageTask = (stageTime, taskId, userUid) => {
+    firebase
+      .firestore()
+      .collection(`Users/${userUid}/StagesTasks`)
+      .add({ ...stageTime, taskId });
+  };
+
   const clearToast = () => {
     setToastData({
       active: false,
@@ -124,6 +158,8 @@ const UserDataProvider = ({ children }) => {
     addTask,
     deleteTask,
     changeTask,
+    stagesTasks,
+    addStageTask,
   };
   return <UserData.Provider value={value}>{children}</UserData.Provider>;
 };
