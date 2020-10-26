@@ -48,11 +48,9 @@ const Nav = () => {
         </MainNavLink>
       </LinksWrapper>
       <UserInformation />
-      <AddTaskForm
-        opacity={!activeAddTaskForm ? "0" : "100%"}
-        pointerEvents={!activeAddTaskForm ? "none" : "initial"}
-        closeModal={value => setActiveAddTaskForm(value)}
-      />
+      {activeAddTaskForm === true ? (
+        <AddTaskForm closeModal={value => setActiveAddTaskForm(value)} />
+      ) : null}
     </MainNavBar>
   );
 };
