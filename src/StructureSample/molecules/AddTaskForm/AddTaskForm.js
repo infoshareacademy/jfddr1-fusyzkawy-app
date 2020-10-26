@@ -1,4 +1,5 @@
 import React, { useRef, useState, useContext } from "react";
+import { Rnd } from "react-rnd";
 import { UserData } from "../../../contexts/UserData";
 import {
   FormWrapper,
@@ -14,8 +15,6 @@ import {
 } from "./AddTaskFormStyled";
 
 const AddTaskForm = ({
-  opacity,
-  pointerEvents,
   closeModal,
   initStartData,
   initStartTime,
@@ -94,124 +93,128 @@ const AddTaskForm = ({
   };
 
   return (
-    <OuterModal
-      opacity={opacity}
-      pointerEvents={pointerEvents}
-      ref={outerModal}
-      onClick={outsideClick}
-    >
-      <FormWrapper onSubmit={handleSubmit}>
-        <InnerFormWrapper>
-          <InputsWrapper>
-            <TaskNameInput
-              type="text"
-              placeholder="Task Title"
-              name="title"
-              value={taskData.title}
-              onChange={handleChangeData}
-              required
-            />
-            <MoreInputsWrapper display={!activeMoreOptions ? "none" : "grid"}>
-              <Input
-                list="type"
-                placeholder="Type"
-                name="type"
-                value={taskData.type}
-                onChange={handleChangeData}
-              />
-              <datalist id="type">
-                <option value="Work" />
-                <option value="Personal" />
-                <option value="Home" />
-              </datalist>
-              <Input
+    <OuterModal ref={outerModal} onClick={outsideClick}>
+      <Rnd
+        default={{
+          x: 260,
+          y: 110,
+          width: 600,
+          height: 136,
+        }}
+      >
+        <FormWrapper onSubmit={handleSubmit}>
+          <InnerFormWrapper>
+            <InputsWrapper>
+              <TaskNameInput
                 type="text"
-                placeholder="Description"
-                name="description"
-                value={taskData.description}
+                placeholder="Task Title"
+                name="title"
+                value={taskData.title}
                 onChange={handleChangeData}
+                required
               />
-              <Input
-                type="text"
-                placeholder="Start Date"
-                onFocus={handleFocusData}
-                onBlur={handleBlur}
-                name="startDate"
-                value={taskTime.startDate}
-                onChange={handleChangeTime}
-              />
-              <Input
-                type="text"
-                placeholder="Start Time"
-                onFocus={handleFocusTime}
-                onBlur={handleBlur}
-                name="startTime"
-                value={taskTime.startTime}
-                onChange={handleChangeTime}
-              />
-              <Input
-                type="text"
-                placeholder="End Date"
-                onFocus={handleFocusData}
-                onBlur={handleBlur}
-                name="endDate"
-                value={taskTime.endDate}
-                onChange={handleChangeTime}
-              />
-              <Input
-                type="text"
-                placeholder="End Time"
-                onFocus={handleFocusTime}
-                onBlur={handleBlur}
-                name="endTime"
-                value={taskTime.endTime}
-                onChange={handleChangeTime}
-              />
-              <Input
-                list="status"
-                placeholder="Status"
-                name="status"
-                value={taskData.status}
-                onChange={handleChangeData}
-              />
-              <datalist id="status">
-                <option value="New task" />
-                <option value="In progress" />
-                <option value="Completed" />
-                <option value="On hold" />
-                <option value="Cancelled" />
-              </datalist>
-              <Input
-                list="priority"
-                placeholder="Priority"
-                name="priority"
-                value={taskData.priority}
-                onChange={handleChangeData}
-              />
-              <datalist id="priority">
-                <option value="High" />
-                <option value="Medium" />
-                <option value="Low" />
-              </datalist>
-              <Input
-                placeholder="Choose project"
-                name="project"
-                value={taskData.project}
-                onChange={handleChangeData}
-              />
-            </MoreInputsWrapper>
-          </InputsWrapper>
-          <AddTaskBtn type="submit">+</AddTaskBtn>
-        </InnerFormWrapper>
-        <OptionsBtn onClick={handleOptionsBtnClick}>
-          <p>{!activeMoreOptions ? "More options" : "Less options"}</p>
-          <OptionsBtnArrow
-            rotate={!activeMoreOptions ? "rotate(-90deg)" : "rotate(90deg)"}
-          >
-            &#x027E8;
-          </OptionsBtnArrow>
-        </OptionsBtn>
-      </FormWrapper>
+              <MoreInputsWrapper display={!activeMoreOptions ? "none" : "grid"}>
+                <Input
+                  list="type"
+                  placeholder="Type"
+                  name="type"
+                  value={taskData.type}
+                  onChange={handleChangeData}
+                />
+                <datalist id="type">
+                  <option value="Work" />
+                  <option value="Personal" />
+                  <option value="Home" />
+                </datalist>
+                <Input
+                  type="text"
+                  placeholder="Description"
+                  name="description"
+                  value={taskData.description}
+                  onChange={handleChangeData}
+                />
+                <Input
+                  type="text"
+                  placeholder="Start Date"
+                  onFocus={handleFocusData}
+                  onBlur={handleBlur}
+                  name="startDate"
+                  value={taskTime.startDate}
+                  onChange={handleChangeTime}
+                />
+                <Input
+                  type="text"
+                  placeholder="Start Time"
+                  onFocus={handleFocusTime}
+                  onBlur={handleBlur}
+                  name="startTime"
+                  value={taskTime.startTime}
+                  onChange={handleChangeTime}
+                />
+                <Input
+                  type="text"
+                  placeholder="End Date"
+                  onFocus={handleFocusData}
+                  onBlur={handleBlur}
+                  name="endDate"
+                  value={taskTime.endDate}
+                  onChange={handleChangeTime}
+                />
+                <Input
+                  type="text"
+                  placeholder="End Time"
+                  onFocus={handleFocusTime}
+                  onBlur={handleBlur}
+                  name="endTime"
+                  value={taskTime.endTime}
+                  onChange={handleChangeTime}
+                />
+                <Input
+                  list="status"
+                  placeholder="Status"
+                  name="status"
+                  value={taskData.status}
+                  onChange={handleChangeData}
+                />
+                <datalist id="status">
+                  <option value="New task" />
+                  <option value="In progress" />
+                  <option value="Completed" />
+                  <option value="On hold" />
+                  <option value="Cancelled" />
+                </datalist>
+                <Input
+                  list="priority"
+                  placeholder="Priority"
+                  name="priority"
+                  value={taskData.priority}
+                  onChange={handleChangeData}
+                />
+                <datalist id="priority">
+                  <option value="High" />
+                  <option value="Medium" />
+                  <option value="Low" />
+                </datalist>
+                <Input
+                  placeholder="Choose project"
+                  name="project"
+                  value={taskData.project}
+                  onChange={handleChangeData}
+                />
+              </MoreInputsWrapper>
+            </InputsWrapper>
+            <AddTaskBtn type="submit">+</AddTaskBtn>
+          </InnerFormWrapper>
+          <OptionsBtn onClick={handleOptionsBtnClick}>
+            <p>{!activeMoreOptions ? "More options" : "Less options"}</p>
+            <OptionsBtnArrow
+              rotate={!activeMoreOptions ? "rotate(-90deg)" : "rotate(90deg)"}
+            >
+              &#x027E8;
+            </OptionsBtnArrow>
+          </OptionsBtn>
+        </FormWrapper>
+      </Rnd>
     </OuterModal>
   );
 };

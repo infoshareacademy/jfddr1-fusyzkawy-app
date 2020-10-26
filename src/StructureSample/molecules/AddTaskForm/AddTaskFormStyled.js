@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const OuterModal = styled.div`
   height: 100vh;
   left: 0;
-  opacity: ${props => props.opacity};
-  pointer-events: ${props => props.pointerEvents};
   position: absolute;
   top: 0;
   transition: opacity 0.2s;
@@ -13,24 +11,23 @@ export const OuterModal = styled.div`
 `;
 
 export const FormWrapper = styled.form`
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%);
+  background-color: var(--basic-white);
   border-radius: 8px;
-  padding: 20px 35px 5px 35px;
   box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.18),
     0 9px 46px 8px rgba(0, 0, 0, 0.16), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
-  background-color: var(--basic-white);
+  padding: 20px 35px 5px 35px;
+  width: 100%;
 `;
 
 export const InnerFormWrapper = styled.div`
   display: flex;
   gap: 20px;
+  width: 100%;
 `;
 
 export const InputsWrapper = styled.div`
   padding-top: 15px;
+  width: 100%;
 `;
 
 export const MoreInputsWrapper = styled.div`
@@ -38,6 +35,7 @@ export const MoreInputsWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding-top: 35px;
+  width: 100%;
 `;
 
 export const Input = styled.input`
@@ -49,7 +47,7 @@ export const Input = styled.input`
   font-weight: 500;
   color: var(--sign-green);
   cursor: pointer;
-  width: 200px;
+  width: 100%;
   &:focus {
     outline: none;
     box-shadow: none;
@@ -58,7 +56,7 @@ export const Input = styled.input`
 
 export const TaskNameInput = styled(Input)`
   font-size: 2.25rem;
-  width: 420px;
+  width: 100%;
   }
 `;
 
