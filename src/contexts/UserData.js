@@ -48,7 +48,7 @@ const UserDataProvider = ({ children }) => {
 
   useEffect(() => {
     if (userUid) {
-      firebase
+      const snapUserTasks = firebase
         .firestore()
         .collection(`Users/${userUid}/Tasks`)
         .onSnapshot(tasks => {
@@ -59,12 +59,13 @@ const UserDataProvider = ({ children }) => {
           });
           setUserTasks(userTasks);
         });
+      return () => snapUserTasks();
     }
   }, [userUid]);
 
   useEffect(() => {
     if (userUid) {
-      firebase
+      const snapStagesTasks = firebase
         .firestore()
         .collection(`Users/${userUid}/StagesTasks`)
         .onSnapshot(stages => {
@@ -75,6 +76,7 @@ const UserDataProvider = ({ children }) => {
           });
           setStagesTasks(stagesTasks);
         });
+      return () => snapStagesTasks();
     }
   }, [userUid]);
 
