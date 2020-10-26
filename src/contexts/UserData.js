@@ -16,9 +16,19 @@ export const UserData = createContext();
 // project: "",
 // };
 
+// Single Task's stage
+
+// const stageTask = {
+// start: "",
+// end: "",
+// taskId: "",
+// rangeId: "",
+// };
+
 const UserDataProvider = ({ children }) => {
   const [userUid, setUserUid] = useState(null);
   const [userTasks, setUserTasks] = useState([]);
+  const [stagesTasks, setStagesTasks] = useState([]);
   const [toastData, setToastData] = useState({
     active: false,
     show: false,
@@ -35,64 +45,40 @@ const UserDataProvider = ({ children }) => {
       }
     });
   }, [userUid]);
+
   useEffect(() => {
     if (userUid) {
-      firebase
+      const snapUserTasks = firebase
         .firestore()
         .collection(`Users/${userUid}/Tasks`)
         .onSnapshot(tasks => {
           const userTasks = [];
           setUserTasks([]);
           tasks.forEach(task => {
-            userTasks.push({ ...task.data(), id: task.id });
+            userTasks.push({ ...task.data(), taskId: task.id });
           });
           setUserTasks(userTasks);
         });
+      return () => snapUserTasks();
     }
   }, [userUid]);
 
-  const addTask = (task, userUid) => {
-    clearToast();
-    firebase
-      .firestore()
-      .collection(`Users/${userUid}/Tasks`)
-      .add(task)
-      .then(response => {
-        displayToast("Add Task Successful!", true);
-      })
-      .catch(response => {
-        displayToast(response.message, false);
-      });
-  };
-
-  const deleteTask = (taskId, userUid) => {
-    clearToast();
-    firebase
-      .firestore()
-      .collection(`Users/${userUid}/Tasks`)
-      .doc(taskId)
-      .delete()
-      .then(() => {
-        displayToast("Delete Task Successful!", true);
-      })
-      .catch(() => {
-        displayToast("Delete Task Failed!", false);
-      });
-  };
-  const changeTask = (taskId, userUid, changedData) => {
-    clearToast();
-    firebase
-      .firestore()
-      .collection(`Users/${userUid}/Tasks`)
-      .doc(taskId)
-      .update(changedData)
-      .then(response => {
-        displayToast("Change Task Successful!", true);
-      })
-      .catch(response => {
-        displayToast(response.message, false);
-      });
-  };
+  useEffect(() => {
+    if (userUid) {
+      const snapStagesTasks = firebase
+        .firestore()
+        .collection(`Users/${userUid}/StagesTasks`)
+        .onSnapshot(stages => {
+          const stagesTasks = [];
+          setStagesTasks([]);
+          stages.forEach(stage => {
+            stagesTasks.push({ ...stage.data(), stageId: stage.id });
+          });
+          setStagesTasks(stagesTasks);
+        });
+      return () => snapStagesTasks();
+    }
+  }, [userUid]);
 
   const clearToast = () => {
     setToastData({
@@ -113,22 +99,16 @@ const UserDataProvider = ({ children }) => {
     });
   };
 
-  // FilterS
-  const [filteredTasks, setFilteredTasks] = useState(userTasks);
-
   const value = {
     userUid,
     setUserUid,
     userTasks,
     setUserTasks,
+    stagesTasks,
+    setStagesTasks,
     toastData,
     displayToast,
     clearToast,
-    addTask,
-    deleteTask,
-    changeTask,
-    filteredTasks,
-    setFilteredTasks,
   };
   return <UserData.Provider value={value}>{children}</UserData.Provider>;
 };

@@ -7,7 +7,7 @@ import {
   SignFooter,
   StyledLink,
 } from "./SignStyled";
-import { authSignUp } from "../../../Firebase/auth/Auth";
+import { authSignUp } from "../../../Firebase/auth/auth";
 import { UserData } from "../../../contexts/UserData";
 
 const SignUp = () => {

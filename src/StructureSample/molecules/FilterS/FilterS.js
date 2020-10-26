@@ -9,7 +9,8 @@ import {
 import { UserData } from "../../../contexts/UserData";
 
 function FilterS() {
-  const { setFilteredTasks, userTasks } = useContext(UserData);
+  const { userTasks } = useContext(UserData);
+  const [filteredTasks, setFilteredTasks] = useState(userTasks);
   const [inputValue, setInputValue] = useState("");
 
   const changeHandler = event => {

@@ -34,11 +34,12 @@ import {
   Tag,
   Warning,
 } from "./TaskInformationStyled";
+import { deleteTask } from "../../../Firebase/firestore/tasksActions";
 
 const options = ["New task", "In progres", "Completed", "On hold", "Cancelled"];
 
 function TaskInformation({ task, onCancel }) {
-  const { userUid, deleteTask } = useContext(UserData);
+  const { userUid, clearToast, displayToast } = useContext(UserData);
   const [viewDeleteWarnig, setViewDeleteWarning] = useState(false);
   const [status, setStatus] = useState(task.status);
   const [viewStatusOption, setViewStatusOption] = useState(false);
@@ -52,7 +53,7 @@ function TaskInformation({ task, onCancel }) {
   }
 
   function handlerRemove(taskId) {
-    deleteTask(taskId, userUid);
+    deleteTask(taskId, userUid, clearToast, displayToast);
     onCancel();
   }
 
