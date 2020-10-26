@@ -8,8 +8,8 @@ import {
 } from "../FilterS/FilterSStyled";
 import { UserData } from "../../../contexts/UserData";
 
-function FilterS({ tasksToFilter }) {
-  const { setFilteredTasks } = useContext(UserData);
+function FilterS() {
+  const { setFilteredTasks, userTasks } = useContext(UserData);
   const [inputValue, setInputValue] = useState("");
 
   const changeHandler = event => {
@@ -17,14 +17,15 @@ function FilterS({ tasksToFilter }) {
   };
 
   useEffect(() => {
-    setFilteredTasks(
-      tasksToFilter.filter(taskToFilter => {
-        return taskToFilter.title
-          .toLowerCase()
-          .includes(inputValue.toLowerCase());
-      })
-    );
-  }, [tasksToFilter, inputValue]);
+    userTasks !== [] &&
+      setFilteredTasks(
+        userTasks.filter(taskToFilter => {
+          return taskToFilter.title
+            .toLowerCase()
+            .includes(inputValue.toLowerCase());
+        })
+      );
+  }, [userTasks, setFilteredTasks, inputValue]);
 
   return (
     <FilterSStyled>
