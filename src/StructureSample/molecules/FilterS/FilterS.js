@@ -1,17 +1,40 @@
-import React from "react";
+// /*esliasdnt-disable*/
+import React, { useState, useEffect, useContext } from "react";
 import FilterIcon from "../../../img/filter-icon.svg";
 import {
   FilterSStyled,
   FilterInput,
   ImageStyled,
 } from "../FilterS/FilterSStyled";
+import { UserData } from "../../../contexts/UserData";
 
-function FilterS() {
+function FilterS({ tasksToFilter }) {
+  const { setFilteredTasks } = useContext(UserData);
+  const [inputValue, setInputValue] = useState("");
+
+  const changeHandler = event => {
+    setInputValue(event.target.value);
+  };
+
+  useEffect(() => {
+    setFilteredTasks(
+      tasksToFilter.filter(taskToFilter => {
+        return taskToFilter.title
+          .toLowerCase()
+          .includes(inputValue.toLowerCase());
+      })
+    );
+  }, [tasksToFilter, inputValue]);
+
   return (
     <FilterSStyled>
       <ImageStyled src={FilterIcon} alt="filter icon" />
-
-      <FilterInput type="text" placeholder={"Wanna filter?"} />
+      <FilterInput
+        type="text"
+        value={inputValue}
+        onChange={event => changeHandler(event)}
+        placeholder={"Wanna filter?"}
+      />
     </FilterSStyled>
   );
 }

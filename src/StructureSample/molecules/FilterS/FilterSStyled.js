@@ -8,6 +8,7 @@ export const FilterSStyled = styled.div`
 export const FilterInput = styled.input`
   background-color: var(--basic-light-gray);
   margin-left: 5px;
+  width: 90%;
 `;
 
 export const ImageStyled = styled.img`

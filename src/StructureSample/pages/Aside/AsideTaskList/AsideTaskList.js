@@ -5,13 +5,12 @@ import AsideTask from "../AsideTask/AsideTask";
 import FilterS from "../../../molecules/FilterS/FilterS";
 
 const AsideTaskList = () => {
-  const { userTasks } = useContext(UserData);
-  console.log(userTasks);
+  const { userTasks, filteredTasks } = useContext(UserData);
   return (
     <AsideTaskListStyled>
-      <FilterS />
-      {userTasks.map(task => (
-        <AsideTask title={task.title} />
+      <FilterS tasksToFilter={userTasks} />
+      {filteredTasks.map(task => (
+        <AsideTask key={task.id} asideTask={task} />
       ))}
     </AsideTaskListStyled>
   );

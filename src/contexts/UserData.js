@@ -113,6 +113,9 @@ const UserDataProvider = ({ children }) => {
     });
   };
 
+  // FilterS
+  const [filteredTasks, setFilteredTasks] = useState(userTasks);
+
   const value = {
     userUid,
     setUserUid,
@@ -124,6 +127,8 @@ const UserDataProvider = ({ children }) => {
     addTask,
     deleteTask,
     changeTask,
+    filteredTasks,
+    setFilteredTasks,
   };
   return <UserData.Provider value={value}>{children}</UserData.Provider>;
 };
