@@ -55,7 +55,7 @@ const UserDataProvider = ({ children }) => {
           const userTasks = [];
           setUserTasks([]);
           tasks.forEach(task => {
-            userTasks.push({ ...task.data(), id: task.id });
+            userTasks.push({ ...task.data(), taskId: task.id });
           });
           setUserTasks(userTasks);
         });
@@ -121,11 +121,19 @@ const UserDataProvider = ({ children }) => {
       });
   };
 
-  const addStageTask = (stageTime, taskId, userUid) => {
+  const addStageTask = (taskId, userUid, stageTime) => {
     firebase
       .firestore()
       .collection(`Users/${userUid}/StagesTasks`)
       .add({ ...stageTime, taskId });
+  };
+
+  const changeStageTask = (stageId, userUid, changedData) => {
+    firebase
+      .firestore()
+      .collection(`Users/${userUid}/StagesTasks`)
+      .doc(stageId)
+      .update(changedData);
   };
 
   const clearToast = () => {
@@ -160,6 +168,7 @@ const UserDataProvider = ({ children }) => {
     changeTask,
     stagesTasks,
     addStageTask,
+    changeStageTask,
   };
   return <UserData.Provider value={value}>{children}</UserData.Provider>;
 };
