@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
 
 :root {
   font-size: 10px;
-  font-family: "Lato", sans-serif;
   --aside-width: 250px;
 
   /* Basic palette */
