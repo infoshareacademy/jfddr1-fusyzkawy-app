@@ -1,4 +1,3 @@
-// /*esliasdnt-disable*/
 import React, { useState, useEffect, useContext } from "react";
 import FilterIcon from "../../../img/filter-icon.svg";
 import {
@@ -7,8 +6,9 @@ import {
   ImageStyled,
 } from "../FilterS/FilterSStyled";
 import { UserData } from "../../../contexts/UserData";
+import AsideTask from "../../pages/Aside/AsideTask/AsideTask";
 
-function FilterS() {
+function FilterS({ viewTasks }) {
   const { userTasks } = useContext(UserData);
   const [filteredTasks, setFilteredTasks] = useState(userTasks);
   const [inputValue, setInputValue] = useState("");
@@ -29,15 +29,20 @@ function FilterS() {
   }, [userTasks, setFilteredTasks, inputValue]);
 
   return (
-    <FilterSStyled>
-      <ImageStyled src={FilterIcon} alt="filter icon" />
-      <FilterInput
-        type="text"
-        value={inputValue}
-        onChange={event => changeHandler(event)}
-        placeholder={"Wanna filter?"}
-      />
-    </FilterSStyled>
+    <>
+      <FilterSStyled>
+        <ImageStyled src={FilterIcon} alt="filter icon" />
+        <FilterInput
+          type="text"
+          value={inputValue}
+          onChange={event => changeHandler(event)}
+          placeholder={"Wanna filter?"}
+        />
+      </FilterSStyled>
+
+      {viewTasks &&
+        filteredTasks.map(task => <AsideTask key={task.id} asideTask={task} />)}
+    </>
   );
 }
 
