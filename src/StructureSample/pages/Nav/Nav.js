@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserInformation from "../../molecules/UserInformation";
+import UserInformation from "../../molecules/UserInformation/UserInformation";
 import {
   MainNavBar,
   NavAddTaskBtn,
