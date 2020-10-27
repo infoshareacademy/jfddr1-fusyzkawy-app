@@ -14,6 +14,7 @@ export const UserData = createContext();
 // status: "",
 // priority: "",
 // project: "",
+// taskId: "",
 // };
 
 // Single Task's stage
@@ -25,8 +26,20 @@ export const UserData = createContext();
 // rangeId: "",
 // };
 
+// User Account Data
+
+// const accountData = {
+// name: name,
+// nick: nick,
+// dateofbirth: dateofbirth,
+// phone: phone,
+// email: email,
+// img: img,
+// };
+
 const UserDataProvider = ({ children }) => {
   const [userUid, setUserUid] = useState(null);
+  const [accountData, setAccountData] = useState({});
   const [userTasks, setUserTasks] = useState([]);
   const [stagesTasks, setStagesTasks] = useState([]);
   const [toastData, setToastData] = useState({
@@ -44,6 +57,19 @@ const UserDataProvider = ({ children }) => {
         setUserUid(null);
       }
     });
+  }, [userUid]);
+
+  useEffect(() => {
+    if (userUid) {
+      const snapAccountData = firebase
+        .firestore()
+        .collection(`Users`)
+        .doc(userUid)
+        .onSnapshot(accountData => {
+          setAccountData(accountData.data());
+        });
+      return () => snapAccountData();
+    }
   }, [userUid]);
 
   useEffect(() => {
@@ -102,6 +128,8 @@ const UserDataProvider = ({ children }) => {
   const value = {
     userUid,
     setUserUid,
+    accountData,
+    setAccountData,
     userTasks,
     setUserTasks,
     stagesTasks,
