@@ -21,13 +21,16 @@ export const ButtonStyled = styled.div`
   font-size: 3rem;
 `;
 export const MenuStyled = styled.div`
-  background: pink;
+  position: fixed;
+  top: 100px;
+  right: 0;
 `;
 export const OptionStyled = styled.p`
   background-color: var(--basic-navy-blue);
   color: var(--basic-light-gray);
   font-size: 1.5rem;
   padding: 10px;
+  border-top: 0.5px solid var(--basic-blue);
 `;
 export const OuterModal = styled.div`
   height: 100vh;

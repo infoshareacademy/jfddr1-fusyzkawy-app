@@ -19,7 +19,7 @@ import {
 } from "./ProfileSettingsStyled";
 import DefaultUserImg from "../../../img/UserIcon.svg";
 
-const ProfileSettings = () => {
+const ProfileSettings = ({ onCancel }) => {
   return (
     <Wrapper>
       <AccountContainer>
@@ -69,7 +69,7 @@ const ProfileSettings = () => {
           <AcceptButton>Save Changes</AcceptButton>
           <CancelButton>Cancel</CancelButton>
         </Footer>
-        <Exit>&#x02A2F;</Exit>
+        <Exit onClick={onCancel}>&#x02A2F;</Exit>
       </AccountContainer>
     </Wrapper>
   );
