@@ -58,7 +58,7 @@ function TaskInformation({ task, onCancel, onChange }) {
     deleteTask(task.taskId, userUid, clearToast, displayToast);
     onCancel();
   }
-
+  console.log(task.start);
   return (
     <Background
       ref={backgroundEl} // set backgroundEl on <Background>
