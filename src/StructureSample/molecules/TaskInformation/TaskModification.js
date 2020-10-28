@@ -1,5 +1,5 @@
 import { Rnd } from "react-rnd";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 //import  { useContext} from "react";
 
 //Icon
@@ -21,7 +21,6 @@ import TypeIcon from "../../../img/TypeIcon.svg";
 
 //Components
 import RadioInput from "../../atoms/RadioInput";
-import Date from "../../atoms/Date";
 import Image from "../../atoms/Image";
 import {
   Background,
@@ -32,6 +31,7 @@ import {
   Photo,
   PhotoContainer,
   Warning,
+  DateSection,
 } from "./TaskInformationStyled";
 //import { deleteTask } from "../../../Firebase/firestore/tasksActions";
 
@@ -43,6 +43,33 @@ function TaskModification({ task, onCancel }) {
   const [viewCancelWarnig, setViewCancelWarning] = useState(false);
   const backgroundEl = useRef(null); // use to close Container with Task Information by click on <Background>
   const generalStyle = { margin: "10px 5px" };
+  const [taskDate, setTaskDate] = useState({
+    startTime: "",
+    startDate: "",
+    endTime: "",
+    endDate: "",
+  });
+
+  useEffect(() => {
+    setTaskDate({
+      startTime: task.start.toLocaleTimeString("PL-PL", {
+        hour: "numeric",
+        minute: "numeric",
+      }),
+      startDate: `${task.start.getFullYear()}-${(
+        "0" +
+        (task.start.getMonth() + 1)
+      ).slice(-2)}-${("0" + task.start.getDate()).slice(-2)}`,
+      endTime: task.end.toLocaleTimeString("PL-PL", {
+        hour: "numeric",
+        minute: "numeric",
+      }),
+      endDate: `${task.end.getFullYear()}-${(
+        "0" +
+        (task.end.getMonth() + 1)
+      ).slice(-2)}-${("0" + task.end.getDate()).slice(-2)}`,
+    });
+  }, [task]);
 
   return (
     <Background
@@ -102,13 +129,42 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="time"
               title="time"
             />
-            {task.start && task.end ? (
-              <p style={generalStyle}>
-                <Date start={task.start} end={task.end} />
-              </p>
-            ) : (
-              "--:--"
-            )}
+            <div style={generalStyle}>
+              <p>Start:</p>
+              <DateSection>
+                <input
+                  type="date"
+                  id="startDate"
+                  name="startDate"
+                  value={taskDate.startDate}
+                  style={generalStyle}
+                ></input>
+                <input
+                  type="time"
+                  id="startTime"
+                  name="startTime"
+                  value={taskDate.startTime}
+                  style={generalStyle}
+                ></input>
+              </DateSection>
+              <p>End:</p>
+              <DateSection>
+                <input
+                  type="date"
+                  id="endDate"
+                  name="endDate"
+                  value={taskDate.endDate}
+                  style={generalStyle}
+                ></input>
+                <input
+                  type="time"
+                  id="endTime"
+                  name="endTime"
+                  value={taskDate.endTime}
+                  style={generalStyle}
+                ></input>
+              </DateSection>
+            </div>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -216,9 +272,8 @@ function TaskModification({ task, onCancel }) {
               name="description"
               placeholder="description"
               style={generalStyle}
-            >
-              {task.description}
-            </textarea>
+              value={task.description}
+            />
           </TaskProperties>
           <TaskProperties>
             <Image

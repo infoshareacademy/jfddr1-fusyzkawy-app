@@ -60,7 +60,7 @@ export default function MyCalendar(props) {
       })
     );
   }, [userTasks]);
-  //console.log(reformattedData);
+
   return (
     <div className="mainHome">
       <Header>

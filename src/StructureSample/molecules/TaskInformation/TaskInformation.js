@@ -59,6 +59,7 @@ function TaskInformation({ task, onCancel, onChange }) {
     onCancel();
   }
   console.log(task.start);
+  console.log(task.end);
   return (
     <Background
       ref={backgroundEl} // set backgroundEl on <Background>
