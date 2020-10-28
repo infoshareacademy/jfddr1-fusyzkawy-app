@@ -1,6 +1,5 @@
 import { Rnd } from "react-rnd";
-import React, { useRef, useState } from "react";
-//import  { useContext} from "react";
+import React, { useRef, useState, useContext, useEffect } from "react";
 
 //Icon
 import CancelIcon from "../../../img/CancelIcon.svg";
@@ -17,11 +16,10 @@ import HomeIcon from "../../../img/HomeIcon.svg";
 import PersonalIcon from "../../../img/PersonalIcon.svg";
 import ProjectIcon from "../../../img/ProjectIcon.svg";
 import TypeIcon from "../../../img/TypeIcon.svg";
-//import { UserData } from "../../../contexts/UserData";
+import { UserData } from "../../../contexts/UserData";
 
 //Components
 import RadioInput from "../../atoms/RadioInput";
-import Date from "../../atoms/Date";
 import Image from "../../atoms/Image";
 import {
   Background,
@@ -32,17 +30,82 @@ import {
   Photo,
   PhotoContainer,
   Warning,
+  DateSection,
+  Input,
+  Div,
+  Textarea,
 } from "./TaskInformationStyled";
-//import { deleteTask } from "../../../Firebase/firestore/tasksActions";
+import { changeTask } from "../../../Firebase/firestore/tasksActions";
 
 const options = ["New task", "In progres", "Completed", "On hold", "Cancelled"];
-const priorities = ["High", "Medium", "Low"];
+const priority = ["High", "Medium", "Low"];
 const type = ["Work", "Personal", "Home"];
 
-function TaskModification({ task, onCancel }) {
+function TaskModification({ task, onCancel, onApply }) {
+  const { userUid, clearToast, displayToast } = useContext(UserData);
   const [viewCancelWarnig, setViewCancelWarning] = useState(false);
   const backgroundEl = useRef(null); // use to close Container with Task Information by click on <Background>
-  const generalStyle = { margin: "10px 5px" };
+  const [changedData, setChangedData] = useState({});
+  const [taskDate, setTaskDate] = useState({
+    startTime: task.start.toLocaleTimeString("PL-PL", {
+      hour: "numeric",
+      minute: "numeric",
+    }),
+    startDate: `${task.start.getFullYear()}-${(
+      "0" +
+      (task.start.getMonth() + 1)
+    ).slice(-2)}-${("0" + task.start.getDate()).slice(-2)}`,
+    endTime: task.end.toLocaleTimeString("PL-PL", {
+      hour: "numeric",
+      minute: "numeric",
+    }),
+    endDate: `${task.end.getFullYear()}-${(
+      "0" +
+      (task.end.getMonth() + 1)
+    ).slice(-2)}-${("0" + task.end.getDate()).slice(-2)}`,
+  });
+  const [taskInformation, setTaskInformation] = useState({
+    title: task.title,
+    type: task.type,
+    description: task.description,
+    status: task.status,
+    priority: task.priority,
+    project: task.project,
+    tags: task.tags,
+  });
+
+  function handleChangeInfoTask(event) {
+    setTaskInformation({
+      ...taskInformation,
+      [event.target.name]: event.target.value,
+    });
+    setChangedData({
+      ...changedData,
+      [event.target.name]: event.target.value,
+    });
+  }
+  function handleChangeDateTask(event) {
+    setTaskDate({
+      ...taskDate,
+      [event.target.name]: event.target.value,
+    });
+  }
+  useEffect(() => {
+    setChangedData({
+      ...changedData,
+      start: `${taskDate.startDate
+        .split("-")
+        .join(" ")} ${taskDate.startTime.split(":").join(" ")} 00`,
+      end: `${taskDate.endDate.split("-").join(" ")} ${taskDate.endTime
+        .split(":")
+        .join(" ")} 00`,
+    });
+  }, [taskDate]);
+
+  function handlerApply() {
+    changeTask(task.taskId, userUid, changedData, clearToast, displayToast);
+    onCancel();
+  }
 
   return (
     <Background
@@ -62,8 +125,9 @@ function TaskModification({ task, onCancel }) {
             <Image
               classImage="iconTask"
               srcImage={TickIcon}
-              alternateTextImage="edit"
-              title="edit"
+              alternateTextImage="apply"
+              title="apply"
+              onClick={() => handlerApply()}
             />
             <Image
               classImage="iconTask"
@@ -75,9 +139,20 @@ function TaskModification({ task, onCancel }) {
           </IconContainer>
           {viewCancelWarnig === true ? (
             <Warning>
-              <p>Do you want to exit without saving changes</p>
-              <button onClick={() => onCancel()}>Yes</button>
-              <button onClick={() => setViewCancelWarning(false)}>No</button>
+              <p>Should we save your changes?</p>
+              <button onClick={() => handlerApply()}>Save</button>
+              <button
+                onClick={() => {
+                  setChangedData({});
+                  onCancel();
+                  onApply();
+                }}
+              >
+                Don't save
+              </button>
+              <button onClick={() => setViewCancelWarning(false)}>
+                Cancel
+              </button>
             </Warning>
           ) : null}
           <TaskHeader>
@@ -87,13 +162,13 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="task"
               title="title"
             />
-            <input
+            <Input
               type="text"
               id="title"
               name="title"
-              value={task.title}
-              style={generalStyle}
-            ></input>
+              value={taskInformation.title}
+              onChange={event => handleChangeInfoTask(event)}
+            />
           </TaskHeader>
           <TaskProperties>
             <Image
@@ -102,13 +177,42 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="time"
               title="time"
             />
-            {task.start && task.end ? (
-              <p style={generalStyle}>
-                <Date start={task.start} end={task.end} />
-              </p>
-            ) : (
-              "--:--"
-            )}
+            <Div>
+              <p>Start:</p>
+              <DateSection>
+                <Input
+                  type="date"
+                  id="startDate"
+                  name="startDate"
+                  value={taskDate.startDate}
+                  onChange={event => handleChangeDateTask(event)}
+                />
+                <Input
+                  type="time"
+                  id="startTime"
+                  name="startTime"
+                  value={taskDate.startTime}
+                  onChange={event => handleChangeDateTask(event)}
+                />
+              </DateSection>
+              <p>End:</p>
+              <DateSection>
+                <Input
+                  type="date"
+                  id="endDate"
+                  name="endDate"
+                  value={taskDate.endDate}
+                  onChange={event => handleChangeDateTask(event)}
+                />
+                <Input
+                  type="time"
+                  id="endTime"
+                  name="endTime"
+                  value={taskDate.endTime}
+                  onChange={event => handleChangeDateTask(event)}
+                />
+              </DateSection>
+            </Div>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -117,13 +221,14 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="status"
               title="status"
             />
-            <div style={generalStyle}>
+            <Div>
               <RadioInput
                 categories={options}
                 name="status"
-                //onClickInput={handlerOnClick}
+                onClickInput={event => handleChangeInfoTask(event)}
+                isChecked={taskInformation.status}
               />
-            </div>
+            </Div>
           </TaskProperties>
           <PhotoContainer>
             <Image
@@ -156,13 +261,14 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="priority"
               title="priority"
             />
-            <div style={generalStyle}>
+            <Div>
               <RadioInput
-                categories={priorities}
-                name="priorities"
-                //onClickInput={handlerOnClick}
+                categories={priority}
+                name="priority"
+                onClickInput={event => handleChangeInfoTask(event)}
+                isChecked={taskInformation.priority}
               />
-            </div>
+            </Div>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -179,13 +285,14 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="type"
               title="type"
             />
-            <div style={generalStyle}>
+            <Div>
               <RadioInput
                 categories={type}
                 name="type"
-                //onClickInput={handlerOnClick}
+                onClickInput={event => handleChangeInfoTask(event)}
+                isChecked={taskInformation.type}
               />
-            </div>
+            </Div>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -194,14 +301,14 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="tags"
               title="tags"
             />
-            <input
+            <Input
               type="text"
               id="tags"
               name="tags"
               placeholder="tags"
-              value={task.tags}
-              style={generalStyle}
-            ></input>
+              value={taskInformation.tags}
+              onChange={event => handleChangeInfoTask(event)}
+            />
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -210,15 +317,14 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="description"
               title="description"
             />
-            <textarea
+            <Textarea
               type="text"
               id="description"
               name="description"
               placeholder="description"
-              style={generalStyle}
-            >
-              {task.description}
-            </textarea>
+              value={taskInformation.description}
+              onChange={event => handleChangeInfoTask(event)}
+            />
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -227,14 +333,14 @@ function TaskModification({ task, onCancel }) {
               alternateTextImage="project"
               title="project"
             />
-            <input
+            <Input
               type="text"
               id="project"
               name="project"
               placeholder="project"
-              value={task.project}
-              style={generalStyle}
-            ></input>
+              value={taskInformation.project}
+              onChange={event => handleChangeInfoTask(event)}
+            />
           </TaskProperties>
         </Container>
       </Rnd>

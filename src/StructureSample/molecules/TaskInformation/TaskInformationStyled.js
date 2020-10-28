@@ -86,14 +86,35 @@ export const Tag = styled.li`
 `;
 
 export const Warning = styled.div`
-  // position: absolute;
-  // top: 42px;
-  // left: 10px;
-  //border: 1px solid var(--task-red-dark);
   background: var(--task-red-light);
   border-radius: 10px;
   width: 95%;
   padding: 10px;
   margin: 10px;
   text-align: center;
+`;
+
+export const DateSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+`;
+
+export const Input = styled.input`
+  margin: 10px 5px;
+`;
+
+export const Div = styled.div`
+  margin: 10px 5px;
+`;
+export const Textarea = styled.textarea`
+  margin: 10px 5px;
+`;
+
+export const P = styled.p`
+  margin: 10px 5px;
+`;
+export const H2 = styled.h2`
+  margin: 10px 5px;
 `;
