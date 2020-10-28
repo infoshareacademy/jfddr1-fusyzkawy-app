@@ -1,8 +1,8 @@
 import { Rnd } from "react-rnd";
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState } from "react";
+//import  { useContext} from "react";
+
 //Icon
-import EditIcon from "../../../img/EditIcon.svg";
-import RemoveIcon from "../../../img/RemoveIcon.svg";
 import CancelIcon from "../../../img/CancelIcon.svg";
 import TickIcon from "../../../img/TickIcon.svg";
 import ClockIcon from "../../../img/ClockIcon.svg";
@@ -17,9 +17,9 @@ import HomeIcon from "../../../img/HomeIcon.svg";
 import PersonalIcon from "../../../img/PersonalIcon.svg";
 import ProjectIcon from "../../../img/ProjectIcon.svg";
 import TypeIcon from "../../../img/TypeIcon.svg";
-import { UserData } from "../../../contexts/UserData";
-//Components
+//import { UserData } from "../../../contexts/UserData";
 
+//Components
 import RadioInput from "../../atoms/RadioInput";
 import Date from "../../atoms/Date";
 import Image from "../../atoms/Image";
@@ -31,33 +31,18 @@ import {
   TaskProperties,
   Photo,
   PhotoContainer,
-  TagsContainer,
-  Tag,
   Warning,
 } from "./TaskInformationStyled";
-import { deleteTask } from "../../../Firebase/firestore/tasksActions";
+//import { deleteTask } from "../../../Firebase/firestore/tasksActions";
 
 const options = ["New task", "In progres", "Completed", "On hold", "Cancelled"];
+const priorities = ["High", "Medium", "Low"];
+const type = ["Work", "Personal", "Home"];
 
-function TaskInformation({ task, onCancel, onChange }) {
-  const { userUid, clearToast, displayToast } = useContext(UserData);
-  const [viewDeleteWarnig, setViewDeleteWarning] = useState(false);
-  const [status, setStatus] = useState(task.status);
-  const [viewStatusOption, setViewStatusOption] = useState(false);
-
+function TaskModification({ task, onCancel }) {
+  const [viewCancelWarnig, setViewCancelWarning] = useState(false);
   const backgroundEl = useRef(null); // use to close Container with Task Information by click on <Background>
-  const tags = task.tags?.split(" ");
   const generalStyle = { margin: "10px 5px" };
-
-  function handlerOnClick(event) {
-    setStatus(event.target.value);
-    setViewStatusOption(false);
-  }
-
-  function handlerRemove(taskId) {
-    deleteTask(taskId, userUid, clearToast, displayToast);
-    onCancel();
-  }
 
   return (
     <Background
@@ -76,31 +61,23 @@ function TaskInformation({ task, onCancel, onChange }) {
           <IconContainer>
             <Image
               classImage="iconTask"
-              srcImage={EditIcon}
+              srcImage={TickIcon}
               alternateTextImage="edit"
               title="edit"
-              onClick={() => onChange()}
-            />
-            <Image
-              classImage="iconTask"
-              srcImage={RemoveIcon}
-              alternateTextImage="remove"
-              title="remove"
-              onClick={() => setViewDeleteWarning(true)}
             />
             <Image
               classImage="iconTask"
               srcImage={CancelIcon}
               alternateTextImage="cancel"
               title="cancel"
-              onClick={onCancel}
+              onClick={() => setViewCancelWarning(true)}
             />
           </IconContainer>
-          {viewDeleteWarnig === true ? (
+          {viewCancelWarnig === true ? (
             <Warning>
-              <p>Are you sure you want to delete the task?</p>
-              <button onClick={() => handlerRemove(task.id)}>Yes</button>
-              <button onClick={() => setViewDeleteWarning(false)}>No</button>
+              <p>Do you want to exit without saving changes</p>
+              <button onClick={() => onCancel()}>Yes</button>
+              <button onClick={() => setViewCancelWarning(false)}>No</button>
             </Warning>
           ) : null}
           <TaskHeader>
@@ -110,7 +87,13 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="task"
               title="title"
             />
-            <h2 style={generalStyle}>{task.title}</h2>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={task.title}
+              style={generalStyle}
+            ></input>
           </TaskHeader>
           <TaskProperties>
             <Image
@@ -135,16 +118,11 @@ function TaskInformation({ task, onCancel, onChange }) {
               title="status"
             />
             <div style={generalStyle}>
-              <button onClick={() => setViewStatusOption(true)}>
-                {status || options[0]}
-              </button>
-              {viewStatusOption === true ? (
-                <RadioInput
-                  categories={options}
-                  name="status"
-                  onClickInput={handlerOnClick}
-                />
-              ) : null}
+              <RadioInput
+                categories={options}
+                name="status"
+                //onClickInput={handlerOnClick}
+              />
             </div>
           </TaskProperties>
           <PhotoContainer>
@@ -178,7 +156,13 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="priority"
               title="priority"
             />
-            <p style={generalStyle}>{task.priority || <i>no priority</i>}</p>
+            <div style={generalStyle}>
+              <RadioInput
+                categories={priorities}
+                name="status"
+                //onClickInput={handlerOnClick}
+              />
+            </div>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -195,7 +179,13 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="type"
               title="type"
             />
-            <p style={generalStyle}>{task.type || <i>no type</i>}</p>
+            <div style={generalStyle}>
+              <RadioInput
+                categories={type}
+                name="status"
+                //onClickInput={handlerOnClick}
+              />
+            </div>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -204,19 +194,14 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="tags"
               title="tags"
             />
-            <TagsContainer>
-              {tags ? (
-                tags.map(elem => (
-                  <Tag key={elem} href="">
-                    {elem}
-                  </Tag>
-                ))
-              ) : (
-                <Tag>
-                  <i>no tags</i>
-                </Tag>
-              )}
-            </TagsContainer>
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              placeholder="tags"
+              value={task.tags}
+              style={generalStyle}
+            ></input>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -225,9 +210,15 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="description"
               title="description"
             />
-            <p style={generalStyle}>
-              {task.description || <i>no description</i>}
-            </p>
+            <textarea
+              type="text"
+              id="description"
+              name="description"
+              placeholder="description"
+              style={generalStyle}
+            >
+              {task.description}
+            </textarea>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -236,7 +227,14 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="project"
               title="project"
             />
-            <p style={generalStyle}>{task.project || <i>no project</i>}</p>
+            <input
+              type="text"
+              id="project"
+              name="project"
+              placeholder="project"
+              value={task.project}
+              style={generalStyle}
+            ></input>
           </TaskProperties>
         </Container>
       </Rnd>
@@ -244,4 +242,4 @@ function TaskInformation({ task, onCancel, onChange }) {
   );
 }
 
-export default TaskInformation;
+export default TaskModification;
