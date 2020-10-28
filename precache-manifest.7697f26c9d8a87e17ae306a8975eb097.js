@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9932025223f00faa711e96551c7ad80d",
+    "revision": "3704e7cf39e26ed24e006ffc9262cab9",
     "url": "/jfddr1-fusyzkawy-app/index.html"
   },
   {
-    "revision": "8786a001a94f8ff87158",
+    "revision": "c8d19fa8db31db41cd76",
     "url": "/jfddr1-fusyzkawy-app/static/css/main.69b5422f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jfddr1-fusyzkawy-app/static/js/2.8e3afa18.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8786a001a94f8ff87158",
-    "url": "/jfddr1-fusyzkawy-app/static/js/main.5285ee10.chunk.js"
+    "revision": "c8d19fa8db31db41cd76",
+    "url": "/jfddr1-fusyzkawy-app/static/js/main.44581fbe.chunk.js"
   },
   {
     "revision": "351f953f3a9310bb1fdb",
