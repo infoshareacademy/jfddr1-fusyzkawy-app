@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   UserInformationStyled,
   ImageStyled,
@@ -6,11 +6,13 @@ import {
   ButtonStyled,
   MenuStyled,
   OptionStyled,
+  OuterModal,
   HoverEffect,
 } from "./UserInformationStyled";
 import { authSignOut } from "../../../Firebase/auth/auth";
 import { UserData } from "../../../contexts/UserData";
 import ProfileSettings from "../ProfileSettings/ProfileSettings";
+import { Rnd } from "react-rnd";
 
 function UserInformation() {
   const { displayToast } = useContext(UserData);
@@ -20,6 +22,7 @@ function UserInformation() {
   const clickHandler = () => {
     setIsButtonClicked(true);
     document.addEventListener("click", closeMenu);
+    window.addEventListener("resize", closeMenu);
   };
   const clickedSettings = () => {
     setShowAccountSettings(true);
@@ -27,7 +30,28 @@ function UserInformation() {
   function closeMenu() {
     setIsButtonClicked(false);
     document.removeEventListener("click", closeMenu);
+    window.removeEventListener("resize", closeMenu);
   }
+  const [menuPoint, setMenuPoint] = useState({
+    x: window.innerWidth,
+    y: 0,
+  });
+  const [ww, setWw] = useState(0);
+  window.addEventListener("resize", () => {
+    setWw(window.innerWidth);
+  });
+
+  useEffect(() => {
+    const updateCoordinates = () => {
+      setMenuPoint({
+        x: ww,
+        y: 0,
+      });
+    };
+    return () => {
+      updateCoordinates();
+    };
+  }, [ww]);
 
   return (
     <UserInformationStyled>
@@ -40,14 +64,29 @@ function UserInformation() {
         <ButtonStyled onClick={clickHandler}>&dArr;</ButtonStyled>
       </HoverEffect>
       {isButtonClicked && (
-        <MenuStyled>
-          <HoverEffect>
-            <OptionStyled onClick={clickedSettings}>Your Account</OptionStyled>
-            <OptionStyled onClick={() => authSignOut(displayToast)}>
-              Log Out
-            </OptionStyled>
-          </HoverEffect>
-        </MenuStyled>
+        <OuterModal>
+          <Rnd
+            default={{
+              x: menuPoint.x - 150,
+              y: 100,
+              width: 150,
+              height: 136,
+            }}
+            disableDragging={true}
+            enableResizing={false}
+          >
+            <MenuStyled>
+              <HoverEffect>
+                <OptionStyled onClick={clickedSettings}>
+                  Your Account
+                </OptionStyled>
+                <OptionStyled onClick={() => authSignOut(displayToast)}>
+                  Log Out
+                </OptionStyled>
+              </HoverEffect>
+            </MenuStyled>
+          </Rnd>
+        </OuterModal>
       )}
       {showAccountSettings && <ProfileSettings />}
     </UserInformationStyled>

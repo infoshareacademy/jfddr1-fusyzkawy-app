@@ -16,7 +16,7 @@ export const PStyled = styled.p`
   color: var(--basic-light-gray);
 `;
 export const ButtonStyled = styled.div`
-  padding: 18px;
+  padding: 13px;
   color: var(--basic-light-gray);
   font-size: 3rem;
 `;
@@ -24,15 +24,27 @@ export const MenuStyled = styled.div`
   background: pink;
 `;
 export const OptionStyled = styled.p`
-  background: red;
-  font-size: 1.3rem;
+  background-color: var(--basic-navy-blue);
+  color: var(--basic-light-gray);
+  font-size: 1.5rem;
   padding: 10px;
+`;
+export const OuterModal = styled.div`
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 0.2s;
+  width: 100vw;
+  z-index: 7;
 `;
 export const HoverEffect = styled.div`
   ${ButtonStyled}:hover {
     cursor: pointer;
+    background-color: var(--basic-blue);
   }
   ${OptionStyled}:hover {
     cursor: pointer;
+    background-color: var(--basic-blue);
   }
 `;
