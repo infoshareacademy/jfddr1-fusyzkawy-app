@@ -10,24 +10,46 @@ import AsideTask from "../../pages/Aside/AsideTask/AsideTask";
 
 function FilterS({ viewTasks }) {
   const { userTasks } = useContext(UserData);
+  const [reformattedData, setReformattedData] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState(userTasks);
   const [inputValue, setInputValue] = useState("");
 
   const changeHandler = event => {
+    console.log(event.target.value);
     setInputValue(event.target.value);
   };
 
   useEffect(() => {
-    userTasks !== [] &&
+    setReformattedData(
+      userTasks.map(elem => {
+        if (typeof elem.start === "string") {
+          elem = { ...elem };
+          elem.start = new Date(
+            ...elem.start.split(" ").map(elem => parseInt(elem))
+          );
+          elem.start.setMonth(elem.start.getMonth() - 1);
+          elem.end = new Date(
+            ...elem.end.split(" ").map(elem => parseInt(elem))
+          );
+          elem.end.setMonth(elem.end.getMonth() - 1);
+        }
+        return elem;
+      })
+    );
+  }, [userTasks]);
+
+  useEffect(() => {
+    reformattedData !== [] &&
       setFilteredTasks(
-        userTasks.filter(taskToFilter => {
+        reformattedData.filter(taskToFilter => {
           return taskToFilter.title
             .toLowerCase()
             .includes(inputValue.toLowerCase());
         })
       );
-  }, [userTasks, setFilteredTasks, inputValue]);
+  }, [reformattedData, setFilteredTasks, inputValue]);
 
+  console.log(reformattedData);
   return (
     <>
       <FilterSStyled>
