@@ -159,7 +159,7 @@ function TaskModification({ task, onCancel }) {
             <div style={generalStyle}>
               <RadioInput
                 categories={priorities}
-                name="status"
+                name="priorities"
                 //onClickInput={handlerOnClick}
               />
             </div>
@@ -182,7 +182,7 @@ function TaskModification({ task, onCancel }) {
             <div style={generalStyle}>
               <RadioInput
                 categories={type}
-                name="status"
+                name="type"
                 //onClickInput={handlerOnClick}
               />
             </div>
