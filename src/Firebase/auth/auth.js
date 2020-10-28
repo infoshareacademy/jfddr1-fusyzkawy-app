@@ -1,10 +1,17 @@
 import firebase from "../config/config";
+import { addAccountData } from "../firestore/accountDataActions";
 
-export const authSignUp = (email, password, displayToast) => {
+export const authSignUp = (
+  email,
+  password,
+  initialAccountData,
+  displayToast
+) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(response => {
+      addAccountData(response.user.uid, initialAccountData);
       displayToast("Registration Successful!", true);
     })
     .catch(response => {
