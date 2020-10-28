@@ -1,69 +1,78 @@
 import React from "react";
-import Input from "../../atoms/Input";
 import {
-  UserCointainer,
-  UserPhoto,
+  Wrapper,
+  AccountContainer,
+  Title,
   DetailsContainer,
+  UserData,
+  Input,
+  Label,
+  UserPhoto,
+  TitleImg,
+  Img,
+  UploadInput,
+  RemoveButton,
+  Footer,
+  AcceptButton,
+  CancelButton,
+  Exit,
 } from "./ProfileSettingsStyled";
+import DefaultUserImg from "../../../img/UserIcon.svg";
 
-function ProfileSettings({ user }) {
-  const styleForLabel = {
-    display: "inline-block",
-    width: "120px",
-    marginLeft: "20px",
-  };
-  const styleForInput = { margin: "10px auto" };
-
+const ProfileSettings = () => {
   return (
-    <UserCointainer>
-      <h2>Settings</h2>
-      <UserPhoto>
-        <img src={user.photo} width="150" height="200" alt="user"></img>
-      </UserPhoto>
-      <h3>Profile details</h3>
-      <DetailsContainer>
-        <Input
-          title="Name: "
-          defaultValue={user.name}
-          type="text"
-          style={styleForInput}
-          labelStyle={styleForLabel}
-        />
-        <Input
-          title="Username: "
-          defaultValue={user.username}
-          type="text"
-          style={styleForInput}
-          labelStyle={styleForLabel}
-        />
-        <Input
-          title="Date of Birth:"
-          defaultValue={user.dateOfBirth}
-          type="date"
-          style={styleForInput}
-          labelStyle={styleForLabel}
-        />
-      </DetailsContainer>
-      <h3>Contact info</h3>
-      <DetailsContainer>
-        <Input
-          title="Phone:"
-          defaultValue={user.phone}
-          type="tel"
-          style={styleForInput}
-          labelStyle={styleForLabel}
-        />
-        <Input
-          title="Email: "
-          value={user.email}
-          type="email"
-          style={styleForInput}
-          labelStyle={styleForLabel}
-          readOnly={true}
-        />
-      </DetailsContainer>
-    </UserCointainer>
+    <Wrapper>
+      <AccountContainer>
+        <Title>Your Profil</Title>
+        <DetailsContainer>
+          <UserData>
+            <Label htmlFor="name">Full Name</Label>
+            <Input
+              title="name"
+              name="name"
+              type="text"
+              placeholder="Full Name"
+            />
+            <Label htmlFor="nick">Nick</Label>
+            <Input title="nick" name="nick" type="text" placeholder="Nick" />
+            <Label htmlFor="dateofbirth">Date of Birth</Label>
+            <Input title="dateofbirth" name="dateofbirth" type="date" />
+            <Label htmlFor="phone">Phone Number</Label>
+            <Input
+              title="phone"
+              name="phone"
+              type="tel"
+              placeholder="Phone Number"
+            />
+            <Label htmlFor="email">Email</Label>
+            <Input
+              title="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              readOnly
+            />
+          </UserData>
+          <UserPhoto>
+            <TitleImg>Profile Photo</TitleImg>
+            <Img src={DefaultUserImg} alt="User"></Img>
+            <UploadInput
+              title="photo"
+              name="photo"
+              type="file"
+              placeholder="Upload an Image"
+            />
+            <RemoveButton>Remove Photo</RemoveButton>
+          </UserPhoto>
+        </DetailsContainer>
+        <Footer>
+          <AcceptButton>Save Changes</AcceptButton>
+          <CancelButton>Cancel</CancelButton>
+        </Footer>
+        <Exit>&#x02A2F;</Exit>
+      </AccountContainer>
+    </Wrapper>
   );
-}
+};
 
 export default ProfileSettings;

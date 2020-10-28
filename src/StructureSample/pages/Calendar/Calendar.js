@@ -6,6 +6,7 @@ import styled from "styled-components";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 import AddTaskForm from "../../molecules/AddTaskForm/AddTaskForm";
 import { UserData } from "../../../contexts/UserData";
+import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
 //import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
@@ -23,6 +24,7 @@ export default function MyCalendar(props) {
   const [activeAddTaskForm, setActiveAddTaskForm] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
+  const [visibleTaskModification, setVisibleTaskModification] = useState(false);
   const [taskDate, setTaskDate] = useState({
     startTime: "",
     startDate: "",
@@ -34,24 +36,29 @@ export default function MyCalendar(props) {
     setCurrentTask(event);
     setVisibleTaskInformation(true);
   }
+
+  function modifyTask() {
+    setVisibleTaskInformation(false);
+    setVisibleTaskModification(true);
+  }
+
   useEffect(() => {
-    userTasks !== [] &&
-      setReformattedData(
-        userTasks.map(elem => {
-          if (typeof elem.start === "string") {
-            elem = { ...elem };
-            elem.start = new Date(
-              ...elem.start.split(" ").map(elem => parseInt(elem))
-            );
-            elem.start.setMonth(elem.start.getMonth() - 1);
-            elem.end = new Date(
-              ...elem.end.split(" ").map(elem => parseInt(elem))
-            );
-            elem.end.setMonth(elem.end.getMonth() - 1);
-          }
-          return elem;
-        })
-      );
+    setReformattedData(
+      userTasks.map(elem => {
+        if (typeof elem.start === "string") {
+          elem = { ...elem };
+          elem.start = new Date(
+            ...elem.start.split(" ").map(elem => parseInt(elem))
+          );
+          elem.start.setMonth(elem.start.getMonth() - 1);
+          elem.end = new Date(
+            ...elem.end.split(" ").map(elem => parseInt(elem))
+          );
+          elem.end.setMonth(elem.end.getMonth() - 1);
+        }
+        return elem;
+      })
+    );
   }, [userTasks]);
 
   return (
@@ -105,14 +112,19 @@ export default function MyCalendar(props) {
       {visibleTaskInformation === true ? (
         <TaskInformation
           task={currentTask}
+          onChange={modifyTask}
           onCancel={() => setVisibleTaskInformation(false)}
+        />
+      ) : null}
+      {visibleTaskModification === true ? (
+        <TaskModifacation
+          task={currentTask}
+          onCancel={() => setVisibleTaskModification(false)}
         />
       ) : null}
 
       {activeAddTaskForm === true ? (
         <AddTaskForm
-          opacity={!activeAddTaskForm ? "0" : "100%"}
-          pointerEvents={!activeAddTaskForm ? "none" : "initial"}
           closeModal={value => setActiveAddTaskForm(value)}
           initStartData={taskDate.startDate}
           initStartTime={taskDate.startTime}
