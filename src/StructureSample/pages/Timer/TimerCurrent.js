@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../../atoms/Input";
 import PlayStop from "../../molecules/PlayStop";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
+import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
 import {
   ContainerBox,
   Task,
@@ -12,10 +13,16 @@ import {
 function TimerCurrent({ tasks }) {
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
+  const [visibleTaskModification, setVisibleTaskModification] = useState(false);
 
   function handlerOnClick(task) {
     setCurrentTask(task);
     setVisibleTaskInformation(true);
+  }
+
+  function modifyTask() {
+    setVisibleTaskInformation(false);
+    setVisibleTaskModification(true);
   }
 
   return (
@@ -43,7 +50,14 @@ function TimerCurrent({ tasks }) {
       {visibleTaskInformation === true ? (
         <TaskInformation
           task={currentTask}
+          onChange={modifyTask}
           onCancel={() => setVisibleTaskInformation(false)}
+        />
+      ) : null}
+      {visibleTaskModification === true ? (
+        <TaskModifacation
+          task={currentTask}
+          onCancel={() => setVisibleTaskModification(false)}
         />
       ) : null}
     </>
