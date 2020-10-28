@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
 `;
 
 export const AccountContainer = styled.div`

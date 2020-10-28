@@ -21,7 +21,7 @@ import DefaultUserImg from "../../../img/UserIcon.svg";
 import { UserData } from "../../../contexts/UserData";
 import { changeAccountData } from "../../../Firebase/firestore/accountDataActions";
 
-const ProfileSettings = () => {
+const ProfileSettings = ({ onCancel }) => {
   const emptyUserInfo = {
     name: "",
     nick: "",
@@ -119,7 +119,7 @@ const ProfileSettings = () => {
           </AcceptButton>
           <CancelButton>Cancel</CancelButton>
         </Footer>
-        <Exit>&#x02A2F;</Exit>
+        <Exit onClick={onCancel}>&#x02A2F;</Exit>
       </AccountContainer>
     </Wrapper>
   );

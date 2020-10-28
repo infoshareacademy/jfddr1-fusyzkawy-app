@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NewInput } from "./TimerStyled";
 import DateHeader from "./DateHeader/DateHeader";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
+import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
 import TimerTask from "./TimerTask";
 import {
   ContainerBox,
@@ -15,11 +16,18 @@ const array = [0, 1, 2, 3, 4]; //create for display 5 input in each line
 function TimerWeek({ tasks }) {
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
+  const [visibleTaskModification, setVisibleTaskModification] = useState(false);
 
   function handlerOnClick(task) {
     setCurrentTask(task);
     setVisibleTaskInformation(true);
   }
+
+  function modifyTask() {
+    setVisibleTaskInformation(false);
+    setVisibleTaskModification(true);
+  }
+
   return (
     <>
       <ContainerBox>
@@ -62,7 +70,14 @@ function TimerWeek({ tasks }) {
       {visibleTaskInformation === true ? (
         <TaskInformation
           task={currentTask}
+          onChange={modifyTask}
           onCancel={() => setVisibleTaskInformation(false)}
+        />
+      ) : null}
+      {visibleTaskModification === true ? (
+        <TaskModifacation
+          task={currentTask}
+          onCancel={() => setVisibleTaskModification(false)}
         />
       ) : null}
     </>
