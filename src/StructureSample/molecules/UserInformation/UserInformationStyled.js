@@ -4,6 +4,7 @@ export const UserInformationStyled = styled.div`
   display: flex;
   padding: 10px;
   align-items: center;
+  font-size: 1.8rem;
 `;
 export const ImageStyled = styled.img`
   width: 50px;
@@ -12,12 +13,12 @@ export const ImageStyled = styled.img`
 `;
 export const PStyled = styled.p`
   padding: 10px;
-  font-size: 1.8rem;
   color: var(--basic-light-gray);
 `;
 export const ButtonStyled = styled.div`
   padding: 18px;
   color: var(--basic-light-gray);
+  font-size: 3rem;
 `;
 export const MenuStyled = styled.div`
   background: pink;
