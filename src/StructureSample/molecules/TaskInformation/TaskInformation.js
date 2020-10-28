@@ -54,8 +54,8 @@ function TaskInformation({ task, onCancel, onChange }) {
     setViewStatusOption(false);
   }
 
-  function handlerRemove(taskId) {
-    deleteTask(taskId, userUid, clearToast, displayToast);
+  function handlerRemove() {
+    deleteTask(task.taskId, userUid, clearToast, displayToast);
     onCancel();
   }
 
@@ -99,7 +99,7 @@ function TaskInformation({ task, onCancel, onChange }) {
           {viewDeleteWarnig === true ? (
             <Warning>
               <p>Are you sure you want to delete the task?</p>
-              <button onClick={() => handlerRemove(task.id)}>Yes</button>
+              <button onClick={handlerRemove}>Yes</button>
               <button onClick={() => setViewDeleteWarning(false)}>No</button>
             </Warning>
           ) : null}
