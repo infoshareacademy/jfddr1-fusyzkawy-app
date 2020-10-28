@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/jfddr1-fusyzkawy-app/static/css/main.b78a0b69.chunk.css",
-    "main.js": "/jfddr1-fusyzkawy-app/static/js/main.a8662747.chunk.js",
-    "main.js.map": "/jfddr1-fusyzkawy-app/static/js/main.a8662747.chunk.js.map",
+    "main.css": "/jfddr1-fusyzkawy-app/static/css/main.69b5422f.chunk.css",
+    "main.js": "/jfddr1-fusyzkawy-app/static/js/main.5285ee10.chunk.js",
+    "main.js.map": "/jfddr1-fusyzkawy-app/static/js/main.5285ee10.chunk.js.map",
     "runtime-main.js": "/jfddr1-fusyzkawy-app/static/js/runtime-main.8685431d.js",
     "runtime-main.js.map": "/jfddr1-fusyzkawy-app/static/js/runtime-main.8685431d.js.map",
-    "static/js/2.37999821.chunk.js": "/jfddr1-fusyzkawy-app/static/js/2.37999821.chunk.js",
-    "static/js/2.37999821.chunk.js.map": "/jfddr1-fusyzkawy-app/static/js/2.37999821.chunk.js.map",
+    "static/js/2.8e3afa18.chunk.js": "/jfddr1-fusyzkawy-app/static/js/2.8e3afa18.chunk.js",
+    "static/js/2.8e3afa18.chunk.js.map": "/jfddr1-fusyzkawy-app/static/js/2.8e3afa18.chunk.js.map",
     "index.html": "/jfddr1-fusyzkawy-app/index.html",
-    "precache-manifest.625f1eb83c6654840848db09a4f482a6.js": "/jfddr1-fusyzkawy-app/precache-manifest.625f1eb83c6654840848db09a4f482a6.js",
+    "precache-manifest.6f873a6273d1182672c28d9dc20118ff.js": "/jfddr1-fusyzkawy-app/precache-manifest.6f873a6273d1182672c28d9dc20118ff.js",
     "service-worker.js": "/jfddr1-fusyzkawy-app/service-worker.js",
-    "static/css/main.b78a0b69.chunk.css.map": "/jfddr1-fusyzkawy-app/static/css/main.b78a0b69.chunk.css.map",
-    "static/js/2.37999821.chunk.js.LICENSE.txt": "/jfddr1-fusyzkawy-app/static/js/2.37999821.chunk.js.LICENSE.txt",
+    "static/css/main.69b5422f.chunk.css.map": "/jfddr1-fusyzkawy-app/static/css/main.69b5422f.chunk.css.map",
+    "static/js/2.8e3afa18.chunk.js.LICENSE.txt": "/jfddr1-fusyzkawy-app/static/js/2.8e3afa18.chunk.js.LICENSE.txt",
     "static/media/CancelIcon.svg": "/jfddr1-fusyzkawy-app/static/media/CancelIcon.bbec4dac.svg",
     "static/media/ClockIcon.svg": "/jfddr1-fusyzkawy-app/static/media/ClockIcon.b436a6a1.svg",
     "static/media/DescriptionIcon.svg": "/jfddr1-fusyzkawy-app/static/media/DescriptionIcon.3cb49165.svg",
@@ -36,8 +36,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8685431d.js",
-    "static/js/2.37999821.chunk.js",
-    "static/css/main.b78a0b69.chunk.css",
-    "static/js/main.a8662747.chunk.js"
+    "static/js/2.8e3afa18.chunk.js",
+    "static/css/main.69b5422f.chunk.css",
+    "static/js/main.5285ee10.chunk.js"
   ]
 }

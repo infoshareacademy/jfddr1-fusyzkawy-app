@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "505f3ab4b94e4048e286bfd959c8e965",
+    "revision": "9932025223f00faa711e96551c7ad80d",
     "url": "/jfddr1-fusyzkawy-app/index.html"
   },
   {
-    "revision": "4f09befe2fe00fb4fc59",
-    "url": "/jfddr1-fusyzkawy-app/static/css/main.b78a0b69.chunk.css"
+    "revision": "8786a001a94f8ff87158",
+    "url": "/jfddr1-fusyzkawy-app/static/css/main.69b5422f.chunk.css"
   },
   {
-    "revision": "78c328ef3d3a2aea0b4b",
-    "url": "/jfddr1-fusyzkawy-app/static/js/2.37999821.chunk.js"
+    "revision": "16b5022c94b6b9800ac2",
+    "url": "/jfddr1-fusyzkawy-app/static/js/2.8e3afa18.chunk.js"
   },
   {
     "revision": "56f3ef5199cbb7eec947d49fe76a0f45",
-    "url": "/jfddr1-fusyzkawy-app/static/js/2.37999821.chunk.js.LICENSE.txt"
+    "url": "/jfddr1-fusyzkawy-app/static/js/2.8e3afa18.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4f09befe2fe00fb4fc59",
-    "url": "/jfddr1-fusyzkawy-app/static/js/main.a8662747.chunk.js"
+    "revision": "8786a001a94f8ff87158",
+    "url": "/jfddr1-fusyzkawy-app/static/js/main.5285ee10.chunk.js"
   },
   {
     "revision": "351f953f3a9310bb1fdb",
