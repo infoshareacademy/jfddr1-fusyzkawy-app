@@ -36,7 +36,7 @@ export const DetailsContainer = styled.div`
   gap: 35px;
 `;
 
-export const UserData = styled.div`
+export const UserInfo = styled.div`
   width: 400px;
 `;
 
