@@ -40,12 +40,12 @@ const Nav = () => {
         >
           Calendar
         </MainNavLink>
-        <MainNavLink
+        {/* <MainNavLink
           activeClassName="activeMainNavLink"
           to="/jfddr1-fusyzkawy-app/users/"
         >
           Users
-        </MainNavLink>
+        </MainNavLink> */}
       </LinksWrapper>
       <UserInformation />
       {activeAddTaskForm === true ? (

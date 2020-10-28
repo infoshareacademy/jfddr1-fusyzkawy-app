@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Calendar from "./Calendar/Calendar";
 import Tasks from "./Tasks";
 import Timer from "./Timer/Timer";
-import Users from "./Users";
+// import Users from "./Users";
 import Nav from "./Nav/Nav";
 import Aside from "./Aside/Aside";
 import NoMatch2 from "./NoMatch/NoMatch2";
@@ -18,9 +18,9 @@ const Home = () => {
         <Nav />
         <Aside />
         <Switch>
-          <Route exact path="/jfddr1-fusyzkawy-app/users/">
+          {/* <Route exact path="/jfddr1-fusyzkawy-app/users/">
             <Users />
-          </Route>
+          </Route> */}
           <Route exact path="/jfddr1-fusyzkawy-app/calendar/">
             <Calendar />
           </Route>
