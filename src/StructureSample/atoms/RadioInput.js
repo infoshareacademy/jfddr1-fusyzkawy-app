@@ -1,6 +1,6 @@
 import React from "react";
 
-function RadioInput({ categories, name, onClickInput }) {
+function RadioInput({ categories, name, onClickInput, isChecked }) {
   return (
     <>
       {categories.map(item => (
@@ -15,6 +15,7 @@ function RadioInput({ categories, name, onClickInput }) {
             value={item}
             name={name}
             onClick={onClickInput}
+            checked={isChecked === item}
           />
         </div>
       ))}

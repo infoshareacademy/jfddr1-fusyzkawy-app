@@ -20,7 +20,6 @@ import TypeIcon from "../../../img/TypeIcon.svg";
 import { UserData } from "../../../contexts/UserData";
 //Components
 
-import RadioInput from "../../atoms/RadioInput";
 import Date from "../../atoms/Date";
 import Image from "../../atoms/Image";
 import {
@@ -34,32 +33,22 @@ import {
   TagsContainer,
   Tag,
   Warning,
+  H2,
+  P,
 } from "./TaskInformationStyled";
 import { deleteTask } from "../../../Firebase/firestore/tasksActions";
-
-const options = ["New task", "In progres", "Completed", "On hold", "Cancelled"];
 
 function TaskInformation({ task, onCancel, onChange }) {
   const { userUid, clearToast, displayToast } = useContext(UserData);
   const [viewDeleteWarnig, setViewDeleteWarning] = useState(false);
-  const [status, setStatus] = useState(task.status);
-  const [viewStatusOption, setViewStatusOption] = useState(false);
-
   const backgroundEl = useRef(null); // use to close Container with Task Information by click on <Background>
   const tags = task.tags?.split(" ");
-  const generalStyle = { margin: "10px 5px" };
-
-  function handlerOnClick(event) {
-    setStatus(event.target.value);
-    setViewStatusOption(false);
-  }
 
   function handlerRemove() {
     deleteTask(task.taskId, userUid, clearToast, displayToast);
     onCancel();
   }
-  console.log(task.start);
-  console.log(task.end);
+
   return (
     <Background
       ref={backgroundEl} // set backgroundEl on <Background>
@@ -111,7 +100,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="task"
               title="title"
             />
-            <h2 style={generalStyle}>{task.title}</h2>
+            <H2>{task.title}</H2>
           </TaskHeader>
           <TaskProperties>
             <Image
@@ -121,9 +110,9 @@ function TaskInformation({ task, onCancel, onChange }) {
               title="time"
             />
             {task.start && task.end ? (
-              <p style={generalStyle}>
+              <P>
                 <Date start={task.start} end={task.end} />
-              </p>
+              </P>
             ) : (
               "--:--"
             )}
@@ -135,18 +124,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="status"
               title="status"
             />
-            <div style={generalStyle}>
-              <button onClick={() => setViewStatusOption(true)}>
-                {status || options[0]}
-              </button>
-              {viewStatusOption === true ? (
-                <RadioInput
-                  categories={options}
-                  name="status"
-                  onClickInput={handlerOnClick}
-                />
-              ) : null}
-            </div>
+            <P>{task.status || <i>no status</i>}</P>
           </TaskProperties>
           <PhotoContainer>
             <Image
@@ -179,7 +157,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="priority"
               title="priority"
             />
-            <p style={generalStyle}>{task.priority || <i>no priority</i>}</p>
+            <P>{task.priority || <i>no priority</i>}</P>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -196,7 +174,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="type"
               title="type"
             />
-            <p style={generalStyle}>{task.type || <i>no type</i>}</p>
+            <P>{task.type || <i>no type</i>}</P>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -226,9 +204,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="description"
               title="description"
             />
-            <p style={generalStyle}>
-              {task.description || <i>no description</i>}
-            </p>
+            <P>{task.description || <i>no description</i>}</P>
           </TaskProperties>
           <TaskProperties>
             <Image
@@ -237,7 +213,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="project"
               title="project"
             />
-            <p style={generalStyle}>{task.project || <i>no project</i>}</p>
+            <P>{task.project || <i>no project</i>}</P>
           </TaskProperties>
         </Container>
       </Rnd>
