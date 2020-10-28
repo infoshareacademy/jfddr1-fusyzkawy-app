@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "../atoms/Button";
-import PlayStop from "../molecules/PlayStop";
+import PlayStop from "../../molecules/PlayStop";
 
 function Tasks() {
   return (
@@ -47,7 +46,6 @@ function Tasks() {
           }}
         >
           <PlayStop />
-          <Button text="edit" />
         </div>
       </div>
     </div>
