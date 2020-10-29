@@ -116,6 +116,7 @@ const ProfileSettings = ({ onCancel }) => {
   const changeData = e => {
     e.preventDefault();
     changeAccountData(userUid, userInfo);
+    onCancel();
   };
 
   return (
