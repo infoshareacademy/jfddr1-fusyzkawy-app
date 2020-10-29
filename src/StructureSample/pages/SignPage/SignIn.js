@@ -9,8 +9,10 @@ import {
 } from "./SignStyled";
 import { authSignIn } from "../../../Firebase/auth/auth";
 import { UserData } from "../../../contexts/UserData";
+import { useHistory } from "react-router-dom";
 
 const SignIn = () => {
+  const history = useHistory();
   const emptyUserData = {
     email: "",
     password: "",
@@ -23,7 +25,9 @@ const SignIn = () => {
   const handleSubmit = event => {
     event.preventDefault();
     clearToast();
-    authSignIn(userData.email, userData.password, displayToast);
+    authSignIn(userData.email, userData.password, displayToast).then(() => {
+      history.push("/jfddr1-fusyzkawy-app/tasks/");
+    });
     if (userUid) {
       setUserData(emptyUserData);
     }

@@ -7,7 +7,7 @@ export const authSignUp = (
   initialAccountData,
   displayToast
 ) => {
-  firebase
+  return firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(response => {
@@ -20,7 +20,7 @@ export const authSignUp = (
 };
 
 export const authSignIn = (email, password, displayToast) => {
-  firebase
+  return firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then(response => {
@@ -32,7 +32,7 @@ export const authSignIn = (email, password, displayToast) => {
 };
 
 export const authSignOut = displayToast => {
-  firebase
+  return firebase
     .auth()
     .signOut()
     .then(response => {

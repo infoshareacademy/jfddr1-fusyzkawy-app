@@ -22,30 +22,21 @@ const Nav = () => {
         Add Task
       </NavAddTaskBtn>
       <LinksWrapper>
-        <MainNavLink
-          activeClassName="activeMainNavLink"
-          to="/jfddr1-fusyzkawy-app/tasks/"
-        >
+        <MainNavLink activeClassName="activeMainNavLink" to="/tasks/">
           Tasks
         </MainNavLink>
-        <MainNavLink
-          activeClassName="activeMainNavLink"
-          to="/jfddr1-fusyzkawy-app/timer/current/"
-        >
+        <MainNavLink activeClassName="activeMainNavLink" to="/timer/current/">
           Timer
         </MainNavLink>
-        <MainNavLink
-          activeClassName="activeMainNavLink"
-          to="/jfddr1-fusyzkawy-app/calendar/"
-        >
+        <MainNavLink activeClassName="activeMainNavLink" to="/calendar/">
           Calendar
         </MainNavLink>
-        <MainNavLink
+        {/* <MainNavLink
           activeClassName="activeMainNavLink"
           to="/jfddr1-fusyzkawy-app/users/"
         >
           Users
-        </MainNavLink>
+        </MainNavLink> */}
       </LinksWrapper>
       <UserInformation />
       {activeAddTaskForm === true ? (

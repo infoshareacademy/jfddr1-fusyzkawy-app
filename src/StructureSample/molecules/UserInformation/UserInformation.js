@@ -11,8 +11,10 @@ import {
 import { authSignOut } from "../../../Firebase/auth/auth";
 import { UserData } from "../../../contexts/UserData";
 import ProfileSettings from "../ProfileSettings/ProfileSettings";
+import { useHistory } from "react-router-dom";
 
 function UserInformation() {
+  const history = useHistory();
   const { displayToast, accountData } = useContext(UserData);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [showAccountSettings, setShowAccountSettings] = useState(false);
@@ -49,7 +51,13 @@ function UserInformation() {
         <MenuStyled>
           <HoverEffect>
             <OptionStyled onClick={clickedSettings}>Your Account</OptionStyled>
-            <OptionStyled onClick={() => authSignOut(displayToast)}>
+            <OptionStyled
+              onClick={() =>
+                authSignOut(displayToast).then(() => {
+                  history.push("/farewell/");
+                })
+              }
+            >
               Log Out
             </OptionStyled>
           </HoverEffect>

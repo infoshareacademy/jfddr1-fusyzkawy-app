@@ -36,24 +36,18 @@ function Timer() {
         <h2>Timer</h2>
         <Navigation>
           <FilterS />
-          <NewLink
-            activeClassName="activeLink"
-            to={`/jfddr1-fusyzkawy-app/timer/current`}
-          >
+          <NewLink activeClassName="activeLink" to={`/timer/current`}>
             Current
           </NewLink>
-          <NewLink
-            activeClassName="activeLink"
-            to={`/jfddr1-fusyzkawy-app/timer/week`}
-          >
+          <NewLink activeClassName="activeLink" to={`/timer/week`}>
             Week
           </NewLink>
         </Navigation>
       </Header>
-      <Route path="/jfddr1-fusyzkawy-app/timer/current">
+      <Route path="/timer/current">
         <TimerCurrent tasks={reformattedData} />
       </Route>
-      <Route path="/jfddr1-fusyzkawy-app/timer/week">
+      <Route path="/timer/week">
         <TimerWeek tasks={reformattedData} />
       </Route>
     </div>

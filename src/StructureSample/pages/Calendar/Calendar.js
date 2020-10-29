@@ -120,6 +120,7 @@ export default function MyCalendar(props) {
         <TaskModifacation
           task={currentTask}
           onCancel={() => setVisibleTaskModification(false)}
+          onApply={() => setVisibleTaskInformation(true)}
         />
       ) : null}
 
