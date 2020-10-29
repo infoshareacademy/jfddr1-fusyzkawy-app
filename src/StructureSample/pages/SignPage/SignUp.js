@@ -17,18 +17,26 @@ const SignUp = () => {
     nick: "",
     email: "",
     password: "",
-    image: "",
+    name: "",
+    dateofbirth: "",
+    phone: "",
+    img: "",
   };
   const [userData, setUserData] = useState(emptyUserData);
   const { displayToast, clearToast, userUid } = useContext(UserData);
-
+  const { password, ...initialAccountData } = userData;
   const handleChange = event => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
   const handleSubmit = event => {
     event.preventDefault();
     clearToast();
-    authSignUp(userData.email, userData.password, displayToast).then(() => {
+    authSignUp(
+      userData.email,
+      userData.password,
+      initialAccountData,
+      displayToast
+    ).then(() => {
       history.push("/jfddr1-fusyzkawy-app/tasks/");
     });
     if (userUid) {
@@ -57,13 +65,6 @@ const SignUp = () => {
         name="password"
         placeholder="password"
         value={userData.password}
-        onChange={event => handleChange(event)}
-      ></SignInput>
-      <SignInput
-        type="file"
-        name="image"
-        placeholder="image"
-        value={userData.image}
         onChange={event => handleChange(event)}
       ></SignInput>
       <SignButton type="submit" name="submit">

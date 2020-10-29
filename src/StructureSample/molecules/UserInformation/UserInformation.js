@@ -19,8 +19,6 @@ function UserInformation() {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [showAccountSettings, setShowAccountSettings] = useState(false);
 
-  console.log(accountData);
-
   const clickHandler = () => {
     setIsButtonClicked(true);
     document.addEventListener("click", closeMenu);
@@ -37,14 +35,14 @@ function UserInformation() {
     <UserInformationStyled>
       <ImageStyled
         src={
-          accountData.img !== undefined
+          accountData.img !== ""
             ? accountData.img
             : "https://metabiomedamericas.com/wp-content/uploads/2018/05/facebook-avatar-1024x645.jpg"
         }
         alt="user's avatar"
       />
       <PStyled>
-        {accountData.nick !== undefined ? accountData.nick : "Username"}
+        {accountData.nick !== "" ? accountData.nick : "Username"}
       </PStyled>
       <HoverEffect>
         <ButtonStyled onClick={clickHandler}>&dArr;</ButtonStyled>
