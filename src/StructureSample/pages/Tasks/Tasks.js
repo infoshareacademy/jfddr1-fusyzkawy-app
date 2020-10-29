@@ -9,12 +9,28 @@ import {
 } from "./TasksStyled";
 import { UserData } from "../../../contexts/UserData";
 import PlayStop from "../../molecules/PlayStop";
+import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
+import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
 
 const Tasks = () => {
   const { userTasks } = useContext(UserData);
+  const [currentTask, setCurrentTask] = useState({});
+  const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
+  const [visibleTaskModification, setVisibleTaskModification] = useState(false);
   const [reformattedData, setReformattedData] = useState([]);
 
-  console.log(reformattedData);
+  function handlerOnClick(task) {
+    const reformattedDataTask = reformattedData.filter(
+      reformattedTask => reformattedTask.id === task.id
+    )[0];
+    setCurrentTask(reformattedDataTask);
+    setVisibleTaskInformation(true);
+  }
+
+  function modifyTask() {
+    setVisibleTaskInformation(false);
+    setVisibleTaskModification(true);
+  }
 
   useEffect(() => {
     userTasks.length &&
@@ -69,20 +85,33 @@ const Tasks = () => {
         </TasksTableHeader>
         {userTasks.map(userTask => {
           return (
-            <Task key={userTask.id}>
+            <Task key={userTask.id} onClick={() => handlerOnClick(userTask)}>
               <p>{userTask.title}</p>
               <p>{userTask.description}</p>
               <p>{userTask.project}</p>
               <p>{userTask.type}</p>
               <p>{userTask.status}</p>
               <p>{userTask.priority}</p>
-              <p>{userTask.start}</p>
-              <p>{userTask.end}</p>
+              <p>{userTask.start.slice(0, 10).split(" ").join("-")}</p>
+              <p>{userTask.end.slice(0, 10).split(" ").join("-")}</p>
               <PlayStop />
             </Task>
           );
         })}
       </ContainerBox>
+      {visibleTaskInformation === true ? (
+        <TaskInformation
+          task={currentTask}
+          onChange={modifyTask}
+          onCancel={() => setVisibleTaskInformation(false)}
+        />
+      ) : null}
+      {visibleTaskModification === true ? (
+        <TaskModifacation
+          task={currentTask}
+          onCancel={() => setVisibleTaskModification(false)}
+        />
+      ) : null}
     </div>
   );
 };
