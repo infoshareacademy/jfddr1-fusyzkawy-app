@@ -126,6 +126,7 @@ const Tasks = () => {
         <TaskModifacation
           task={currentTask}
           onCancel={() => setVisibleTaskModification(false)}
+          onApply={() => setVisibleTaskInformation(true)}
         />
       ) : null}
     </div>
