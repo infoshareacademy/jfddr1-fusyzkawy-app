@@ -6,10 +6,8 @@ import CancelIcon from "../../../img/CancelIcon.svg";
 import TickIcon from "../../../img/TickIcon.svg";
 import ClockIcon from "../../../img/ClockIcon.svg";
 import StatusIcon from "../../../img/StatusIcon.svg";
-import UserIcon2 from "../../../img/UserIcon2.svg";
 import TagIcon from "../../../img/TagIcon.svg";
 import DescriptionIcon from "../../../img/DescriptionIcon.svg";
-import UserIcon3 from "../../../img/UserIcon3.png";
 import PriorityIcon from "../../../img/PriorityIcon.svg";
 import WorkIcon from "../../../img/WorkIcon.png";
 import HomeIcon from "../../../img/HomeIcon.svg";
@@ -19,20 +17,17 @@ import TypeIcon from "../../../img/TypeIcon.svg";
 import { UserData } from "../../../contexts/UserData";
 
 //Components
-import RadioInput from "../../atoms/RadioInput";
 import Image from "../../atoms/Image";
+import InformationToModify from "./InformationToModify";
 import {
   Background,
   Container,
   IconContainer,
   TaskProperties,
-  Photo,
-  PhotoContainer,
   Warning,
   DateSection,
   Input,
   Div,
-  Textarea,
 } from "./TaskInformationStyled";
 import { changeTask } from "../../../Firebase/firestore/tasksActions";
 
@@ -154,21 +149,13 @@ function TaskModification({ task, onCancel, onApply }) {
               </button>
             </Warning>
           ) : null}
-          <TaskProperties>
-            <Image
-              classImage="iconSingle"
-              srcImage={TickIcon}
-              alternateTextImage="task"
-              title="title"
-            />
-            <Input
-              type="text"
-              id="title"
-              name="title"
-              value={taskInformation.title}
-              onChange={event => handleChangeInfoTask(event)}
-            />
-          </TaskProperties>
+          <InformationToModify
+            task={taskInformation}
+            iconName={TickIcon}
+            infoName="title"
+            infoType="text"
+            onChange={event => handleChangeInfoTask(event)}
+          />
           <TaskProperties>
             <Image
               classImage="iconSingle"
@@ -213,134 +200,59 @@ function TaskModification({ task, onCancel, onApply }) {
               </DateSection>
             </Div>
           </TaskProperties>
-          <TaskProperties>
-            <Image
-              classImage="iconSingle"
-              srcImage={StatusIcon}
-              alternateTextImage="status"
-              title="status"
-            />
-            <Div>
-              <RadioInput
-                categories={options}
-                name="status"
-                onClickInput={event => handleChangeInfoTask(event)}
-                isChecked={taskInformation.status}
-              />
-            </Div>
-          </TaskProperties>
-          <PhotoContainer>
-            <Image
-              classImage="iconSingle"
-              srcImage={UserIcon2}
-              alternateTextImage="users"
-              title="users"
-            />
-            <Photo>
-              <img
-                src={task.imgCreator || UserIcon3}
-                height="50"
-                title="Creator"
-                alt="creator"
-              />
-            </Photo>
-            <Photo>
-              <img
-                src={task.imgAssign || UserIcon3}
-                height="50"
-                title="Assign"
-                alt="assign"
-              />
-            </Photo>
-          </PhotoContainer>
-          <TaskProperties>
-            <Image
-              classImage="iconSingle"
-              srcImage={PriorityIcon}
-              alternateTextImage="priority"
-              title="priority"
-            />
-            <Div>
-              <RadioInput
-                categories={priority}
-                name="priority"
-                onClickInput={event => handleChangeInfoTask(event)}
-                isChecked={taskInformation.priority}
-              />
-            </Div>
-          </TaskProperties>
-          <TaskProperties>
-            <Image
-              classImage="iconSingle"
-              srcImage={
-                task.type === "Work"
-                  ? WorkIcon
-                  : task.type === "Home"
-                  ? HomeIcon
-                  : task.type === "Personal"
-                  ? PersonalIcon
-                  : TypeIcon
-              }
-              alternateTextImage="type"
-              title="type"
-            />
-            <Div>
-              <RadioInput
-                categories={type}
-                name="type"
-                onClickInput={event => handleChangeInfoTask(event)}
-                isChecked={taskInformation.type}
-              />
-            </Div>
-          </TaskProperties>
-          <TaskProperties>
-            <Image
-              classImage="iconSingle"
-              srcImage={TagIcon}
-              alternateTextImage="tags"
-              title="tags"
-            />
-            <Input
-              type="text"
-              id="tags"
-              name="tags"
-              placeholder="tags"
-              value={taskInformation.tags}
-              onChange={event => handleChangeInfoTask(event)}
-            />
-          </TaskProperties>
-          <TaskProperties>
-            <Image
-              classImage="iconSingle"
-              srcImage={DescriptionIcon}
-              alternateTextImage="description"
-              title="description"
-            />
-            <Textarea
-              type="text"
-              id="description"
-              name="description"
-              placeholder="description"
-              value={taskInformation.description}
-              onChange={event => handleChangeInfoTask(event)}
-            />
-          </TaskProperties>
-          <TaskProperties>
-            <Image
-              classImage="iconSingle"
-              srcImage={ProjectIcon}
-              alternateTextImage="project"
-              title="project"
-            />
-            <Input
-              type="text"
-              id="project"
-              name="project"
-              placeholder="project"
-              value={taskInformation.project}
-              onChange={event => handleChangeInfoTask(event)}
-            />
-          </TaskProperties>
+          <InformationToModify
+            task={taskInformation}
+            iconName={StatusIcon}
+            infoName="status"
+            infoType="radioInput"
+            onChange={event => handleChangeInfoTask(event)}
+            categories={options}
+          />
+          <InformationToModify
+            task={taskInformation}
+            iconName={PriorityIcon}
+            infoName="priority"
+            infoType="radioInput"
+            onChange={event => handleChangeInfoTask(event)}
+            categories={priority}
+          />
+          <InformationToModify
+            task={taskInformation}
+            iconName={
+              task.type === "Work"
+                ? WorkIcon
+                : task.type === "Home"
+                ? HomeIcon
+                : task.type === "Personal"
+                ? PersonalIcon
+                : TypeIcon
+            }
+            infoName="type"
+            infoType="radioInput"
+            onChange={event => handleChangeInfoTask(event)}
+            categories={type}
+          />
+          <InformationToModify
+            task={taskInformation}
+            iconName={TagIcon}
+            infoName="tags"
+            infoType="text"
+            onChange={event => handleChangeInfoTask(event)}
+          />
+          <InformationToModify
+            task={taskInformation}
+            iconName={DescriptionIcon}
+            infoName="description"
+            infoType="textarea"
+            onChange={event => handleChangeInfoTask(event)}
+          />
+          <InformationToModify
+            task={taskInformation}
+            iconName={ProjectIcon}
+            infoName="project"
+            infoType="text"
+            onChange={event => handleChangeInfoTask(event)}
+          />
         </Container>
       </Rnd>
     </Background>

@@ -12,7 +12,6 @@ import {
 function InformationToDisplay({ task, iconName, infoName, infoType }) {
   const tags = task.tags?.split(" ");
 
-  console.log(task, iconName, infoName, infoType);
   return (
     <TaskProperties>
       <Image

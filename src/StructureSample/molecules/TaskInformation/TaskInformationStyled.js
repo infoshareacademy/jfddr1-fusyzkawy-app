@@ -55,18 +55,6 @@ export const TaskProperties = styled.div`
   margin: 5px 0;
 `;
 
-export const Photo = styled.div`
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  overflow: hidden;
-  margin: 5px;
-`;
-
-export const PhotoContainer = styled.div`
-  display: flex;
-`;
-
 export const TagsContainer = styled.ul`
   list-style: none;
   display: flex;
