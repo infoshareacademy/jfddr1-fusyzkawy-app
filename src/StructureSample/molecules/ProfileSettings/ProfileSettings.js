@@ -6,11 +6,16 @@ import {
   DetailsContainer,
   UserInfo,
   Input,
+  EmailInput,
   Label,
   UserPhoto,
   TitleImg,
   Img,
+  UploadWrapper,
   UploadInput,
+  UploadName,
+  Alert,
+  AddButton,
   RemoveButton,
   Footer,
   AcceptButton,
@@ -20,6 +25,7 @@ import {
 import DefaultUserImg from "../../../img/UserIcon.svg";
 import { UserData } from "../../../contexts/UserData";
 import { changeAccountData } from "../../../Firebase/firestore/accountDataActions";
+import firebase from "../../../Firebase/config/config";
 
 const ProfileSettings = ({ onCancel }) => {
   const emptyUserInfo = {
@@ -30,26 +36,92 @@ const ProfileSettings = ({ onCancel }) => {
     email: "",
     img: "",
   };
+  const initUploadImg = { img: "", name: "No file chosen" };
+  const initAlertData = { text: "", succes: false };
   const { userUid, accountData } = useContext(UserData);
   const [userInfo, setUserInfo] = useState(emptyUserInfo);
+  const [uploadImgData, setUploadImgData] = useState(initUploadImg);
+  const [alertData, setAlertData] = useState(initAlertData);
   useEffect(() => {
     if (Object.keys(accountData).length !== 0) {
       setUserInfo(accountData);
     }
   }, [accountData]);
 
+  const uploadUserImg = (userUid, userImg) => {
+    firebase
+      .storage()
+      .ref(`UsersImgs/${userUid}/userImg.jpg`)
+      .put(userImg)
+      .then(snap => {
+        getUserImg(snap.ref.fullPath);
+        setUploadImgData({ img: "", name: "No file chosen" });
+      })
+      .catch(() => setAlertData({ text: "Wrong", success: false }));
+  };
+  const getUserImg = path => {
+    firebase
+      .storage()
+      .ref(path)
+      .getDownloadURL()
+      .then(url => changeAccountData(userUid, { img: url }))
+      .then(() => {
+        setAlertData({ text: "Upload Photo Successful!", success: true });
+      })
+      .catch(error => {
+        setAlertData({ text: error.message, success: false });
+      });
+  };
+  const deleteUserImg = userUid => {
+    firebase
+      .storage()
+      .ref()
+      .child(`UsersImgs/${userUid}/userImg.jpg`)
+      .delete()
+      .then(() => {
+        changeAccountData(userUid, { img: "" });
+        setAlertData({ text: "Remove Photo Successful!", success: true });
+      })
+      .catch(error => {
+        setAlertData({ text: error.message, success: false });
+      });
+  };
   const handleChange = e => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+  };
+
+  const handleAddFile = e => {
+    setUploadImgData({ img: e.target.files[0], name: e.target.files[0].name });
+    setAlertData(initAlertData);
+  };
+
+  const uploadImg = e => {
+    e.preventDefault();
+    if (uploadImgData.img) {
+      uploadUserImg(userUid, uploadImgData.img);
+    } else {
+      setAlertData({ text: "Please add new photo", success: false });
+    }
+  };
+
+  const deleteImg = e => {
+    e.preventDefault();
+    if (accountData.img) {
+      deleteUserImg(userUid);
+    } else {
+      setAlertData({ text: "Don't have a profile photo", success: false });
+    }
   };
 
   const changeData = e => {
     e.preventDefault();
     changeAccountData(userUid, userInfo);
   };
+
   return (
     <Wrapper>
       <AccountContainer>
-        <Title>Your Profil</Title>
+        <Title>Your Profile</Title>
         <DetailsContainer>
           <UserInfo>
             <Label htmlFor="name">Full Name</Label>
@@ -88,7 +160,7 @@ const ProfileSettings = ({ onCancel }) => {
               onChange={event => handleChange(event)}
             />
             <Label htmlFor="email">Email</Label>
-            <Input
+            <EmailInput
               title="email"
               name="email"
               type="email"
@@ -100,13 +172,23 @@ const ProfileSettings = ({ onCancel }) => {
           <UserPhoto>
             <TitleImg>Profile Photo</TitleImg>
             <Img src={userInfo.img || DefaultUserImg} alt="User"></Img>
-            <UploadInput
-              title="photo"
-              name="photo"
-              type="file"
-              placeholder="Upload an Image"
-            />
-            <RemoveButton>Remove Photo</RemoveButton>
+            <Alert success={alertData.success}>{alertData.text}</Alert>
+            <UploadWrapper>
+              <UploadInput
+                title="img"
+                name="img"
+                type="file"
+                accept=".jpg, .jpeg, .png"
+                onChange={e => handleAddFile(e)}
+              />
+              <UploadName>{uploadImgData.name}</UploadName>
+            </UploadWrapper>
+            <AddButton onClick={event => uploadImg(event)}>
+              Upload Photo
+            </AddButton>
+            <RemoveButton onClick={event => deleteImg(event)}>
+              Remove Photo
+            </RemoveButton>
           </UserPhoto>
         </DetailsContainer>
         <Footer>
