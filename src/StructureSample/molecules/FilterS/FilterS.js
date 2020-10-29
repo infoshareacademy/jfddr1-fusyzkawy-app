@@ -61,7 +61,9 @@ function FilterS({ viewTasks }) {
       </FilterSStyled>
 
       {viewTasks &&
-        filteredTasks.map(task => <AsideTask key={task.id} asideTask={task} />)}
+        filteredTasks.map(task => (
+          <AsideTask key={task.taskId} asideTask={task} />
+        ))}
     </>
   );
 }

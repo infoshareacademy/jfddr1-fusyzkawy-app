@@ -47,32 +47,12 @@ height: 40px;
 align-items: center;
 `;
 
-export const TaskHeader = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  font-size: 1.5rem;
-  font-weight: initial;
-`;
-
 export const TaskProperties = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-size: 1.5rem;
   margin: 5px 0;
-`;
-
-export const Photo = styled.div`
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  overflow: hidden;
-  margin: 5px;
-`;
-
-export const PhotoContainer = styled.div`
-  display: flex;
 `;
 
 export const TagsContainer = styled.ul`
