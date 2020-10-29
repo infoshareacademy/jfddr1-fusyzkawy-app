@@ -47,14 +47,6 @@ height: 40px;
 align-items: center;
 `;
 
-export const TaskHeader = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  font-size: 1.5rem;
-  font-weight: initial;
-`;
-
 export const TaskProperties = styled.div`
   display: flex;
   justify-content: flex-start;

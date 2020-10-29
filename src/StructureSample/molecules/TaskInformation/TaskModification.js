@@ -25,7 +25,6 @@ import {
   Background,
   Container,
   IconContainer,
-  TaskHeader,
   TaskProperties,
   Photo,
   PhotoContainer,
@@ -155,7 +154,7 @@ function TaskModification({ task, onCancel, onApply }) {
               </button>
             </Warning>
           ) : null}
-          <TaskHeader>
+          <TaskProperties>
             <Image
               classImage="iconSingle"
               srcImage={TickIcon}
@@ -169,7 +168,7 @@ function TaskModification({ task, onCancel, onApply }) {
               value={taskInformation.title}
               onChange={event => handleChangeInfoTask(event)}
             />
-          </TaskHeader>
+          </TaskProperties>
           <TaskProperties>
             <Image
               classImage="iconSingle"
