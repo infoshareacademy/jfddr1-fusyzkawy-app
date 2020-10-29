@@ -3,6 +3,7 @@ import "./App.css";
 import UserDataProvider, { UserData } from "./contexts/UserData";
 import Home from "./StructureSample/pages/Home";
 import StartPage from "./StructureSample/pages/StartPage/StartPage";
+import { BrowserRouter } from "react-router-dom";
 
 const AuthGuard = ({ children }) => {
   const { userUid } = useContext(UserData);
@@ -12,11 +13,13 @@ const AuthGuard = ({ children }) => {
 function App() {
   return (
     <div className="App">
-      <UserDataProvider>
-        <AuthGuard>
-          <Home />
-        </AuthGuard>
-      </UserDataProvider>
+      <BrowserRouter>
+        <UserDataProvider>
+          <AuthGuard>
+            <Home />
+          </AuthGuard>
+        </UserDataProvider>
+      </BrowserRouter>
     </div>
   );
 }

@@ -9,8 +9,10 @@ import {
 } from "./SignStyled";
 import { authSignUp } from "../../../Firebase/auth/auth";
 import { UserData } from "../../../contexts/UserData";
+import { useHistory } from "react-router-dom";
 
 const SignUp = () => {
+  const history = useHistory();
   const emptyUserData = {
     nick: "",
     email: "",
@@ -26,7 +28,9 @@ const SignUp = () => {
   const handleSubmit = event => {
     event.preventDefault();
     clearToast();
-    authSignUp(userData.email, userData.password, displayToast);
+    authSignUp(userData.email, userData.password, displayToast).then(() => {
+      history.push("/jfddr1-fusyzkawy-app/tasks/");
+    });
     if (userUid) {
       setUserData(emptyUserData);
     }
