@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "../../atoms/Input";
-import PlayStop from "../../molecules/PlayStop";
+import PlayStop from "../../molecules/PlayStop/PlayStop";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
 import {
