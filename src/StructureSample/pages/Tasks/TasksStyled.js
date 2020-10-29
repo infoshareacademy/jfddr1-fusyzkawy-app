@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
 export const Header = styled.header`
   text-align: left;
@@ -14,18 +13,17 @@ export const Navigation = styled.nav`
   padding: 0 20px;
 `;
 
-export const NewLink = styled(NavLink)`
+export const FilterSortBtn = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
   padding: 10px 10px;
   margin: 0 15px;
   font-size: 1.5rem;
-  text-decoration: none;
   color: var(--gray-3);
 
   &:hover {
-    color: var(--basic-green);
-  }
-
-  &:active {
     color: var(--basic-green);
   }
 `;

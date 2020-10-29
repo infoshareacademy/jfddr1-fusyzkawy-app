@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import {
   Header,
   Navigation,
-  NewLink,
   ContainerBox,
   TasksTableHeader,
   Task,
@@ -10,6 +9,7 @@ import {
   TasksHeaderField,
   TaskDataField,
   TaskPriority,
+  FilterSortBtn,
 } from "./TasksStyled";
 import { UserData } from "../../../contexts/UserData";
 import PlayStop from "../../molecules/PlayStop/PlayStop";
@@ -63,18 +63,8 @@ const Tasks = () => {
       <Header>
         <h2>Tasks</h2>
         <Navigation>
-          <NewLink
-            activeClassName="activeLink"
-            to={`/jfddr1-fusyzkawy-app/timer/current`}
-          >
-            Current
-          </NewLink>
-          <NewLink
-            activeClassName="activeLink"
-            to={`/jfddr1-fusyzkawy-app/timer/week`}
-          >
-            Week
-          </NewLink>
+          <FilterSortBtn>Filter</FilterSortBtn>
+          <FilterSortBtn>Sort</FilterSortBtn>
         </Navigation>
       </Header>
       <ContainerBox>
