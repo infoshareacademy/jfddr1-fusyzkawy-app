@@ -199,7 +199,7 @@ const ProfileSettings = ({ onCancel }) => {
           >
             Save Changes
           </AcceptButton>
-          <CancelButton>Cancel</CancelButton>
+          <CancelButton onClick={onCancel}>Cancel</CancelButton>
         </Footer>
         <Exit onClick={onCancel}>&#x02A2F;</Exit>
       </AccountContainer>
