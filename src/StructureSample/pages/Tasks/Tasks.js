@@ -6,6 +6,10 @@ import {
   ContainerBox,
   TasksTableHeader,
   Task,
+  TaskData,
+  TasksHeaderField,
+  TaskDataField,
+  TaskPriority,
 } from "./TasksStyled";
 import { UserData } from "../../../contexts/UserData";
 import PlayStop from "../../molecules/PlayStop";
@@ -21,8 +25,10 @@ const Tasks = () => {
 
   function handlerOnClick(task) {
     const reformattedDataTask = reformattedData.filter(
-      reformattedTask => reformattedTask.id === task.id
+      reformattedTask => reformattedTask.taskId === task.taskId
     )[0];
+    console.log("reformated data task", reformattedDataTask);
+    console.log("task", task);
     setCurrentTask(reformattedDataTask);
     setVisibleTaskInformation(true);
   }
@@ -73,9 +79,9 @@ const Tasks = () => {
       </Header>
       <ContainerBox>
         <TasksTableHeader>
-          <h3>Title</h3>
-          <h3>Description</h3>
-          <h3>Project</h3>
+          <TasksHeaderField>Title</TasksHeaderField>
+          <TasksHeaderField>Description</TasksHeaderField>
+          <TasksHeaderField>Project</TasksHeaderField>
           <h3>Type</h3>
           <h3>Status</h3>
           <h3>Priority</h3>
@@ -85,15 +91,35 @@ const Tasks = () => {
         </TasksTableHeader>
         {userTasks.map(userTask => {
           return (
-            <Task key={userTask.id} onClick={() => handlerOnClick(userTask)}>
-              <p>{userTask.title}</p>
-              <p>{userTask.description}</p>
-              <p>{userTask.project}</p>
-              <p>{userTask.type}</p>
-              <p>{userTask.status}</p>
-              <p>{userTask.priority}</p>
-              <p>{userTask.start.slice(0, 10).split(" ").join("-")}</p>
-              <p>{userTask.end.slice(0, 10).split(" ").join("-")}</p>
+            <Task key={userTask.taskId}>
+              <TaskData onClick={() => handlerOnClick(userTask)}>
+                <TaskDataField>{userTask.title}</TaskDataField>
+                <TaskDataField>{userTask.description}</TaskDataField>
+                <TaskDataField>{userTask.project}</TaskDataField>
+                <p>{userTask.type}</p>
+                <p>{userTask.status}</p>
+                <TaskPriority
+                  color={
+                    userTask.priority === "High"
+                      ? "var(--task-red-dark)"
+                      : userTask.priority === "Medium"
+                      ? "var(--basic-light-blue)"
+                      : "var(--task-yellow-dark)"
+                  }
+                >
+                  {userTask.priority}
+                </TaskPriority>
+                <p>
+                  {userTask.start.length < 10
+                    ? ""
+                    : userTask.start.slice(0, 10).split(" ").join("-")}
+                </p>
+                <p>
+                  {userTask.end.length < 10
+                    ? ""
+                    : userTask.end.slice(0, 10).split(" ").join("-")}
+                </p>
+              </TaskData>
               <PlayStop />
             </Task>
           );
