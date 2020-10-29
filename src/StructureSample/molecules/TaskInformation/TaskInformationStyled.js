@@ -47,32 +47,12 @@ height: 40px;
 align-items: center;
 `;
 
-export const TaskHeader = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  font-size: 1.5rem;
-  font-weight: initial;
-`;
-
 export const TaskProperties = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-size: 1.5rem;
   margin: 5px 0;
-`;
-
-export const Photo = styled.div`
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  overflow: hidden;
-  margin: 5px;
-`;
-
-export const PhotoContainer = styled.div`
-  display: flex;
 `;
 
 export const TagsContainer = styled.ul`
@@ -86,14 +66,35 @@ export const Tag = styled.li`
 `;
 
 export const Warning = styled.div`
-  // position: absolute;
-  // top: 42px;
-  // left: 10px;
-  //border: 1px solid var(--task-red-dark);
   background: var(--task-red-light);
   border-radius: 10px;
   width: 95%;
   padding: 10px;
   margin: 10px;
   text-align: center;
+`;
+
+export const DateSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+`;
+
+export const Input = styled.input`
+  margin: 10px 5px;
+`;
+
+export const Div = styled.div`
+  margin: 10px 5px;
+`;
+export const Textarea = styled.textarea`
+  margin: 10px 5px;
+`;
+
+export const P = styled.p`
+  margin: 10px 5px;
+`;
+export const H2 = styled.h2`
+  margin: 10px 5px;
 `;

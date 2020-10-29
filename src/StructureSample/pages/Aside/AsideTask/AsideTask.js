@@ -32,8 +32,7 @@ const AsideTask = ({ asideTask }) => {
           <MoreInfo>
             <p>Type: {asideTask.type}</p>
             <p>Description: {asideTask.description}</p>
-            {/* <p>Start: {asideTask.start}</p>
-            <p>End: {asideTask.end}</p> */}
+            <p>Duration:</p>
             <Date start={asideTask.start} end={asideTask.end} />
             <p>Priority: {asideTask.priority}</p>
             <p>Project: {asideTask.project}</p>

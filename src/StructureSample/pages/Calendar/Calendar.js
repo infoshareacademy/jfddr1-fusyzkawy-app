@@ -60,7 +60,7 @@ export default function MyCalendar(props) {
       })
     );
   }, [userTasks]);
-  //console.log(reformattedData);
+
   return (
     <div className="mainHome">
       <Header>
@@ -120,6 +120,7 @@ export default function MyCalendar(props) {
         <TaskModifacation
           task={currentTask}
           onCancel={() => setVisibleTaskModification(false)}
+          onApply={() => setVisibleTaskInformation(true)}
         />
       ) : null}
 

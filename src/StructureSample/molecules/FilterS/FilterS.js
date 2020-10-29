@@ -15,7 +15,6 @@ function FilterS({ viewTasks }) {
   const [inputValue, setInputValue] = useState("");
 
   const changeHandler = event => {
-    console.log(event.target.value);
     setInputValue(event.target.value);
   };
 
@@ -49,7 +48,6 @@ function FilterS({ viewTasks }) {
       );
   }, [reformattedData, setFilteredTasks, inputValue]);
 
-  console.log(reformattedData);
   return (
     <>
       <FilterSStyled>
@@ -63,7 +61,9 @@ function FilterS({ viewTasks }) {
       </FilterSStyled>
 
       {viewTasks &&
-        filteredTasks.map(task => <AsideTask key={task.id} asideTask={task} />)}
+        filteredTasks.map(task => (
+          <AsideTask key={task.taskId} asideTask={task} />
+        ))}
     </>
   );
 }

@@ -13,7 +13,7 @@ import ToastFirebase from "../molecules/ToastFirebase/ToastFirebase";
 const Home = () => {
   const { toastData } = useContext(UserData);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/jfddr1-fusyzkawy-app">
       <div className="home">
         <Nav />
         <Aside />
@@ -21,19 +21,19 @@ const Home = () => {
           {/* <Route exact path="/jfddr1-fusyzkawy-app/users/">
             <Users />
           </Route> */}
-          <Route exact path="/jfddr1-fusyzkawy-app/calendar/">
+          <Route exact path="/calendar/">
             <Calendar />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app/timer/:current">
+          <Route exact path="/timer/:current">
             <Timer />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app/tasks/">
+          <Route exact path="/tasks/">
             <Tasks />
           </Route>
-          <Route exact path="/jfddr1-fusyzkawy-app/">
+          <Route exact path="/">
             <Tasks />
           </Route>
-          <Route path="/jfddr1-fusyzkawy-app/*">
+          <Route path="/*">
             <NoMatch2 />
           </Route>
         </Switch>
