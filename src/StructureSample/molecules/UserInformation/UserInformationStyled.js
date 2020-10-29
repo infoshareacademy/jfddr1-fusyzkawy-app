@@ -24,6 +24,7 @@ export const MenuStyled = styled.div`
   position: fixed;
   top: 100px;
   right: 0;
+  width: 150px;
 `;
 export const OptionStyled = styled.p`
   background-color: var(--basic-navy-blue);
