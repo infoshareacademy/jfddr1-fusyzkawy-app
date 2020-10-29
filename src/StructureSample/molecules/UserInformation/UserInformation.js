@@ -57,7 +57,6 @@ function UserInformation() {
               onClick={() =>
                 authSignOut(displayToast).then(() => {
                   history.push("/farewell/");
-                  window.location.reload();
                 })
               }
             >
