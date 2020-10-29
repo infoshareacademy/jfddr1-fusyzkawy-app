@@ -33,7 +33,7 @@ export const NewLink = styled(NavLink)`
 export const ContainerBox = styled.div`
   background-color: var(--basic-white);
   margin: 20px;
-  padding: 10px;
+  padding: 10px 0;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
   height: 600px;
@@ -55,11 +55,24 @@ export const ContainerBox = styled.div`
 `;
 
 export const TasksTableHeader = styled.header`
+  border-bottom: 2px solid var(--basic-light-gray);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-left: 10px;
+  margin-right: 3px;
+  padding: 10px;
 `;
 
 export const Task = styled.div`
+  border-bottom: 2px solid var(--basic-light-gray);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-left: 10px;
+  margin-right: 3px;
+  padding: 10px;
+
+  &:hover {
+    box-shadow: 0 0.25px 3px var(--extra-gray),
+      -0.5px 0.25px 3px var(--extra-gray);
+  }
 `;
