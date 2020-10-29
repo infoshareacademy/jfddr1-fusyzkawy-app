@@ -13,7 +13,7 @@ import ToastFirebase from "../molecules/ToastFirebase/ToastFirebase";
 const Home = () => {
   const { toastData } = useContext(UserData);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/jfddr1-fusyzkawy-app">
       <div className="home">
         <Nav />
         <Aside />
