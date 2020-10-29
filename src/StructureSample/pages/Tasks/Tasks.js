@@ -12,7 +12,7 @@ import {
   TaskPriority,
 } from "./TasksStyled";
 import { UserData } from "../../../contexts/UserData";
-import PlayStop from "../../molecules/PlayStop";
+import PlayStop from "../../molecules/PlayStop/PlayStop";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
 
@@ -120,7 +120,7 @@ const Tasks = () => {
                     : userTask.end.slice(0, 10).split(" ").join("-")}
                 </p>
               </TaskData>
-              <PlayStop />
+              <PlayStop classIcon="iconSVG" />
             </Task>
           );
         })}
