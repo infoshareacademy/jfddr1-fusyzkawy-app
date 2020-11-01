@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import FilterIcon from "../../../img/filter-icon.svg";
 import {
   FilterSStyled,
   FilterInput,
@@ -8,7 +7,7 @@ import {
 import { UserData } from "../../../contexts/UserData";
 import AsideTask from "../../pages/Aside/AsideTask/AsideTask";
 
-function FilterS({ viewTasks }) {
+function FilterS({ viewTasks, icon }) {
   const { userTasks } = useContext(UserData);
   const [reformattedData, setReformattedData] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState(userTasks);
@@ -51,7 +50,7 @@ function FilterS({ viewTasks }) {
   return (
     <>
       <FilterSStyled>
-        <ImageStyled src={FilterIcon} alt="filter icon" />
+        <ImageStyled src={icon} alt="filter icon" />
         <FilterInput
           type="text"
           value={inputValue}

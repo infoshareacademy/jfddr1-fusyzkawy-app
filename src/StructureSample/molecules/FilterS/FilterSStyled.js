@@ -12,6 +12,5 @@ export const FilterInput = styled.input`
 `;
 
 export const ImageStyled = styled.img`
-  width: 30px;
-  color: white;
+  width: 25px;
 `;
