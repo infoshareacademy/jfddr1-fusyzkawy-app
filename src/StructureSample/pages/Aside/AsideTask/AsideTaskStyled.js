@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 export const AsideTaskStyled = styled.p`
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  padding: 0 0 5px 10px;
   font-size: 1.5rem;
   color: var(--basic-light-gray);
-  padding-left: 10px;
   list-style-type: none;
+  width: 220px;
 `;
 
 export const HoverEffect = styled.div`
@@ -18,7 +22,10 @@ export const MoreInfo = styled.div`
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
-  margin-left: 10px;
   background-color: var(--navy-blue-2);
   padding: 5px;
+`;
+
+export const PickedTask = styled(AsideTaskStyled)`
+  font-weight: bold;
 `;

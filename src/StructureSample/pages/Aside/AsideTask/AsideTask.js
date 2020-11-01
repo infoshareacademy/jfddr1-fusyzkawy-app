@@ -2,7 +2,12 @@
 //ul li -> some tasks
 
 import React, { useState } from "react";
-import { AsideTaskStyled, HoverEffect, MoreInfo } from "./AsideTaskStyled";
+import {
+  AsideTaskStyled,
+  HoverEffect,
+  MoreInfo,
+  PickedTask,
+} from "./AsideTaskStyled";
 import Date from "../../../atoms/Date";
 const AsideTask = ({ asideTask }) => {
   // Single Task's Data
@@ -27,7 +32,23 @@ const AsideTask = ({ asideTask }) => {
   return (
     <HoverEffect>
       <AsideTaskStyled onClick={clickHandler}>
-        {asideTask.title}
+        {clickedMoreInfo ? (
+          <>
+            <PickedTask>{asideTask.title}</PickedTask>
+            <MoreInfo>
+              <p>Type: {asideTask.type}</p>
+              <p>Description: {asideTask.description}</p>
+              <p>Duration:</p>
+              <Date start={asideTask.start} end={asideTask.end} />
+              <p>Priority: {asideTask.priority}</p>
+              <p>Project: {asideTask.project}</p>
+            </MoreInfo>
+          </>
+        ) : (
+          asideTask.title
+        )}
+
+        {/* {asideTask.title}
         {clickedMoreInfo && (
           <MoreInfo>
             <p>Type: {asideTask.type}</p>
@@ -37,7 +58,7 @@ const AsideTask = ({ asideTask }) => {
             <p>Priority: {asideTask.priority}</p>
             <p>Project: {asideTask.project}</p>
           </MoreInfo>
-        )}
+        )} */}
       </AsideTaskStyled>
     </HoverEffect>
   );
