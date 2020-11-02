@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import FilterS from "../../molecules/FilterS/FilterS";
 import { Route } from "react-router-dom";
 import TimerCurrent from "./TimerCurrent";
 import TimerWeek from "./TimerWeek";
 import { Header, Navigation, NewLink } from "./TimerStyled";
 import { UserData } from "../../../contexts/UserData";
-import FilterIcon from "../../../img/filter-icon.svg";
 
 function Timer() {
   const { userTasks } = useContext(UserData);
@@ -36,7 +34,6 @@ function Timer() {
       <Header>
         <h2>Timer</h2>
         <Navigation>
-          <FilterS viewTasks={false} icon={FilterIcon} />
           <NewLink activeClassName="activeLink" to={`/timer/current`}>
             Current
           </NewLink>
