@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
-import Image from "../../atoms/Image";
-import PauseIcon from "../../../img/PauseIcon.svg";
-import PlayIcon from "../../../img/PlayIcon.svg";
-import StopIcon from "../../../img/StopIcon.svg";
 import { Button, ButtonsContainer } from "./PlayStopStyled";
 import { changeTask } from "../../../Firebase/firestore/tasksActions";
 import { UserData } from "../../../contexts/UserData";
+import PlayIcon from "./PlayIcon";
+import StopIcon from "./StopIcon";
+import PauseIcon from "./PauseIcon";
 
 const PlayStop = ({ classIcon, task }) => {
   const { userUid, clearToast, displayToast } = useContext(UserData);
-  // const [changedData, setChangedData] = useState({});
 
   function handleClick(e) {
     const clickedButton = e.currentTarget.id;
@@ -20,24 +18,30 @@ const PlayStop = ({ classIcon, task }) => {
   return (
     <ButtonsContainer>
       <Button onClick={handleClick} id="play">
-        <Image
-          srcImage={PlayIcon}
-          classImage={classIcon}
-          alternateTextImage="PlayIcon"
+        <PlayIcon
+          color={`${
+            task.active === "play"
+              ? "var(--task-red-dark)"
+              : "var(--extra-gray)"
+          }`}
         />
       </Button>
       <Button onClick={handleClick} id="stop">
-        <Image
-          srcImage={StopIcon}
-          classImage={classIcon}
-          alternateTextImage="StopIcon"
+        <StopIcon
+          color={`${
+            task.active === "stop"
+              ? "var(--task-red-dark)"
+              : "var(--extra-gray)"
+          }`}
         />
       </Button>
       <Button onClick={handleClick} id="pause">
-        <Image
-          srcImage={PauseIcon}
-          classImage={classIcon}
-          alternateTextImage="PauseIcon"
+        <PauseIcon
+          color={`${
+            task.active === "pause"
+              ? "var(--task-red-dark)"
+              : "var(--extra-gray)"
+          }`}
         />
       </Button>
     </ButtonsContainer>
