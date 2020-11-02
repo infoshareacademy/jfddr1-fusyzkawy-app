@@ -55,7 +55,10 @@ export const ContainerBox = styled.div`
 export const TasksTableHeader = styled.header`
   border-bottom: 2px solid var(--basic-light-gray);
   display: grid;
-  grid-template-columns: 1.5fr 2.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns:
+    minmax(70px, 1.5fr) minmax(110px, 2.5fr) minmax(70px, 1fr) minmax(80px, 1fr)
+    minmax(80px, 1fr) minmax(80px, 1fr)
+    minmax(90px, 1fr) minmax(90px, 1fr) minmax(100px, 1fr);
   margin-left: 10px;
   margin-right: 3px;
   padding: 10px;
@@ -64,7 +67,7 @@ export const TasksTableHeader = styled.header`
 export const Task = styled.div`
   border-bottom: 2px solid var(--basic-light-gray);
   display: grid;
-  grid-template-columns: 10fr 1fr;
+  grid-template-columns: 10fr minmax(100px, 1fr);
   margin-left: 10px;
   margin-right: 3px;
   padding: 10px;
@@ -77,7 +80,11 @@ export const Task = styled.div`
 
 export const TaskData = styled.div`
   display: grid;
-  grid-template-columns: 1.5fr 2.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns:
+    minmax(70px, 1.5fr) minmax(110px, 2.5fr) minmax(70px, 1fr) minmax(80px, 1fr)
+    minmax(80px, 1fr)
+    minmax(80px, 1fr)
+    minmax(90px, 1fr) minmax(90px, 1fr);
 `;
 
 export const TasksHeaderField = styled.h3`
@@ -86,6 +93,10 @@ export const TasksHeaderField = styled.h3`
 
 export const TaskDataField = styled.p`
   text-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 10px;
 `;
 
 export const TaskPriority = styled.p`
