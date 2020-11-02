@@ -2,7 +2,11 @@
 //PlayStop.js
 
 import React, { useContext } from "react";
-import { AsideTimerStyled, AsideTimerTitle } from "./AsideTimerStyled";
+import {
+  AsideTimerStyled,
+  AsideTimerTitle,
+  AsideNoTasks,
+} from "./AsideTimerStyled";
 import AsideTimerTask from "./AsideTimerTask/AsideTimerTask";
 import { UserData } from "../../../../contexts/UserData";
 
@@ -12,9 +16,13 @@ const AsideTimer = () => {
   return (
     <AsideTimerStyled>
       <AsideTimerTitle>Timer current</AsideTimerTitle>
-      {activeTasks.map(task => {
-        return <AsideTimerTask task={task} />;
-      })}
+      {activeTasks.length !== 0 ? (
+        activeTasks.map(task => {
+          return <AsideTimerTask task={task} />;
+        })
+      ) : (
+        <AsideNoTasks>No active tasks, go 'n get some.</AsideNoTasks>
+      )}
     </AsideTimerStyled>
   );
 };

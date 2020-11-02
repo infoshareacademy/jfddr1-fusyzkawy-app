@@ -14,3 +14,8 @@ export const FilterInput = styled.input`
 export const ImageStyled = styled.img`
   width: 25px;
 `;
+export const AsideNoTasks = styled.p`
+  color: var(--basic-light-gray);
+  margin: 5px auto;
+  font-size: 1.5rem;
+`;

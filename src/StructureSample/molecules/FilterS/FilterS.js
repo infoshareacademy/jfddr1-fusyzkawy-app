@@ -3,6 +3,7 @@ import {
   FilterSStyled,
   FilterInput,
   ImageStyled,
+  AsideNoTasks,
 } from "../FilterS/FilterSStyled";
 import { UserData } from "../../../contexts/UserData";
 import AsideTask from "../../pages/Aside/AsideTask/AsideTask";
@@ -59,10 +60,14 @@ function FilterS({ viewTasks, icon }) {
         />
       </FilterSStyled>
 
-      {viewTasks &&
+      {filteredTasks.length !== 0 ? (
+        viewTasks &&
         filteredTasks.map(task => (
           <AsideTask key={task.taskId} asideTask={task} />
-        ))}
+        ))
+      ) : (
+        <AsideNoTasks>No tasks, go 'n get some.</AsideNoTasks>
+      )}
     </>
   );
 }
