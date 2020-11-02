@@ -28,3 +28,8 @@ export const AsideTaskListStyled = styled.div`
     background: var(--basic-blue);
   }
 `;
+export const AsideTaskListTitle = styled.h2`
+  color: var(--basic-light-gray);
+  margin: 5px auto 0 auto;
+  font-size: 1.7rem;
+`;

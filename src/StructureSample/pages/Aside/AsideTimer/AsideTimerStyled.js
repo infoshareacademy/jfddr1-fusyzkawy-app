@@ -13,3 +13,8 @@ export const AsideTimerStyled = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 `;
+export const AsideTimerTitle = styled.h2`
+  color: var(--basic-light-gray);
+  margin: 5px auto;
+  font-size: 1.7rem;
+`;
