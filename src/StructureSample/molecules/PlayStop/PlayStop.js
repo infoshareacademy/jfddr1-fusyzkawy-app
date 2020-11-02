@@ -17,7 +17,11 @@ const PlayStop = ({ classIcon, task }) => {
 
   return (
     <ButtonsContainer>
-      <Button onClick={handleClick} id="play">
+      <Button
+        onClick={handleClick}
+        id="play"
+        disabled={task.active === "play" ? true : false}
+      >
         <PlayIcon
           color={`${
             task.active === "play"
@@ -26,7 +30,11 @@ const PlayStop = ({ classIcon, task }) => {
           }`}
         />
       </Button>
-      <Button onClick={handleClick} id="stop">
+      <Button
+        onClick={handleClick}
+        id="stop"
+        disabled={task.active === "stop" ? true : false}
+      >
         <StopIcon
           color={`${
             task.active === "stop"
@@ -35,7 +43,11 @@ const PlayStop = ({ classIcon, task }) => {
           }`}
         />
       </Button>
-      <Button onClick={handleClick} id="pause">
+      <Button
+        onClick={handleClick}
+        id="pause"
+        disabled={task.active === "pause" ? true : false}
+      >
         <PauseIcon
           color={`${
             task.active === "pause"
