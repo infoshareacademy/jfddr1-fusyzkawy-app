@@ -43,7 +43,7 @@ function Timer() {
         </Navigation>
       </Header>
       <Route path="/timer/current">
-        <TimerCurrent tasks={reformattedData} />
+        <TimerCurrent />
       </Route>
       <Route path="/timer/week">
         <TimerWeek tasks={reformattedData} />

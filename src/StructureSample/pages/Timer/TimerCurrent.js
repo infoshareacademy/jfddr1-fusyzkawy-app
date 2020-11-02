@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Input from "../../atoms/Input";
 import PlayStop from "../../molecules/PlayStop/PlayStop";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
@@ -9,8 +9,10 @@ import {
   TaskName,
   GridContainerSeffEnd,
 } from "./TimerStyled";
+import { UserData } from "../../../contexts/UserData";
 
-function TimerCurrent({ tasks }) {
+function TimerCurrent() {
+  const { userTasks } = useContext(UserData);
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
   const [visibleTaskModification, setVisibleTaskModification] = useState(false);
@@ -25,17 +27,19 @@ function TimerCurrent({ tasks }) {
     setVisibleTaskModification(true);
   }
 
+  const tasks = userTasks.filter(task => task.active !== "stop");
+
   return (
     <>
       <ContainerBox>
         {tasks.map(task => {
           return (
-            <Task key={task.id}>
+            <Task key={task.taskId}>
               <TaskName onClick={() => handlerOnClick(task)}>
                 {task.title}
               </TaskName>
               <GridContainerSeffEnd>
-                <PlayStop classIcon="iconSVG" />
+                <PlayStop classIcon="iconSVG" task={task} />
               </GridContainerSeffEnd>
               <Input
                 type="text"
