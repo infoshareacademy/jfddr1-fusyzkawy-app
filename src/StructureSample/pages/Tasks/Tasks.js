@@ -27,8 +27,6 @@ const Tasks = () => {
     const reformattedDataTask = reformattedData.filter(
       reformattedTask => reformattedTask.taskId === task.taskId
     )[0];
-    console.log("reformated data task", reformattedDataTask);
-    console.log("task", task);
     setCurrentTask(reformattedDataTask);
     setVisibleTaskInformation(true);
   }
@@ -110,7 +108,7 @@ const Tasks = () => {
                     : userTask.end.slice(0, 10).split(" ").join("-")}
                 </p>
               </TaskData>
-              <PlayStop classIcon="iconSVG" />
+              <PlayStop classIcon="iconSVG" task={userTask} />
             </Task>
           );
         })}
