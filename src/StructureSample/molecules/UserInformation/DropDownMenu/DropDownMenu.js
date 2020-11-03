@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 import { ReactComponent as LeftArrow } from "../../../../img/left-arrow.svg";
 import { ReactComponent as RightArrow } from "../../../../img/right-arrow.svg";
 import { CSSTransition } from "react-transition-group";
+import ToggleSwitch from "./ToggleSwitch/ToggleSwitch";
 
 const DropDownMenu = props => {
   const menuRef = useRef();
@@ -90,7 +91,10 @@ const DropDownMenu = props => {
             >
               Account settings
             </OptionStyled>
-            <DropDownItem>Change Theme</DropDownItem>
+            <DropDownItem>
+              <p>Light Theme </p>
+              <ToggleSwitch />
+            </DropDownItem>
           </HoverEffect>
         </div>
       </CSSTransition>
