@@ -24,7 +24,7 @@ export const MenuStyled = styled.div`
   position: absolute;
   top: 100px;
   right: 0;
-  width: 200px;
+  width: 250px;
   z-index: 1000;
   transition: height var(--speed) ease;
 `;

@@ -11,7 +11,7 @@ body {
   font-size: 10px;
   --aside-width: 250px;
   --speed: 0.5s;
-  --menu-width: 200px;
+  --menu-width: 250px;
 
   /* Basic palette */
   --basic-light-blue: #44aff2;

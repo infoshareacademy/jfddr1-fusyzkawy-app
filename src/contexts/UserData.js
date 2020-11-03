@@ -124,6 +124,7 @@ const UserDataProvider = ({ children }) => {
       success: success,
     });
   };
+  const [isLightThemeOn, setIsLightThemeOn] = useState(false);
 
   const value = {
     userUid,
@@ -137,6 +138,8 @@ const UserDataProvider = ({ children }) => {
     toastData,
     displayToast,
     clearToast,
+    isLightThemeOn,
+    setIsLightThemeOn,
   };
   return <UserData.Provider value={value}>{children}</UserData.Provider>;
 };
