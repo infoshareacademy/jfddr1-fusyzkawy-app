@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cc8dc59650ea2c820d8e9af22fdb70da",
+    "revision": "2ac2371afae2b4a889d44f49f7fea0a8",
     "url": "/jfddr1-fusyzkawy-app/index.html"
   },
   {
-    "revision": "2fa89a88a2f7d3a76611",
-    "url": "/jfddr1-fusyzkawy-app/static/css/main.c7a01aa6.chunk.css"
+    "revision": "304158f8de7c64aec621",
+    "url": "/jfddr1-fusyzkawy-app/static/css/main.faeb0630.chunk.css"
   },
   {
-    "revision": "cd73141752560f867809",
-    "url": "/jfddr1-fusyzkawy-app/static/js/2.f544385c.chunk.js"
+    "revision": "f5e467a1d03fe88f7ff1",
+    "url": "/jfddr1-fusyzkawy-app/static/js/2.80b95c1f.chunk.js"
   },
   {
     "revision": "56f3ef5199cbb7eec947d49fe76a0f45",
-    "url": "/jfddr1-fusyzkawy-app/static/js/2.f544385c.chunk.js.LICENSE.txt"
+    "url": "/jfddr1-fusyzkawy-app/static/js/2.80b95c1f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2fa89a88a2f7d3a76611",
-    "url": "/jfddr1-fusyzkawy-app/static/js/main.fa7008e4.chunk.js"
+    "revision": "304158f8de7c64aec621",
+    "url": "/jfddr1-fusyzkawy-app/static/js/main.f4e1c1a9.chunk.js"
   },
   {
     "revision": "351f953f3a9310bb1fdb",
@@ -44,16 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jfddr1-fusyzkawy-app/static/media/HomeIcon.65ac52ba.svg"
   },
   {
-    "revision": "1c6e45aef2e59270da4bdd5de92a11c7",
-    "url": "/jfddr1-fusyzkawy-app/static/media/PauseIcon.1c6e45ae.svg"
-  },
-  {
     "revision": "ac1e46e7e75eef31eadd3f346a968c6d",
     "url": "/jfddr1-fusyzkawy-app/static/media/PersonalIcon.ac1e46e7.svg"
-  },
-  {
-    "revision": "a43f3e487139969c0ab32f27f35ad192",
-    "url": "/jfddr1-fusyzkawy-app/static/media/PlayIcon.a43f3e48.svg"
   },
   {
     "revision": "395425fd47006a380a0302be0a832410",
@@ -70,10 +62,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "cedd6b82613a768cf9d6d406a2e4daf0",
     "url": "/jfddr1-fusyzkawy-app/static/media/StatusIcon.cedd6b82.svg"
-  },
-  {
-    "revision": "c602ce1ab0604d7cc0c257f949f95827",
-    "url": "/jfddr1-fusyzkawy-app/static/media/StopIcon.c602ce1a.svg"
   },
   {
     "revision": "94d3af0cf97f44d7a1f2028a96529cc2",
@@ -100,11 +88,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jfddr1-fusyzkawy-app/static/media/filter-icon-grey.2efeef6f.svg"
   },
   {
-    "revision": "1e2a9a1c89f3ee032459059c544875a5",
-    "url": "/jfddr1-fusyzkawy-app/static/media/filter-icon.1e2a9a1c.svg"
+    "revision": "b6c16594ea992c80214ee06c5e66c1a8",
+    "url": "/jfddr1-fusyzkawy-app/static/media/left-arrow.b6c16594.svg"
   },
   {
     "revision": "46b87b528858e58bf5366ffa3c1dacc5",
     "url": "/jfddr1-fusyzkawy-app/static/media/logo-krab_without.46b87b52.png"
+  },
+  {
+    "revision": "0ad977a36b1d98dc9c4f09d0346cd731",
+    "url": "/jfddr1-fusyzkawy-app/static/media/right-arrow.0ad977a3.svg"
   }
 ]);
