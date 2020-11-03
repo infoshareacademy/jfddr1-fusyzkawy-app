@@ -7,6 +7,7 @@ import {
   MainNavLink,
 } from "./NavStyled";
 import AddTaskForm from "../../molecules/AddTaskForm/AddTaskForm";
+import DropDownMenu from "../../molecules/UserInformation/DropDownMenu/DropDownMenu";
 
 const Nav = () => {
   const [activeAddTaskForm, setActiveAddTaskForm] = useState(false);
@@ -38,7 +39,9 @@ const Nav = () => {
           Users
         </MainNavLink> */}
       </LinksWrapper>
-      <UserInformation />
+      <UserInformation>
+        <DropDownMenu />
+      </UserInformation>
       {activeAddTaskForm === true ? (
         <AddTaskForm closeModal={value => setActiveAddTaskForm(value)} />
       ) : null}

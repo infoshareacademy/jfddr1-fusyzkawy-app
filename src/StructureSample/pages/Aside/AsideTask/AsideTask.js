@@ -9,6 +9,7 @@ import {
   PickedTask,
 } from "./AsideTaskStyled";
 import Date from "../../../atoms/Date";
+import { CSSTransition } from "react-transition-group";
 const AsideTask = ({ asideTask }) => {
   // Single Task's Data
 
@@ -30,25 +31,27 @@ const AsideTask = ({ asideTask }) => {
   const [clickedMoreInfo, setClickedMoreInfo] = useState(false);
 
   return (
-    <HoverEffect>
-      <AsideTaskStyled onClick={clickHandler}>
-        {clickedMoreInfo ? (
-          <>
-            <PickedTask>{asideTask.title}</PickedTask>
-            <MoreInfo>
-              <p>Type: {asideTask.type}</p>
-              <p>Description: {asideTask.description}</p>
-              <p>Duration:</p>
-              <Date start={asideTask.start} end={asideTask.end} />
-              <p>Priority: {asideTask.priority}</p>
-              <p>Project: {asideTask.project}</p>
-            </MoreInfo>
-          </>
-        ) : (
-          asideTask.title
-        )}
+    <>
+      <CSSTransition>
+        <HoverEffect>
+          <AsideTaskStyled onClick={clickHandler}>
+            {clickedMoreInfo ? (
+              <>
+                <PickedTask>{asideTask.title}</PickedTask>
+                <MoreInfo>
+                  <p>Type: {asideTask.type}</p>
+                  <p>Description: {asideTask.description}</p>
+                  <p>Duration:</p>
+                  <Date start={asideTask.start} end={asideTask.end} />
+                  <p>Priority: {asideTask.priority}</p>
+                  <p>Project: {asideTask.project}</p>
+                </MoreInfo>
+              </>
+            ) : (
+              asideTask.title
+            )}
 
-        {/* {asideTask.title}
+            {/* {asideTask.title}
         {clickedMoreInfo && (
           <MoreInfo>
             <p>Type: {asideTask.type}</p>
@@ -59,8 +62,10 @@ const AsideTask = ({ asideTask }) => {
             <p>Project: {asideTask.project}</p>
           </MoreInfo>
         )} */}
-      </AsideTaskStyled>
-    </HoverEffect>
+          </AsideTaskStyled>
+        </HoverEffect>
+      </CSSTransition>
+    </>
   );
 };
 
