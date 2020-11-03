@@ -95,7 +95,12 @@ const DropDownMenu = props => {
         </div>
       </CSSTransition>
       {showAccountSettings && (
-        <ProfileSettings onCancel={() => setShowAccountSettings(false)} />
+        <ProfileSettings
+          onCancel={() => {
+            setShowAccountSettings(false);
+            props.setIsButtonClicked(false);
+          }}
+        />
       )}
     </MenuStyled>
   );
