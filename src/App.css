@@ -4,10 +4,14 @@
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
 }
-
+body {
+  overflow: hidden;
+}
 :root {
   font-size: 10px;
   --aside-width: 250px;
+  --speed: 0.5s;
+  --menu-width: 200px;
 
   /* Basic palette */
   --basic-light-blue: #44aff2;
@@ -116,4 +120,45 @@
   width: 20px;
   height: 20px;
   margin: 13px 15px 10px 28px;
+}
+.menu {
+  width: 100%;
+}
+.menu-primary-enter {
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-100%);
+  width: var(--menu-width);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: all var(--speed) ease;
+}
+.menu-primary-exit {
+  position: absolute;
+  opacity: 1;
+  width: var(--menu-width);
+}
+.menu-primary-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all var(--speed) ease;
+}
+.menu-secondary-enter {
+  position: absolute;
+  width: var(--menu-width);
+  transform: translateX(100%);
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-secondary-exit {
+  position: absolute;
+  width: var(--menu-width);
+}
+.menu-secondary-exit-active {
+  transform: translateX(100%);
+  transition: all var(--speed) ease;
 }

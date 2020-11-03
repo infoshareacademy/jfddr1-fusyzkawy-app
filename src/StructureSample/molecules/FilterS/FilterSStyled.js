@@ -8,9 +8,14 @@ export const FilterSStyled = styled.div`
 export const FilterInput = styled.input`
   background-color: var(--basic-light-gray);
   margin-left: 5px;
-  width: 90%;
+  width: 180px;
 `;
 
 export const ImageStyled = styled.img`
   width: 25px;
+`;
+export const AsideNoTasks = styled.p`
+  color: var(--basic-light-gray);
+  margin: 5px auto;
+  font-size: 1.5rem;
 `;
