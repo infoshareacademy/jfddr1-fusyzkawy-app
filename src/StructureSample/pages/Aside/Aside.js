@@ -7,7 +7,7 @@ import AsideTimer from "./AsideTimer/AsideTimer";
 const Aside = () => {
   return (
     <AsideStyled>
-      <a href="/tasks/">
+      <a href="/jfddr1-fusyzkawy-app/tasks/">
         <LogoStyled src={Logo} alt="logo of KRAB App" />
       </a>
 
