@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/jfddr1-fusyzkawy-app/static/css/main.6e42c1a9.chunk.css",
-    "main.js": "/jfddr1-fusyzkawy-app/static/js/main.6dc321f8.chunk.js",
-    "main.js.map": "/jfddr1-fusyzkawy-app/static/js/main.6dc321f8.chunk.js.map",
+    "main.js": "/jfddr1-fusyzkawy-app/static/js/main.97eaef20.chunk.js",
+    "main.js.map": "/jfddr1-fusyzkawy-app/static/js/main.97eaef20.chunk.js.map",
     "runtime-main.js": "/jfddr1-fusyzkawy-app/static/js/runtime-main.8685431d.js",
     "runtime-main.js.map": "/jfddr1-fusyzkawy-app/static/js/runtime-main.8685431d.js.map",
     "static/js/2.e6a0b4e3.chunk.js": "/jfddr1-fusyzkawy-app/static/js/2.e6a0b4e3.chunk.js",
     "static/js/2.e6a0b4e3.chunk.js.map": "/jfddr1-fusyzkawy-app/static/js/2.e6a0b4e3.chunk.js.map",
     "index.html": "/jfddr1-fusyzkawy-app/index.html",
-    "precache-manifest.401dd73a3d40e2abaae9d876250b3846.js": "/jfddr1-fusyzkawy-app/precache-manifest.401dd73a3d40e2abaae9d876250b3846.js",
+    "precache-manifest.86582edbd9897d290f652c088776a080.js": "/jfddr1-fusyzkawy-app/precache-manifest.86582edbd9897d290f652c088776a080.js",
     "service-worker.js": "/jfddr1-fusyzkawy-app/service-worker.js",
     "static/css/main.6e42c1a9.chunk.css.map": "/jfddr1-fusyzkawy-app/static/css/main.6e42c1a9.chunk.css.map",
     "static/js/2.e6a0b4e3.chunk.js.LICENSE.txt": "/jfddr1-fusyzkawy-app/static/js/2.e6a0b4e3.chunk.js.LICENSE.txt",
@@ -36,6 +36,6 @@
     "static/js/runtime-main.8685431d.js",
     "static/js/2.e6a0b4e3.chunk.js",
     "static/css/main.6e42c1a9.chunk.css",
-    "static/js/main.6dc321f8.chunk.js"
+    "static/js/main.97eaef20.chunk.js"
   ]
 }
