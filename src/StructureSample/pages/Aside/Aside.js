@@ -7,7 +7,10 @@ import AsideTimer from "./AsideTimer/AsideTimer";
 const Aside = () => {
   return (
     <AsideStyled>
-      <LogoStyled src={Logo} alt="logo of KRAB App" />
+      <a href="/tasks/">
+        <LogoStyled src={Logo} alt="logo of KRAB App" />
+      </a>
+
       <AsideTaskList />
       <AsideTimer />
     </AsideStyled>
