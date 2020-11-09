@@ -13,6 +13,10 @@ const ToggleSwitch = () => {
       );
       document.documentElement.style.setProperty("--basic-blue", "#44aff2");
       document.documentElement.style.setProperty("--navy-blue-2", "#44aff2");
+      document.documentElement.style.setProperty(
+        "--basic-aside-shadow",
+        "#02385A"
+      );
     } else {
       document.documentElement.style.setProperty(
         "--basic-navy-blue",
@@ -20,6 +24,10 @@ const ToggleSwitch = () => {
       );
       document.documentElement.style.setProperty("--basic-blue", "#254559");
       document.documentElement.style.setProperty("--navy-blue-2", "#254559");
+      document.documentElement.style.setProperty(
+        "--basic-aside-shadow",
+        "#091116"
+      );
     }
   }, [isLightThemeOn]);
 

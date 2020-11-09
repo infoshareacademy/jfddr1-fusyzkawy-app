@@ -37,7 +37,7 @@ const AsideTask = ({ asideTask }) => {
           <AsideTaskStyled onClick={clickHandler}>
             {clickedMoreInfo ? (
               <>
-                <PickedTask>{asideTask.title}</PickedTask>
+                <PickedTask>{`→ ${asideTask.title}`}</PickedTask>
                 <MoreInfo>
                   <p>Type: {asideTask.type}</p>
                   <p>Description: {asideTask.description}</p>
@@ -48,7 +48,7 @@ const AsideTask = ({ asideTask }) => {
                 </MoreInfo>
               </>
             ) : (
-              asideTask.title
+              `→ ${asideTask.title}`
             )}
 
             {/* {asideTask.title}

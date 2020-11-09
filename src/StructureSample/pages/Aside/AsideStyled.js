@@ -6,6 +6,7 @@ export const AsideStyled = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  max-height: 100vh;
 `;
 
 export const LogoStyled = styled.img`
