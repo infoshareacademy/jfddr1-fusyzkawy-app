@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const AsideTimerStyled = styled.div`
   background: var(--basic-navy-blue);
-  border: 1px solid black;
+  border: 1px solid var(--basic-aside-shadow);
   width: 90%;
   flex-grow: 1;
-  box-shadow: inset 4px 4px 10px 0px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: inset 4px 4px 10px 0px var(--basic-aside-shadow),
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin-bottom: 10px;
   display: flex;
   flex-flow: column nowrap;
