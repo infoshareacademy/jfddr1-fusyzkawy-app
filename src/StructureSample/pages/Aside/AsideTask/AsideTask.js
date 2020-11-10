@@ -8,8 +8,8 @@ import {
   MoreInfo,
   PickedTask,
 } from "./AsideTaskStyled";
-import DataFormater from "../../../utils/dataFormater";
 import { CSSTransition } from "react-transition-group";
+import { dateFormatToAsideFormatToDisplay } from "../../../utils/dateFunction";
 const AsideTask = ({ asideTask }) => {
   // Single Task's Data
 
@@ -48,7 +48,10 @@ const AsideTask = ({ asideTask }) => {
                   <p>
                     <strong>Duration:</strong>
                   </p>
-                  <DataFormater start={asideTask.start} end={asideTask.end} />
+                  {dateFormatToAsideFormatToDisplay(
+                    asideTask.start,
+                    asideTask.end
+                  )}
                   <p>
                     <strong>Priority:</strong> {asideTask.priority}
                   </p>
