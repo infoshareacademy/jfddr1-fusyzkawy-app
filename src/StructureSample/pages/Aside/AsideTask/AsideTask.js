@@ -32,7 +32,7 @@ const AsideTask = ({ asideTask }) => {
 
   return (
     <>
-      <CSSTransition>
+      <CSSTransition timeout={2000}>
         <HoverEffect>
           <AsideTaskStyled onClick={clickHandler}>
             {clickedMoreInfo ? (

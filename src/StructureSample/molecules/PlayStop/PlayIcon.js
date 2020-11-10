@@ -7,7 +7,7 @@ const PlayIcon = ({ color }) => {
       focusable="false"
       data-prefix="fas"
       data-icon="play"
-      class="svg-inline--fa fa-play fa-w-14"
+      className="svg-inline--fa fa-play fa-w-14"
       role="img"
       style={{
         color: color,
