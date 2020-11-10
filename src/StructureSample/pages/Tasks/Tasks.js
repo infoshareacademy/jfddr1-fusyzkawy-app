@@ -15,9 +15,14 @@ import { UserData } from "../../../contexts/UserData";
 import PlayStop from "../../molecules/PlayStop/PlayStop";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
+import {
+  stringDateToDateFormat,
+  stringDateToStringWithDash,
+} from "../../utils/dateFunction";
 
 const Tasks = () => {
   const { userTasks } = useContext(UserData);
+  console.log(userTasks);
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
   const [visibleTaskModification, setVisibleTaskModification] = useState(false);
@@ -37,25 +42,9 @@ const Tasks = () => {
   }
 
   useEffect(() => {
-    userTasks.length &&
-      setReformattedData(
-        userTasks.map(elem => {
-          if (typeof elem.start === "string") {
-            elem = { ...elem };
-            elem.start = new Date(
-              ...elem.start.split(" ").map(elem => parseInt(elem))
-            );
-            elem.start.setMonth(elem.start.getMonth() - 1);
-            elem.end = new Date(
-              ...elem.end.split(" ").map(elem => parseInt(elem))
-            );
-            elem.end.setMonth(elem.end.getMonth() - 1);
-          }
-          return elem;
-        })
-      );
+    userTasks.length && setReformattedData(stringDateToDateFormat(userTasks));
   }, [userTasks]);
-
+  console.log(userTasks);
   return (
     <div className="mainHome">
       <Header>
@@ -98,14 +87,10 @@ const Tasks = () => {
                   {userTask.priority}
                 </TaskPriority>
                 <p>
-                  {userTask.start.length < 10
-                    ? ""
-                    : userTask.start.slice(0, 10).split(" ").join("-")}
+                  {userTask.start && stringDateToStringWithDash(userTask.start)}
                 </p>
                 <p>
-                  {userTask.end.length < 10
-                    ? ""
-                    : userTask.end.slice(0, 10).split(" ").join("-")}
+                  {userTask.end && stringDateToStringWithDash(userTask.end)}
                 </p>
               </TaskData>
               <PlayStop classIcon="iconSVG" task={userTask} />

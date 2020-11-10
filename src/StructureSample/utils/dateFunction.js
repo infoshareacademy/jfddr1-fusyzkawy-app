@@ -25,7 +25,7 @@ const year = [
   "December",
 ];
 
-//INPUT:2020 10 19 00 00 00
+//INPUT:  2020 10 19 00 00 00
 //OUTPUT: Tue Oct 20 2020 00:00:00 GMT+0200 (Central European Summer Time)
 export function stringDateToDateFormat(userTasks) {
   return userTasks.map(elem => {
@@ -88,7 +88,9 @@ export function dateFormatToObjectForInputs(range) {
 //     start: "2020 11 4 00 00 00"
 //     }
 export function inputFormToStringDateForm(taskDate) {
-  return {
+  console.log(taskDate);
+
+  const obj = {
     start: `${taskDate.startDate
       .split("-")
       .join(" ")} ${taskDate.startTime.split(":").join(" ")} 00`,
@@ -96,6 +98,7 @@ export function inputFormToStringDateForm(taskDate) {
       .split(":")
       .join(" ")} 00`,
   };
+  return obj;
 }
 
 //INPUT: {
@@ -217,4 +220,19 @@ export function dateFormatToAsideFormatToDisplay(start, end) {
       )}
     </>
   );
+}
+
+// start = "2020 10 20 00 00 00";
+// ("2020 10 20 00 00 00");
+// dateArray = start.split(" ");
+// Array(6)[("2020", "10", "20", "00", "00", "00")];
+
+// dateArray.slice(0, 3).join("-");
+// ("2020-10-20");
+
+//INPUT DATE: start: "2020 10 20 00 00 00"
+//OUTPUT DATE "2020-10-20"
+export function stringDateToStringWithDash(time) {
+  const date = time.length < 8 ? "" : time.split(" ").slice(0, 3).join("-");
+  return date;
 }
