@@ -1,13 +1,4 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import Input from "../../atoms/Input";
-
-export const NewInput = styled(Input)`
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: 0 auto;
-`;
 
 // Timer
 export const Header = styled.header`
@@ -17,29 +8,7 @@ export const Header = styled.header`
   font-size: 1.5rem;
 `;
 
-export const Navigation = styled.nav`
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-`;
-
-export const NewLink = styled(NavLink)`
-  padding: 10px 10px;
-  margin: 0 15px;
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: var(--gray-3);
-
-  &:hover {
-    color: var(--basic-green);
-  }
-
-  &:active {
-    color: var(--basic-green);
-  }
-`;
-
-//TimerCurrent & TimerWeek
+//TimerCurrent
 export const ContainerBox = styled.div`
   background-color: var(--basic-white);
   margin: 20px;
@@ -64,7 +33,6 @@ export const ContainerBox = styled.div`
   }
 `;
 
-//TimerCurrent
 export const Task = styled.div`
   padding: 10px 0;
   display: grid;
@@ -86,30 +54,4 @@ export const TaskName = styled.p`
 
 export const GridContainerSeffEnd = styled.div`
   justify-self: end;
-`;
-
-//Timer Week
-export const GridTemplateContainer = styled.div`
-  display: grid;
-  grid-template-columns: 40% 60%;
-  align-items: center;
-  margin: 0 auto;
-`;
-
-export const FlexContainer = styled.div`
-  display: flex;
-  margin: 0 auto;
-  justify-content: space-around;
-  width: 100%;
-`;
-
-export const LeftColumn = styled.p`
-  text-align: left;
-  padding-left: 30px;
-`;
-
-export const TaskNameColumn = styled(LeftColumn)`
-  &:hover {
-    color: var(--basic-green);
-  }
 `;

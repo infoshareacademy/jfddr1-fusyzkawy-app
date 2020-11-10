@@ -24,7 +24,7 @@ const Home = () => {
           <Route exact path="/calendar/">
             <Calendar />
           </Route>
-          <Route exact path="/timer/:current">
+          <Route exact path="/timer/">
             <Timer />
           </Route>
           <Route exact path="/tasks/">
