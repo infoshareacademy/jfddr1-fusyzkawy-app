@@ -5,19 +5,23 @@ import { UserData } from "../../../contexts/UserData";
 import PlayIcon from "./PlayIcon";
 import StopIcon from "./StopIcon";
 import PauseIcon from "./PauseIcon";
+import { sekundsToHHMMSS } from "../../utils/dateFunction";
 
 const PlayStop = ({ classIcon, task, showTime }) => {
   const { userUid, clearToast, displayToast } = useContext(UserData);
+  const [timeStart, setTimeStart] = useState(task.timeStart || 0);
+  const startTime = task.duration + Math.floor((Date.now() - timeStart) / 1000);
+  const [seconds, setSeconds] = useState(
+    task.active !== "play" ? task.duration : task.duration !== 0 ? startTime : 0
+  );
+  const [isActive, setIsActive] = useState(task.active === "play");
 
-  function handleClick(e) {
+  function handlePauseStopClick(e) {
+    setIsActive(false);
     const clickedButton = e.currentTarget.id;
     const changedData = { active: clickedButton, duration: seconds };
     changeTask(task.taskId, userUid, changedData, clearToast, displayToast);
   }
-  const [timeStart, setTimeStart] = useState(task.timeStart || 0);
-  const startTime = task.duration + Math.floor((Date.now() - timeStart) / 1000);
-  const [seconds, setSeconds] = useState(task.duration !== 0 ? startTime : 0);
-  const [isActive, setIsActive] = useState(task.active === "play");
 
   function start(e) {
     setIsActive(true);
@@ -30,12 +34,6 @@ const PlayStop = ({ classIcon, task, showTime }) => {
       timeStart: date,
     };
     changeTask(task.taskId, userUid, changedData, clearToast, displayToast);
-  }
-  function pause() {
-    setIsActive(false);
-  }
-  function stop() {
-    setIsActive(false);
   }
 
   useEffect(() => {
@@ -72,10 +70,7 @@ const PlayStop = ({ classIcon, task, showTime }) => {
         />
       </Button>
       <Button
-        onClick={event => {
-          handleClick(event);
-          stop();
-        }}
+        onClick={handlePauseStopClick}
         id="stop"
         disabled={task.active === "stop" ? true : false}
       >
@@ -88,10 +83,7 @@ const PlayStop = ({ classIcon, task, showTime }) => {
         />
       </Button>
       <Button
-        onClick={event => {
-          handleClick(event);
-          pause();
-        }}
+        onClick={handlePauseStopClick}
         id="pause"
         disabled={task.active === "pause" ? true : false}
       >
@@ -103,7 +95,7 @@ const PlayStop = ({ classIcon, task, showTime }) => {
           }`}
         />
       </Button>
-      {showTime && <Div className="time">{seconds}s</Div>}
+      {showTime && <Div className="time">{sekundsToHHMMSS(seconds)}</Div>}
     </ButtonsContainer>
   );
 };
