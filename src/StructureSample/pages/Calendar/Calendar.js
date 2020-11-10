@@ -49,7 +49,7 @@ export default function MyCalendar(props) {
         events={reformattedData}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500 }}
+        style={{ height: `100%` }}
         views={{
           month: true,
           week: true,

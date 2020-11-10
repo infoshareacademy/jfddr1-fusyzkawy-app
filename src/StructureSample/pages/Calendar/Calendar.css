@@ -3,6 +3,7 @@
   grid-area: main;
   background-color: var(--basic-light-gray);
   color: var(--gray-3);
+  height: calc(100vh - 112px);
 }
 
 .rbc-btn {
@@ -29,7 +30,6 @@ button.rbc-input::-moz-focus-inner {
 /* CHANGE */
 .rbc-calendar {
   box-sizing: border-box;
-  min-height: 730px;
   display: flex;
   flex-direction: column;
   align-items: stretch;

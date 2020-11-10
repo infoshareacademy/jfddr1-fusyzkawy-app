@@ -86,7 +86,7 @@ body {
     "aside nav"
     "aside main";
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   padding: 0 12px 12px 0;
   background-color: var(--basic-navy-blue);
 }
