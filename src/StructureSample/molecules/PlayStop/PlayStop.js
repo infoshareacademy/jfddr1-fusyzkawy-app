@@ -16,7 +16,9 @@ const PlayStop = ({ classIcon, task, showTime }) => {
   }
   const [timeStart, setTimeStart] = useState(task.timeStart || 0);
   const startTime = task.duration + Math.floor((Date.now() - timeStart) / 1000);
-  const [seconds, setSeconds] = useState(task.duration !== 0 ? startTime : 0);
+  const [seconds, setSeconds] = useState(
+    task.active !== "play" ? task.duration : task.duration !== 0 ? startTime : 0
+  );
   const [isActive, setIsActive] = useState(task.active === "play");
 
   function start(e) {
