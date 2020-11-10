@@ -26,7 +26,7 @@ const Nav = () => {
         <MainNavLink activeClassName="activeMainNavLink" to="/tasks/">
           Tasks
         </MainNavLink>
-        <MainNavLink activeClassName="activeMainNavLink" to="/timer/current/">
+        <MainNavLink activeClassName="activeMainNavLink" to="/timer/">
           Timer
         </MainNavLink>
         <MainNavLink activeClassName="activeMainNavLink" to="/calendar/">
