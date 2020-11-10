@@ -27,9 +27,10 @@ The main goal was to implement first bigger project and test skills gained durin
 
 ### Back-end
 
-<img alt="start page background photo" src="./src/img/readme/auth.png" width="429">
-<img alt="start page background photo" src="./src/img/readme/firestore.png" width="416">
-
+<div display="flex">
+<img alt="start page background photo" src="./src/img/readme/auth.png" width=398">
+<img alt="start page background photo" src="./src/img/readme/firestore.png" width="386">
+</div>
 Well, KRAB is a pieace of art created by a bunch of Junior Front-End Devs, so you probably think we had some Back-End help round the corner... \
 Couldn't be more wrong! Keeping our horizon broad enough our Team decided to implement some back-end features using Firebase. \
 We kicked of with Firebase Firesotre to provide a flexible, scalable NoSQL cloud database to store and sync data. \
