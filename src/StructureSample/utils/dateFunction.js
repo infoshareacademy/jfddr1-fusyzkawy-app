@@ -91,10 +91,10 @@ export function dateFormatToObjectForInputs(range) {
 export function inputFormToStringDateForm(taskDate) {
   let obj = {};
   if (
-    taskDate.startDate !== "" &&
-    taskDate.startTime !== "" &&
-    taskDate.endDate !== "" &&
-    taskDate.endTime !== ""
+    taskDate.startDate &&
+    taskDate.startTime &&
+    taskDate.endDate &&
+    taskDate.endTime
   ) {
     obj = {
       start: `${taskDate.startDate
@@ -119,24 +119,29 @@ export function inputFormToStringDateForm(taskDate) {
 //     startTime: "00:00"
 //    }
 export function dateFormatToObjectForInputsWithZero(task) {
-  return {
-    startTime: task.start.toLocaleTimeString("PL-PL", {
-      hour: "numeric",
-      minute: "numeric",
-    }),
-    startDate: `${task.start.getFullYear()}-${(
-      "0" +
-      (task.start.getMonth() + 1)
-    ).slice(-2)}-${("0" + task.start.getDate()).slice(-2)}`,
-    endTime: task.end.toLocaleTimeString("PL-PL", {
-      hour: "numeric",
-      minute: "numeric",
-    }),
-    endDate: `${task.end.getFullYear()}-${(
-      "0" +
-      (task.end.getMonth() + 1)
-    ).slice(-2)}-${("0" + task.end.getDate()).slice(-2)}`,
-  };
+  let obj = {};
+  if (task.end && task.start) {
+    obj = {
+      startTime: task.start.toLocaleTimeString("PL-PL", {
+        hour: "numeric",
+        minute: "numeric",
+      }),
+      startDate: `${task.start.getFullYear()}-${(
+        "0" +
+        (task.start.getMonth() + 1)
+      ).slice(-2)}-${("0" + task.start.getDate()).slice(-2)}`,
+      endTime: task.end.toLocaleTimeString("PL-PL", {
+        hour: "numeric",
+        minute: "numeric",
+      }),
+      endDate: `${task.end.getFullYear()}-${(
+        "0" +
+        (task.end.getMonth() + 1)
+      ).slice(-2)}-${("0" + task.end.getDate()).slice(-2)}`,
+    };
+  }
+
+  return obj;
 }
 
 //INPUT DATE: start: Date Mon Oct 19 2020 00:00:00 GMT+0200 (Central European Summer Time)
