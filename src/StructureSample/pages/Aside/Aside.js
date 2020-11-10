@@ -1,16 +1,15 @@
 import React from "react";
 import Logo from "../../../img/logo-krab_without.png";
-import { AsideStyled, LogoStyled } from "./AsideStyled";
+import { AsideStyled, LogoStyled, ImgStyled } from "./AsideStyled";
 import AsideTaskList from "./AsideTaskList/AsideTaskList";
 import AsideTimer from "./AsideTimer/AsideTimer";
 
 const Aside = () => {
   return (
     <AsideStyled>
-      <a href="/jfddr1-fusyzkawy-app/tasks/">
-        <LogoStyled src={Logo} alt="logo of KRAB App" />
-      </a>
-
+      <LogoStyled href="/jfddr1-fusyzkawy-app/tasks/">
+        <ImgStyled src={Logo} alt="logo of KRAB App" />
+      </LogoStyled>
       <AsideTaskList />
       <AsideTimer />
     </AsideStyled>
