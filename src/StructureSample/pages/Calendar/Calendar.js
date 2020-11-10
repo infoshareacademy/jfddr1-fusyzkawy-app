@@ -7,6 +7,10 @@ import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 import AddTaskForm from "../../molecules/AddTaskForm/AddTaskForm";
 import { UserData } from "../../../contexts/UserData";
 import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
+import {
+  stringDateToDateFormat,
+  dateFormatToObjectForInputs,
+} from "../../utils/dateFunction";
 //import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
@@ -43,22 +47,7 @@ export default function MyCalendar(props) {
   }
 
   useEffect(() => {
-    setReformattedData(
-      userTasks.map(elem => {
-        if (typeof elem.start === "string") {
-          elem = { ...elem };
-          elem.start = new Date(
-            ...elem.start.split(" ").map(elem => parseInt(elem))
-          );
-          elem.start.setMonth(elem.start.getMonth() - 1);
-          elem.end = new Date(
-            ...elem.end.split(" ").map(elem => parseInt(elem))
-          );
-          elem.end.setMonth(elem.end.getMonth() - 1);
-        }
-        return elem;
-      })
-    );
+    setReformattedData(stringDateToDateFormat(userTasks));
   }, [userTasks]);
 
   return (
@@ -83,28 +72,7 @@ export default function MyCalendar(props) {
           return true;
         }}
         onSelectSlot={range => {
-          setTaskDate({
-            startTime: range.start.toLocaleTimeString("PL-PL", {
-              hour: "numeric",
-              minute: "numeric",
-            }),
-            startDate: `${range.start.getFullYear()}-${
-              range.start.getMonth() + 1
-            }-${range.start.getDate()}`,
-            endTime:
-              range.end.toLocaleTimeString("PL-PL", {
-                hour: "numeric",
-                minute: "numeric",
-              }) === "00:00"
-                ? "24:00"
-                : range.end.toLocaleTimeString("PL-PL", {
-                    hour: "numeric",
-                    minute: "numeric",
-                  }),
-            endDate: `${range.end.getFullYear()}-${
-              range.end.getMonth() + 1
-            }-${range.end.getDate()}`,
-          });
+          setTaskDate(dateFormatToObjectForInputs(range));
           !activeAddTaskForm && setActiveAddTaskForm(true);
         }}
         selectable={true}
@@ -123,7 +91,6 @@ export default function MyCalendar(props) {
           onApply={() => setVisibleTaskInformation(true)}
         />
       ) : null}
-
       {activeAddTaskForm === true ? (
         <AddTaskForm
           closeModal={value => setActiveAddTaskForm(value)}
