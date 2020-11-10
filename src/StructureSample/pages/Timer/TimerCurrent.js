@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Input from "../../atoms/Input";
 import PlayStop from "../../molecules/PlayStop/PlayStop";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
@@ -10,12 +10,14 @@ import {
   GridContainerSeffEnd,
 } from "./TimerStyled";
 import { UserData } from "../../../contexts/UserData";
+import { stringDateToDateFormat } from "../../utils/dateFunction";
 
 function TimerCurrent() {
   const { userTasks } = useContext(UserData);
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
   const [visibleTaskModification, setVisibleTaskModification] = useState(false);
+  const [reformattedData, setReformattedData] = useState([]);
 
   function handlerOnClick(task) {
     setCurrentTask(task);
@@ -28,10 +30,14 @@ function TimerCurrent() {
   }
 
   const tasks = userTasks.filter(task => task.active !== "stop");
+  useEffect(() => {
+    userTasks.length && setReformattedData(stringDateToDateFormat(tasks));
+  }, [userTasks]);
+
   return (
     <>
       <ContainerBox>
-        {tasks.map(task => {
+        {reformattedData.map(task => {
           return (
             <Task key={task.taskId}>
               <TaskName onClick={() => handlerOnClick(task)}>
