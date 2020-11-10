@@ -28,7 +28,6 @@ function TimerCurrent() {
   }
 
   const tasks = userTasks.filter(task => task.active !== "stop");
-  console.log(tasks);
   return (
     <>
       <ContainerBox>

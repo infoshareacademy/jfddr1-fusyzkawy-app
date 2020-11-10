@@ -24,7 +24,11 @@ function InformationToDisplay({ task, iconName, infoName, infoType }) {
       {infoType === "h2" ? (
         <H2>{task[infoName]}</H2>
       ) : infoType === "date" ? (
-        <P>{dateFormatToDisplayVersion(task.start, task.end)}</P>
+        <P>
+          {(task.start &&
+            task.end &&
+            dateFormatToDisplayVersion(task.start, task.end)) || <i>no time</i>}
+        </P>
       ) : infoType === "p" ? (
         <P>{task[infoName] || <i>no {infoName}</i>}</P>
       ) : infoType === "TagsContainer" ? (

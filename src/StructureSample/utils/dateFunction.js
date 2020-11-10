@@ -53,14 +53,14 @@ export function stringDateToDateFormat(userTasks) {
 //     startTime: "00:00"
 //     }
 export function dateFormatToObjectForInputs(range) {
-  return {
+  const obj = {
     startTime: range.start.toLocaleTimeString("PL-PL", {
       hour: "numeric",
       minute: "numeric",
     }),
     startDate: `${range.start.getFullYear()}-${
       range.start.getMonth() + 1
-    }- ${range.start.getDate()}`,
+    }-${range.start.getDate()}`,
     endTime:
       range.end.toLocaleTimeString("PL-PL", {
         hour: "numeric",
@@ -75,6 +75,7 @@ export function dateFormatToObjectForInputs(range) {
       range.end.getMonth() + 1
     }-${range.end.getDate()}`,
   };
+  return obj;
 }
 
 //INPUT: {
@@ -88,16 +89,22 @@ export function dateFormatToObjectForInputs(range) {
 //     start: "2020 11 4 00 00 00"
 //     }
 export function inputFormToStringDateForm(taskDate) {
-  console.log(taskDate);
-
-  const obj = {
-    start: `${taskDate.startDate
-      .split("-")
-      .join(" ")} ${taskDate.startTime.split(":").join(" ")} 00`,
-    end: `${taskDate.endDate.split("-").join(" ")} ${taskDate.endTime
-      .split(":")
-      .join(" ")} 00`,
-  };
+  let obj = {};
+  if (
+    taskDate.startDate !== "" &&
+    taskDate.startTime !== "" &&
+    taskDate.endDate !== "" &&
+    taskDate.endTime !== ""
+  ) {
+    obj = {
+      start: `${taskDate.startDate
+        .split("-")
+        .join(" ")} ${taskDate.startTime.split(":").join(" ")} 00`,
+      end: `${taskDate.endDate.split("-").join(" ")} ${taskDate.endTime
+        .split(":")
+        .join(" ")} 00`,
+    };
+  }
   return obj;
 }
 
@@ -186,7 +193,7 @@ export function dateFormatToAsideFormatToDisplay(start, end) {
           {" "}
           <p>
             {week[start.getDay()]}, {start.getDate()} {year[start.getMonth()]}
-          </p>
+          </p>{" "}
           <p>
             {start.toLocaleTimeString("PL-PL", {
               hour: "numeric",
@@ -203,14 +210,14 @@ export function dateFormatToAsideFormatToDisplay(start, end) {
         <>
           <p>
             From: {week[start.getDay()]}, {start.getDate()}{" "}
-            {year[start.getMonth()]}
+            {year[start.getMonth()]}{" "}
             {start.toLocaleTimeString("PL-PL", {
               hour: "numeric",
               minute: "numeric",
-            })}{" "}
-          </p>
+            })}
+          </p>{" "}
           <p>
-            To: {week[end.getDay()]}, {end.getDate()} {year[end.getMonth()]}
+            To: {week[end.getDay()]}, {end.getDate()} {year[end.getMonth()]}{" "}
             {end.toLocaleTimeString("PL-PL", {
               hour: "numeric",
               minute: "numeric",

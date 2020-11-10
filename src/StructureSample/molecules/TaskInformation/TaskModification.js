@@ -44,7 +44,6 @@ function TaskModification({ task, onCancel, onApply }) {
   const [viewCancelWarnig, setViewCancelWarning] = useState(false);
   const backgroundEl = useRef(null); // use to close Container with Task Information by click on <Background>
   const [changedData, setChangedData] = useState({});
-  //console.log(task);
   const [taskDate, setTaskDate] = useState(
     dateFormatToObjectForInputsWithZero(task)
   );

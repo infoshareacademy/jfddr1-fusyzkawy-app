@@ -48,10 +48,12 @@ const AsideTask = ({ asideTask }) => {
                   <p>
                     <strong>Duration:</strong>
                   </p>
-                  {dateFormatToAsideFormatToDisplay(
-                    asideTask.start,
-                    asideTask.end
-                  )}
+                  {asideTask.start &&
+                    asideTask.end &&
+                    dateFormatToAsideFormatToDisplay(
+                      asideTask.start,
+                      asideTask.end
+                    )}
                   <p>
                     <strong>Priority:</strong> {asideTask.priority}
                   </p>

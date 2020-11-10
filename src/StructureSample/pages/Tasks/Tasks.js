@@ -22,7 +22,6 @@ import {
 
 const Tasks = () => {
   const { userTasks } = useContext(UserData);
-  console.log(userTasks);
   const [currentTask, setCurrentTask] = useState({});
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
   const [visibleTaskModification, setVisibleTaskModification] = useState(false);
@@ -44,7 +43,6 @@ const Tasks = () => {
   useEffect(() => {
     userTasks.length && setReformattedData(stringDateToDateFormat(userTasks));
   }, [userTasks]);
-  console.log(userTasks);
   return (
     <div className="mainHome">
       <Header>
