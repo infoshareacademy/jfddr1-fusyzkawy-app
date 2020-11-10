@@ -14,12 +14,22 @@ const PlayStop = ({ classIcon, task, showTime }) => {
     const changedData = { active: clickedButton, duration: seconds };
     changeTask(task.taskId, userUid, changedData, clearToast, displayToast);
   }
+  const [timeStart, setTimeStart] = useState(task.timeStart || 0);
+  const startTime = task.duration + Math.floor((Date.now() - timeStart) / 1000);
+  const [seconds, setSeconds] = useState(task.duration !== 0 ? startTime : 0);
+  const [isActive, setIsActive] = useState(task.active === "play");
 
-  const [seconds, setSeconds] = useState(task.duration || 0);
-  const [isActive, setIsActive] = useState(false);
-
-  function start() {
+  function start(e) {
     setIsActive(true);
+    const date = Date.now();
+    setTimeStart(date);
+    setSeconds(task.duration);
+    const clickedButton = e.currentTarget.id;
+    const changedData = {
+      active: clickedButton,
+      timeStart: date,
+    };
+    changeTask(task.taskId, userUid, changedData, clearToast, displayToast);
   }
   function pause() {
     setIsActive(false);
@@ -32,13 +42,14 @@ const PlayStop = ({ classIcon, task, showTime }) => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
-        setSeconds(seconds => seconds + 1);
+        const time =
+          task.duration + Math.floor((Date.now() - timeStart) / 1000);
+        setSeconds(time);
       }, 1000);
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
     }
     return () => {
-      // debugger;
       return clearInterval(interval);
     };
   }, [isActive, seconds]);
@@ -47,8 +58,7 @@ const PlayStop = ({ classIcon, task, showTime }) => {
     <ButtonsContainer>
       <Button
         onClick={event => {
-          handleClick(event);
-          start();
+          start(event);
         }}
         id="play"
         disabled={task.active === "play" ? true : false}
