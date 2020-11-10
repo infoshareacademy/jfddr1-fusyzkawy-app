@@ -2,6 +2,7 @@ import React, { useRef, useState, useContext } from "react";
 import { Rnd } from "react-rnd";
 import { UserData } from "../../../contexts/UserData";
 import { addTask } from "../../../Firebase/firestore/tasksActions";
+import { inputFormToStringDateForm } from "../../utils/dateFunction";
 import {
   FormWrapper,
   TaskNameInput,
@@ -54,12 +55,7 @@ const AddTaskForm = ({
     event.preventDefault();
     const newTask = {
       ...taskData,
-      start: `${taskTime.startDate
-        .split("-")
-        .join(" ")} ${taskTime.startTime.split(":").join(" ")} 00`,
-      end: `${taskTime.endDate.split("-").join(" ")} ${taskTime.endTime
-        .split(":")
-        .join(" ")} 00`,
+      ...inputFormToStringDateForm(taskTime),
     };
     addTask(newTask, userUid, clearToast, displayToast);
     closeModal(false);
