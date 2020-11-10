@@ -7,7 +7,7 @@ const StopIcon = ({ color }) => {
       focusable="false"
       data-prefix="fas"
       data-icon="stop"
-      class="svg-inline--fa fa-stop fa-w-14"
+      className="svg-inline--fa fa-stop fa-w-14"
       role="img"
       style={{
         color: color,

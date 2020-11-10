@@ -79,7 +79,6 @@ const UserDataProvider = ({ children }) => {
         .collection(`Users/${userUid}/Tasks`)
         .onSnapshot(tasks => {
           const userTasks = [];
-          setUserTasks([]);
           tasks.forEach(task => {
             userTasks.push({ ...task.data(), taskId: task.id });
           });
@@ -96,7 +95,6 @@ const UserDataProvider = ({ children }) => {
         .collection(`Users/${userUid}/StagesTasks`)
         .onSnapshot(stages => {
           const stagesTasks = [];
-          setStagesTasks([]);
           stages.forEach(stage => {
             stagesTasks.push({ ...stage.data(), stageId: stage.id });
           });

@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import Input from "../../atoms/Input";
 import PlayStop from "../../molecules/PlayStop/PlayStop";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 import TaskModifacation from "../../molecules/TaskInformation/TaskModification";
@@ -44,14 +43,8 @@ function TimerCurrent() {
                 {task.title}
               </TaskName>
               <GridContainerSeffEnd>
-                <PlayStop classIcon="iconSVG" task={task} />
+                <PlayStop classIcon="iconSVG" task={task} showTime={true} />
               </GridContainerSeffEnd>
-              <Input
-                type="text"
-                defaultValue="00:00"
-                style={{ width: "60px", marginLeft: "10px" }}
-                readOnly={true}
-              />
             </Task>
           );
         })}
