@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import {
-  Header,
+  Main,
   Navigation,
   ContainerBox,
   TasksTableHeader,
@@ -44,14 +44,11 @@ const Tasks = () => {
     userTasks.length && setReformattedData(stringDateToDateFormat(userTasks));
   }, [userTasks]);
   return (
-    <div className="mainHome">
-      <Header>
-        <h2>Tasks</h2>
-        <Navigation>
-          <FilterSortBtn>Filter</FilterSortBtn>
-          <FilterSortBtn>Sort</FilterSortBtn>
-        </Navigation>
-      </Header>
+    <Main>
+      <Navigation>
+        <FilterSortBtn>Filter</FilterSortBtn>
+        <FilterSortBtn>Sort</FilterSortBtn>
+      </Navigation>
       <ContainerBox>
         <TasksTableHeader>
           <TasksHeaderField>Title</TasksHeaderField>
@@ -110,7 +107,7 @@ const Tasks = () => {
           onApply={() => setVisibleTaskInformation(true)}
         />
       ) : null}
-    </div>
+    </Main>
   );
 };
 

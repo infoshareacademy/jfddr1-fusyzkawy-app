@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "./Calendar.css";
-import styled from "styled-components";
 import TaskInformation from "../../molecules/TaskInformation/TaskInformation";
 import AddTaskForm from "../../molecules/AddTaskForm/AddTaskForm";
 import { UserData } from "../../../contexts/UserData";
@@ -14,13 +13,6 @@ import {
 //import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
-
-const Header = styled.header`
-  text-align: left;
-  padding: 15px 20px 5px;
-  background-color: var(--basic-white);
-  font-size: 1.5rem;
-`;
 
 export default function MyCalendar(props) {
   const [reformattedData, setReformattedData] = useState([]);
@@ -51,10 +43,7 @@ export default function MyCalendar(props) {
   }, [userTasks]);
 
   return (
-    <div className="mainHome">
-      <Header>
-        <h2>Calendar</h2>
-      </Header>
+    <div className="main">
       <Calendar
         localizer={localizer}
         events={reformattedData}

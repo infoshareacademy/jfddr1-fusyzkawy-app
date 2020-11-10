@@ -1,17 +1,24 @@
 import styled from "styled-components";
 
+export const Main = styled.main`
+  grid-area: main;
+  background-color: var(--basic-light-gray);
+  color: var(--gray-3);
+`;
 // Timer
 export const Header = styled.header`
-  text-align: left;
-  padding: 15px 20px 5px;
+  padding: 0 12px;
   background-color: var(--basic-white);
-  font-size: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 50px;
 `;
 
 //TimerCurrent
 export const ContainerBox = styled.div`
   background-color: var(--basic-white);
-  margin: 20px;
+  margin: 12px;
   padding: 10px;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);

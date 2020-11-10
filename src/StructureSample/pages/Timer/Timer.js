@@ -1,15 +1,13 @@
 import React from "react";
 import TimerCurrent from "./TimerCurrent";
-import { Header } from "./TimerStyled";
+import { Main, Header } from "./TimerStyled";
 
 function Timer() {
   return (
-    <div className="mainHome">
-      <Header>
-        <h2>Current task</h2>
-      </Header>
+    <Main>
+      <Header>Current task</Header>
       <TimerCurrent />
-    </div>
+    </Main>
   );
 }
 

@@ -90,11 +90,6 @@ body {
   padding: 0 12px 12px 0;
   background-color: var(--basic-navy-blue);
 }
-.mainHome {
-  grid-area: main;
-  background-color: var(--basic-light-gray);
-  color: var(--gray-3);
-}
 
 .activeMainNavLink {
   background-color: var(--extra-dark-gray);
