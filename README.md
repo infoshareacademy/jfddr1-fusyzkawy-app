@@ -55,13 +55,14 @@ Lastly, all crucial info to maintain the KRAB was safely stored and managed than
 
 A selection of things you can do with KRAB:
 
-1.
-2.
-3.
-4.
-5.
-6.
-7.
+1. Create your unique account
+   1.1 Change settings like avatar, full name, nick, date of birth, phone number, email
+   1.2 Change your main colour theme (light, dark).
+2. Plan and manage your tasks
+   2.1 Add them explicitly by quick form or by drag'n'dropping selected hours/days.
+   2.2 Update/Delete them with one click.
+   2.3 Filter and sort through them with basic and advanced tools.
+3. Track time of your tasks
 
 ### Feedback
 
