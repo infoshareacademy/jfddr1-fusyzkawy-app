@@ -30,6 +30,10 @@ import {
   Div,
 } from "./TaskInformationStyled";
 import { changeTask } from "../../../Firebase/firestore/tasksActions";
+import {
+  inputFormToStringDateForm,
+  dateFormatToObjectForInputsWithZero,
+} from "../../utils/dateFunction";
 
 const options = ["New task", "In progres", "Completed", "On hold", "Cancelled"];
 const priority = ["High", "Medium", "Low"];
@@ -40,24 +44,10 @@ function TaskModification({ task, onCancel, onApply }) {
   const [viewCancelWarnig, setViewCancelWarning] = useState(false);
   const backgroundEl = useRef(null); // use to close Container with Task Information by click on <Background>
   const [changedData, setChangedData] = useState({});
-  const [taskDate, setTaskDate] = useState({
-    startTime: task.start.toLocaleTimeString("PL-PL", {
-      hour: "numeric",
-      minute: "numeric",
-    }),
-    startDate: `${task.start.getFullYear()}-${(
-      "0" +
-      (task.start.getMonth() + 1)
-    ).slice(-2)}-${("0" + task.start.getDate()).slice(-2)}`,
-    endTime: task.end.toLocaleTimeString("PL-PL", {
-      hour: "numeric",
-      minute: "numeric",
-    }),
-    endDate: `${task.end.getFullYear()}-${(
-      "0" +
-      (task.end.getMonth() + 1)
-    ).slice(-2)}-${("0" + task.end.getDate()).slice(-2)}`,
-  });
+  //console.log(task);
+  const [taskDate, setTaskDate] = useState(
+    dateFormatToObjectForInputsWithZero(task)
+  );
   const [taskInformation, setTaskInformation] = useState({
     title: task.title,
     type: task.type,
@@ -87,12 +77,7 @@ function TaskModification({ task, onCancel, onApply }) {
   useEffect(() => {
     setChangedData({
       ...changedData,
-      start: `${taskDate.startDate
-        .split("-")
-        .join(" ")} ${taskDate.startTime.split(":").join(" ")} 00`,
-      end: `${taskDate.endDate.split("-").join(" ")} ${taskDate.endTime
-        .split(":")
-        .join(" ")} 00`,
+      ...inputFormToStringDateForm(taskDate),
     });
   }, [taskDate]);
 

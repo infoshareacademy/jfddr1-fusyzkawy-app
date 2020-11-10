@@ -28,7 +28,7 @@ function TimerCurrent() {
   }
 
   const tasks = userTasks.filter(task => task.active !== "stop");
-
+  console.log(tasks);
   return (
     <>
       <ContainerBox>
@@ -62,6 +62,7 @@ function TimerCurrent() {
         <TaskModifacation
           task={currentTask}
           onCancel={() => setVisibleTaskModification(false)}
+          onApply={() => setVisibleTaskInformation(true)}
         />
       ) : null}
     </>

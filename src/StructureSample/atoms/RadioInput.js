@@ -15,7 +15,7 @@ function RadioInput({ categories, name, onClickInput, isChecked }) {
             value={item}
             name={name}
             onClick={onClickInput}
-            checked={isChecked === item}
+            defaultChecked={isChecked === item}
           />
         </div>
       ))}

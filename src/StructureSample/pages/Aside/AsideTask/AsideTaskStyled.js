@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AsideTaskStyled = styled.p`
+export const AsideTaskStyled = styled.div`
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
@@ -21,6 +21,7 @@ export const MoreInfo = styled.div`
   width: 100%;
   display: flex;
   flex-flow: column wrap;
+  text-align: left;
   align-items: flex-start;
   background-color: var(--navy-blue-2);
   padding: 5px;

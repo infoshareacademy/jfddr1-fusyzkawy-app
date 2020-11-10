@@ -1,5 +1,4 @@
 import React from "react";
-import Date from "../../atoms/Date";
 import Image from "../../atoms/Image";
 import {
   TaskProperties,
@@ -8,6 +7,7 @@ import {
   H2,
   P,
 } from "./TaskInformationStyled";
+import { dateFormatToDisplayVersion } from "../../utils/dateFunction";
 
 function InformationToDisplay({ task, iconName, infoName, infoType }) {
   const tags = task.tags?.split(" ");
@@ -24,9 +24,7 @@ function InformationToDisplay({ task, iconName, infoName, infoType }) {
       {infoType === "h2" ? (
         <H2>{task[infoName]}</H2>
       ) : infoType === "date" ? (
-        <P>
-          <Date start={task.start} end={task.end} />
-        </P>
+        <P>{dateFormatToDisplayVersion(task.start, task.end)}</P>
       ) : infoType === "p" ? (
         <P>{task[infoName] || <i>no {infoName}</i>}</P>
       ) : infoType === "TagsContainer" ? (
