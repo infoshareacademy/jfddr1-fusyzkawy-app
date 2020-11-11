@@ -6,7 +6,7 @@ const Farewell = () => {
   return (
     <SignWrapper>
       <StyledNoMatch>
-        <p>Thanks for dropping by, see You soon.</p>
+        <p>Thanks for dropping by, see you soon.</p>
       </StyledNoMatch>
     </SignWrapper>
   );
