@@ -50,15 +50,15 @@ const Tasks = () => {
       </Navigation>
       <ContainerBox>
         <TasksTableHeader>
-          <TasksHeaderField>Title</TasksHeaderField>
-          <TasksHeaderField>Description</TasksHeaderField>
-          <TasksHeaderField>Project</TasksHeaderField>
-          <h3>Type</h3>
-          <h3>Status</h3>
-          <h3>Priority</h3>
-          <h3>Start date</h3>
-          <h3>End date</h3>
-          <h3>Actions</h3>
+          <h3>Title</h3>
+          <h3>Description</h3>
+          <h3>Project</h3>
+          <TasksHeaderField>Type</TasksHeaderField>
+          <TasksHeaderField>Status</TasksHeaderField>
+          <TasksHeaderField>Priority</TasksHeaderField>
+          <TasksHeaderField>Start date</TasksHeaderField>
+          <TasksHeaderField>End date</TasksHeaderField>
+          <TasksHeaderField>Actions</TasksHeaderField>
         </TasksTableHeader>
         {userTasks.map(userTask => {
           return (
