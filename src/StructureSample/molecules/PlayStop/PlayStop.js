@@ -50,7 +50,7 @@ const PlayStop = ({ classIcon, task, showTime }) => {
     return () => {
       return clearInterval(interval);
     };
-  }, [isActive, seconds]);
+  }, [isActive, seconds, task.duration, timeStart]);
 
   return (
     <ButtonsContainer>
@@ -63,22 +63,7 @@ const PlayStop = ({ classIcon, task, showTime }) => {
       >
         <PlayIcon
           color={`${
-            task.active === "play"
-              ? "var(--task-red-dark)"
-              : "var(--extra-gray)"
-          }`}
-        />
-      </Button>
-      <Button
-        onClick={handlePauseStopClick}
-        id="stop"
-        disabled={task.active === "stop" ? true : false}
-      >
-        <StopIcon
-          color={`${
-            task.active === "stop"
-              ? "var(--task-red-dark)"
-              : "var(--extra-gray)"
+            task.active === "play" ? "var(--basic-green)" : "var(--extra-gray)"
           }`}
         />
       </Button>
@@ -89,9 +74,18 @@ const PlayStop = ({ classIcon, task, showTime }) => {
       >
         <PauseIcon
           color={`${
-            task.active === "pause"
-              ? "var(--task-red-dark)"
-              : "var(--extra-gray)"
+            task.active === "pause" ? "var(--basic-green)" : "var(--extra-gray)"
+          }`}
+        />
+      </Button>
+      <Button
+        onClick={handlePauseStopClick}
+        id="stop"
+        disabled={task.active === "stop" ? true : false}
+      >
+        <StopIcon
+          color={`${
+            task.active === "stop" ? "var(--basic-green)" : "var(--extra-gray)"
           }`}
         />
       </Button>

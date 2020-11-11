@@ -87,10 +87,11 @@ export const TaskData = styled.div`
     minmax(80px, 1fr)
     minmax(80px, 1fr)
     minmax(90px, 1fr) minmax(90px, 1fr);
+  text-align: center;
 `;
 
 export const TasksHeaderField = styled.h3`
-  text-align: start;
+  text-align: center;
 `;
 
 export const TaskDataField = styled.p`
