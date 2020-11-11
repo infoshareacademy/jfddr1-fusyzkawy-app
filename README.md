@@ -53,6 +53,8 @@ Lastly, all crucial info to maintain the KRAB was safely stored and managed than
 
 ### Features
 
+<img alt="start page background photo" src="./src/img/readme/settings.png" width="850">
+
 A selection of things you can do with KRAB:
 
 1. Create your unique account
@@ -69,6 +71,8 @@ A selection of things you can do with KRAB:
 Feel free to send us feedback via mail or file an issue. Feature requests are always welcome. If you wish to contribute, please let us know.
 
 ### How we did it?
+
+<img alt="start page background photo" src="./src/img/readme/calendar.png" width="850">
 
 We started with brainstorming through every idea. Thanks to Figma and Miro, a UI/UX model has occured. \
 After creating a complex scheme of every view, our Team figured out which element should fire after which user's action. \
