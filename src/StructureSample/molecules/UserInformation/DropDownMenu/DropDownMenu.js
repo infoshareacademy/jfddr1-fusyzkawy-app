@@ -63,6 +63,7 @@ const DropDownMenu = props => {
               onClick={() =>
                 authSignOut(displayToast).then(() => {
                   history.push("/farewell/");
+                  window.location.reload();
                 })
               }
             >
