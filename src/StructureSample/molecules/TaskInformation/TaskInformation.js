@@ -6,6 +6,7 @@ import RemoveIcon from "../../../img/RemoveIcon.svg";
 import CancelIcon from "../../../img/CancelIcon.svg";
 import TickIcon from "../../../img/TickIcon.svg";
 import ClockIcon from "../../../img/ClockIcon.svg";
+import HourglassIcon from "../../../img/HourglassIcon.svg";
 import StatusIcon from "../../../img/StatusIcon.svg";
 import TagIcon from "../../../img/TagIcon.svg";
 import DescriptionIcon from "../../../img/DescriptionIcon.svg";
@@ -92,6 +93,12 @@ function TaskInformation({ task, onCancel, onChange }) {
             iconName={ClockIcon}
             infoName="time"
             infoType="date"
+          />
+          <InformationToDisplay
+            task={task}
+            iconName={HourglassIcon}
+            infoName="duration"
+            infoType="duration"
           />
           <InformationToDisplay
             task={task}

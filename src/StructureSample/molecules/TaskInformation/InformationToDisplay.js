@@ -7,7 +7,10 @@ import {
   H2,
   P,
 } from "./TaskInformationStyled";
-import { dateFormatToDisplayVersion } from "../../utils/dateFunction";
+import {
+  dateFormatToDisplayVersion,
+  sekundsToHHMMSS,
+} from "../../utils/dateFunction";
 
 function InformationToDisplay({ task, iconName, infoName, infoType }) {
   const tags = task.tags?.split(" ");
@@ -31,6 +34,16 @@ function InformationToDisplay({ task, iconName, infoName, infoType }) {
         </P>
       ) : infoType === "p" ? (
         <P>{task[infoName] || <i>no {infoName}</i>}</P>
+      ) : infoType === "duration" ? (
+        <P>
+          {sekundsToHHMMSS(
+            task.active !== "play"
+              ? task.duration
+              : task.duration !== 0
+              ? task.duration + Math.floor((Date.now() - task.timeStart) / 1000)
+              : 0
+          ) || <i>no {infoName}</i>}
+        </P>
       ) : infoType === "TagsContainer" ? (
         <TagsContainer>
           {tags ? (
