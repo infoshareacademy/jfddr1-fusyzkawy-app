@@ -15,13 +15,14 @@ export const AsideTimerStyled = styled.div`
   max-height: 40vh;
   margin-bottom: 10px;
   /* Scrollbar */
+  scrollbar-color: var(--sign-blue) transparent;
+  scrollbar-width: thin;
   &::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
   }
   /* Handle */
   &::-webkit-scrollbar-thumb {
     background: var(--sign-blue);
-    border-radius: 10px;
   }
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
