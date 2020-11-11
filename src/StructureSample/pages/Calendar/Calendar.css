@@ -633,6 +633,7 @@ button.rbc-input::-moz-focus-inner {
   display: flex;
   flex: 0 0 auto;
   flex-direction: row;
+  margin-right: 6px !important;
 }
 /* CHANGE */
 /* .rbc-time-header.rbc-overflowing {
@@ -677,16 +678,17 @@ button.rbc-input::-moz-focus-inner {
   border-top: 2px solid #eee;
   overflow-y: auto;
   position: relative;
+  scrollbar-color: var(--sign-blue) transparent;
+  scrollbar-width: thin;
 }
 
 /* Scrollbar */
 .rbc-time-content::-webkit-scrollbar {
-  width: 15px;
+  width: 6px;
 }
 /* Handle */
 .rbc-time-content::-webkit-scrollbar-thumb {
   background: var(--sign-blue);
-  border-radius: 10px;
 }
 /* Handle on hover */
 .rbc-time-content::-webkit-scrollbar-thumb:hover {

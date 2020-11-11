@@ -40,13 +40,14 @@ export const ContainerBox = styled.div`
   overflow-y: scroll;
   font-size: 1.5rem;
   /* Scrollbar */
+  scrollbar-color: var(--sign-blue) transparent;
+  scrollbar-width: thin;
   &::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
   }
   /* Handle */
   &::-webkit-scrollbar-thumb {
     background: var(--sign-blue);
-    border-radius: 10px;
   }
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {

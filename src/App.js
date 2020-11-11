@@ -12,7 +12,7 @@ const AuthGuard = ({ children }) => {
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <UserDataProvider>
           <AuthGuard>

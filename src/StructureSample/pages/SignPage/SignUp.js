@@ -52,6 +52,7 @@ const SignUp = () => {
         placeholder="nick"
         value={userData.nick}
         onChange={event => handleChange(event)}
+        required
       ></SignInput>
       <SignInput
         type="text"
