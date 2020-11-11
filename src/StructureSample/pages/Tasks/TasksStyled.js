@@ -87,6 +87,7 @@ export const TaskData = styled.div`
     minmax(80px, 1fr)
     minmax(80px, 1fr)
     minmax(90px, 1fr) minmax(90px, 1fr);
+  line-height: 25px;
   text-align: center;
 `;
 

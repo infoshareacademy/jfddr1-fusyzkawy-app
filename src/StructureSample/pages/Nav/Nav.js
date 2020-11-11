@@ -14,14 +14,6 @@ const Nav = () => {
 
   return (
     <MainNavBar>
-      <NavAddTaskBtn
-        onClick={event => {
-          event.preventDefault();
-          !activeAddTaskForm && setActiveAddTaskForm(true);
-        }}
-      >
-        Add Task
-      </NavAddTaskBtn>
       <LinksWrapper>
         <MainNavLink activeClassName="activeMainNavLink" to="/tasks/">
           Tasks
@@ -39,6 +31,14 @@ const Nav = () => {
           Users
         </MainNavLink> */}
       </LinksWrapper>
+      <NavAddTaskBtn
+        onClick={event => {
+          event.preventDefault();
+          !activeAddTaskForm && setActiveAddTaskForm(true);
+        }}
+      >
+        Add Task
+      </NavAddTaskBtn>
       <UserInformation>
         <DropDownMenu />
       </UserInformation>
