@@ -35,17 +35,6 @@ const FilterXXL = ({ closeModal }) => {
     setFilterData({ ...filterData, [name]: newFilterDataValue });
   };
 
-  // const handleTypeDataChange = event => {
-  //   const currFilterDataType = filterData.type;
-  //   const clickedValue = event.target.value;
-  //   const newFilterDataType = currFilterDataType.includes(clickedValue)
-  //     ? currFilterDataType.filter(t => t !== clickedValue)
-  //     : [...currFilterDataType, clickedValue];
-
-  //   setFilterData({ ...filterData, type: newFilterDataType });
-  // };
-  console.log(filterData);
-
   const handleSubmit = event => {
     event.preventDefault();
     closeModal(false);
@@ -136,6 +125,33 @@ const FilterXXL = ({ closeModal }) => {
               id="cancelled"
               name="status"
               value="Cancelled"
+              onChange={handleDataChange}
+            />
+          </section>
+          <section>
+            <h4>Priority</h4>
+            <label htmlFor="high">High</label>
+            <input
+              type="checkbox"
+              id="high"
+              name="priority"
+              value="High"
+              onChange={handleDataChange}
+            />
+            <label htmlFor="medium">Medium</label>
+            <input
+              type="checkbox"
+              id="medium"
+              name="priority"
+              value="Medium"
+              onChange={handleDataChange}
+            />
+            <label htmlFor="low">Low</label>
+            <input
+              type="checkbox"
+              id="low"
+              name="priority"
+              value="Low"
               onChange={handleDataChange}
             />
           </section>
