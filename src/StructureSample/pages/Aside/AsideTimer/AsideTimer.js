@@ -18,7 +18,7 @@ const AsideTimer = () => {
       <AsideTimerTitle>Timer current</AsideTimerTitle>
       {activeTasks.length !== 0 ? (
         activeTasks.map(task => {
-          return <AsideTimerTask task={task} />;
+          return <AsideTimerTask key={task.taskId} task={task} />;
         })
       ) : (
         <AsideNoTasks>No active tasks, go 'n get some.</AsideNoTasks>

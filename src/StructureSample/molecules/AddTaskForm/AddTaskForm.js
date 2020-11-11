@@ -33,6 +33,8 @@ const AddTaskForm = ({
     priority: "",
     project: "",
     active: "stop",
+    duration: 0,
+    timeStart: 0,
   };
   const initialTaskTime = {
     startDate: initStartData ? initStartData : "",

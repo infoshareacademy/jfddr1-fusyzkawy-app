@@ -234,17 +234,15 @@ export function dateFormatToAsideFormatToDisplay(start, end) {
   );
 }
 
-// start = "2020 10 20 00 00 00";
-// ("2020 10 20 00 00 00");
-// dateArray = start.split(" ");
-// Array(6)[("2020", "10", "20", "00", "00", "00")];
-
-// dateArray.slice(0, 3).join("-");
-// ("2020-10-20");
-
 //INPUT DATE: start: "2020 10 20 00 00 00"
 //OUTPUT DATE "2020-10-20"
 export function stringDateToStringWithDash(time) {
   const date = time.length < 8 ? "" : time.split(" ").slice(0, 3).join("-");
   return date;
+}
+
+//INPUT DATE: 1300 //sekunds
+//OUTPUT DATE: 00:21:10 //HH-MM-SS
+export function sekundsToHHMMSS(sek) {
+  return new Date(sek * 1000).toISOString().substr(11, 8);
 }

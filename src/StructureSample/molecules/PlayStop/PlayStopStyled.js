@@ -18,3 +18,8 @@ export const Button = styled.button`
   width: fit-content;
   transition: all 0.2s;
 `;
+
+export const Div = styled.div`
+  width: 50px;
+  padding-left: 10px;
+`;

@@ -26,7 +26,6 @@ const Tasks = () => {
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
   const [visibleTaskModification, setVisibleTaskModification] = useState(false);
   const [reformattedData, setReformattedData] = useState([]);
-
   function handlerOnClick(task) {
     const reformattedDataTask = reformattedData.filter(
       reformattedTask => reformattedTask.taskId === task.taskId
@@ -39,10 +38,10 @@ const Tasks = () => {
     setVisibleTaskInformation(false);
     setVisibleTaskModification(true);
   }
-
   useEffect(() => {
     userTasks.length && setReformattedData(stringDateToDateFormat(userTasks));
   }, [userTasks]);
+
   return (
     <Main>
       <Navigation>
