@@ -19,6 +19,7 @@ import {
   stringDateToDateFormat,
   stringDateToStringWithDash,
 } from "../../utils/dateFunction";
+import FilterXXL from "../../molecules/FilterXXL/FilterXXL";
 
 const Tasks = () => {
   const { userTasks } = useContext(UserData);
@@ -26,6 +27,8 @@ const Tasks = () => {
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
   const [visibleTaskModification, setVisibleTaskModification] = useState(false);
   const [reformattedData, setReformattedData] = useState([]);
+  const [activeFilterModal, setActiveFilterModal] = useState(false);
+
   function handlerOnClick(task) {
     const reformattedDataTask = reformattedData.filter(
       reformattedTask => reformattedTask.taskId === task.taskId
@@ -45,7 +48,14 @@ const Tasks = () => {
   return (
     <Main>
       <Navigation>
-        <FilterSortBtn>Filter</FilterSortBtn>
+        <FilterSortBtn
+          onClick={event => {
+            event.preventDefault();
+            !activeFilterModal && setActiveFilterModal(true);
+          }}
+        >
+          Filter
+        </FilterSortBtn>
         <FilterSortBtn>Sort</FilterSortBtn>
       </Navigation>
       <ContainerBox>
@@ -105,6 +115,9 @@ const Tasks = () => {
           onCancel={() => setVisibleTaskModification(false)}
           onApply={() => setVisibleTaskInformation(true)}
         />
+      ) : null}
+      {activeFilterModal === true ? (
+        <FilterXXL closeModal={value => setActiveFilterModal(value)} />
       ) : null}
     </Main>
   );
