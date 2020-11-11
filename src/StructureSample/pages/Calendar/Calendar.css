@@ -678,6 +678,21 @@ button.rbc-input::-moz-focus-inner {
   overflow-y: auto;
   position: relative;
 }
+
+/* Scrollbar */
+.rbc-time-content::-webkit-scrollbar {
+  width: 15px;
+}
+/* Handle */
+.rbc-time-content::-webkit-scrollbar-thumb {
+  background: var(--sign-blue);
+  border-radius: 10px;
+}
+/* Handle on hover */
+.rbc-time-content::-webkit-scrollbar-thumb:hover {
+  background: var(--basic-blue);
+}
+
 .rbc-time-content > .rbc-time-gutter {
   flex: none;
 }
