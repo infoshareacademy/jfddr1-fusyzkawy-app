@@ -92,7 +92,9 @@ body {
 }
 
 .activeMainNavLink {
-  background-color: var(--extra-dark-gray);
+  background-color: var(--basic-white);
+  border-radius: 5px 5px 0 0;
+  color: black !important;
 }
 
 .activeLink {
