@@ -8,7 +8,7 @@ export const ButtonsContainer = styled.div`
 
 export const Button = styled.button`
   align-self: center;
-  background-color: var(--basic-green);
+  background-color: var(--basic-blue);
   border: none;
   border-radius: 2px;
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
