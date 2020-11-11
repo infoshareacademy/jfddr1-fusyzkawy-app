@@ -25,7 +25,11 @@ import {
 import DefaultUserImg from "../../../img/UserIcon.svg";
 import { UserData } from "../../../contexts/UserData";
 import { changeAccountData } from "../../../Firebase/firestore/accountDataActions";
-import firebase from "../../../Firebase/config/config";
+import {
+  uploadUserImg,
+  getUserImg,
+  deleteUserImg,
+} from "../../../Firebase/storage/accountImgActions";
 
 const ProfileSettings = ({ onCancel }) => {
   const emptyUserInfo = {
@@ -42,50 +46,13 @@ const ProfileSettings = ({ onCancel }) => {
   const [userInfo, setUserInfo] = useState(emptyUserInfo);
   const [uploadImgData, setUploadImgData] = useState(initUploadImg);
   const [alertData, setAlertData] = useState(initAlertData);
+
   useEffect(() => {
     if (Object.keys(accountData).length !== 0) {
       setUserInfo(accountData);
     }
   }, [accountData]);
 
-  const uploadUserImg = (userUid, userImg) => {
-    firebase
-      .storage()
-      .ref(`UsersImgs/${userUid}/userImg.jpg`)
-      .put(userImg)
-      .then(snap => {
-        getUserImg(snap.ref.fullPath);
-        setUploadImgData({ img: "", name: "No file chosen" });
-      })
-      .catch(() => setAlertData({ text: "Wrong", success: false }));
-  };
-  const getUserImg = path => {
-    firebase
-      .storage()
-      .ref(path)
-      .getDownloadURL()
-      .then(url => changeAccountData(userUid, { img: url }))
-      .then(() => {
-        setAlertData({ text: "Upload Photo Successful!", success: true });
-      })
-      .catch(error => {
-        setAlertData({ text: error.message, success: false });
-      });
-  };
-  const deleteUserImg = userUid => {
-    firebase
-      .storage()
-      .ref()
-      .child(`UsersImgs/${userUid}/userImg.jpg`)
-      .delete()
-      .then(() => {
-        changeAccountData(userUid, { img: "" });
-        setAlertData({ text: "Remove Photo Successful!", success: true });
-      })
-      .catch(error => {
-        setAlertData({ text: error.message, success: false });
-      });
-  };
   const handleChange = e => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
@@ -95,10 +62,26 @@ const ProfileSettings = ({ onCancel }) => {
     setAlertData(initAlertData);
   };
 
+  const getImg = path => {
+    getUserImg(path)
+      .then(url => changeAccountData(userUid, { img: url }))
+      .then(() => {
+        setAlertData({ text: "Upload Photo Successful!", success: true });
+      })
+      .catch(error => {
+        setAlertData({ text: error.message, success: false });
+      });
+  };
+
   const uploadImg = e => {
     e.preventDefault();
     if (uploadImgData.img) {
-      uploadUserImg(userUid, uploadImgData.img);
+      uploadUserImg(userUid, uploadImgData.img)
+        .then(snap => {
+          getImg(snap.ref.fullPath);
+          setUploadImgData({ img: "", name: "No file chosen" });
+        })
+        .catch(() => setAlertData({ text: "Wrong", success: false }));
     } else {
       setAlertData({ text: "Please add new photo", success: false });
     }
@@ -107,7 +90,14 @@ const ProfileSettings = ({ onCancel }) => {
   const deleteImg = e => {
     e.preventDefault();
     if (accountData.img) {
-      deleteUserImg(userUid);
+      deleteUserImg(userUid)
+        .then(() => {
+          changeAccountData(userUid, { img: "" });
+          setAlertData({ text: "Remove Photo Successful!", success: true });
+        })
+        .catch(error => {
+          setAlertData({ text: error.message, success: false });
+        });
     } else {
       setAlertData({ text: "Don't have a profile photo", success: false });
     }
