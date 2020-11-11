@@ -24,15 +24,26 @@ const FilterXXL = ({ closeModal }) => {
     setFilterData({ ...filterData, text: event.target.value });
   };
 
-  const handleTypeDataChange = event => {
-    const currFilterDataType = filterData.type;
+  const handleDataChange = event => {
+    const name = event.target.name;
+    const currFilterDataValue = filterData[name];
     const clickedValue = event.target.value;
-    const newFilterDataType = currFilterDataType.includes(clickedValue)
-      ? currFilterDataType.filter(t => t !== clickedValue)
-      : [...currFilterDataType, clickedValue];
+    const newFilterDataValue = currFilterDataValue.includes(clickedValue)
+      ? currFilterDataValue.filter(value => value !== clickedValue)
+      : [...currFilterDataValue, clickedValue];
 
-    setFilterData({ ...filterData, type: newFilterDataType });
+    setFilterData({ ...filterData, [name]: newFilterDataValue });
   };
+
+  // const handleTypeDataChange = event => {
+  //   const currFilterDataType = filterData.type;
+  //   const clickedValue = event.target.value;
+  //   const newFilterDataType = currFilterDataType.includes(clickedValue)
+  //     ? currFilterDataType.filter(t => t !== clickedValue)
+  //     : [...currFilterDataType, clickedValue];
+
+  //   setFilterData({ ...filterData, type: newFilterDataType });
+  // };
   console.log(filterData);
 
   const handleSubmit = event => {
@@ -58,30 +69,76 @@ const FilterXXL = ({ closeModal }) => {
             value={filterData.text}
             onChange={handleTextDataChange}
           />
-          <label htmlFor="work">Work</label>
-          <input
-            type="checkbox"
-            id="work"
-            name="type"
-            value="work"
-            onChange={handleTypeDataChange}
-          />
-          <label htmlFor="personal">Personal</label>
-          <input
-            type="checkbox"
-            id="personal"
-            name="type"
-            value="personal"
-            onChange={handleTypeDataChange}
-          />
-          <label htmlFor="home">Home</label>
-          <input
-            type="checkbox"
-            id="home"
-            name="type"
-            value="home"
-            onChange={handleTypeDataChange}
-          />
+          <section>
+            <h4>Type</h4>
+            <label htmlFor="work">Work</label>
+            <input
+              type="checkbox"
+              id="work"
+              name="type"
+              value="Work"
+              onChange={handleDataChange}
+            />
+            <label htmlFor="personal">Personal</label>
+            <input
+              type="checkbox"
+              id="personal"
+              name="type"
+              value="Personal"
+              onChange={handleDataChange}
+            />
+            <label htmlFor="home">Home</label>
+            <input
+              type="checkbox"
+              id="home"
+              name="type"
+              value="Home"
+              onChange={handleDataChange}
+            />
+          </section>
+          <section>
+            <h4>Status</h4>
+            <label htmlFor="newTask">New Task</label>
+            <input
+              type="checkbox"
+              id="newTask"
+              name="status"
+              value="New task"
+              onChange={handleDataChange}
+            />
+            <label htmlFor="inProgress">In progress</label>
+            <input
+              type="checkbox"
+              id="inProgress"
+              name="status"
+              value="In progress"
+              onChange={handleDataChange}
+            />
+            <label htmlFor="completed">Completed</label>
+            <input
+              type="checkbox"
+              id="completed"
+              name="status"
+              value="Completed"
+              onChange={handleDataChange}
+            />
+            <label htmlFor="onHold">On hold</label>
+            <input
+              type="checkbox"
+              id="onHold"
+              name="status"
+              value="On hold"
+              onChange={handleDataChange}
+            />
+            <label htmlFor="cancelled">Cancelled</label>
+            <input
+              type="checkbox"
+              id="cancelled"
+              name="status"
+              value="Cancelled"
+              onChange={handleDataChange}
+            />
+          </section>
           <button type="submit">Apply</button>
         </FormWrapper>
       </Rnd>
