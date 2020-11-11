@@ -7,7 +7,6 @@ export const MainNavBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 12px;
 `;
 
 export const NavAddTaskBtn = styled.button`
