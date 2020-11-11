@@ -5,7 +5,6 @@ import {
   Title,
   DetailsContainer,
   UserInfo,
-  Input,
   EmailInput,
   Label,
   UserPhoto,
@@ -22,6 +21,7 @@ import {
   CancelButton,
   Exit,
 } from "./ProfileSettingsStyled";
+import SingleInfo from "./SingleInfo";
 import DefaultUserImg from "../../../img/UserIcon.svg";
 import { UserData } from "../../../contexts/UserData";
 import { changeAccountData } from "../../../Firebase/firestore/accountDataActions";
@@ -115,40 +115,33 @@ const ProfileSettings = ({ onCancel }) => {
         <Title>Your Profile</Title>
         <DetailsContainer>
           <UserInfo>
-            <Label htmlFor="name">Full Name</Label>
-            <Input
-              title="name"
+            <SingleInfo
               name="name"
               type="text"
               placeholder="Full Name"
               value={userInfo.name}
-              onChange={event => handleChange(event)}
+              handleChange={handleChange}
             />
-            <Label htmlFor="nick">Nick</Label>
-            <Input
-              title="nick"
+            <SingleInfo
               name="nick"
               type="text"
               placeholder="Nick"
               value={userInfo.nick}
-              onChange={event => handleChange(event)}
+              handleChange={handleChange}
             />
-            <Label htmlFor="dateofbirth">Date of Birth</Label>
-            <Input
-              title="dateofbirth"
+            <SingleInfo
               name="dateofbirth"
               type="date"
+              placeholder="Date of Birth"
               value={userInfo.dateofbirth}
-              onChange={event => handleChange(event)}
+              handleChange={handleChange}
             />
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input
-              title="phone"
+            <SingleInfo
               name="phone"
               type="tel"
               placeholder="Phone Number"
               value={userInfo.phone}
-              onChange={event => handleChange(event)}
+              handleChange={handleChange}
             />
             <Label htmlFor="email">Email</Label>
             <EmailInput
