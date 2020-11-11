@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Rnd } from "react-rnd";
 import { OuterModal, FormWrapper, Input } from "./FilterXXLStyled";
 
-const FilterXXL = ({ closeModal }) => {
+const FilterXXL = ({ closeModal, onDataReady }) => {
   const emptyFilterData = {
     text: "",
     type: [],
@@ -37,6 +37,7 @@ const FilterXXL = ({ closeModal }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    onDataReady(filterData);
     closeModal(false);
   };
 
