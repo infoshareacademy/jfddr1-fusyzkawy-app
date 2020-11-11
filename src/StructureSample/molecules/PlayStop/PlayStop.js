@@ -9,24 +9,21 @@ import { sekundsToHHMMSS } from "../../utils/dateFunction";
 
 const PlayStop = ({ classIcon, task, showTime }) => {
   const { userUid, clearToast, displayToast } = useContext(UserData);
-  const [timeStart, setTimeStart] = useState(task.timeStart || 0);
-  const startTime = task.duration + Math.floor((Date.now() - timeStart) / 1000);
+  const startTime =
+    task.duration + Math.floor((Date.now() - task.timeStart) / 1000);
   const [seconds, setSeconds] = useState(
     task.active !== "play" ? task.duration : task.duration !== 0 ? startTime : 0
   );
-  const [isActive, setIsActive] = useState(task.active === "play");
 
   function handlePauseStopClick(e) {
-    setIsActive(false);
     const clickedButton = e.currentTarget.id;
     const changedData = { active: clickedButton, duration: seconds };
+    setSeconds(startTime);
     changeTask(task.taskId, userUid, changedData, clearToast, displayToast);
   }
 
   function start(e) {
-    setIsActive(true);
     const date = Date.now();
-    setTimeStart(date);
     setSeconds(task.duration);
     const clickedButton = e.currentTarget.id;
     const changedData = {
@@ -38,19 +35,19 @@ const PlayStop = ({ classIcon, task, showTime }) => {
 
   useEffect(() => {
     let interval = null;
-    if (isActive) {
+    if (task.active === "play") {
       interval = setInterval(() => {
         const time =
-          task.duration + Math.floor((Date.now() - timeStart) / 1000);
+          task.duration + Math.floor((Date.now() - task.timeStart) / 1000);
         setSeconds(time);
       }, 1000);
-    } else if (!isActive && seconds !== 0) {
+    } else if (task.acive !== "play" && seconds !== 0) {
       clearInterval(interval);
     }
     return () => {
       return clearInterval(interval);
     };
-  }, [isActive, seconds, task.duration, timeStart]);
+  }, [seconds, task.active]);
 
   return (
     <ButtonsContainer>
