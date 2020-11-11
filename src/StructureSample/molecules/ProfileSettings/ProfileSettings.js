@@ -5,8 +5,6 @@ import {
   Title,
   DetailsContainer,
   UserInfo,
-  EmailInput,
-  Label,
   UserPhoto,
   TitleImg,
   Img,
@@ -22,6 +20,7 @@ import {
   Exit,
 } from "./ProfileSettingsStyled";
 import SingleInfo from "./SingleInfo";
+import EmailInfo from "./EmailInfo";
 import DefaultUserImg from "../../../img/UserIcon.svg";
 import { UserData } from "../../../contexts/UserData";
 import { changeAccountData } from "../../../Firebase/firestore/accountDataActions";
@@ -143,14 +142,10 @@ const ProfileSettings = ({ onCancel }) => {
               value={userInfo.phone}
               handleChange={handleChange}
             />
-            <Label htmlFor="email">Email</Label>
-            <EmailInput
-              title="email"
-              name="email"
+            <EmailInfo
               type="email"
               placeholder="Email"
               value={userInfo.email}
-              readOnly
             />
           </UserInfo>
           <UserPhoto>
