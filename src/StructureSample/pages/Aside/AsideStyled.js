@@ -7,9 +7,18 @@ export const AsideStyled = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   max-height: 100vh;
+  padding: 0 12px 0 12px;
 `;
 
-export const LogoStyled = styled.img`
-  width: 80%;
-  margin: 15px 0;
+export const LogoStyled = styled.a`
+  display: block;
+  width: 100%;
+  height: 100px;
+  padding: 10px 0;
+  text-align: center;
+`;
+
+export const ImgStyled = styled.img`
+  max-width: 100%;
+  height: 100%;
 `;

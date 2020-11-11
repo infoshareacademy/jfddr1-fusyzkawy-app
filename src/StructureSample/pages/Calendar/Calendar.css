@@ -1,4 +1,11 @@
 @charset "UTF-8";
+.main {
+  grid-area: main;
+  background-color: var(--basic-light-gray);
+  color: var(--gray-3);
+  height: calc(100vh - 112px);
+}
+
 .rbc-btn {
   color: inherit;
   font: inherit;
@@ -23,7 +30,6 @@ button.rbc-input::-moz-focus-inner {
 /* CHANGE */
 .rbc-calendar {
   box-sizing: border-box;
-  min-height: 730px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -32,7 +38,7 @@ button.rbc-input::-moz-focus-inner {
 .rbc-calendar *,
 .rbc-calendar *:before,
 .rbc-calendar *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 .rbc-abs-full,
@@ -108,12 +114,13 @@ button.rbc-input::-moz-focus-inner {
 }
 /* CHANGE  */
 .rbc-toolbar {
+  height: 50px;
   background-color: var(--basic-white);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px;
   font-size: 16px;
 }
 /* CHANGE  */
@@ -293,12 +300,11 @@ button.rbc-input::-moz-focus-inner {
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
   position: relative;
-  border: 1px solid #eee;
   display: flex;
   flex-direction: column;
   flex: 1 0 0;
-  width: calc(100% - 40px);
-  margin: 15px 20px;
+  width: calc(100% - 24px);
+  margin: 12px;
   user-select: none;
   -webkit-user-select: none;
   height: 100%;
@@ -387,8 +393,8 @@ button.rbc-input::-moz-focus-inner {
   background-color: white;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
-  width: calc(100% - 40px);
-  margin: 15px 20px;
+  width: calc(100% - 24px);
+  margin: 12px 12px;
 }
 .rbc-agenda-view table.rbc-agenda-table {
   /* display: grid;
@@ -596,9 +602,8 @@ button.rbc-input::-moz-focus-inner {
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
   flex: 1;
-  width: calc(100% - 40px);
-  margin: 15px 20px;
-  border: 1px solid #eee;
+  width: calc(100% - 24px);
+  margin: 12px;
   min-height: 0;
 }
 .rbc-time-view .rbc-time-gutter {
@@ -673,6 +678,21 @@ button.rbc-input::-moz-focus-inner {
   overflow-y: auto;
   position: relative;
 }
+
+/* Scrollbar */
+.rbc-time-content::-webkit-scrollbar {
+  width: 15px;
+}
+/* Handle */
+.rbc-time-content::-webkit-scrollbar-thumb {
+  background: var(--sign-blue);
+  border-radius: 10px;
+}
+/* Handle on hover */
+.rbc-time-content::-webkit-scrollbar-thumb:hover {
+  background: var(--basic-blue);
+}
+
 .rbc-time-content > .rbc-time-gutter {
   flex: none;
 }

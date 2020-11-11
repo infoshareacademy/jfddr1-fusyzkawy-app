@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
-  text-align: left;
-  padding: 15px 20px 5px;
-  background-color: var(--basic-white);
-  font-size: 1.5rem;
+export const Main = styled.main`
+  grid-area: main;
+  background-color: var(--basic-light-gray);
+  color: var(--gray-3);
+  height: calc(100vh - 112px);
 `;
 
 export const Navigation = styled.nav`
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  height: 50px;
+  padding: 0 12px;
+  background-color: var(--basic-white);
 `;
 
 export const FilterSortBtn = styled.button`
@@ -30,12 +32,12 @@ export const FilterSortBtn = styled.button`
 
 export const ContainerBox = styled.div`
   background-color: var(--basic-white);
-  margin: 20px;
+  margin: 12px;
   padding: 10px 0;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
-  height: 600px;
-  overflow: scroll;
+  height: calc(100% - 74px);
+  overflow-y: scroll;
   font-size: 1.5rem;
   /* Scrollbar */
   &::-webkit-scrollbar {

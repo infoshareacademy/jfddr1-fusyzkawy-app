@@ -77,25 +77,18 @@ body {
   --gray-14: #eeeeee;
 }
 
-.App {
-  text-align: center;
-}
-
 /* Initial CSS */
 .home {
-  width: 100vw;
-  min-height: 100vh;
   display: grid;
   grid-template-columns: var(--aside-width) 1fr;
   grid-template-rows: 100px auto;
   grid-template-areas:
     "aside nav"
     "aside main";
-}
-.mainHome {
-  background-color: var(--basic-light-gray);
-  grid-area: main;
-  color: var(--gray-3);
+  width: 100vw;
+  height: 100vh;
+  padding: 0 12px 12px 0;
+  background-color: var(--basic-navy-blue);
 }
 
 .activeMainNavLink {
