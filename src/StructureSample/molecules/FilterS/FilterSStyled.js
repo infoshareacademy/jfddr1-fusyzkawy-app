@@ -9,6 +9,7 @@ export const FilterInput = styled.input`
   background-color: var(--basic-light-gray);
   margin-left: 5px;
   width: 178px;
+  padding-left: 5px;
 `;
 
 export const ImageStyled = styled.img`
