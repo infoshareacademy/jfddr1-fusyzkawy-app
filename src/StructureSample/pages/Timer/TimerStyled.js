@@ -68,3 +68,10 @@ export const GridContainerSeffEnd = styled.div`
   padding-right: 40px;
   //margin-right: 10px;
 `;
+
+export const EmptyInfo = styled.p`
+  font-style: italic;
+  font-size: 1.7rem;
+  margin: 15px;
+  text-align: center;
+`;

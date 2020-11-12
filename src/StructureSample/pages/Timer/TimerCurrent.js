@@ -7,6 +7,7 @@ import {
   Task,
   TaskName,
   GridContainerSeffEnd,
+  EmptyInfo,
 } from "./TimerStyled";
 import { UserData } from "../../../contexts/UserData";
 import { stringDateToDateFormat } from "../../utils/dateFunction";
@@ -48,6 +49,9 @@ function TimerCurrent() {
             </Task>
           );
         })}
+        {reformattedData.length ? null : (
+          <EmptyInfo>No active tasks, go 'n get some.</EmptyInfo>
+        )}
       </ContainerBox>
       {visibleTaskInformation === true ? (
         <TaskInformation
