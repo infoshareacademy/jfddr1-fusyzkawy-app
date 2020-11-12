@@ -1,6 +1,15 @@
 import React, { useRef, useState } from "react";
 import { Rnd } from "react-rnd";
-import { OuterModal, FormWrapper, Input } from "./FilterXXLStyled";
+import {
+  OuterModal,
+  FormWrapper,
+  Input,
+  Btn,
+  SectionTitle,
+  Section,
+  CheckboxesContainer,
+  Checkbox,
+} from "./FilterXXLStyled";
 
 const FilterXXL = ({ closeModal, onDataReady }) => {
   const emptyFilterData = {
@@ -48,7 +57,7 @@ const FilterXXL = ({ closeModal, onDataReady }) => {
         default={{
           x: 263,
           y: 155,
-          width: 600,
+          width: 300,
           height: 136,
         }}
       >
@@ -60,104 +69,110 @@ const FilterXXL = ({ closeModal, onDataReady }) => {
             value={filterData.text}
             onChange={handleTextDataChange}
           />
-          <section>
-            <h4>Type</h4>
-            <label htmlFor="work">Work</label>
-            <input
-              type="checkbox"
-              id="work"
-              name="type"
-              value="Work"
-              onChange={handleDataChange}
-            />
-            <label htmlFor="personal">Personal</label>
-            <input
-              type="checkbox"
-              id="personal"
-              name="type"
-              value="Personal"
-              onChange={handleDataChange}
-            />
-            <label htmlFor="home">Home</label>
-            <input
-              type="checkbox"
-              id="home"
-              name="type"
-              value="Home"
-              onChange={handleDataChange}
-            />
-          </section>
-          <section>
-            <h4>Status</h4>
-            <label htmlFor="newTask">New Task</label>
-            <input
-              type="checkbox"
-              id="newTask"
-              name="status"
-              value="New task"
-              onChange={handleDataChange}
-            />
-            <label htmlFor="inProgress">In progress</label>
-            <input
-              type="checkbox"
-              id="inProgress"
-              name="status"
-              value="In progress"
-              onChange={handleDataChange}
-            />
-            <label htmlFor="completed">Completed</label>
-            <input
-              type="checkbox"
-              id="completed"
-              name="status"
-              value="Completed"
-              onChange={handleDataChange}
-            />
-            <label htmlFor="onHold">On hold</label>
-            <input
-              type="checkbox"
-              id="onHold"
-              name="status"
-              value="On hold"
-              onChange={handleDataChange}
-            />
-            <label htmlFor="cancelled">Cancelled</label>
-            <input
-              type="checkbox"
-              id="cancelled"
-              name="status"
-              value="Cancelled"
-              onChange={handleDataChange}
-            />
-          </section>
-          <section>
-            <h4>Priority</h4>
-            <label htmlFor="high">High</label>
-            <input
-              type="checkbox"
-              id="high"
-              name="priority"
-              value="High"
-              onChange={handleDataChange}
-            />
-            <label htmlFor="medium">Medium</label>
-            <input
-              type="checkbox"
-              id="medium"
-              name="priority"
-              value="Medium"
-              onChange={handleDataChange}
-            />
-            <label htmlFor="low">Low</label>
-            <input
-              type="checkbox"
-              id="low"
-              name="priority"
-              value="Low"
-              onChange={handleDataChange}
-            />
-          </section>
-          <button type="submit">Apply</button>
+          <Section>
+            <SectionTitle>Type</SectionTitle>
+            <CheckboxesContainer>
+              <label htmlFor="work">Work</label>
+              <Checkbox
+                type="checkbox"
+                id="work"
+                name="type"
+                value="Work"
+                onChange={handleDataChange}
+              />
+              <label htmlFor="personal">Personal</label>
+              <Checkbox
+                type="checkbox"
+                id="personal"
+                name="type"
+                value="Personal"
+                onChange={handleDataChange}
+              />
+              <label htmlFor="home">Home</label>
+              <Checkbox
+                type="checkbox"
+                id="home"
+                name="type"
+                value="Home"
+                onChange={handleDataChange}
+              />
+            </CheckboxesContainer>
+          </Section>
+          <Section>
+            <SectionTitle>Status</SectionTitle>
+            <CheckboxesContainer>
+              <label htmlFor="newTask">New Task</label>
+              <Checkbox
+                type="checkbox"
+                id="newTask"
+                name="status"
+                value="New task"
+                onChange={handleDataChange}
+              />
+              <label htmlFor="inProgress">In progress</label>
+              <Checkbox
+                type="checkbox"
+                id="inProgress"
+                name="status"
+                value="In progress"
+                onChange={handleDataChange}
+              />
+              <label htmlFor="completed">Completed</label>
+              <Checkbox
+                type="checkbox"
+                id="completed"
+                name="status"
+                value="Completed"
+                onChange={handleDataChange}
+              />
+              <label htmlFor="onHold">On hold</label>
+              <Checkbox
+                type="checkbox"
+                id="onHold"
+                name="status"
+                value="On hold"
+                onChange={handleDataChange}
+              />
+              <label htmlFor="cancelled">Cancelled</label>
+              <Checkbox
+                type="checkbox"
+                id="cancelled"
+                name="status"
+                value="Cancelled"
+                onChange={handleDataChange}
+              />
+            </CheckboxesContainer>
+          </Section>
+          <Section>
+            <SectionTitle>Priority</SectionTitle>
+            <CheckboxesContainer>
+              <label htmlFor="high">High</label>
+              <Checkbox
+                type="checkbox"
+                id="high"
+                name="priority"
+                value="High"
+                onChange={handleDataChange}
+              />
+              <label htmlFor="medium">Medium</label>
+              <Checkbox
+                type="checkbox"
+                id="medium"
+                name="priority"
+                value="Medium"
+                onChange={handleDataChange}
+              />
+              <label htmlFor="low">Low</label>
+              <Checkbox
+                type="checkbox"
+                id="low"
+                name="priority"
+                value="Low"
+                onChange={handleDataChange}
+              />
+            </CheckboxesContainer>
+          </Section>
+          <Btn type="submit">Apply</Btn>
         </FormWrapper>
       </Rnd>
     </OuterModal>
