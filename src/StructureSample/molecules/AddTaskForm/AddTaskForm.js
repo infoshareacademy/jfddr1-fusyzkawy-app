@@ -111,6 +111,7 @@ const AddTaskForm = ({
                 name="title"
                 value={taskData.title}
                 onChange={handleChangeData}
+                autoFocus
                 required
               />
               <MoreInputsWrapper display={!activeMoreOptions ? "none" : "grid"}>
