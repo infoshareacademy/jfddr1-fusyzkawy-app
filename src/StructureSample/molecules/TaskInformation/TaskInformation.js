@@ -59,6 +59,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="edit"
               title="edit"
               onClick={() => onChange()}
+              style={{ cursor: "pointer" }}
             />
             <Image
               classImage="iconTask"
@@ -66,6 +67,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="remove"
               title="remove"
               onClick={() => setViewDeleteWarning(true)}
+              style={{ cursor: "pointer" }}
             />
             <Image
               classImage="iconTask"
@@ -73,6 +75,7 @@ function TaskInformation({ task, onCancel, onChange }) {
               alternateTextImage="cancel"
               title="cancel"
               onClick={onCancel}
+              style={{ cursor: "pointer" }}
             />
           </IconContainer>
           {viewDeleteWarnig === true ? (

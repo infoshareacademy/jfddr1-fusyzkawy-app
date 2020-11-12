@@ -18,6 +18,9 @@ export const FormWrapper = styled.form`
   padding: 20px 30px 20px 30px;
   text-align: center;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: default;
 `;
 
 export const Input = styled.input`

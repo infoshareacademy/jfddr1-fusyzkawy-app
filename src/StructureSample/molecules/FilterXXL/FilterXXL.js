@@ -57,7 +57,7 @@ const FilterXXL = ({ closeModal, onDataReady }) => {
           x: 263,
           y: 155,
           width: 300,
-          height: 136,
+          height: 500,
         }}
       >
         <FormWrapper onSubmit={handleSubmit}>
