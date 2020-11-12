@@ -9,7 +9,8 @@ import {
   TasksHeaderField,
   TaskDataField,
   TaskPriority,
-  FilterSortBtn,
+  FilterBtn,
+  ClearFilterBtn,
 } from "./TasksStyled";
 import { UserData } from "../../../contexts/UserData";
 import PlayStop from "../../molecules/PlayStop/PlayStop";
@@ -70,20 +71,22 @@ const Tasks = () => {
     setFilteredTasks(filteredTasks);
   }
 
+  const clearFilterTasks = () => {
+    setFilteredTasks(userTasks);
+  };
+
   return (
     <Main>
       <Navigation>
-        <FilterSortBtn
+        <FilterBtn
           onClick={event => {
             event.preventDefault();
             !activeFilterModal && setActiveFilterModal(true);
           }}
         >
           Filter
-        </FilterSortBtn>
-        <FilterSortBtn onClick={() => setFilteredTasks(userTasks)}>
-          Clear filter
-        </FilterSortBtn>
+        </FilterBtn>
+        <ClearFilterBtn onClick={clearFilterTasks}>Clear filter</ClearFilterBtn>
       </Navigation>
       <ContainerBox>
         <TasksTableHeader>

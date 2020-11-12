@@ -15,18 +15,46 @@ export const Navigation = styled.nav`
   background-color: var(--basic-white);
 `;
 
-export const FilterSortBtn = styled.button`
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 10px 10px;
-  margin: 0 15px;
-  font-size: 1.5rem;
+export const FilterBtn = styled.button`
+  background-color: white;
   color: var(--gray-3);
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  background: none;
+  background-image: none;
+  border: 1px solid #ccc;
+  padding: 0.375rem 1.5rem;
+  border-radius: 4px 0 0 4px;
+  line-height: normal;
+  white-space: nowrap;
 
   &:hover {
-    color: var(--basic-green);
+    background-color: #e6e6e6;
+  }
+`;
+
+export const ClearFilterBtn = styled.button`
+  background-color: white;
+  color: var(--gray-3);
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  margin-left: -1px;
+  text-align: center;
+  vertical-align: middle;
+  background: none;
+  background-image: none;
+  border: 1px solid #ccc;
+  padding: 0.375rem 1.5rem;
+  border-radius: 0 4px 4px 0;
+  line-height: normal;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #e6e6e6;
   }
 `;
 
