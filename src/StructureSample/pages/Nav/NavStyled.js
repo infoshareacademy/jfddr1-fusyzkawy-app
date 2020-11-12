@@ -33,10 +33,13 @@ export const LinksWrapper = styled.nav`
 `;
 
 export const MainNavLink = styled(NavLink)`
-  color: var(--basic-light-gray);
+  background-color: #e0e0e0;
+  border-radius: 5px 5px 0 0;
+  border-right: var(--basic-navy-blue) solid 1px;
+  color: var(--basic-navy-blue);
   text-decoration: none;
   font-size: 2.25rem;
-  padding: 0.5rem 1.5rem 0.25rem 1.5rem;
+  padding: 7px;
   text-align: center;
   width: 120px;
   }

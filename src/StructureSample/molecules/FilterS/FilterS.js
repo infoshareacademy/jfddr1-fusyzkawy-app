@@ -56,7 +56,7 @@ function FilterS({ viewTasks, icon }) {
           type="text"
           value={inputValue}
           onChange={event => changeHandler(event)}
-          placeholder={" Wanna filter?"}
+          placeholder={"Wanna filter?"}
         />
       </FilterSStyled>
 

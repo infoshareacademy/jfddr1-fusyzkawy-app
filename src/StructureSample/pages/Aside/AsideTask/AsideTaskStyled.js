@@ -29,4 +29,6 @@ export const MoreInfo = styled.div`
 
 export const PickedTask = styled(AsideTaskStyled)`
   font-weight: bold;
+  color: var(--basic-green);
+  padding-left: 0px;
 `;
