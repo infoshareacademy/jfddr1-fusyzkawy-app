@@ -61,13 +61,13 @@ const Tasks = () => {
       ? byPriority.filter(task => filterData.status.includes(task.status))
       : byPriority;
     const byText = filterData.text
-      ? byStatus.filter(
-          task =>
-            task.title.toLowerCase().includes(filterData.text.toLowerCase()) ||
-            task.description
-              .toLowerCase()
-              .includes(filterData.text.toLowerCase()) ||
-            task.project.toLowerCase().includes(filterData.text.toLowerCase())
+      ? byStatus.filter(task =>
+          ["title", "description", "project"]
+            .map(name => task[name])
+            .filter(Boolean)
+            .some(word =>
+              word.toLowerCase().includes(filterData.text.toLowerCase())
+            )
         )
       : byStatus;
     setFilteredTasks(byText);
