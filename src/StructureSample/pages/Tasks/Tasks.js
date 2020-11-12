@@ -51,26 +51,23 @@ const Tasks = () => {
   }, [userTasks]);
 
   function filterTasks(filterData) {
-    const byType = filterData.type.length
-      ? userTasks.filter(task => filterData.type.includes(task.type))
-      : userTasks;
-    const byPriority = filterData.priority.length
-      ? byType.filter(task => filterData.priority.includes(task.priority))
-      : byType;
-    const byStatus = filterData.status.length
-      ? byPriority.filter(task => filterData.status.includes(task.status))
-      : byPriority;
-    const byText = filterData.text
-      ? byStatus.filter(task =>
-          ["title", "description", "project"]
-            .map(name => task[name])
-            .filter(Boolean)
-            .some(word =>
-              word.toLowerCase().includes(filterData.text.toLowerCase())
-            )
-        )
-      : byStatus;
-    setFilteredTasks(byText);
+    const filteredTasks = userTasks
+      .filter(task => {
+        return ["type", "priority", "status"].every(name =>
+          filterData[name].length > 0
+            ? filterData[name].includes(task[name])
+            : true
+        );
+      })
+      .filter(task =>
+        ["title", "description", "project"]
+          .map(name => task[name])
+          .filter(Boolean)
+          .some(word =>
+            word.toLowerCase().includes(filterData.text.toLowerCase())
+          )
+      );
+    setFilteredTasks(filteredTasks);
   }
 
   return (
