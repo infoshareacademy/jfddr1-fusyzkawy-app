@@ -43,12 +43,18 @@ export const ContainerBox = styled.div`
 `;
 
 export const Task = styled.div`
-  padding: 10px 0;
+  border-bottom: 2px solid var(--basic-light-gray);
   display: grid;
-  grid-template-columns: 50% 40% 10%;
-  align-items: end;
-  text-align: left;
-  overflow: "hidden";
+  grid-template-columns: 10fr minmax(100px, 1fr);
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 1px;
+  width: 99%;
+  &:hover {
+    box-shadow: 0 0.25px 3px var(--extra-gray),
+      -0.5px 0.25px 3px var(--extra-gray);
+  }
 `;
 
 export const TaskName = styled.p`
@@ -56,11 +62,17 @@ export const TaskName = styled.p`
   margin: 0;
   overflow: hidden;
   height: 20px;
-  &:hover {
-    color: var(--basic-green);
-  }
 `;
 
 export const GridContainerSeffEnd = styled.div`
   justify-self: end;
+  padding-right: 50px;
+  margin: 10px;
+`;
+
+export const EmptyInfo = styled.p`
+  font-style: italic;
+  font-size: 1.7rem;
+  margin: 15px;
+  text-align: center;
 `;

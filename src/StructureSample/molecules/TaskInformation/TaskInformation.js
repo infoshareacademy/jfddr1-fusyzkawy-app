@@ -25,6 +25,7 @@ import {
   Container,
   IconContainer,
   Warning,
+  TaskInformationContainer,
 } from "./TaskInformationStyled";
 import { deleteTask } from "../../../Firebase/firestore/tasksActions";
 
@@ -81,69 +82,70 @@ function TaskInformation({ task, onCancel, onChange }) {
               <button onClick={() => setViewDeleteWarning(false)}>No</button>
             </Warning>
           ) : null}
-
-          <InformationToDisplay
-            task={task}
-            iconName={TickIcon}
-            infoName="title"
-            infoType="h2"
-          />
-          <InformationToDisplay
-            task={task}
-            iconName={ClockIcon}
-            infoName="time"
-            infoType="date"
-          />
-          <InformationToDisplay
-            task={task}
-            iconName={HourglassIcon}
-            infoName="duration"
-            infoType="duration"
-          />
-          <InformationToDisplay
-            task={task}
-            iconName={StatusIcon}
-            infoName="status"
-            infoType="p"
-          />
-          <InformationToDisplay
-            task={task}
-            iconName={PriorityIcon}
-            infoName="priority"
-            infoType="p"
-          />
-          <InformationToDisplay
-            task={task}
-            iconName={
-              task.type === "Work"
-                ? WorkIcon
-                : task.type === "Home"
-                ? HomeIcon
-                : task.type === "Personal"
-                ? PersonalIcon
-                : TypeIcon
-            }
-            infoName="type"
-            infoType="p"
-          />
-          <InformationToDisplay
-            task={task}
-            iconName={TagIcon}
-            infoName="tags"
-            infoType="TagsContainer"
-          />
-          <InformationToDisplay
-            task={task}
-            iconName={DescriptionIcon}
-            infoName="description"
-            infoType="p"
-          />
-          <InformationToDisplay
-            task={task}
-            iconName={ProjectIcon}
-            infoName="project"
-            infoType="p"
-          />
+          <TaskInformationContainer>
+            <InformationToDisplay
+              task={task}
+              iconName={TickIcon}
+              infoName="title"
+              infoType="h2"
+            />
+            <InformationToDisplay
+              task={task}
+              iconName={ClockIcon}
+              infoName="time"
+              infoType="date"
+            />
+            <InformationToDisplay
+              task={task}
+              iconName={HourglassIcon}
+              infoName="duration"
+              infoType="duration"
+            />
+            <InformationToDisplay
+              task={task}
+              iconName={StatusIcon}
+              infoName="status"
+              infoType="p"
+            />
+            <InformationToDisplay
+              task={task}
+              iconName={PriorityIcon}
+              infoName="priority"
+              infoType="p"
+            />
+            <InformationToDisplay
+              task={task}
+              iconName={
+                task.type === "Work"
+                  ? WorkIcon
+                  : task.type === "Home"
+                  ? HomeIcon
+                  : task.type === "Personal"
+                  ? PersonalIcon
+                  : TypeIcon
+              }
+              infoName="type"
+              infoType="p"
+            />
+            <InformationToDisplay
+              task={task}
+              iconName={TagIcon}
+              infoName="tags"
+              infoType="TagsContainer"
+            />
+            <InformationToDisplay
+              task={task}
+              iconName={DescriptionIcon}
+              infoName="description"
+              infoType="p"
+            />
+            <InformationToDisplay
+              task={task}
+              iconName={ProjectIcon}
+              infoName="project"
+              infoType="p"
+            />
+          </TaskInformationContainer>
         </Container>
       </Rnd>
     </Background>

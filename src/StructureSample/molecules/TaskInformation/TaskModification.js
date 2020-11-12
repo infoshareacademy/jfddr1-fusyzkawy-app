@@ -28,6 +28,7 @@ import {
   DateSection,
   Input,
   Div,
+  TaskInformationContainer,
 } from "./TaskInformationStyled";
 import { changeTask } from "../../../Firebase/firestore/tasksActions";
 import {
@@ -133,110 +134,112 @@ function TaskModification({ task, onCancel, onApply }) {
               </button>
             </Warning>
           ) : null}
-          <InformationToModify
-            task={taskInformation}
-            iconName={TickIcon}
-            infoName="title"
-            infoType="text"
-            onChange={event => handleChangeInfoTask(event)}
-          />
-          <TaskProperties>
-            <Image
-              classImage="iconSingle"
-              srcImage={ClockIcon}
-              alternateTextImage="time"
-              title="time"
+          <TaskInformationContainer>
+            <InformationToModify
+              task={taskInformation}
+              iconName={TickIcon}
+              infoName="title"
+              infoType="text"
+              onChange={event => handleChangeInfoTask(event)}
             />
-            <Div>
-              <p>Start:</p>
-              <DateSection>
-                <Input
-                  type="date"
-                  id="startDate"
-                  name="startDate"
-                  value={taskDate.startDate}
-                  onChange={event => handleChangeDateTask(event)}
-                />
-                <Input
-                  type="time"
-                  id="startTime"
-                  name="startTime"
-                  value={taskDate.startTime}
-                  onChange={event => handleChangeDateTask(event)}
-                />
-              </DateSection>
-              <p>End:</p>
-              <DateSection>
-                <Input
-                  type="date"
-                  id="endDate"
-                  name="endDate"
-                  value={taskDate.endDate}
-                  onChange={event => handleChangeDateTask(event)}
-                />
-                <Input
-                  type="time"
-                  id="endTime"
-                  name="endTime"
-                  value={taskDate.endTime}
-                  onChange={event => handleChangeDateTask(event)}
-                />
-              </DateSection>
-            </Div>
-          </TaskProperties>
-          <InformationToModify
-            task={taskInformation}
-            iconName={StatusIcon}
-            infoName="status"
-            infoType="radioInput"
-            onChange={event => handleChangeInfoTask(event)}
-            categories={options}
-          />
-          <InformationToModify
-            task={taskInformation}
-            iconName={PriorityIcon}
-            infoName="priority"
-            infoType="radioInput"
-            onChange={event => handleChangeInfoTask(event)}
-            categories={priority}
-          />
-          <InformationToModify
-            task={taskInformation}
-            iconName={
-              task.type === "Work"
-                ? WorkIcon
-                : task.type === "Home"
-                ? HomeIcon
-                : task.type === "Personal"
-                ? PersonalIcon
-                : TypeIcon
-            }
-            infoName="type"
-            infoType="radioInput"
-            onChange={event => handleChangeInfoTask(event)}
-            categories={type}
-          />
-          <InformationToModify
-            task={taskInformation}
-            iconName={TagIcon}
-            infoName="tags"
-            infoType="text"
-            onChange={event => handleChangeInfoTask(event)}
-          />
-          <InformationToModify
-            task={taskInformation}
-            iconName={DescriptionIcon}
-            infoName="description"
-            infoType="textarea"
-            onChange={event => handleChangeInfoTask(event)}
-          />
-          <InformationToModify
-            task={taskInformation}
-            iconName={ProjectIcon}
-            infoName="project"
-            infoType="text"
-            onChange={event => handleChangeInfoTask(event)}
-          />
+            <TaskProperties>
+              <Image
+                classImage="iconSingle"
+                srcImage={ClockIcon}
+                alternateTextImage="time"
+                title="time"
+              />
+              <Div>
+                <p>Start:</p>
+                <DateSection>
+                  <Input
+                    type="date"
+                    id="startDate"
+                    name="startDate"
+                    value={taskDate.startDate}
+                    onChange={event => handleChangeDateTask(event)}
+                  />
+                  <Input
+                    type="time"
+                    id="startTime"
+                    name="startTime"
+                    value={taskDate.startTime}
+                    onChange={event => handleChangeDateTask(event)}
+                  />
+                </DateSection>
+                <p>End:</p>
+                <DateSection>
+                  <Input
+                    type="date"
+                    id="endDate"
+                    name="endDate"
+                    value={taskDate.endDate}
+                    onChange={event => handleChangeDateTask(event)}
+                  />
+                  <Input
+                    type="time"
+                    id="endTime"
+                    name="endTime"
+                    value={taskDate.endTime}
+                    onChange={event => handleChangeDateTask(event)}
+                  />
+                </DateSection>
+              </Div>
+            </TaskProperties>
+            <InformationToModify
+              task={taskInformation}
+              iconName={StatusIcon}
+              infoName="status"
+              infoType="radioInput"
+              onChange={event => handleChangeInfoTask(event)}
+              categories={options}
+            />
+            <InformationToModify
+              task={taskInformation}
+              iconName={PriorityIcon}
+              infoName="priority"
+              infoType="radioInput"
+              onChange={event => handleChangeInfoTask(event)}
+              categories={priority}
+            />
+            <InformationToModify
+              task={taskInformation}
+              iconName={
+                task.type === "Work"
+                  ? WorkIcon
+                  : task.type === "Home"
+                  ? HomeIcon
+                  : task.type === "Personal"
+                  ? PersonalIcon
+                  : TypeIcon
+              }
+              infoName="type"
+              infoType="radioInput"
+              onChange={event => handleChangeInfoTask(event)}
+              categories={type}
+            />
+            <InformationToModify
+              task={taskInformation}
+              iconName={TagIcon}
+              infoName="tags"
+              infoType="text"
+              onChange={event => handleChangeInfoTask(event)}
+            />
+            <InformationToModify
+              task={taskInformation}
+              iconName={DescriptionIcon}
+              infoName="description"
+              infoType="textarea"
+              onChange={event => handleChangeInfoTask(event)}
+            />
+            <InformationToModify
+              task={taskInformation}
+              iconName={ProjectIcon}
+              infoName="project"
+              infoType="text"
+              onChange={event => handleChangeInfoTask(event)}
+            />
+          </TaskInformationContainer>
         </Container>
       </Rnd>
     </Background>

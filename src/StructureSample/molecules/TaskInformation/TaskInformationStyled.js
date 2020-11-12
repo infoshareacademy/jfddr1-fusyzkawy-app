@@ -47,7 +47,9 @@ justify-content:flex-end;
 height: 40px;
 align-items: center;
 `;
-
+export const TaskInformationContainer = styled.div`
+  cursor: default;
+`;
 export const TaskProperties = styled.div`
   display: flex;
   justify-content: flex-start;

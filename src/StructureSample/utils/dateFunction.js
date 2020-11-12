@@ -244,5 +244,15 @@ export function stringDateToStringWithDash(time) {
 //INPUT DATE: 1300 //sekunds
 //OUTPUT DATE: 00:21:10 //HH-MM-SS
 export function sekundsToHHMMSS(sek) {
-  return new Date(sek * 1000).toISOString().substr(11, 8);
+  if (sek < 86400) {
+    return new Date(sek * 1000).toISOString().substr(11, 8);
+  } else if (sek > 86400 && sek < 172800) {
+    return `${Math.floor(sek / 86400)} day  \n ${new Date(sek * 1000)
+      .toISOString()
+      .substr(11, 8)}`;
+  } else {
+    return `${Math.floor(sek / 86400)} days  \n ${new Date(sek * 1000)
+      .toISOString()
+      .substr(11, 8)}`;
+  }
 }
