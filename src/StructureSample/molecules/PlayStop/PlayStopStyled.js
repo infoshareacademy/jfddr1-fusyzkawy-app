@@ -20,6 +20,6 @@ export const Button = styled.button`
 `;
 
 export const Div = styled.div`
-  width: 50px;
+  width: 70px;
   padding-left: 10px;
 `;

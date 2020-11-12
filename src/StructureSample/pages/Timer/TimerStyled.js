@@ -46,9 +46,10 @@ export const Task = styled.div`
   border-bottom: 2px solid var(--basic-light-gray);
   display: grid;
   grid-template-columns: 10fr minmax(100px, 1fr);
+  align-items: center;
   margin-left: 10px;
   margin-right: 10px;
-  padding: 10px;
+  padding: 1px;
   width: 99%;
   &:hover {
     box-shadow: 0 0.25px 3px var(--extra-gray),
@@ -65,8 +66,8 @@ export const TaskName = styled.p`
 
 export const GridContainerSeffEnd = styled.div`
   justify-self: end;
-  padding-right: 40px;
-  //margin-right: 10px;
+  padding-right: 50px;
+  margin: 10px;
 `;
 
 export const EmptyInfo = styled.p`
