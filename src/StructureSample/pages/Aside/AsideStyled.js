@@ -13,8 +13,8 @@ export const AsideStyled = styled.div`
 export const LogoStyled = styled.a`
   display: block;
   width: 100%;
-  height: 100px;
-  padding: 10px 0;
+  height: 60px;
+  margin: 20px 10px;
   text-align: center;
 `;
 
