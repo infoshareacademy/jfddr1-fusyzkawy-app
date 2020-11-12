@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/jfddr1-fusyzkawy-app/precache-manifest.04f02e20f020e2105ebb0d79abc56dd3.js"
+  "/jfddr1-fusyzkawy-app/precache-manifest.1434025a309b6300a4c2d488be7e689f.js"
 );
 
 self.addEventListener('message', (event) => {
