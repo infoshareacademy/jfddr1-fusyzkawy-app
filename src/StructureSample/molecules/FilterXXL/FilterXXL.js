@@ -40,6 +40,7 @@ const FilterXXL = ({ closeModal, onDataReady }) => {
     onDataReady(filterData);
     closeModal(false);
   };
+  console.log(filterData);
 
   return (
     <OuterModal ref={outerModal} onClick={outsideClick}>
