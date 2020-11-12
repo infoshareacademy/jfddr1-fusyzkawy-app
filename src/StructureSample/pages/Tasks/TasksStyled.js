@@ -32,10 +32,11 @@ export const FilterSortBtn = styled.button`
 `;
 
 export const ContainerBox = styled.div`
+  position: relative;
   width: calc(100% - 24px);
   background-color: var(--basic-white);
   margin: 12px;
-  padding: 10px 0;
+  padding: 0 0 10px;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
   height: calc(100% - 74px);
@@ -59,15 +60,20 @@ export const ContainerBox = styled.div`
 `;
 
 export const TasksTableHeader = styled.header`
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 53px;
+  margin-left: 7px;
+  margin-right: 1px;
+  padding: 20px 12px 10px 13px;
   border-bottom: 2px solid var(--basic-light-gray);
+  background-color: var(--basic-white);
   display: grid;
   grid-template-columns:
     minmax(70px, 1.5fr) minmax(110px, 2.5fr) minmax(70px, 1fr) minmax(80px, 1fr)
     minmax(80px, 1fr) minmax(80px, 1fr)
     minmax(90px, 1fr) minmax(90px, 1fr) minmax(100px, 1fr);
-  margin-left: 10px;
-  margin-right: 3px;
-  padding: 10px;
 `;
 
 export const Task = styled.div`
@@ -75,7 +81,7 @@ export const Task = styled.div`
   display: grid;
   grid-template-columns: 10fr minmax(100px, 1fr);
   margin-left: 10px;
-  margin-right: 3px;
+  margin-right: 4px;
   padding: 10px;
 
   &:hover {
