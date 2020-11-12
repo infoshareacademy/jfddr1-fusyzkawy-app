@@ -5,6 +5,7 @@ export const Main = styled.main`
   background-color: var(--basic-light-gray);
   color: var(--gray-3);
   height: calc(100vh - 112px);
+  width: calc(100vw - 262px);
 `;
 
 export const Navigation = styled.nav`
@@ -31,19 +32,21 @@ export const FilterSortBtn = styled.button`
 `;
 
 export const ContainerBox = styled.div`
+  width: calc(100% - 24px);
   background-color: var(--basic-white);
   margin: 12px;
   padding: 10px 0;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.15),
     0 2px 6px 2px rgba(60, 64, 67, 0.05);
   height: calc(100% - 74px);
-  overflow-y: scroll;
+  overflow: scroll;
   font-size: 1.5rem;
   /* Scrollbar */
   scrollbar-color: var(--sign-blue) transparent;
   scrollbar-width: thin;
   &::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
   }
   /* Handle */
   &::-webkit-scrollbar-thumb {

@@ -4,6 +4,8 @@
   background-color: var(--basic-light-gray);
   color: var(--gray-3);
   height: calc(100vh - 112px);
+  width: calc(100vw - 262px);
+  min-width: 720px;
 }
 
 .rbc-btn {
@@ -676,7 +678,7 @@ button.rbc-input::-moz-focus-inner {
   align-items: flex-start;
   width: 100%;
   border-top: 2px solid #eee;
-  overflow-y: auto;
+  overflow: scroll;
   position: relative;
   scrollbar-color: var(--sign-blue) transparent;
   scrollbar-width: thin;
@@ -685,6 +687,7 @@ button.rbc-input::-moz-focus-inner {
 /* Scrollbar */
 .rbc-time-content::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 /* Handle */
 .rbc-time-content::-webkit-scrollbar-thumb {
