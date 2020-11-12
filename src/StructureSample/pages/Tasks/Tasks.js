@@ -19,6 +19,7 @@ import {
   stringDateToDateFormat,
   stringDateToStringWithDash,
 } from "../../utils/dateFunction";
+import FilterXXL from "../../molecules/FilterXXL/FilterXXL";
 
 const Tasks = () => {
   const { userTasks } = useContext(UserData);
@@ -26,6 +27,9 @@ const Tasks = () => {
   const [visibleTaskInformation, setVisibleTaskInformation] = useState(false);
   const [visibleTaskModification, setVisibleTaskModification] = useState(false);
   const [reformattedData, setReformattedData] = useState([]);
+  const [activeFilterModal, setActiveFilterModal] = useState(false);
+  const [filteredTasks, setFilteredTasks] = useState(userTasks);
+
   function handlerOnClick(task) {
     const reformattedDataTask = reformattedData.filter(
       reformattedTask => reformattedTask.taskId === task.taskId
@@ -42,11 +46,47 @@ const Tasks = () => {
     userTasks.length && setReformattedData(stringDateToDateFormat(userTasks));
   }, [userTasks]);
 
+  useEffect(() => {
+    userTasks.length && setFilteredTasks(userTasks);
+  }, [userTasks]);
+
+  function filterTasks(filterData) {
+    const byType = filterData.type.length
+      ? userTasks.filter(task => filterData.type.includes(task.type))
+      : userTasks;
+    const byPriority = filterData.priority.length
+      ? byType.filter(task => filterData.priority.includes(task.priority))
+      : byType;
+    const byStatus = filterData.status.length
+      ? byPriority.filter(task => filterData.status.includes(task.status))
+      : byPriority;
+    const byText = filterData.text
+      ? byStatus.filter(
+          task =>
+            task.title.toLowerCase().includes(filterData.text.toLowerCase()) ||
+            task.description
+              .toLowerCase()
+              .includes(filterData.text.toLowerCase()) ||
+            task.project.toLowerCase().includes(filterData.text.toLowerCase())
+        )
+      : byStatus;
+    setFilteredTasks(byText);
+  }
+
   return (
     <Main>
       <Navigation>
-        <FilterSortBtn>Filter</FilterSortBtn>
-        <FilterSortBtn>Sort</FilterSortBtn>
+        <FilterSortBtn
+          onClick={event => {
+            event.preventDefault();
+            !activeFilterModal && setActiveFilterModal(true);
+          }}
+        >
+          Filter
+        </FilterSortBtn>
+        <FilterSortBtn onClick={() => setFilteredTasks(userTasks)}>
+          Clear filter
+        </FilterSortBtn>
       </Navigation>
       <ContainerBox>
         <TasksTableHeader>
@@ -60,7 +100,7 @@ const Tasks = () => {
           <TasksHeaderField>End date</TasksHeaderField>
           <TasksHeaderField>Actions</TasksHeaderField>
         </TasksTableHeader>
-        {userTasks.map(userTask => {
+        {filteredTasks.map(userTask => {
           return (
             <Task key={userTask.taskId}>
               <TaskData onClick={() => handlerOnClick(userTask)}>
@@ -104,6 +144,12 @@ const Tasks = () => {
           task={currentTask}
           onCancel={() => setVisibleTaskModification(false)}
           onApply={() => setVisibleTaskInformation(true)}
+        />
+      ) : null}
+      {activeFilterModal === true ? (
+        <FilterXXL
+          closeModal={value => setActiveFilterModal(value)}
+          onDataReady={filterTasks}
         />
       ) : null}
     </Main>
