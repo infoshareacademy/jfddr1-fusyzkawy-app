@@ -7,18 +7,21 @@ export const UserInformationStyled = styled.div`
   font-size: 1.8rem;
 `;
 export const ImageStyled = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 `;
 export const PStyled = styled.p`
-  padding: 10px;
-  color: var(--basic-light-gray);
-`;
-export const ButtonStyled = styled.div`
   padding: 13px;
   color: var(--basic-light-gray);
-  font-size: 3rem;
+  font-size: 1.8rem;
+`;
+export const ButtonStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  color: var(--basic-light-gray);
 `;
 export const MenuStyled = styled.div`
   position: absolute;
@@ -65,4 +68,8 @@ export const Icon = styled.span`
   border-radius: 50%;
   padding: 5px;
   margin: 2px;
+`;
+export const ChevronStyled = styled.img`
+  height: 20px;
+  width: 20px;
 `;
