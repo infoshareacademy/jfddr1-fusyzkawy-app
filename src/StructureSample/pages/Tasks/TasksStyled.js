@@ -78,6 +78,7 @@ export const Task = styled.div`
   &:hover {
     box-shadow: 0 0.25px 3px var(--extra-gray),
       -0.5px 0.25px 3px var(--extra-gray);
+    cursor: pointer;
   }
 `;
 
