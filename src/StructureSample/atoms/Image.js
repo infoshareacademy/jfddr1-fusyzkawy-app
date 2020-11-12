@@ -6,6 +6,7 @@ const Image = ({
   alternateTextImage,
   title,
   onClick,
+  style,
 }) => {
   return (
     <>
@@ -15,6 +16,7 @@ const Image = ({
         alt={alternateTextImage}
         onClick={onClick}
         title={title}
+        style={style}
       />
     </>
   );

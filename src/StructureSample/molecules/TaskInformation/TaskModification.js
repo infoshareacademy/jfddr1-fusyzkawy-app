@@ -107,6 +107,7 @@ function TaskModification({ task, onCancel, onApply }) {
               alternateTextImage="apply"
               title="apply"
               onClick={() => handlerApply()}
+              style={{ cursor: "pointer" }}
             />
             <Image
               classImage="iconTask"
@@ -114,6 +115,7 @@ function TaskModification({ task, onCancel, onApply }) {
               alternateTextImage="cancel"
               title="cancel"
               onClick={() => setViewCancelWarning(true)}
+              style={{ cursor: "pointer" }}
             />
           </IconContainer>
           {viewCancelWarnig === true ? (
