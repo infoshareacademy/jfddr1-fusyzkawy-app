@@ -14,7 +14,7 @@ export const PrettyTask = styled.p`
   }
 `;
 export const PickedTask = styled(PrettyTask)`
-  margin-left: 5px;
+  color: var(--basic-green);
   font-weight: bold;
   &:hover {
     cursor: pointer;
